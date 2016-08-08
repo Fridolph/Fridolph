@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>触发弹出框的方法</title>
+  <link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+  <style>
+  body{
+    padding: 10%;
+  }
+  </style>
+</head>
+<body>  
+
+  <button type="button" 
+          class="btn btn-default" 
+          data-toggle="popover" 
+          data-placement="bottom" 
+          title="提示框居左" 
+          data-content="我是弹出框的内容">
+          猛击我吧
+  </button>
+ 
+ <!--下面是代码任务部分--> 
+ 
+  <button type="button" 
+          class="btn btn-default" 
+          id="myPopover">
+          猛击我吧
+  </button>
+
+  <button type="button"
+            class="btn btn-default"
+            data-toggle="popover"
+            title="提示框居左"
+            data-content="我是弹出框的内容"
+            data-trigger="hover"
+            data-delay="600">
+            我是测试hover
+  </button>
+
+
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script> 
+<script>
+$(function(){
+    $('[data-toggle="popover"]').popover();
+    
+    $("#myPopover").popover({
+        title: "我是标题",
+        content: "我是内容",
+        placement: "right"
+    })
+});
+</script>
+
+</body>
+</html>

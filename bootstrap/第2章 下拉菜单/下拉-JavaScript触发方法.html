@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>下拉菜单--属性声明式方法（一）</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<h3>示例2</h3>
+<ul class="nav nav-pills">
+    <li class="dropdown">
+    <a href="##" class="dropdown-toggle" role="button" id="tutorial">教程<b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="tutorial">
+      <li role="presentation"><a href="##">CSS3</a></li>
+      <li role="presentation"><a href="##">HTML5</a></li>
+      <li role="presentation"><a href="##">Sass</a></li>
+    </ul>
+  </li>
+  <li class="active"><a href="##">前端论坛</a></li>
+  <li><a href="##">关于我们</a></li>
+</ul>
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script>
+
+<!--下面是代码任务区-->
+<script type="text/javascript">
+$(function() {
+  $(".dropdown-toggle").one('click', function() {
+    $(this).dropdown("toggle");
+  });
+});
+</script>
+
+</body>
+</html>

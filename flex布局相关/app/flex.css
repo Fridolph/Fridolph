@@ -1,0 +1,26 @@
+html,body{width:100%;height:100%;}
+
+*{
+  -webkit-box-sizing: border-box;
+  box-sizing:border-box;
+  margin:0;padding:0;
+}
+.container{
+  display: -webkit-flex;
+  dispay: flex;
+}
+
+ul{    
+  min-width:200px;
+  border:4px solid blue;
+}
+
+section{    
+  border:4px solid orange;
+}
+section:last-child{border-bottom:4px solid orange}
+
+.flex-column{
+  -webkit-flex: 1;
+  flex: 1;
+}

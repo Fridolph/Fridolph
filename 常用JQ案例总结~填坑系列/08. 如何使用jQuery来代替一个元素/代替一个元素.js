@@ -1,0 +1,1 @@
+$('#thatdiv').replaceWith('fnuh');

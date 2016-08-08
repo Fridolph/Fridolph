@@ -1,0 +1,8 @@
+.phbg_username{ .bg(url(../img/solve_phd/user.png));}
+.phbg_psw{ .bg(url(../img/solve_phd/psw.png));}
+.phbg_phone{ .bg(url(../img/solve_phd/phonenum.png));}
+.phbg_username, .phbg_psw, .phbg_phone{
+  background-repeat:no-repeat;
+  background-position: 12px center;
+  background-color:#fff;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>1函数的记忆方法</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red;}
+  #box{width:100px;height:30px; line-height: 30px;border:1px solid #333;position: absolute;left:0px;top:0px;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+
+<script src="../../js/lib/jquery-1.9.1.min.js"></script>
+<script src="../../js/assert.js"></script>
+<script>
+Function.prototype.memoized = function(key) {
+  this._values = this._values || {};
+
+  return this._values[key] !== undefined ? 
+    this._values[key] : 
+    this._values[key] = this.apply(this, ar)
+}
+</script>
+</body>
+</html>

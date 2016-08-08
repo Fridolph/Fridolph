@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>绚丽的倒计时效果</title>
+</head>
+<body>
+  <canvas id="canvas"           
+          style="border:1px solid #aaa;display:block;margin:10px auto;">
+    当前浏览器不支持Canvas, 请更换浏览器
+  </canvas>
+
+
+<script>
+var ball = {x: 512, y: 100, r: 20, g: 2, vx: -4, vy: -10, color: "#005588"}
+
+window.onload = function() {
+  var canvas = document.getElementById("canvas");
+
+  canvas.width = 1024;
+  canvas.height = 768;
+
+  var context = canvas.getContext("2d");
+
+  setInterval(function() {
+    render(context);
+    update();
+  }, 30);
+
+  function update() {
+    ball.x += ball.vx;
+    ball.y += ball.vy;
+    ball.vy += ball.g;
+
+    // 碰撞检测    
+    if (ball.y >= 768 - ball.r) {
+      // 小球底部触碰到盒子的边缘了
+      ball.y = 768 - ball.r;
+      ball.vy = -ball.vy*0.5;
+
+    }
+  }
+
+  function render(cxt) {
+    cxt.clearRect(0, 0, cxt.canvas.width, cxt.canvas.height);
+    cxt.fillStyle = ball.color;
+    cxt.beginPath();
+    cxt.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+    cxt.fill();
+  }
+}
+</script>
+</body>
+</html>

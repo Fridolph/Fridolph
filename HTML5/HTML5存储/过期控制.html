@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>过期控制</title>
+</head>
+<body>
+<script type="text/javascript">
+  function set(key, value) {
+    var curTime = new Date().getTime();
+    localStorage.setItem(key, JSON.stringify({
+      data: value,
+      time: curTime
+    }));
+  }
+
+  function get(key, exp) {
+    var data = localStorage.getItem(key);
+    var dataObj = JSON.parse(data);
+
+    if (new Date().getTime() - dataObj.time > exp) {
+      console.log('expires');
+    } else {
+      console.log('data=' + dataObj.data);
+    }
+  }
+</script>
+</body>
+</html>

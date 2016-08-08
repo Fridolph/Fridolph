@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>模态弹出窗的使用</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+</head>
+<body>
+<!--下面是代码任务部分-->
+
+<!-- href触发模态弹出窗元素 -->
+<a class="btn btn-primary" href="http://www.baidu.com" data-target="#mymodal-link" data-toggle="modal">通过链接href属性触发</a>
+<!-- 模态弹出窗内容 -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link">
+    <div class="modal-dialog">
+        <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">模态弹出窗标题</h4>
+      </div>
+      <div class="modal-body">
+        <p>模态弹出窗主体内容</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- data-target触发模态弹出窗元素 -->
+<button class="btn btn-primary" data-toggle="modal" data-target="#mymodal-data" type="button">通过data-target触发</button>
+<!-- 模态弹出窗内容 -->
+<div class="modal fade" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">模态弹出窗标题</h4>
+      </div>
+      <div class="modal-body">
+        <p>模态弹出窗主体内容</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script>
+</body>
+</html>

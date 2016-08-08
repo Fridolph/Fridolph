@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>1在原生函数上进行分部参数应用</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red;}
+  #box{width:100px;height:30px; line-height: 30px;border:1px solid #333;position: absolute;left:0px;top:0px;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+
+<script src="../../js/lib/jquery-1.9.1.min.js"></script>
+<script src="../../js/assert.js"></script>
+<script>
+
+/**
+ * 这种在一个函数中首先填充几个参数（然后再返回一个新函数）的技术称之为柯里化（currying）
+ */
+
+/**
+ * [csv 在String上创建一个新函数]
+ * @type {[type]}
+ */
+String.prototype.csv = String.prototype.split.partial(/,\s*/);
+
+var results = ("Mugan, Jin, Fuu").csv();
+
+assert(results[0] == "Mugan" &&
+       results[1] == "Jin" &&
+       results[2] == "Fuu",
+       "The text values were split properly");
+
+</script>
+</body>
+</html>

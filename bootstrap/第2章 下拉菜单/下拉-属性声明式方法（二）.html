@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>下拉菜单--属性声明式方法（二）</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+
+</head>
+<body>
+<h3>示例1</h3>
+<div class="navbar navbar-default" id="navmenu">
+  <a href="##" class="navbar-brand">W3cplus</a>
+  <ul class="nav navbar-nav">
+    <li class="dropdown">
+      <a href="##" data-toggle="dropdown" class="dropdown-toggle" role="button" id="tutorial">教程<b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="tutorial">
+        <li role="presentation"><a href="##">CSS3</a></li>
+        <li role="presentation"><a href="##">HTML5</a></li>
+        <li role="presentation"><a href="##">Sass</a></li>
+      </ul>
+    </li>
+    <li><a href="##">前端论坛</a></li>
+    <li><a href="##">关于我们</a></li>
+  </ul>
+</div>
+
+<!--代码任务部分-->
+<ul class="nav nav-pills">
+  <li><a href="##">教程</a></li>
+  <li class="active"><a href="##">前端论坛</a></li>
+  <li class="dropdown">
+    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">关于我们 <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu" aria-lableledby="tutorial">
+      <li role="presentation"><a href="##">HTML5</a></li>
+      <li role="presentation"><a href="##">CSS3</a></li>
+      <li role="presentation"><a href="##">JavaScript</a></li>
+    </ul>
+  </li>
+</ul>
+
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script>
+</body>
+</html>

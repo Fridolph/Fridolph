@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提示框--结构</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+<style>
+    body{padding:10px;margin:10px;}
+</style>
+</head>
+<body>
+<!-- 
+    1、如果同时设置了 data-original-title 和 title 定义提示信息，那么 data-original-title 的优先级要高于 title。只有 data-original-title 值为空时，才会取 title 的值做为提示信息的内容。
+
+    2、Bootstrap框架中的提示框的触发方式和前面介绍的插件略有不同。不能直接通过自定义的属性 data- 来触发。必须得依赖于JavaScript的代码触发。（所以右侧代码是没有动画效果的，不要着急，后面小节会有讲解。）
+ -->
+<button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        data-placement="left" 
+        data-original-title="提示框居左">
+        提示框居左
+</button>
+<button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        data-placement="top" 
+        data-original-title="提示框在顶部">
+        提示框在顶部
+</button>
+<button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        data-placement="bottom" 
+        data-original-title="提示框在底部">
+        提示框在底部
+</button>
+<button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        data-placement="right" 
+        data-original-title="提示框居右">
+        提示框居右
+</button>
+
+
+<br />
+<!-- 联系结构 -->
+<button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        data-placement="left" 
+        data-original-title="提示框居左">
+        提示框居左
+</button>
+
+<button class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" data-original-title="提示框在左">提示框在左</button>
+
+<button class="btn btn-primary" type="button" data-toggle="tooltip" data-original-title="提示框在右" data-placement="right">提示框在右</button>
+
+<button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" data-original-title="提示框在上">提示框在上</button>
+
+<button class="btn btn-success" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="提示框在下">提示框在下</button>
+
+
+<button class="btn btn-warning" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="提示框在下">提示框在下</button>
+
+<button class="btn btn-info" type="button" data-toggle="tooltip" data-placement="bottom" data-original-title="提示框在下">提示框在下</button>
+
+
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script> 
+
+</body>
+</html>

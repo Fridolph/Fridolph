@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>声明式触发选项卡（二）</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+</head>
+<body>
+<!-- 选项卡组件（菜单项nav-pills）-->
+<ul id="myTab" class="nav nav-pills" role="tablist">
+    <li class="active"><a href="#bulletin" role="tab" data-toggle="pill">公告</a></li>
+    <li><a href="#rule" role="tab" data-toggle="pill">规则</a></li>
+    <li><a href="#forum" role="tab" data-toggle="pill">论坛</a></li>
+    <li><a href="#security" role="tab" data-toggle="pill">安全</a></li>
+    <li><a href="#welfare" role="tab" data-toggle="pill">公益</a></li>
+</ul>
+<!-- 选项卡面板 -->
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="bulletin">公告内容面板</div>
+    <div class="tab-pane fade" id="rule">规则内容面板</div>
+    <div class="tab-pane fade" id="forum">论坛内容面板</div>
+    <div class="tab-pane fade" id="security">安全内容面板</div>
+    <div class="tab-pane fade" id="welfare">公益内容面板</div>
+</div>
+
+<!--下面是代码任务部分-->
+
+<!-- 选项卡组件（菜单项nav-tabs）-->
+<ul id="myTab2" class="nav nav-pills" role="tablist">
+    <li><a href="#yule" data-toggle="pill" role="tab">娱乐</a></li>
+    <li class="active"><a href="#fang" data-toggle="pill" role="tab">房产</a></li>
+    <li><a href="#inland" data-toggle="pill" role="tab">国内</a></li>
+    <li><a href="#outland" data-toggle="pill" role="tab">国外</a></li>  
+</ul>
+<!-- 选项卡面板 -->
+<div id="myTabContent2" class="tab-content">
+  <div class="tab-pane fade" id="yule">娱乐内容面板</div>
+  <div class="tab-pane fade in active" id="fang">房产内容面板</div>
+  <div class="tab-pane fade" id="inland">国内内容面板</div>
+  <div class="tab-pane fade" id="outland">国外内容面板</div>  
+</div>
+
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script>
+</body>
+</html>

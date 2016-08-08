@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>按钮插件--按钮加载状态</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+<style>
+    body{padding:10px;margin:10px;}
+</style>
+</head>
+<body>
+<button class="btn btn-primary" 
+        data-loading-text="正在加载中,请稍等..." 
+        type="button" 
+        id="loadingBtn">
+    加载
+</button>
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script> 
+<script>
+$(function() {
+    $("#loadingBtn").click(function() {
+        $(this).button("loading");
+
+        setTimeout(function() {
+          $("#loadingBtn").removeAttr('disabled');
+          $("#loadingBtn").removeClass('disabled')
+          $("#loadingBtn").html('加载完毕');
+        },2000);
+    })
+})
+</script>
+</body>
+</html>

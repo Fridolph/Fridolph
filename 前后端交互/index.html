@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="login">
+    <p class="loginTitle">登录</p>
+    <span class="loginspan">帐号</span>
+    <input type="text" value="输入您的帐号" id="userName" />
+    <span>√</span>
+    <br />
+    <span>0</span><br />
+    <img class="xbtn" src="" />
+    密码<input type="password" id="password" />
+    <span></span>
+    <br />
+    <span></span>
+    <input type="button" value="登　录" />
+
+  </div>
+
+
+  <script src=".jquery-1.9.1.min.js"></script>
+  <script type="text/javascript">
+  $(function(){
+    $.ajax({
+      //第一个参数url，PHP脚本的位置，我要把参数传到什么位置
+      "url": "login.php",
+      //传递什么数据, 这里用的是json格式
+      "data": {
+        "username": $("#userName").val(),
+        "password": $("#password").val()
+      },
+      "type": "post",
+      "dataType": "json",
+      //success表示，当服务器返回数据成功后，该做什么，返回的数据储存在data中，我们直接把data传入函数中。
+      "success": function(data) {
+        switch (data.type) {
+          case 0: alert('账户不存在');
+            break;
+
+          case 1: {
+            $('#userMsg').children('li').eq(2).find('span').html(' '+data.gouwuchenum+' '); 
+            $('#loginMsg li').eq(1).empty().html(''+data.name+''); 
+            $('#loginMsg li').eq(2).empty().html('退出'); 
+            $('.login').animate({right:-180,opacity:0}, 400, function(){
+              $(this).css('display','none'); 
+            });
+              break;
+          }
+          case 2: alert('密码错误');
+            break;
+        }
+      }      
+    });
+  });
+  </script>
+</body>
+</html>

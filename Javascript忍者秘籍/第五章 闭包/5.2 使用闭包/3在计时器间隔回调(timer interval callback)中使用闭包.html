@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>5_22在Ajax请求的callback里使用闭包</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red;}
+  #box{width:100px;height:30px; line-height: 30px;border:1px solid #333;position: absolute;left:0px;top:0px;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+<div id="box">你好吗</div>
+
+<script src="../../js/lib/jquery-1.9.1.min.js"></script>
+<script src="../../js/assert.js"></script>
+<script>
+function animateIt(elementId) {
+  /**
+   * [elem 获取动画元素的引用]
+   * @type {[Object]}
+   */
+  var elem = document.getElementById(elementId);
+  /**
+   * [tick 创建计时器， 动画次数（帧数）]
+   * @type {Number}
+   */
+  var tick = 0;
+  /**
+   * [创建并启动一个计时器. 当执行到100次时，调整元素位置]
+   */
+  var timer = setInterval(function() {
+    if (tick < 100) {
+      elem.style.left = elem.style.top = tick + 'px';
+      tick++;
+    } else {
+      clearInterval(timer);
+
+      assert(tick == 100, "Tick accessed via a closure.");
+      assert(elem, "Element also accessed via a closure.");
+      assert(timer, "Timer reference also obtained via a closure.");
+    }
+  }, 10);
+}
+animateIt('box');
+
+/**
+ * 函数在闭包里执行的时候。不仅可以在闭包创建的时刻点上看到这些变量的值，还可对其更新
+ */
+</script>
+</body>
+</html>

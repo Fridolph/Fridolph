@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>警告框--使用声明式触发警告框</title>
+<link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+</head>
+<body>
+<h3>使用&times;作为关闭按</h3>
+<div class="alert alert-success" role="alert">
+    <button class="close" data-dismiss="alert" type="button" >&times;</button>
+    <p>恭喜您操作成功！</p>
+</div>
+<h3>使用a标签作为关闭按钮</h3>
+<div class="alert alert-warning" role="alert">
+  <h4>谨防被骗</h4>
+  <p>请确认您转账的信息是你的亲朋好友，不要轻意相信不认识的人...</p>
+  <a href="#" class="btn btn-danger" data-dismiss="alert">关闭</a>
+</div>
+<h3>使用button按钮作为关闭按钮</h3>
+<div class="alert alert-warning" role="alert" id="myAlert">
+  <h4>谨防被骗</h4>
+  <p>请确认您转账的信息是你的亲朋好友，不要轻意相信不认识的人...</p>
+</div>
+<button type="button" data-target="#myAlert" class="btn btn-danger" data-dismiss="alert">关闭</button>
+
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script> 
+</body>
+</html>

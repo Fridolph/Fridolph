@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Canvas 绘制线条</title>
+</head>
+<body>
+  <canvas id="canvas"           
+          style="border:1px solid #aaa;display:block;margin:10px auto;">
+    当前浏览器不支持Canvas, 请更换浏览器
+  </canvas>
+
+<script type="text/javascript">
+window.onload = function() {
+  var canvas = document.getElementById('canvas');
+
+  canvas.width = 1024;
+  canvas.height = 768;
+
+  var context = canvas.getContext("2d");
+  // 使用context绘制
+  context.beginPath();
+  context.moveTo(100, 100);
+  context.lineTo(700, 700);
+  context.lineTo(100, 700);
+  context.lineTo(100, 100);  
+  context.closePath();
+  
+  // context.fillStyle = "rgb(2,100,30)";
+  // context.fill();
+
+  context.lineWidth = 5;
+  context.strokeStyle = "red";
+  context.stroke();
+
+
+  /* 下一个绘制 */
+  context.beginPath();
+  context.moveTo(200, 100);
+  context.lineTo(700, 600);
+  context.strokeStyle = "black";
+  context.stroke();
+  context.closePath();
+
+}
+</script>
+</body>
+</html>

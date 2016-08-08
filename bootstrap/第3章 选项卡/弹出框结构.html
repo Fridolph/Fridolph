@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>弹出框的结构</title>
+  <link rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+  <style>
+  body{
+    padding: 5%;
+  }
+  </style>
+</head>
+<body>  
+<button type="button" 
+        class="btn btn-default" 
+        data-container="body" 
+        data-placement="bottom" 
+        data-toggle="popover" 
+        data-original-title="Bootstrap弹出框标题" 
+        data-content="Bootstrap弹出框的内容" >
+        猛击我吧
+</button>
+
+<a href="#" class="btn btn-default" 
+        data-container="body" 
+        data-placement="right" 
+        data-toggle="popover" 
+        title="Bootstrap弹出框标题" 
+        data-content="Bootstrap弹出框的内容">
+        猛击我吧
+</a>
+
+<br />
+<button class="btn btn-default" type="button" data-container="body" data-placement="bottom" data-toggle="popover" data-original-title="我是标题" data-content="我是内容">我是一</button>
+
+<a href="#" class="btn btn-danger" data-container="body" data-placement="right" data-toggle="popover" title="我是标题" data-content="我是内容">我是二</a>
+<!-- end -->
+<script src="../vendor/jquery-1.9.1.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script> 
+<script>
+$(function(){
+  $('[data-toggle="popover"]').popover();
+});
+</script>
+
+</body>
+</html>

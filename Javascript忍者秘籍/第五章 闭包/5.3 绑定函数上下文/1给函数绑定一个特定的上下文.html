@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>1给函数绑定一个特定的上下文</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red;}
+  #box{width:100px;height:30px; line-height: 30px;border:1px solid #333;position: absolute;left:0px;top:0px;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+<button id="test">Click Me!</button>
+
+<script src="../../js/lib/jquery-1.9.1.min.js"></script>
+<script src="../../js/assert.js"></script>
+<script>
+/**
+ * [button 声明一个对象保存button的状态，用于跟踪button是否被点击]
+ * @type {Object}
+ */
+var button = {
+  clicked: false,
+
+  /**
+   * click 定义一个方法作为click事件处理程序
+   * 这是一个对象方法，所以在函数内部使用this获取该对象
+   */
+  click: function() {
+    this.clicked = true;
+    assert(button.clicked, "The Button has been clicked.");
+  }
+}
+
+var elem = document.getElementById('test');
+
+/**
+ * 为button绑定click事件处理程序
+ */
+elem.addEventListener("click", button.click, false);
+</script>
+</body>
+</html>

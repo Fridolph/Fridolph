@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>在封闭的作用域内，强制使用一个名称</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red;}
+  #box{width:100px;height:30px; line-height: 30px;border:1px solid #333;position: absolute;left:0px;top:0px;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+<img src="../../img/me.jpg" />
+
+<script src="../../js/lib/jquery-1.9.1.min.js"></script>
+<script src="../../js/assert.js"></script>
+<script type="text/javascript">
+
+// 1、定义一个$表示其他内容， 而不是jQuery
+$ = function(){
+  alert('not jQuery!');
+};
+
+// 2、即时函数期望接受一个单个参数，并且名称为$, 在该函数内部，该参数可以覆盖任何其他高级作用域的同名对象
+(function($){
+
+  /**
+   * 在即时函数内部，用$表示jQuery， 注意：不是在函数内部使用$，而是在事件处理程序上使用$
+   * 即便是这些处理程序很久才调用，通过闭包，$也能进行正确的绑定 
+   */
+  $('img').on('click', function(event) {
+    $(event.target).addClass('clickedOn');
+  });
+
+})(jQuery);
+</script>
+
+</body>
+</html>

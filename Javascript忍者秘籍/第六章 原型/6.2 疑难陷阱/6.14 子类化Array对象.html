@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>子类化Array对象</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red; text-decoration: line-through;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+<script src="../../js/assert.js"></script>
+<script>
+function MyArray() {}
+
+MyArray.prototype = new Array();
+
+var mine = new MyArray();
+mine.push(1, 2, 3);
+
+assert(mine.length == 3, "All the items are in our sub-classed array.");
+assert(mine instanceof Array, "Verify that we implement Array functionality.");
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>在Number原型上添加一个方法</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red; text-decoration: line-through;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+<script src="../../js/assert.js"></script>
+<script>
+Number.prototype.add = function(num) {
+  return this + num;
+}
+
+var n = 5;
+
+assert(n.add(3) == 8, "It works when the number is in a variable.");
+assert((5).add(3) == 8, "Also works when the number is in a variable.");
+// assert(5.add(3) == 8, "It works when the number is in a variable.");  这句会出错
+</script>
+</body>
+</html>

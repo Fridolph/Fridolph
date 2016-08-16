@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>javascript 1.6 forEach()方法的一种不过时的实现</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red; text-decoration: line-through;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+<script src="../../js/assert.js"></script>
+<script>
+if (!Array.prototype.forEach) {
+
+  Array.prototype.forEach = function(callback, context) {
+    for (var i = 0; i < this.length; i++) {
+      callback.call(context || null, this[i], i, this);
+    }
+  }
+}
+
+["a", "b", "c"].forEach(function(value, index, array) {
+  assert(value, "Is in position " + index + " out of " + (array.length - 1));
+});
+</script>
+</body>
+</html>

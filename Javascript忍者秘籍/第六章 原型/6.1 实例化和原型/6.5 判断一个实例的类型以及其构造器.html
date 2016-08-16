@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>判断一个实例的类型以及其构造器</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+<script src="../../js/assert.js"></script>
+
+<script>
+function Ninja() {}
+
+var ninja = new Ninja();
+
+assert(typeof ninja === "object", "The type of the instance is object.");
+
+assert(ninja instanceof Ninja, "Instanceof identifiles the constructor.");
+
+assert(ninja.constructor === Ninja, "The ninja object was created by the Ninja function.");
+
+</script>
+</body>
+</html>

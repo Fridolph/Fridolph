@@ -34,7 +34,7 @@ var Ninja = Person.subClass({
   swingSword: function() {
     return true;
   }
-});
+})
 
 var person = new Person(true);
 assert(person.dance(), "The person is dancing.");
@@ -46,8 +46,7 @@ assert(!ninja.dance(), "The ninja is not dancing.");
 
 assert(person instanceof Person, "Person is a Person.");
 
-assert(ninja instanceof Ninja && ninja instanceof Person, "Ninja is a Ninja and a Person.");
-
+assert(ninja instanceof Ninja && ninja instanceof Person, "ninja is a Ninja and a Person.");
 </script>
 </body>
 </html>

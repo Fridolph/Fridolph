@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>多个骰子布局</title>
+  <style type="text/css" media="screen">
+  *{margin:0;padding:0;}
+
+  .flexbox{width:150px;height:150px;background-color: #e7e7e7; margin:20px; padding:25px; float:left;
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.2) inset, 8px 8px 10px rgba(0,0,0,0.1) inset, -8px -8px 10px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2) inset, 8px 8px 10px rgba(0,0,0,0.1) inset, -8px -8px 10px rgba(0,0,0,0.1) inset;
+  }
+  .content{
+    width: 40px;height:40px; margin:5px;border-radius:50%; background-color: #333; display:block; 
+    box-shadow:0 -10px 10px rgba(255,255,255,0.3) inset;
+  }  
+  
+  .flex-3789{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-between;
+  }
+
+  .flex-1347{
+    display:flex;
+    flex-direction: column-reverse; 
+    flex-wrap: wrap;     
+    align-content: space-between;
+  }  
+
+  .flex-123456789{
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  .flex-1379{
+    display:flex;   
+  }
+  .flex-1379 .column{
+    flex-basis: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    align-content: space-between;    
+  }
+  .flex-1379 .column:nth-child(2){
+    justify-content: flex-end;
+  }
+
+  .flex-134679{
+    display:flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;      
+  }
+  .flex-134679 .column{
+    display:flex;
+    justify-content:space-between;  
+  }
+
+  .flex-123789{
+    display:flex;    
+    flex-wrap: wrap;      
+  }
+  .flex-123789 .column{
+    display:flex;
+    justify-content:space-between;  
+  }
+  .flex-123789 .column:nth-child(2){
+    display:flex;
+    align-items:flex-end;
+  }
+
+  .flex-135789{
+    display:flex;  
+    flex-direction:column-reverse;  
+    flex-wrap: wrap; 
+  }
+  .flex-135789 .column:nth-child(1){
+    display:flex;
+    justify-content: space-between;
+
+  }
+  .flex-135789 .column:nth-child(2){
+    display:flex;
+    justify-content: center;
+  }
+  .flex-135789 .column:nth-child(3){
+    display:flex;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="flexbox flex-3789">
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-1347">
+      
+        <span class="content item"></span>
+        <span class="content item"></span>
+        <span class="content item"></span>
+        <span class="content item"></span>
+      
+    </div>
+
+    <div class="flexbox flex-123456789">
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-1379">      
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>      
+    </div>
+
+    <div class="flexbox flex-134679">      
+      
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>
+        
+    </div>
+
+    <div class="flexbox flex-123789">      
+      
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>      
+    </div>
+
+
+    <div class="flexbox flex-135789">
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>
+      <div class="column">
+        <span class="content item"></span>
+      </div>
+      <div class="column">
+        <span class="content item"></span>
+        <span class="content item"></span>
+        <span class="content item"></span>
+      </div>            
+    </div>
+
+
+  </div>
+</body>
+</html>

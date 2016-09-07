@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>单个到三个骰子布局</title>
+  <style type="text/css" media="screen">
+  *{margin:0;padding:0;}
+
+  .flexbox{width:150px;height:150px;background-color: #e7e7e7; margin:20px; padding:25px; float:left;
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.2) inset, 8px 8px 10px rgba(0,0,0,0.1) inset, -8px -8px 10px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2) inset, 8px 8px 10px rgba(0,0,0,0.1) inset, -8px -8px 10px rgba(0,0,0,0.1) inset;
+  }
+  .content{
+    width: 40px;height:40px;margin:5px; border-radius:50%; background-color: #333; display:block; 
+    box-shadow:0 -10px 10px rgba(255,255,255,0.3) inset;
+  }
+
+  .flex-topleft{
+    display:flex;
+  }
+
+  .flex-topcenter{
+    display:flex; 
+    justify-content:center;
+  }
+
+  .flex-topright{
+    display:flex;
+    justify-content:flex-end;
+  }
+
+  .flex-centerleft{
+    display:flex;
+    align-items:center;
+  }
+
+  .flex-centercenter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .flex-centerright{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  
+
+  .flex-bottomleft{
+    display:flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  .flex-bottomcenter{
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .flex-bottomright{
+    display:flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .flex-79{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .flex-17{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .flex-28{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .flex-39{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    flex-direction: column;
+  }
+
+  .flex-57{
+    display:flex;    
+    justify-content: flex-start;
+   
+  }
+  .flex-57 .item:nth-child(2){
+    align-self: center;
+  }
+
+  .flex-37{
+    display:flex;
+    justify-content: space-between;    
+  }
+
+  .flex-37 .item:nth-child(2){
+    align-self: flex-end;
+  }
+
+  .flex-357{
+    display:flex;
+  }
+  .flex-357 .item:nth-child(2){
+    align-self: center;
+  }
+  .flex-357 .item:nth-child(3){
+    align-self: flex-end;
+  }
+
+  .flex-456{
+    display:flex;
+    align-items: center;
+  }
+  .flex-456 .item{
+    justify-content: center;
+  }
+
+  .flex-159{
+    display:flex;
+    justify-content:flex-end;    
+  }
+  .flex-159 .item:nth-child(1){
+    align-self: flex-end;
+  }
+  .flex-159 .item:nth-child(2){
+    align-self: center;
+  }
+  
+  
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="flexbox flex-topleft">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-topcenter">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-topright">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-centerleft">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-centercenter">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-centerright">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-bottomleft">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-bottomcenter">
+      <span class="content item"></span>
+    </div>
+    <div class="flexbox flex-bottomright">
+      <span class="content item"></span>
+    </div>
+
+
+    <div class="flexbox flex-79">
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-17">
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-28">
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-39">
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-57">
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-37">
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+
+    <div class="flexbox flex-357">
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-456">
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+
+    <div class="flexbox flex-159">
+      <span class="content item"></span>
+      <span class="content item"></span>
+      <span class="content item"></span>
+    </div>
+  </div>
+</body>
+</html>

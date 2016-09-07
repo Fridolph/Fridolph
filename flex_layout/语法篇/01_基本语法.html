@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+  *{box-sizing: border-box; margin:0; padding:0;}
+  .wrap{
+    margin:5px 0 0 5px;width:700px; height:600px;border:1px solid black;
+    display: flex;
+    /* flex-direction:决定主轴的方向即项目的排列方向
+                      row 默认横向 | 
+                      row-reverse 横向反转 | 纵向 | 纵向翻转  */
+
+    /* flex-wrap: 属性定义,如果一条轴线排不下,如何换行
+                  nowrap 默认不换行 | 
+                  wrap 换行，第一行在上方 | 
+                  wrap-reverse 换行，第一行在下方 */
+
+    flex-flow:row nowrap; 
+    /* 只是把direction和wrap两个属性合起来写了 */
+    justify-content: flex-start;
+    /* justify-content: 属性定义了项目在主轴上的对齐方式
+                      flex-start 默认在主轴方向上对齐 | 
+                      flex-end | 在主轴右对齐
+                      center | 在主轴居中
+                      space-between | 两端对齐，项目之间的间隔都相等
+                      space-around 每个项目两侧间隔相等。所以项目之间的间隔比项目与边框的间隔大一倍
+                      */
+    align-items: flex-start;
+    /* align-items: 属性定义项目在交叉轴上如何对齐
+                    flex-start 交叉轴的起点对齐
+                    flex-end 交叉轴的终点对齐
+                    center 交叉轴中点对齐
+                    baseline 项目第一行文字基线对齐
+                    stretch 默认, 如果盒子里的内容未设高度，将占满容器高度
+     */
+    align-content: flex-start;
+    /* align-content: 属性定义了多根轴线的对齐方式, 若只有一根轴线，则不起作用
+                  flex-start | 
+                  flex-end | 
+                  center | 
+                  space-between | 
+                  space-around | 
+                  stretch
+      该属性可参考justify-content
+    */
+  }
+  /* .wrap{ 容器属性主要是填这四个
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items:;
+    align-content:;
+  } */
+  .wrap .box{margin:5px 5px; border:1px solid #666; text-align: center; vertical-align: middle; font-size: 36px;}
+  .red{background-color: red;}
+  .orange{background-color: orange;}
+  .purple{background-color: purple;}
+  .green{background-color: green;}
+  .pink{background-color: pink;}
+  .box:nth-child(odd){
+    /*width:150px;height:120px;*/
+  }
+  .box:nth-child(even){
+    /*width:200px;height:120px;*/
+  }
+
+  /**
+   * 以下是项目属性
+   * order       属性定义项目的排列顺序。数值越小，排列越靠前，默认为0
+   * flex-grow   属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+   * flex-shrink 属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+   * flex-basis  属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+   *             浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+   * flex flex   属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto
+   *             auto (1 1 auto) 和 none (0 0 auto) 推荐写这两个属性
+   * align-self  属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
+   *             默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch
+   */
+  .item2{order:0;}
+  .item3{order:1;}
+  .item4{order:2;}
+  .item1{order:3;}
+  .item3{order:4;}
+  .item{
+    flex-grow: 1;
+  }
+  
+  </style>
+</head>
+<body>
+  <!-- 容器属性 -->
+  <!-- flex-direction -->
+  <!-- flex-wrap -->
+  <!-- flex-flow -->
+  <!-- justify-content -->
+  <!-- align-items -->
+  <!-- align-content -->
+
+  <div class="wrap">
+    <div class="box item item1">1</div>
+    <div class="box item item2">2</div>
+    <div class="box item item3">3</div>
+    <div class="box item item4">4</div>
+    <div class="box item item5">5</div>
+    <!-- <div class="box item item6">6</div>
+    <div class="box item item7">7</div>
+    <div class="box item item8">8</div>
+    <div class="box item item9">9</div> -->
+  </div>
+</body>
+</html>

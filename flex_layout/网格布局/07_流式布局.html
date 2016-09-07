@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>07_流式布局</title>
+  <style>
+  .parent {
+    width: 200px;
+    background-color: #fff;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    margin-bottom: 10px;
+    
+  }
+
+  .child {
+    box-sizing: border-box;
+    background-color: white;
+    flex: 0 0 calc(25% - 2px);
+    height: 50px;
+    border: 1px solid red; margin: 1px;
+  }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
+
+  <div class="parent">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var somePackage = require('./')

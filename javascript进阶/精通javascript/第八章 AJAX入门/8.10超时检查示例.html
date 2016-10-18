@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+<script>
+var xml = new XMLHttpRequest();
+
+// 等待某个请求5秒钟
+xml.timeout = 5000;
+
+// 侦听timeout事件
+xml.addEventListener('timeout', onTimeOut, false);
+
+// 打开异步POST请求
+xml.open('GET', '/get/me.jpg', true);
+
+// 建立服务器连接
+xml.send();
+
+function onTimeOut() {
+  console.log('I waiting for a moment.');
+}
+</script>
+</body>
+</html>

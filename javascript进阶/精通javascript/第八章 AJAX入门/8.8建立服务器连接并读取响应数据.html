@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+      responseType可以设置成以下任意一种：
+
+      Text: 返回文本串
+      ArrayBuffer: 返回元素为二进制数据的数组
+      Document: 默认返回XML文档，也可以是HTML
+      Blob: 返回类似于原始数据对象的文件
+      JSON: 返回JSON文档
+      
+   -->
+<script>
+// 创建请求对象
+var request = new XMLHttpRequest();
+
+// 打开异步
+request.open('GET', 'get/me.png', true);
+
+// Blob是一种大型二进制对象
+request.responseType = 'blob';
+
+request.addEventListener('load', downloadFinished, false);
+
+function downloadFinished(evt) {
+  if (this.status == 200) {
+    var blob = new Blob([this.response], {type: 'img/png'})
+  }
+}
+</script>
+</body>
+</html>

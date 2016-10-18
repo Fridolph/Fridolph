@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+var myRequest = new XMLHttpRequest();
+
+myRequest.addEventListener('loadstart', onLoadStart, false);
+myRequest.addEventListener('progress', onProgress, false);
+myRequest.addEventListener('load', onLoad, false);
+myRequest.addEventListener('error', onError, false);
+myRequest.addEventListener('abort', onAbort, false);
+
+// 必须在执行send或open方法之前添加时间侦听器
+myRequest.open('GET', 'fileOnServer');
+
+function onLoadStart(evt) {
+  console.log('starting the request.');
+}
+
+function onProgress(evt) {
+  var currentPercent = (evt.loaded / evt.total) * 100;
+
+  console.log(currentPercent);
+}
+
+function onLoad(evt) {
+  console.log('transfer is complete');
+}
+
+function onError(evt) {
+  console.log('Error during transfer');
+}
+
+function onAbort(evt) {
+  console.log('The user aborted the transfer.');
+}
+
+</script>
+</body>
+</html>

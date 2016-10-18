@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <!-- 
+      为方便服务器进行数据存取，需要将发送的数据格式化~~
+      此过程称为序列化。在序列化之前，思考以下问题：
+      1. 要发送什么数据？ 是否成对？ 数据量？ 是文件？
+      2. 打算怎么发？ GET? POST? 还是其他HTTP动词？
+      3. 要使用什么数据格式？ 
+        (1) application/x-www-form-urlencoded 查询字符串编码
+        (2) multipart/form- data 
+
+  -->
+
+
+<script>
+// 创建formData对象
+var formDataObj = new FormData();
+
+// 追加要发送给服务器的名称/值
+formDataObj.append('first', 'yangke');
+formDataObj.append('secend', 'hachuochuo');
+formDataObj.append('third', 'yangdake');
+
+// 创建请求对象
+var xml = new XMLHttpRequest();
+
+// 设置POST
+xml.open('POST', '/post/text.php')
+
+// 发送FormData对象
+xml.send(formDataObj);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<script>
+// 创建请求对象
+var xml = new XMLHttpRequest();
+
+// 打开异步POST请求
+xml.open('POST', '/post/text.php', true);
+
+// 设置content-type头部, 以便服务器知道如何解释我们发送的数据
+xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+// 建立服务器连接并发发送序列化数据
+xml.send( serialize(data) );
+
+
+
+function serialize(a) {
+  // 一组序列化后的结果
+  var s = [];
+
+  // 如果传入一个数组，则假定该数组为表单元素数据
+  if (a.constructor === Array) {
+    // 序列化表单元素
+    for (var i=0; i<a.length; i++) {
+      s.push( a[i].name + '=' + encodeURIComponent( a[i].value ) );
+    }
+  } 
+
+  // 否则，假定改数组为一个包含键值对的对象
+  else {
+    // 将键值对序列化
+    for(var j in a) {
+      s.push( j + '=' + encodeURIComponent( a[j] ) );
+    }
+  }
+
+  // 返回最终结果
+  return s.join('&');
+}
+</script>
+</body>
+</html>

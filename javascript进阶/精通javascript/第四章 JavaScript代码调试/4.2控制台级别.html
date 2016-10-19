@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+console.log('A basic log message.');
+console.debug('Debug level.');
+console.info('Info level.');
+console.warn('Warn level.');
+console.error('Error level(possibly with a stacktrace.)');
+
+var person = {
+  name: 'John Connelly',
+  age: 56,
+  title: 'Teacher',
+  toString: function() {
+    return this.name + ' is a ' + this.age + '-year-old ' + this.title + '.';
+  }
+}
+
+console.log('A person: ');
+console.dir(person);
+
+console.log('Person Object (implicit call to toString()): ' + person);
+console.log('Person Object as augument, similar to console.dir: ', person);;
+</script>
+</body>
+</html>

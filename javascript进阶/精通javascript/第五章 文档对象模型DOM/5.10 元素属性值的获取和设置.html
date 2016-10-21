@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    function attr(elem, name, value) {
+      // 确保所提供的名称合法
+      if ( !name || name.constructor != String ) {
+        return '';
+      }
+
+      // 是否需要更改名称
+      name = { 
+        'for': 'htmlFor',
+        'className': 'class'
+      }[name] || name;
+
+      // 如果需要设置特征值
+      if ( typeof value != 'undefined' ) {
+        // 先使用最快的设置方式
+        elem[name] = value
+
+        // 如果可以的话，使用setAttribute
+        if ( elem.setAttribute ){
+          elem.setAttribute(name, value)
+        }
+      }
+
+      // 返回特征值
+      return elem[name] || elem.getAttribute(name) || '';
+    }
+    /**
+     * 不管实现方式如何，拥有一种能够访问和改变特性的标准方法就如同有了一件利器。
+     */
+  </script>
+</body>
+</html>

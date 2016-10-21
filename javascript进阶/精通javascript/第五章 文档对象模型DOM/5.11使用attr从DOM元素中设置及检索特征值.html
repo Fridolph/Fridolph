@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <script>
+    function attr(elem, name, value) {
+      // 确保所提供的名称合法
+      if ( !name || name.constructor != String ) {
+        return '';
+      }
+
+      // 是否需要更改名称
+      name = { 
+        'for': 'htmlFor',
+        'className': 'class'
+      }[name] || name;
+
+      // 如果需要设置特征值
+      if ( typeof value != 'undefined' ) {
+        // 先使用最快的设置方式
+        elem[name] = value
+
+        // 如果可以的话，使用setAttribute
+        if ( elem.setAttribute ){
+          elem.setAttribute(name, value)
+        }
+      }
+
+      // 返回特征值
+      return elem[name] || elem.getAttribute(name) || '';
+    }
+  </script>
+</head>
+<body>
+  <h1>我是第01个h1</h1>
+  <p>我是段落</p>
+  <h1>我是第02个h1</h1>
+  <input type="text" />
+  <h1>我是第03个h1</h1>
+  <input type="text" />
+  <input type="text" />
+  <input type="text" />
+  <input type="text" />
+  <script>
+    // 设置第一个<h1>元素的类名
+    attr(document.getElementsByTagName('h1')[0], 'class', 'header');
+
+    // 设置每个<input>元素的value属性
+    var input = document.getElementsByTagName('input');
+    for ( var i=0; i<input.length; i++ ) {
+      var j = i + 1;
+      attr( input[i], 'value', '我是第' + j + '个input');
+    }
+
+    input[2].name = 'invalid';
+
+    // 为name属性为invalid的<input>元素添加边框
+    for ( var i=0; i<input.length; i++ ) {
+      if ( attr(input[i], 'name' ) == 'invalid' ) {
+        input[i].style.border = '2px double orange';
+      }
+    } 
+  </script>
+</body>
+</html>

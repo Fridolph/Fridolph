@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    function cleanWhitespace(element) {
+      // 如果没有提供要处理的元素，则对整个HTML文档进行处理
+      element = element || document;
+
+      // 使用第一个子节点作为起始位置
+      var cur = element.firstChild;
+
+      // 处理完所有的子节点
+      while (cur != null ) {
+        // 如果该节点是一个文本节点且只包含空白字符
+        if ( vur.nodeType == 3 && ! /\S/.test(cur.nodeValue) ) {
+          // 删除文本节点
+          element.removeChild( cur );
+        }
+
+        // 如果该节点是一个元素
+        else if ( cur.nodeType == 1 ) {
+          // 继续对文档进行递归下降处理
+          cleanWhitespace( cur )
+        }
+
+        // 选择子节点
+        cur = cur.nextSibling;
+      }
+    }
+  </script>
+</body>
+</html>

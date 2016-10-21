@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+    if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.removeEventListener('DOMContentLoaded', arguments.callee);
+      })
+    }  else if (document.attachEvent) {
+      document.attachEvent('onreadystatechange', function() {
+        document.detachEvent('onreadystatechange', arguments.callee);
+      })
+    }
+  </script>
+</body>
+</html>

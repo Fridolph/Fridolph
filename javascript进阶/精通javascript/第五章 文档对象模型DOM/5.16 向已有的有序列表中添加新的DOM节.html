@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <button id="appendButton">Append</button>
+  <button id="addButton">Add</button>
+  <ul id="myList">
+    <li>我是01个li</li>
+    <li>我是02个li</li>
+    <li>我是03个li</li>
+    <li>我是04个li</li>
+    <li>我是05个li</li>
+  </ul>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', activateButtons);
+
+    function activateButtons() {
+      // 为按钮添加事件侦听程序
+      var appendBtn = document.querySelector('#appendButton')
+      appendBtn.addEventListener("click", appendNode);
+
+      var addBtn = document.querySelector("#addButton");
+      addBtn.addEventListener("click", addNode)
+    }
+
+    function appendNode(e) {
+      // 获取已有个<li>并创建一个新的li
+      var listItems = document.getElementsByTagName('li');
+      var newListItem = document.createElement('li');
+
+      // 追加一个新的文本节点
+      newListItem.appendChild(document.createTextNode('Mouse trap.'));
+      // 将其追加为已有列表的第4项
+      listItems[2].appendChild(newListItem);
+    }
+
+    function addNode(e) {
+      // 获得整个列表
+      var orderedList = document.getElementById('myList')
+
+      // 获取所有的<li>
+      var listItems = orderedList.getElementsByTagName('li')
+
+      // 创建一个新的<li>并加入文本节点
+      var newListItem = document.createElement('li');
+      newListItem.appendChild(document.createTextNode('Zebra.'))
+
+      // 加入到列表中, 使得第2项向后移动成为第3项
+      orderedList.insertBefore(newListItem, listItems[1]);
+      
+    }
+  </script>
+</body>
+</html>

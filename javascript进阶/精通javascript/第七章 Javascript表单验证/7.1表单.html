@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h2>A basic form</h2>
+  <p>Please provide your first and last names.</p>
+
+  <form action="">
+    <fieldset>
+      <label for="">First Name: </label>
+      <input type="text" id="firstName" name="firstName" required /><br />
+      <label for="">Last Name: </label>
+      <input type="text" id="lastName" name="lastName" required /><br />
+    </fieldset>
+    <input type="submit" value="提交" />
+    <input type="reset"  value="重置"/>
+  </form>
+
+  <!-- 
+      pattern: 该特性使用一个正则作为参数。
+
+      step: 必须是所指定的间隔值 (step) 的倍数。（适用于number, range, 日期等类型）
+
+      min/max: 最小值或最大值， 不仅可用于数字， 也可以用于日期
+
+      maxlength: 字段中数据的最大长度，单位/字符，适用于text, email, search, password, tel或url等输入类型
+   -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <a href="">我是小a</a>
+
+  <h2><a href="">我是h2里的a</a></h2>
+
+  <div>
+    <p>
+      <a href="">我是div > p > a</a>
+    </p>
+
+    <ul>
+      <li>lalala</li>
+      <li>hahaha</li>
+      <li><a href="">我是div > ul > li >a</a></li>
+    </ul>
+  </div>
+  
+  <script>
+    // mouseEnter处理程序
+    function mouseEnterHandler() {
+      this.style.backgroundColor = 'blue';
+      this.style.color = 'white'
+    }    
+
+    // mouseLeave处理程序
+    function mouseLeaveHandler() {
+      this.style.backgroundColor = 'white';
+      this.style.color = 'black';
+    }
+
+    // 找到所有的<a>元素，为其绑定事件处理程序
+    var a = document.getElementsByTagName('a');
+    for ( var i=0; i<a.length; i++ ) {
+      a[i].addEventListener('mouseenter', mouseEnterHandler)
+      a[i].addEventListener('focus', mouseEnterHandler)
+
+      a[i].addEventListener('mouseleave', mouseLeaveHandler)
+      a[i].addEventListener('blur', mouseLeaveHandler)
+    }
+
+  </script>
+</body>
+</html>

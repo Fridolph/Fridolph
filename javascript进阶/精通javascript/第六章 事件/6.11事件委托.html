@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <nav id="nav">
+    <ul>
+      <li id="01">01</li>
+      <li id="02">02</li>
+      <li id="03">03</li>
+      <li id="04">04</li>
+      <li id="05">05</li>
+      <li id="06">06</li>
+      <li id="07">07</li>
+      <li id="08">08</li>
+      <li id="09">09</li>
+      <li id="10">10</li>
+    </ul>
+  </nav>
+
+  <script>
+    function clickHandler(e) {
+      console.log('Handled at ' + e.currentTarget.id);
+      console.log('Emitted by ' + e.target.id);
+    }
+
+    var navbar = document.getElementById('nav')
+    navbar.addEventListener('click', clickHandler)
+  </script>
+</body>
+</html>

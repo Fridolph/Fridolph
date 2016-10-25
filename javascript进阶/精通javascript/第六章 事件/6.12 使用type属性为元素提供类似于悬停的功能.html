@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>阻止事件冒泡</title>
+</head>
+<body>
+  <div id="main">
+    <nav id="navbar">
+      <ul>
+        <li>Student</li>
+        <ul>
+          <li id="Academics">Academics</li>
+          <li id="Athletics">Athletics</li>
+          <li id="Extracurriculars">Extracurriculars</li>
+        </ul>
+        <li>Faculty</li>
+        <ul>
+          <li id="Frnk_Walsh">Frnk Walsh</li>
+          <li id="Diane_Walsh">Diane Walsh</li>
+          <li id="John_Mullin">John Mullin</li>
+          <li id="Lou_Garaventa">Lou Garaventa</li>
+          <li id="Dan_Tully">Dan Tully</li>
+          <li id="Emily_Su">Emily Su</li>
+        </ul>
+      </ul>
+    </nav>
+    <div id="welcome">
+      <h1>Welcome to the school of Javascript.</h1>
+      <h3 id="welcome-header">Click here for a welcome message!</h3>
+      <p id="welcome-content">
+        Welcome to the School of Javascript. Here, you will find many <a href="/examples" id="examples-link">examples</a> of Javascript, taught by our most esteemed <a href="/faculty">faculty</a>. <span id="disclaimer">Please note that these are only examples, and are not necessarilly <a href="/production-ready">production-ready code</a>.</span>
+      </p>
+    </div>
+    <hr />
+    <div id="form-container">
+      <h2>Contact Form</h2>
+      <p>Thank you for your interest in the School of Javascript. Please fill out the form below so we can send you even more materials!</p>
+
+      <form action="" id="main-form">
+        <ul>
+          <li><label for="firstName">First Name: </label><input type="text" id="firstName" /></li>
+          <li><label for="lastName">Last Name: </label><input type="text" id="lastName" /></li>
+          <li><label for="city">City:</label><input type="text" id="city" /></li>
+          <li><label for="state">State: </label><input type="text" id="state" /></li>
+          <li><label for="postCode">Post Code: </label><input type="text" id="postCode" /></li>
+          <li>
+            <label for="comments">Comments: </label><br />
+            <textarea name="" id="comments" cols="30" rows="10"></textarea>
+          </li>
+          <li><input type="submit" /> <input type="reset" /></li>
+        </ul>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    function mouseHandler(e) {
+      this.style.backgroundColor = (e.type === 'mouseover') ? 
+        "#CCC" : 
+        "#FFF" ;      
+    }
+    
+
+    var div = document.getElementById('welcome')
+
+    div.addEventListener('mouseover', mouseOverHandler)
+    div.addEventListener('mouseout', mouseOutHandler)
+
+
+  </script>
+  <!-- 
+      target
+        该属性包含了触发事件的元素一用
+   -->
+</body>
+</html>

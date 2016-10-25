@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+  div > div { height:128px; width:128px; }
+  #top {background-color:pink;}
+  #bottom {background-color:#12e048;}
+  </style>
+</head>
+<body>
+  <!-- 
+      鼠标事件event对象所包含的全部属性
+
+      1. pageX 和 pageY
+
+      2. clientX 和 clientY 这些属性包含了鼠标光标相对于浏览器窗口的x轴和y轴的坐标位置。
+      若向下滚动文档，则就为浏览器窗口边沿的相对值，页面滚动值随之变化
+
+      3. layerX / layerY 和 offsetX / offsetY
+        包含鼠标光标相对于事件目标元素的x轴和y轴的坐标位置。 fireFox支持layer属性
+
+      4. button  该属性只能用于 click, mousedown, mouseup, 它是当前所单击的鼠标按键的数字化描述。
+      左键单击是0， 中键单击是1， 右键单击是2
+
+      5. relatedTarget  该属性包含了鼠标离开的元素引用
+        该属性多使用于mouseover / mouseout的场景，但是需知道鼠标刚刚所处的位置或它要移动到哪里。
+
+   -->
+
+  <div id="outer">
+    <div id="top"></div>
+    <div id="bottom"></div>
+  </div>
+
+
+  <script>
+    // 若DOMContent准备完毕，则获取元素的引用
+    document.addEventListener('DOMContentLoaded', init)
+
+    function init() {
+      var top = document.getElementById('top')
+      var bottom = document.getElementById('bottom')
+
+      top.addEventListener('mouseover', onMouseOver)
+      top.addEventListener('mouseout', onMouseOut)
+      bottom.addEventListener('mouseover', onMouseOver)
+      bottom.addEventListener('mouseout', onMouseOut)
+    }
+
+    function onMouseOver(event) {
+      console.log('我是mouseover, targetId是 ' + event.target.id + '。 离开的目标id是 ' +　event.relatedTarget.id );
+    }
+    function onMouseOut(event) {
+      console.log('我是mouseout, targetId是 ' + event.target.id + '。 离开的目标id是 ' +　event.relatedTarget.id);
+    }
+  </script>
+</body>
+</html>

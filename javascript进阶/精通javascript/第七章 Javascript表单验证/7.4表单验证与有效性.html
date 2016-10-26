@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <p>Please fill in the required information. </p>
+
+  <form action="" id="nameForm">
+    <div id="fields">
+      <label for="firstName">First Name: </label><br />
+      <input type="text" class="foo" id="firstName" name="firstName" required /><br />
+
+      <label for="lastName">Last Name: </label><br />
+      <input type="text" id="lastName" name="lastName" required /><br />
+
+      <label for="phone">Phone</label><br />
+      <input type="tel" id="phone" /><br />
+
+      <label for="age">Age (must be over 13) : </label><br />
+      <input id="age" type="number" name="age",step="2"," min="14"," max="100" /><br />
+
+      <label for="email">Email</label><br />
+      <input type="email" id="email" />
+
+      <label for="url">Website</label><br />
+    </div>
+
+    <div id="buttons">
+      <input type="button" id="overallBtn" value="Check overall validity" />
+      <input type="button" id="validBtn" value="Display validity" />
+      <input type="submit" id="submitBtn" value="submit the form" />
+      <input type="reset" id="resetBtn" value="Reset the form" />
+    </div>
+  </form>
+
+  <div>
+    <h2>Validation results</h2>
+    <div id="vResults"></div>
+    <div id="vDetails"></div>
+  </div>
+
+
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function(){
+
+      var validBtn = document.getElementById('validBtn'),
+          overAllBtn = document.getElementById('overallBtn'),
+          form = document.getElementById('nameForm'),
+          vDetails = document.getElementById('vDetails'),
+          vResults = document.getElementById('vResults');
+
+      overallBtn.addEventListener('click', function() {
+        var formValid = form.checkValidity()
+
+        vResults.innerHTML = 'Is the form valid? ' + formValid
+      })
+
+      validBtn.addEventListener('click', function() {
+        var output = ''
+        var inputs = form.querySelectorAll( '#fields > input' )
+
+        for ( var i=0; i<inputs.length; i++ ) {
+          var el = inputs[i]
+
+          output += el.id + ' : ' + el.validity.valid;
+
+          if ( !el.validity.valid ) {
+            output += ' [';
+
+            for ( var reason in el.validity ) {
+              if ( el.validity[reason] ) {
+                output += reason
+              }              
+            }
+            output += ']'
+          }
+          output += '<br />'
+        }
+        vDetails.innerHTML = output; 
+      })
+    })
+  </script>
+</body>
+</html>

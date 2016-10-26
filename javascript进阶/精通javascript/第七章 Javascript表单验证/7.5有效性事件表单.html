@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    input:invalid {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h2>A basic form</h2>
+  <p>Please provide your first and last names.</p>
+
+  <form id="nameForm">
+    <fieldset>
+      <label for="">First Name: </label>
+      <input type="text" id="firstName" name="firstName" required /><br />
+      <label for="">Last Name: </label>
+      <input type="text" id="lastName" name="lastName" required /><br />
+    </fieldset>
+    <input type="submit" value="Submit hte form" />
+    <input type="reset"  value="Reset the form"/>
+
+    <div class="">
+      <input type="button" id="firstNameBtn" value="Check first name validity" />
+      <input type="button" id="formBtn" value="Check form validity" />
+      <input type="button" id="preventBtn" value="Prevent default behavior" />
+      <input type="button" id="restoreBtn" value="Restore default behavior" />
+    </div>
+  </form>
+
+  <div id="vResults"></div>
+
+  <script>
+  window.addEventListener('DOMContentLoaded', function(){
+
+    var outputDiv = document.getElementById('vResults'),
+        firstName = document.getElementById('firstName'),
+        firstNameBtn = document.getElementById('firstNameBtn'),
+        formBtn = document.getElementById('formBtn'),
+        nameForm = document.getElementById('nameForm'),
+        preventBtn = document.getElementById('preventBtn'),
+        restoreBtn = document.getElementById('restoreBtn');
+
+    firstName.addEventListener('focus', function() {
+      outputDiv.innerHTML = ''
+    })
+
+    firstName.addEventListener('invalid', function(event) {
+      outputDiv.innerHTML = 'firstName is invalid. '
+    })
+
+    firstNameBtn.addEventListener('click', function() {
+      firstName.checkValidity()
+    })
+
+    formBtn.addEventListener('click', function() {
+      nameForm.checkValidity()
+    })
+
+    preventBtn.addEventListener('click', function() {
+      firstName.addEventListener('invalid', preventDefaultHandler)
+    })
+
+    restoreBtn.addEventListener('click', function() {
+      firstName.removeEventListener('invalid', preventDefaultHandler)
+    })
+
+
+    function preventDefaultHandler(evt) {
+      evt.preventDefault();
+    }     
+  })
+  </script>
+</body>
+</html>

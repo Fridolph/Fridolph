@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>7.4捕获嵌入值的简单函数</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red; text-decoration: line-through;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+<div id="opacity" style="opacity: 0.5; filter: alpha(opacity=50);"></div>
+
+<script src="../js/assert.js"></script>
+<script>
+function getOpacity(elem) {
+  var filter = elem.style.filter;
+
+  return filter ? 
+    filter.indexOf("opacity=") >= 0 ? 
+      (parseFloat(filter.match(/opacity=([^)]+/)[1]) / 100) + "" : 
+      "" :
+      elem.style.opacity; 
+}
+
+window.onload = function() {
+  assert(
+    getOpacity( document.getElementById("opacity") ) == "0.5", 
+    "The opacity of the element has been obtained. " 
+  );
+}
+
+/**
+ * match返回的数组的第一个索引的值总是该匹配的完整结果，然后是每个后续捕获结果。
+ * 
+ */
+</script>
+</body>
+</html>

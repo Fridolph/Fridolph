@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>实例化问题 函数调用时不使用new操作符时的结果</title> 
+  <style>
+  li{border:1px solid #ccc; padding:5px;}
+  .pass {color: green;}
+  .fail {color: red; text-decoration: line-through;}
+  </style>
+</head>
+<body>
+<ul id="results"></ul>
+
+<script src="../js/assert.js"></script>
+<script>
+var re1 = /test/i;
+var re2 = new RegExp("test", "i");
+
+assert(re1.toString() ==  " /test/i ",  "Verify the contents of the expression.")
+assert(re1.test("TesT"), "Yes, it's case-insensitive.")
+assert(re2.test("TesT"), "This one is too. ")
+assert(re1.toString() == re2.toString(), "The regular expressions are equal.")
+assert(re1 != re2, "But they are fifferent objects.")
+</script>
+</body>
+</html>

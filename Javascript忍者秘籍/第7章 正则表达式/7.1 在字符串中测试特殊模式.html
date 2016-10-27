@@ -12,9 +12,9 @@
 <body>
 <ul id="results"></ul>
 
-<script src="../../js/assert.js"></script>
+<script src="../js/assert.js"></script>
 <script>
-function isThisAZipCode(candidate) {
+/*function isThisAZipCode(candidate) {
   if (typeof candidate !== "string" ||
     candidate.length != 10) {
     return false;
@@ -44,7 +44,7 @@ function isThisAZipCode(candidate) {
     }
   }
   return true;
-}
+}*/
 
 function isThisAZipCode(candidate) {
   return /^\d{5}-\d{4}$/.test(candidate);

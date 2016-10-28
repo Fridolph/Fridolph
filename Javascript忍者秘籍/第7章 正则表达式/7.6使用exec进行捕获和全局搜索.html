@@ -63,7 +63,7 @@
    * var str = "3abc4,5abc6";
    * alert(reg.exec(str));
    * alert(str.match(reg));
-   * 则 为abc和abc,abc；因为match执行了全局匹配查询；
+   * 则 为abc 和 abc, abc；因为match执行了全局匹配查询；
    * 而exec如果没有子表达式只会找到一个匹配的即返回。
    * 
    * 5、当表示中含有子表达式的情况：
@@ -80,8 +80,9 @@
    * alert(reg.exec(str));
    * alert(str.match(reg));
    * 则两者返回的结果是abc,bc和abc,abc,
-   * 总结为：
    * 
+   * 
+   * 总结为：   * 
    * 1、当正则表达式无子表达式，并且定义为非全局匹配时，exec和match执行的结果是一样，均返回第一个匹配的字符串内容；
    * 
    * 2、当正则表达式无子表达式，并且定义为全局匹配时，exec和match执行，做存在多处匹配内容，则match返回的是多个元素数组；

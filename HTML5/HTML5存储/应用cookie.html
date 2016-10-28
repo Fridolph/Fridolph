@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Cookie</title>
+</head>
+<body>
+  <div class="cookie">
+    <h2>Cookie</h2>
+    <p>
+      存储大小：4kb左右，以20个为上限
+      清理机制：IE和opera会清理近期最少使用的cookie，fireFox会随机清理cookie
+      主要应用：购物车、登录状态
+          缺陷：同域内http请求都会带cookie浪费带宽
+    </p>
+    <p>
+      name=value, 键值对，可以设置要保存的Key/Value, 注意这里的NAME不能和其他属性项的名字一样。
+      Expires/max-age, 过期时间, 在设置的某个时间点后该Cookie会失效, 如expires=Wednesday,09-Nov-99 23:12:40 GMT
+      Domain 生成该Cookie的域名, 如domain="fridolph.top"
+      Path 该Cookie是在当前的哪个路径下生成的, 如path=/admin/
+      Secure 如果设置了这个属性，那么只会在SSH连接时才会回传该Cookie
+      http http-only true: cookie只能在服务器端读取和修改, 比较安全
+    </p>
+    <p>
+      cookie安全
+      如果cookie具有HttpOnly属性且不能通过客户端脚本访问, 则为true; 否则为false, 默认为false
+    </p>
+  </div>
+  
+
+  <script>
+
+    // 设置cookie
+    document.cookie = "yangke" + '=' + escape(1000);  
+    
+    // 设置过期时间
+    function setCookie(name, value) {
+      var Days = 30;
+      var exp = new Date();
+
+      exp.setTime(exp.getTime() + Days*24*60*60*1000);
+      document.cookie = name + '=' + escape(value) + ';expires=' + exp.toGMTString();
+    }
+
+    // 读取cookie
+    function getCookie(name) {
+      var arr, 
+          reg = new RegExp("(^|)" + name + "=([^;]*)(;|$)");  // 正则匹配
+
+      if (arr = document.cookie.match(reg)) {
+        // 使用match匹配, arr[0] 为匹配成功的字符串, 比如 "test1=2222", 
+        // 之后为 ( ) 中逐个匹配到值
+        return unescape(arr[2]);
+      } else {
+        return null
+      }
+    }
+
+    // 删除cookie
+    function delCookie(name) {
+      var exp = new Date();
+      exp.setTime(exp.getTime() - 1);
+
+      var cval = getCookie(name);
+
+      if (cval != null) {
+        document.cookie = name + '=' + cval + ';expires' + exp.toGMTString();
+      }
+    }
+  </script>
+</body>
+</html>

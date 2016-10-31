@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>函数作为返回值输出</title>
+</head>
+<body>
+  <!-- 
+      相比函数当作参数传递，函数当作返回值输出的应用场景也许更多，也更能体现函数式编程的巧妙。
+      让函数继续返回一个可执行的函数，意味着运算过程是可延续的。
+   -->
+<script>
+  /**
+   * 1. 判断数据的类型
+   * 判断一个数据是否是数组，在以往的实现中，可以基于鸭子类型的概念来判断，
+   * 比如判断有没有length属性，有没有sort方法或者slice方法等。
+   * 但更好的方式是使用Object.prototype.toString来计算。
+   * Object.prototype.toString.call( obj ) 返回一个字符串
+   * 比如Object.prototype.toString.call( [1,2,3] )总是返回"[Object Array]"
+   * 而Object.prototype.call("str")总是返回"[Object String]"
+   * 所以我们可以编写一系列的isType函数，代码如下：
+   */
+  
+  // var isString = function(obj) {    
+  //   return Object.prototype.toString.call(obj) === '[object String]';
+  // }
+  // var isArray = function(obj) {
+  //   return Object.prototype.toString.call(obj) === '[object Array]';
+  // }
+  // var isNumber = function(obj) {
+  //   return Object.prototype.toString.call(obj) === '[object Number]';
+  // }
+  // 
+  // 我们发现，这些函数的大部分实现都是相同的，不同的只是Object.prototype.toString.call(obj)返回的字符串
+  // 为了避免多余的代码，我们尝试把这些字符串作为参数提前值入isType函数，代码如下
+  
+  /*var isType = function(type) {
+    return function(obj) {
+      return Object.prototype.toString.call(obj) === '[object ' + type + ']';
+    }
+  }
+
+  var isString = isType('String')
+  var isArray = isType('Array')
+  var isNumber = isType('Number')
+
+  console.log( 'isArray() 传入参数的类型是数组' + isArray([1, 2, 3]) );*/
+
+  // 我们还可以用循环语句，来批量注册这些isType函数
+  var Type = {}
+
+  for ( var i=0, type; type = ['String', 'Array', 'Number'][i++]; ) {
+    (function(type) {
+      Type['is' + type] = function(obj) {
+        return Object.prototype.toString.call(obj) === '[object ' + type + ']';
+      }
+    })(type)
+  }
+
+  Type.isArray([])
+  Type.isArray("str")
+</script>
+</body>
+</html>

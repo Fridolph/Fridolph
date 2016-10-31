@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>7.13使用字符串的slice方法剔除字符串尾部空格_大文档性能棒</title>  
+</head>
+<body>  
+  <script src="../../js/assert.js"></script>
+  <script>
+    function trim(str) {
+      var str = str.replace(/^\s\s*/, ''),
+          ws = /\s/,
+          i = str.length;
+
+      while (ws.test(str.charAt(--i)));
+      return str.slice(0, i + 1);
+    }
+
+    assert(
+      trim(" #id div.class ") =="#id div.class",
+      "Extra whitespace trimmed from a selector string."
+    )
+
+    /**
+     * 该实现执行了两次替换： 一个是开头的空格，另一个是结尾的空格。 
+     */
+  </script>
+</body>
+</html>

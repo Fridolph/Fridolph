@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>7.11从字符串中剔除空格的常见解决方案</title>  
+</head>
+<body>  
+  <script src="../../js/assert.js"></script>
+  <script>
+    function trim(str) {
+      return ( str || "" ).replace(/^\s+|\s+$/g, "");      
+    }
+
+    assert(
+      trim(" #id div.class ") == "#id div.class",
+      "Extra whitespace trimmed from a selector string."
+    )
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>理解层叠上下文</title>
+  <style>
+  .box{width:200px;height:100px;border:2px double #ccc;}
+  .box:nth-child(1){background-color:#b475c1;}
+  .box:nth-child(2){background-color:#8975c1;}
+  .box:nth-child(3){background-color:#4770c1;}
+  .box:nth-child(4){background-color:#51CD8E;}
+  .box:nth-child(5){background-color:#9cd262;}
+  .box:nth-child(6){background-color:#d9ac4e;}
+  .box:nth-child(7){background-color:#d83953;}
+
+  .box--z{}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box box-border">
+      层叠上下文<br />
+      background/border
+    </div>
+    <div class="box box--z">
+      负z-index<br />
+    </div> 
+    <div class="box">
+      block块状水平盒子<br />
+    </div> 
+    <div class="box">
+      float浮动盒子<br />
+    </div> 
+    <div class="box">
+      inline-inline-block水平盒子<br />
+    </div> 
+    <div class="box">
+      z-index:auto;或看成z-index:0<br />
+    </div> 
+    <div class="box">
+      正z-index<br />
+    </div>
+  </div>
+</body>
+</html>

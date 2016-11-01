@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>7.15匹配Unicode字符.html</title>  
+</head>
+<body>  
+  <script src="../../js/assert.js"></script>
+  <script>
+    var text = "\u5FCD\u8005\u30D1\u30EF\u30FC";
+    var matchAll = /[\w\u0080-\uFFFF_-]+/;
+
+    assert(
+      (text).match(matchAll),
+      "Our regExp matches unicode!"
+    )
+  </script>
+</body>
+</html>

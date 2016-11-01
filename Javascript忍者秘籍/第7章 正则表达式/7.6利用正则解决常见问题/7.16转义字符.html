@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>7.16转义字符.html</title>  
+</head>
+<body>  
+  <!-- 
+      在编写css选择器引擎时，要通过转义字符来支持这项功能。
+      这允许用户可以指定不符合典型命名约定的复杂名字。
+   -->
+  <script src="../../js/assert.js"></script>
+  <script>
+    // 该正则允许匹配一个单词字符，或一个反斜杠及后面跟随任意字符
+    // (甚至是另外一个反斜杠) 或者两者都可以匹配
+    var pattern = /^((\w+)|(\\.))+$/;
+    // 设置不同的测试对象，除了最后一个都应该通过测试
+    // 因为其未能匹配到非单词字符 (:)
+    var tests = [
+      "formUpdate",
+      "form\\.update\\.whatever",
+      "form\\:update",
+      "\\f\\o\\r\\m\\u\\p\\d\\a\\t\\e",
+      "form:updae"
+    ];
+
+    for ( var n=0; n<tests.length; n++ ) {
+      assert(
+        pattern.test(tests[n]),
+        tests[n] + " is a valid identifier"
+      );
+    }
+  </script>
+</body>
+</html>

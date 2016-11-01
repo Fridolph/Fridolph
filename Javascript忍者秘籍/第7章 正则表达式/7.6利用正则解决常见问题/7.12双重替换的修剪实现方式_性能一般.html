@@ -8,16 +8,12 @@
   <script src="../../js/assert.js"></script>
   <script>
     function trim(str) {
-      var str = str.replace(/^\s\s*/, ''),
-          ws = /\s/,
-          i = str.length;
-
-      while (ws.test(str.charAt(--i)));
-      return str.slice(0, i + 1);
+      return str.replace(/^\s\s*/, '')
+                .replace(/\s*\s$/, '');
     }
 
     assert(
-      trim(" #id div.class ") =="#id div.class",
+      trim(" #id div.class ") === "#id div.class",
       "Extra whitespace trimmed from a selector string."
     )
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    setTimeout(function repeatMe() {
+      setTimeout(repeatMe, 10)
+    }, 10)
+
+    setInterval(function() {
+
+    }, 10)
+
+    /**
+     * 回顾一下：
+     * Js引擎是单线程执行的， 异步事件必须要排队等待才能执行。
+     * 如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上
+     * (可能更长，但不会比指定的延迟时间更少)
+     * 如果一直被延迟，到最后，Interval间隔定时器可能会无延迟执行，
+     * 并且同一个Interval处理程序的多个实例不能同时进行排队。
+     * setTimeour()和setInterval()在触发周期的定义是完全不同的。
+     */
+  </script>
+</body>
+</html>

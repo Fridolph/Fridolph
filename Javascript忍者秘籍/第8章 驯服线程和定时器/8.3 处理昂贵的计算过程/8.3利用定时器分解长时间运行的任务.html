@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // 建立数据
+    var rowCount = 20000,
+        divideInto = 4,
+        chunkSize = rowCount / divideInto,
+        iteration = 0,
+        table = document.getElementsByTagName('tbody')[0];
+
+    // 计算上次中断的地方
+    setTimeout(function generateRows() {
+      var base = (chunkSize) * iteration;
+
+      for ( var i=0; i<chunkSize; i++ ) {
+        var tr = document.createElement("tr");
+
+        for ( var t=0; t<6; t++ ) {
+          var td = document.createElement("td");
+          td.appendChild(
+            document.createTextNode( (i + base) + "," + t + "," + iteration )
+          );
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+      
+      // 调度下一个阶段
+      iteration++;
+      if ( iteration < divideInto ) {
+        setTimeout(generateRows, 0)
+      }
+
+    }, 0);
+    
+    /**
+     * 在修改版本的示例中，我们将冗长的操作拆分成四步小操作，每个操作创建自己的DOM节点。这些较小的操作，则不太可能让浏览器挂掉。   注意：我们是如何进行设置的，以便让数据值的控制操作可以根据变量很容易地调整。
+     *
+     * 还有一个与数学有关系的重要内容，我们需跟踪上一次迭代中断的地方，以及如何自动安排下一个迭代，一直到全部结束。
+     * 
+     */
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>8.5简单的异步测试套件.html</title>
+  <style>
+  </style>
+</head>
+<body>
+
+<script>
+  (function() {
+
+    // 保存状态列表
+    var queue = [],
+        parsed = false;
+
+    // 定义测试注册的函数
+    this.test = function(fn) {
+      queue.push(fn);
+      runTest();
+    };
+
+    this.pause = function() {
+      paused = true;
+    }
+
+    this.resume = function() {
+      paused = false;
+      setTimeout(runTest, 1);
+    }
+
+    function runTest() {
+      if ( !paused && queue.length ) {
+        queue.shift()();
+        if ( !paused ) resume();
+      }
+    }
+
+  })()
+
+  /**
+   * 最重要的一个方面是，传递给test()方法的每个函数，最多只包含一个异步测试。
+   * 它们的异步性由pause()和resume()的使用所定义，这两个方法分别在异步事件之前或之后进行调用。
+   *
+   * 确实，这段代码只不过是一种确保让包含异步行为的函数，以特定的顺序进行执行的方式而已。
+   * (不是必须用于测试用例，但对于测试用例确实特别有用)
+   *
+   * 它的行为非常类似于前面示例izhong的start()方法，只不过处理的是数据队列。
+   * 该队列唯一的目的是在等待执行的时候，出列一个函数并进行执行。否则，就完全停止运行一个时间间隔。
+   *
+   * 这里的要点是，由于队列处理代码是完全异步的(被包含在一个interval定时器中)
+   * 这保证在我们调用pause()函数以后，可以再次尝试执行。
+   *
+   * 这段简短的代码，强制测试套件以纯粹的异步方式进行执行。但同时又保证了测试执行的顺序
+   * (有可能是一些非常关键的测试套件，如果它们的测试结果是破坏性的并且会影响其他测试结果的话)
+   * 值得庆幸的是，我们可以看到，通过有效使用定时器，
+   * 不需要很大的开销就可以将可靠的异步测试添加到现有的测试套件中。
+   * 
+   */
+</script>
+</body>
+</html>

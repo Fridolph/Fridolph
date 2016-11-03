@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>9.1eval方法的基本测试.html</title>
+</head>
+<body>
+  <!-- 
+      根据所使用的上下文，谨慎选择使用哪一个机制
+
+      eval() 函数
+      函数构造器
+      定时器
+      <script>元素
+   -->
+<script src="../../js/assert.js"></script>
+<script>
+  /**
+   * eval()方法的基本功能：
+   * 1. 该方法将执行传入代码的字符串
+   * 2. 在调用eval()方法的作用域内进行代码求值
+   */
+  
+
+  // 测试简单表达式
+  assert(
+    eval("5 + 5") === 10,
+    "5 + 5 = 10"
+  )
+
+  // 测试一个无用的代码求值
+  assert(
+    eval("var ninja = 5;") === undefined,
+    "no value was returned."
+  )
+
+  // 验证副作用
+  assert(ninja === 5, "The variable ninja was created.")
+
+  // 测试求值作用域
+  (function() {
+    eval("var ninja = 6;");
+
+    assert(ninja === 6, "evaluated within the current scrope.")
+   
+  })()
+
+  // 测试遗漏作用域
+  assert(window.ninja === 5, "the global scope was unaffected.")
+
+  assert(ninja === 5, "the global scope was unaffected.")
+</script>
+
+</body>
+</html>

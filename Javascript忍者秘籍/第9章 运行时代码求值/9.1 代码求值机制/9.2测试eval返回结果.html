@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>9.2测试eval返回结果</title>
+</head>
+<body>
+  <script src="../../js/assert.js"></script>
+  <script>
+    var ninja = eval("({name: Ninja})");
+    assert(ninja != undefined, "the ninja was created.")
+    assert(ninja.name == "Ninja", "and with the expected property");
+
+    var fn = eval("")
+
+  </script>
+</body>
+</html>

@@ -11,8 +11,12 @@
     assert(ninja != undefined, "the ninja was created.")
     assert(ninja.name == "Ninja", "and with the expected property");
 
-    var fn = eval("")
+    var fn = eval("(function(){return 'Ninja';})") ;
+    assert(typeof fn === 'function', "The function was created.")
 
+    var ninja2 = eval("{name: 'Ninja'}");
+    assert(ninja2 != undefined, "ninja2 was craeted.")
+    assert(ninja2.name === 'Ninja', "and with the expected proterty.")
   </script>
 </body>
 </html>

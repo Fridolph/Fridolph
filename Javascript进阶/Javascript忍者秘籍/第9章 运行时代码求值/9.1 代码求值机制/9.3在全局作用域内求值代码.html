@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>9.3在全局作用域内求值代码.html</title>
+</head>
+<body>
+  <script src="../../js/assert.js"></script>
+  <script>
+    function globalEval(data) {
+      // 定义一个全局eval函数
+      data = data.replace(/^\s*|\s*$/g, "");
+
+      if (data) {
+        var head = document.getElementsByTagName("head")[0] ||
+                   document.documentElement,            
+            script = document.createElement("script"); // 创建一个script节点
+
+        script.type = "text/javascript";
+        script.text = data;
+
+        // 将script节点附加到DOM上
+        head.appendChild(script);
+        // 再去除它
+        head.removeChild(script);
+      }
+    }
+
+    window.onload = function() {
+      (function() {
+        globalEval("var test = 5;");
+      })()
+
+      assert(test === 5, "The code was evaluated globally.")
+    }
+  </script>
+</body>
+</html>

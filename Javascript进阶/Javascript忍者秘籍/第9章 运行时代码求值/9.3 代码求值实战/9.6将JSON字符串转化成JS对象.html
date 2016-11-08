@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>9.6将JSON字符串转化成JS对象.html</title>
+</head>
+<body>
+  <script src="../../js/assert.js"></script>
+  <script>
+    // 定义一个JSON描述一个单属性对象
+    var json = '{"name": "Ninja"}';
+    var object = eval("(" + json + ")");
+
+    assert(object.name === "Ninja", "My name is Ninja.")
+
+    /**
+     * eval存在安全隐患所以不是很提倡这样使用
+     */
+  </script>
+</body>
+</html>

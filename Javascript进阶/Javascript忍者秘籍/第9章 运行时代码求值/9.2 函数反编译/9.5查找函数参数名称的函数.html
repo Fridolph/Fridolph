@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>9.5查找函数参数名称的函数.html</title>
+</head>
+<body>
+  <script src="../../js/assert.js"></script>
+  <script>
+    function argumentNames(fn) {
+      // 查找参数列表
+      var found = /^[\s\(]*function[^(]*\(\s*([^)]*?)\s*\)/.exec(fn.toString());
+      // 分隔参数列表
+      return found && found[1] ? 
+        found[1].split(/,\s*/) : 
+        [];
+    }
+
+    // 测试零参数情景
+    assert(
+      argumentNames(function(){}).length === 0,
+      "Works on zero-arg function."
+    );
+    // 测试一个参数的情景
+    assert(
+      argumentNames(function(x){})[0] === "x",
+      "Single argument working."
+    );
+
+    var results = argumentNames(function(a,b,c,d,e){});
+    assert(
+      results[0] == 'a' &&      
+      results[1] == 'b' &&      
+      results[2] == 'c' &&      
+      results[3] == 'd' &&      
+      results[4] == 'e',
+      "Multiple arguments wokring."      
+    );
+
+    /**
+     * 几行js代码中加了很多高级特性。 首先，该函数反编译了传入的函数，并使用正则
+     * 将这些参数从都好分隔的参数列表中抽取出来。
+     * 由于exec()方法接收一个字符串做参数，所以我们在这里也可以不调用toString()
+     *
+     * 以这种方式反编译函数时，需要考虑一个很重要的问题： 某些浏览器不支持反编译。
+     */
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>9.4将函数反编译成字符串.html</title>
+</head>
+<body>
+  <script src="../../js/assert.js"></script>
+  <script>
+    function test(a) {
+      return a + a;
+    }     
+    // console.log(test.toString());
+    assert(
+      test.toString() === "function test(a) { return a + a; }",
+      "Function decompiled."
+    );
+  </script>
+</body>
+</html>

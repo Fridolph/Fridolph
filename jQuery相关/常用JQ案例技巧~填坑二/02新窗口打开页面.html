@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.baidu.com">baidu</a>
+  <a href="#327392384929">乱输的</a>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      // 例1： href="http://"的超链接将会在新窗口打开链接
+      $('a[href^="http://"]').attr('target', "_blank");
+
+      // 例2： rel="external"的超链接将会在新窗口打开链接
+      $("a[rel$='external']").click(function() {
+        this.target = "_blank";
+      });
+    });
+  </script>
+</body>
+</html>

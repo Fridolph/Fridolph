@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <nav id="nav">
+    <ul>
+      <li><a href="#pdf">PDF文件</a></li>
+      <li><a href="#zip">ZIP压缩包</a></li>
+      <li><a href="#psd">高保真图片</a></li>      
+    </ul>
+  </nav>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $("a[href$=pdf]").addClass("pdf");
+      $("a[href$=zip]").addClass("zip");
+      $("a[href$=psd]").addClass("psd");
+    })
+  </script>
+</body>
+</html>

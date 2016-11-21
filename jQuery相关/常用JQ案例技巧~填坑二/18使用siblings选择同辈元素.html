@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <nav id="nav">
+    <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+    </ul>
+  </nav>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      // 不这样做
+      // $("#nav li").click(function() {
+      //   $("#nav li").removeClass("active");
+      //   $(this).addClass("active");
+      // });
+      
+      //替代做法是
+      $("#nav li").click(function() {
+        $(this).addClass("active")
+          .siblings().removeClass('active');
+      })
+    })
+  </script>
+</body>
+</html>

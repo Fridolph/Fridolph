@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  #XY{width:200px;height:200px;border:1px solid #000; background-color: pink;}
+  </style>
+</head>
+<body>  
+  <div id="XY"></div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      jQuery.fn.center = function() {
+        this.css({
+          "position": "absolute",
+          "top": ($(window).height() - this.height()) / 2 + $(window).scrollTop() + "px",
+          "left": ($(window).width() - this.width()) / 2 + $(window).scrollLeft() + "px"
+        });
+
+        return this;        
+      }
+
+      // use
+      $("#XY").center();
+      $(window).resize(function() {
+        $("#XY").center();
+      });
+    });
+  </script>
+</body>
+</html>

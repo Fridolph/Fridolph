@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="id">
+    <p>01</p>
+    <p>02</p>
+    <p>03</p>
+    <p>04</p>
+    <p>05</p>
+    <p>06</p>
+    <p>07</p>
+    <p>08</p>
+    <p>09</p>
+    <p>10</p>
+    <a href="http://www.baidu.com">baidu</a>
+  </div>  
+  
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $("div").click(function() {
+        console.log($(this).find("a").attr("href"));
+        return false;
+      })
+    })
+  </script>
+</body>
+</html>

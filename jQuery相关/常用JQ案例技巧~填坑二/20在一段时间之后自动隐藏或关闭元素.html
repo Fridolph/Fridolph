@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <nav id="nav">
+    <ul>
+      <li><a href="#pdf">PDF文件</a></li>
+      <li><a href="#zip">ZIP压缩包</a></li>
+      <li><a href="#psd">高保真图片</a></li>      
+    </ul>
+  </nav>
+  <div id="ad" style="display: none;">我是广告，我马上消失</div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      // setTimeout方式实现
+      // setTimeout(function() {
+      //   $('#ad').fadeIn(400)
+      // },1000);
+      
+      // delay()方式来实现
+      $("#ad").slideUp(300).delay(1000).fadeIn(400);
+    })
+  </script>
+</body>
+</html>

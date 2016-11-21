@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <form action="" id="form">
+    <input type="text" />
+  </form>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $('#form input').keyup(function(e) {
+        if (e.which == "13" ) {
+          alert("回车提交！")
+        }
+      })
+    })
+  </script>
+</body>
+</html>

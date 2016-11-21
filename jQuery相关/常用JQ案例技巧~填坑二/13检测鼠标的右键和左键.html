@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <div id="XY">点我吧</div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $("#XY").mousedown(function(e) {
+        alert(e.which)
+        // 1 = 鼠标左， 2 = 鼠标中， 3 = 鼠标右
+      })
+    });
+  </script>
+</body>
+</html>

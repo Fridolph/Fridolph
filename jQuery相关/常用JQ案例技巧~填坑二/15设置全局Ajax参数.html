@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <form action="" id="form">
+    <input type="text" />
+  </form>
+  <button id="load">load</button>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $("#load").ajaxStart(function() {
+        showLoading();      // 显示loading
+        disableButtons();   // 禁用按钮        
+      })
+
+      $("#load").ajaxComplete(function() {
+        hideLoading();      // 隐藏loading
+        enableButtons();    // 启动按钮
+      })
+    })
+  </script>
+</body>
+</html>

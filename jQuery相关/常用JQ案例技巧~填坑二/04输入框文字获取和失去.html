@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  
+  <input class="text1" type="text" />
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $('input.text1').val('Enter your search text here');
+      textFill( $('input.text1') );
+    });
+
+    function textFill(input) {  // input focus text function
+      var originalvalue = input.val();
+      input.focus(function() {
+        if( $.trim(input.val()) == originalvalue ) {
+          input.val('');
+        }
+      }).blur(function() {
+        if ( $.trim(input.val()) == '' ) {
+          input.val(originalvalue);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <div class="box"></div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      $.extend($.expr[':'], function() {
+        moreThen500px: function(a) {
+          return $(a).width() > 500;
+        }
+      });
+
+      $('.box:moreThen500px').click(function() {
+        alert("自己创建的选择器成功了")
+      })
+    })
+  </script>
+</body>
+</html>

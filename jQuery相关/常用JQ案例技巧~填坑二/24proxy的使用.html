@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <div id="panel" style="display:none">
+    <button>Close</button>
+  </div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      // $("#panel").fadeIn(function() {
+      //   $("#panel button").click(function() {
+      //     $(this).fadeOut()
+      //   })
+      // })
+      //运行上面会发生 按钮消失，而不是panel消失
+      
+      $("#panel").fadeIn(function() {
+        $("#panel button").click($.proxy(function() {
+          // this 指向 #panel
+          $(this).fadeOut();
+        }, this))
+      }) 
+    })
+  </script>
+</body>
+</html>

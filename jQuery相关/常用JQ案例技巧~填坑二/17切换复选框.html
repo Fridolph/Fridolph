@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <div>
+    多选题: <br />
+    A<input type="checkbox" name="A" value="A"><br />
+    B<input type="checkbox" name="B" value="B"><br />
+    C<input type="checkbox" name="C" value="C"><br />
+    D<input type="checkbox" name="D" value="D"><br />
+    <button>反选</button>
+  </div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      var tog = false;
+
+      $('button').click(function() {
+        $('input[type=checkbox]').attr('checked', !tog);
+
+        tog = !tog;
+      })
+    })
+  </script>
+</body>
+</html>

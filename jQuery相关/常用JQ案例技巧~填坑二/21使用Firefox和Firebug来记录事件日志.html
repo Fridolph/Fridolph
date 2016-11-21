@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <nav id="nav">
+    <ul>
+      <li><a href="#pdf">PDF文件</a></li>
+      <li><a href="#zip">ZIP压缩包</a></li>
+      <li><a href="#psd">高保真图片</a></li>      
+    </ul>
+  </nav>
+  <div id="ad" style="display: none;">我是广告，我马上消失</div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+  $(function() {
+    jQuery.log = jQuery.fn.log = function(msg) {
+      if(console) {
+        console.log("%s: %o", msg, this);
+      }
+      return this;
+    }
+
+  });
+
+
+  </script>
+</body>
+</html>

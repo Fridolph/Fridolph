@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .box{width:800px; height:2000px; background-color: pink;}
+  #goheader{position: fixed; right:30px; bottom:50px;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p>001</p>
+    <p>002</p>
+    <p>003</p>
+    <p>004</p>
+    <p>005</p>
+    <p>006</p>
+    <p>007</p>
+    <p>008</p>
+    <p>009</p>
+    <p>010</p>
+    <p>011</p>
+    <p>012</p>
+    <p>013</p>
+    <p>014</p>
+    <p>015</p>
+    <p>016</p>
+    <p>017</p>
+    <p>018</p>
+    <p>019</p>
+    <p>020</p>
+    <p>021</p>
+    <p>022</p>
+    <p>023</p>
+    <p>024</p>
+    <p>025</p>
+    <p>026</p>
+    <p>027</p>
+    <p>028</p>
+    <p>029</p>
+    <p>030</p>
+    <p>031</p>
+    <p>032</p>
+    <p>033</p>
+    <p>034</p>
+    <p>035</p>
+    <p>036</p>
+    <p>037</p>
+    <p>038</p>
+    <p>039</p>
+    <p>040</p>
+    <p>041</p>
+    <p>042</p>
+    <p>043</p>
+    <p>044</p>
+    <p>045</p>
+    <p>046</p>
+    <p>047</p>
+    <p>048</p>
+    <p>049</p>
+    <p>050</p>
+    <p>051</p>
+    <p>052</p>
+    <p>053</p>
+    <p>054</p>
+    <p>055</p>
+    <p>056</p>
+    <p>057</p>
+    <p>058</p>
+    <p>059</p>
+    <p>060</p>
+
+  </div>
+
+  <a href="" id="goheader">点我返上</a>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    jQuery.fn.scrollTo = function(speed) {
+      var targetOffset = $(this).offset().top;
+
+      $('html, body').stop().animate({
+        scrollTop: targetOffset,
+        speed
+      });
+
+      return this;
+    }
+    // use
+    $("#goheader").click(function() {
+      $('body').scrollTo(500);
+      return false;
+    })
+  </script>
+</body>
+</html>

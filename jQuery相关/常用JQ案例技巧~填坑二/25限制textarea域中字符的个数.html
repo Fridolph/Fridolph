@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <textarea name="" id="text" cols="30" rows="10"></textarea>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    jQuery.fn.maxLength = function(max) {
+      this.each(function() {
+        var type = this.tagName.toLowerCase();
+        var inputType = this.type ? this.type.toLowerCase() : null;
+
+        if (type == "input" && inputType == "text" || inputType == "password" ) {
+          // 应用标准的maxLength
+          this.maxLength = max;
+        } else {
+          this.onkeypress = function(e) {
+            var ob = e || event;
+            var keyCode = ob.keyCode;
+          }
+        }
+      })
+    }
+  </script>
+</body>
+</html>

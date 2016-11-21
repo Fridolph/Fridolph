@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <div id="id"></div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      function checkWindowSize() {
+        if ( $(window).width() > 1200 ) {
+          $ ("body").addClass('large');
+        } else {
+          $("body").removeClass('large');
+        }
+      }
+
+      $(window).resize(checkWindowSize);
+    });
+  </script>
+</body>
+</html>

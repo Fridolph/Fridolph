@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <table>
+    <tr>
+      <td>我的表格1</td>
+      <td>我的表格2</td>
+      <td>我的表格3</td>
+    </tr>
+    <tr>
+      <td>我的表格4</td>
+      <td>我的表格5</td>
+      <td>我的表格6</td>
+    </tr>
+  </table>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      // 为table里面的td元素绑定click事件， 不管td元素是一直存在还是动态创建的
+      // jQuery1.4.2之前使用的方式
+      // $("table").each(function() {
+      //   $("td", this).live("click", function() {
+      //     $(this).toggleClass("hover");
+      //   });
+      // });
+
+      // delegate已经弃用了
+      $("table").on("click", "td", function() {
+        $(this).toggleClass("clicked");
+      })
+    })
+  </script>
+</body>
+</html>

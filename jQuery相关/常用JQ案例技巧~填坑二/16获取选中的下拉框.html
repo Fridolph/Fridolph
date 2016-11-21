@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>  
+  <select name="" id="someElement">
+    <option value="a">a</option>
+    <option value="b">b</option>
+    <option value="c">c</option>
+    <option value="d">d</option>
+  </select>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $(function() {
+      // $("#someElement").find('option:selected');
+      $("#someElement").change(function() {
+        console.log($("#someElement option:selected").val());      
+      });
+      
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  
+
+  <script src="vue.js"></script>
+  <script>
+    // 每个Vue实例都会代理其data属性里所有的属性：
+    var data = { a: 1 }
+    var vm = new Vue({
+      data: data
+    })
+
+    // vm.a === data.a   -> true
+    
+    // 设置属性也会影响原始数据
+    vm.2 = 2
+    data.a  // 2
+
+    // 反之亦然
+    data.a = 3
+    vm.a  // 3
+
+    // 注意只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。我们将在后面详细讨论响应系统。
+    // 除了 data 属性， Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的 data 属性区分。例如：
+    var data = { a: 1 }
+    var vm = new Vue({
+      el: '#example',
+      data: data
+    })
+
+    vm.$data === data  // true
+    vm.$el === document.getElementById('example') // true
+
+    // $watch 是一个实例方法
+    vm.$watch('a', function(newVal, oldVal) {
+      // 这个回调将在 'vm.a' 改变后调用
+    })
+
+    // 注意，不要在实例属性或者回调函数中
+    // ( vm.$watch('a', newVal => this.myMethod() ) ) 使用箭头函数.
+    // 因为箭头函数绑定父上下文， 所以this 不会像预想的一样是Vue实例，而是this.myMethod未被定义
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+
+</head>
+<body>  
+  <div>
+    sdkf jlkksdf
+    sdfl uweir
+    sdfkj
+    
+  </div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    (function($) {
+      $.fn.stripHtml = function() {
+        var regexp = /<("[^"]*"|'[^']*'|[^'">])*>/gi;
+
+        this.each(function() {
+          $(this).html( $(this).html().replace(regexp.'') );
+        });
+
+        return $(this)
+      }
+    })(jQuery)
+
+    // 用法
+    $('div').stripHtml()
+  </script>
+</body>
+</html>

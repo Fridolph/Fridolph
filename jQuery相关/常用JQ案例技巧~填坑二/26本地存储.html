@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  .active{background-color: red;}
+  </style>
+</head>
+<body>  
+  <div id="panel" style="display:none">
+    <button>Close</button>
+  </div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+  /**
+   * 本地存储是HTML5提供的特性之一。它提供了非常简单的API接口
+   * 便于添加数据到localStorage全局属性中，代码如下：
+   */
+  localStorage.someData = "This is going to be saved.";
+
+
+  // 判断localStorage已过期 (由于localStorage没有cookie的过期控制，需要自己控制)
+  // 封装过期控制代码
+  function setLocalStorage(key, value) {
+    var curTime = new Date().getTime();
+
+    try {
+      localStorage.setItem(key, JSON.stringify({data: value, time: curTime}))
+    } catch (e) {
+      // 如果存储满了，就全部删掉
+      localStorage.clear();
+      localStorage.setItem(key, JSON.stringify({data: value, time: curTime}))
+    }
+  }
+
+  function getLocalStorage(key, exp) {
+    var data = localStorage.getItem(key);
+    var dataObj = JSON.parse(data);
+
+    if (new Date().getTime() - dataObj.time > exp) {
+      localStorage.removeItem(key)  // 过期就清楚key的值
+      console.log('信息已过期');
+    } else {
+      return JSON.stringify(dataObj, data);
+    }
+  }
+
+  // 判断浏览器是否支持localStorage
+  if (window.localStorage) {
+    console.log('This browser supports localStorage.');
+  } else {
+    console.log("This browser does NOT support localStorage.");
+  }
+
+
+
+  // 常见API
+  localStorage.setItem("b", "hachuochuo"); // 设置b的值  
+  var b = localStorage.getItem("b"); // 获取b
+
+  // localStorage.clear();  // 全部删除
+  localStorage.removeItem("b"); // 清楚key的值
+  </script>
+</body>
+</html>

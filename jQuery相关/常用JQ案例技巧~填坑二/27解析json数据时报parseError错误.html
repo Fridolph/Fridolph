@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+
+</head>
+<body>  
+  <div id="panel" style="display:none">
+    <button>Close</button>
+  </div>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    // jquery在1.4版本后，采用更为严格的json解析方式，即所有内容都必须都有双引号，
+    // 如果升级jquery版本后，ajax加载json报错，有可能就是这个原因
+    
+    // 1.4之前 key没双引号，这样没问题
+    {
+      key: "298349",
+      status: "0"
+    }
+
+    // 1.4以后的版本必须都加上双引号
+    {
+      "key": "2389472",
+      "status": "0"
+    }
+  </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
   </style>
 </head>
 <body>  
-  <textarea name="" id="text" cols="30" rows="10"></textarea>
+  <textarea name="" id="myTextarea" cols="30" rows="10"></textarea>
 
   <script src="../jquery-1.9.1.min.js"></script>
   <script>
@@ -24,10 +24,26 @@
           this.onkeypress = function(e) {
             var ob = e || event;
             var keyCode = ob.keyCode;
+            var hasSelection = document.selection ? 
+              document.selection.createRange().text.length > 0 :
+              this.selectionStart != this.selectionEnd;
+
+            return !( this.value.length >= max && 
+              (keyCode > 50 || keyCode == 32 || keyCode == 0 || keyCode == 13 ) &&
+              !ob.ctrlKey && 
+              !ob.altKey && 
+              !hasSelection );
+          }
+          this.onkeyup = function() {
+            if (this.value.length > max) {
+              this.value = this.value.substring(0, max);
+            }
           }
         }
       })
     }
+    // use
+    $("#myTextarea").maxLength(10);
   </script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>   
+  <input type="text" />
+  <button id="click">测试</button>
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script>
+    $.extend(String.prototype, {
+      isPositiveInteger: function() {
+        return (new RegExp(/^[1-9]\d*$/).test(this));
+      },
+
+      isInteger: function() {
+        return (new RegExp(/^\d+$/).test(this));
+      },
+
+      isNumber: function(value, element) {
+        return (new RegExp(/^-?(?:\d+|\d{1,3}(?:.\d{3})+)(?:\.\d+)?$/).test(this));
+      },
+
+      trim: function() {
+        return this.replace(/(^\s*)|(\s*$)|\r|\n/g, "");
+      }
+    })
+
+    // use
+    $("#click").click(function() {
+      console.log($("input").val().isInteger());
+    })
+  </script>
+</body>
+</html>

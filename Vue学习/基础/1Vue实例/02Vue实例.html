@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  
+
+  <script src="../vendor/vue.js"></script>
+  <script>
+    // 每个Vue.js应用都是通过构造函数Vue创建一个Vue的根实例启动的：
+    var vm = new Vue({
+      // 选项
+    })
+
+    // 可以扩展Vue构造器，从而用预定义选项创建可复用的组件构造器:
+    var MyComponent = Vue.extend({
+      // 扩展选项
+    })
+
+    // 所有的'MyComponent'实例都将以预定义的扩展选项被创建
+    var myComponentInstance = new MyComponent()
+    
+    // 尽管可以命令式地创建扩展实例，不过在多数情况下建议将组件构造器注册为一个自定义元素，然后声明式地用在模板中。我们将在后面详细说明组件系统。现在你只需知道所有的 Vue.js 组件其实都是被扩展的 Vue 实例。
+
+  </script>
+</body>
+</html>

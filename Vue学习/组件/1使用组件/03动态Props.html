@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <div id="demo">
+    <input v-model="parentMsg" />
+    <br />
+    <!-- <child v-bind:my-message="parentMsg"></child> -->
+    <child :my-message="parentMsg"></child>
+  </div>
+  <!-- vue.js -->
+  <script src="../vendor/vue.js"></script>
+  <script>      
+    Vue.component('child', {
+      // camelCase in JavaScript
+      props: ['myMessage'],
+      template: '<span>{{ myMessage }}</span>'
+    })
+
+    var demo = new Vue({
+      el: '#demo',
+      data: {
+        parentMsg: ''
+      }
+    })
+  </script>
+</body>
+</html>

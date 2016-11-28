@@ -22,6 +22,7 @@ let router = new VueRouter({
   // 传入配置
   linkActiveClass: 'active'
 })
+
 // 定义路由
 router.map({
   '/goods': {

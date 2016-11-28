@@ -11,10 +11,12 @@
   position:relative;
 }
 .css-live-wrap{
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
   position:relative;
   width:50%;
   height:100%;
-  float:left;
+  float: left;
 }
 .star{
   position: absolute;

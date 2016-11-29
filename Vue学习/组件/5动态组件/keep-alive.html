@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+      多个组件可以使用同一个挂在点，然后动态地在它们之间切换。
+      使用保留的 <component>元素，动态地绑定到它的is特性      
+   -->
+
+  <div id="demo">
+    <component v-bind:is="currentView"></component>
+  </div>
+  
+  <!-- 
+      如果把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染。为此可以添加一个 keep-alive 指令参数：
+
+      <keep-alive>
+        <component :is="currentView">
+          非活动组件将被缓存
+        </component>
+      </keep-alive>      
+   -->
+
+  <!-- vue.js -->
+  <script src="../../vendor/vue.js"></script>
+  <script>      
+    // var vm = new Vue({
+    //   el: '#demo',
+    //   data: {
+    //     currentView: 'home'
+    //   },
+    //   components: {
+    //     home: '你好吗',
+    //     posts: {/* ... */},
+    //     archive: {/* ... */},
+    //   }
+    // })
+
+    var Home = {
+      template: '<p>Welcome home!</p>'
+    }
+
+    var vm = new Vue({
+      el: '#demo',
+      data: {
+        currentView: Home
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+border-radius()
+  -webkit-border-radius: arguments
+  -moz-border-radius: arguments
+  border-radius: arguments
+
+body a
+  display inline-block
+  padding: 2px 5px
+  font: 12px/1.4 Arial, sans-serif
+  background: black
+  color: #eee
+  border-radius: 2px
+
+form input
+  padding: 5px
+  border: 1px solid
+  border-radius: 5px

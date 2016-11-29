@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="CSS3Secret,CSS3解密,CSS3奇淫巧计,CSS3妙用,CSS3图形" name="Keywords">
+    <meta content="使用CSS3实现各类图形" name="description">
+    <title>CSS3奇思妙想</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<style>
+#cnzz_stat_icon_1259441963{
+  display:block;
+  width:0;
+  height:0;
+  overflow:hidden;
+}
+</style>
+<body>
+
+  <div class="container">
+    <!-- Heart-shaped -->
+    <section id="bubbly" class="code-wrap cf">
+      <div class="css-live-wrap">
+        <summary>心形</summary>
+        <summary>利用 圆形 和 正方形实现</summary>
+        <hgroup class="heartShaped">
+          <h1>.heartShaped</h1>
+        </hgroup>
+      </div>
+      <style class="code" contenteditable=true>
+        .heartShaped {
+          position: absolute;
+          top:50%;
+          left: 50%;
+          transform:translate(-50%,-50%) rotate(45deg);
+          background: rgba(255, 20, 147, .85);
+          width: 140px;
+          line-height: 140px;
+          text-align: center;
+          color: white;
+          font-size: 12px;
+        }
+        .heartShaped:before,
+        .heartShaped:after{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -70px;
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          background: rgb(255, 20, 147);
+          z-index: -1;
+        }
+        .heartShaped:after{
+          top: -70px;
+          left: 0;
+        }
+
+      </style>
+    </section>
+  </div>
+</body>
+</html>

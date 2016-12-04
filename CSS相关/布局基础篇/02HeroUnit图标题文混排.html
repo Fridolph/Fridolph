@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>01图文混排与题图文字布局</title>
+  <style>
+    .desc {
+      position: relative;
+      box-sizing: border-box;
+      width: 980px;
+      height: 380px;
+      background: linear-gradient(180deg, #666, purple);
+      text-align: justify;
+      padding: 45px 40px;
+    }    
+    .desc h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 36px;
+      text-align: center;
+    }
+    .desc p {
+      color: rgba(255,255,255, 0.7);
+    }
+    .desc img, .content {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    .desc img {
+      height: 150px;
+      left: 75%;
+    }
+    .content {
+      left: 4%;
+      width: 60%;
+    }
+  </style>
+</head>
+<body>
+  <div class="desc">
+    <img src="images/03.jpg" />
+    <div class="content">
+      <h1>Monkey·D·Luffy</h1>
+      <p>我是要成为海贼王的男人！我小时候曾被海贼救了一命，那个人因此而失去左手。所以我绝对不会轻贱自己的性命。但是我有一个梦想，无论如何都要去实现。虽然很困难，不过既然是我自己下定决心的，就算因此而战死，我也甘心。 
+      我不懂航海术(娜美会),不会作菜(香吉士会),(这小子说别人优点还挺会的啊!!!),也不会骗人(晕,这都说,乌索普会啊,这下乌索普丢人啦)...</p>
+    </div>    
+  </div>  
+</body>
+</html>

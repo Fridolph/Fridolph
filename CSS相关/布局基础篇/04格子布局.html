@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>04格子布局</title>
+<style>
+* {margin: 0; padding: 0;}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+section {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 500px;
+}
+article {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 20px;
+  height: 270px;
+  text-align: center;
+  float: left;  
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-right: 1px solid rgba(0,0,0,0.3);
+}
+article:nth-child(odd) {
+  border-left: 1px solid rgba(0,0,0,0.3);
+}
+article:nth-child(1), article:nth-child(2) {
+  border-top: 1px solid rgba(0,0,0,0.3);
+}
+article:nth-child(2) {
+  height: 540px;
+  padding-top: 150px;
+}
+article:nth-child(3) {
+  margin-top: -270px;
+}
+article h1 {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  color: #666;
+}
+article p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #777;
+}
+</style>
+</head>
+<body>
+<section class="clearfix">
+  <article>
+    <h1>诺诺诺亚·索隆</h1>
+    <p>
+      我要成为世界第一的大剑豪！
+    </p>
+    <img width="200" src="images/02.jpg" />      
+  </article>
+  <article>
+    <h1>波特卡斯·D·艾斯</h1>
+    <p>路飞，你一定要成为海贼王！</p>
+    <img width="200" src="images/04.jpg" />      
+  </article>
+  <article>
+    <h1>妮可·罗宾</h1>
+    <p>我想知道这个世界的真相！</p>
+    <img width="200" src="images/06.jpg" />      
+  </article>
+  <!-- <article>
+    <h1>托尼托尼·乔巴</h1>
+    <p>我要成为万能药！</p>
+    <img width="200" src="images/07.jpg" />      
+  </article> -->
+</section>
+</body>
+</html>

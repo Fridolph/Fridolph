@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>03两列均分布局</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  section {
+    width: 1100px;
+    background-color: #f5f5f5;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.4) inset;
+    box-shadow: 0 0 1px rgba(0,0,0,0.4) inset;
+    box-sizing: border-box;
+    padding: 40px;
+  }
+  article {
+    width: 48.5%;
+    float: left;
+    position: relative;    
+  }
+  article:first-child {
+    margin-right: 3%;     
+  }
+  article:first-child::after {
+    content: "";
+    position: absolute;
+    right: -2%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    border-right: 1px dashed #999;
+  }
+  article img {
+    position: absolute;
+    top: 0;
+  }
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }  
+  h1, p {
+    width: 56%;
+    margin-left: 44%;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+  </style>
+</head>
+<body>
+  <section class="clearfix">
+    <article>
+      <h1>诺诺诺亚·索隆</h1>
+      <p>
+        我要成为世界第一的大剑豪！！~~ 可是 ，团队精神到底是什么啊？ 互相帮助互相袒护就算是吗 ？也有人这么认为吧 ！我是认为那根本只是唬人 ！应该是每个人抱着必死的决心做自己的事！”
+        我做好自己的部分了，接下来轮到你了，做不好的话我就揍扁你！“要有这种决心才算是起码的团队精神吧！ 所以从这点考虑的话 ，就算伙伴都是特例独行的人也没什么大不了的 ！我是这么想的。
+      </p>
+      <img width="200" src="images/02.jpg" />      
+    </article>
+    <article>
+      <h1>波特卡斯·D·艾斯</h1>
+      <p>别过来，路飞，你应该很明白，你和我都是海贼，应该都在大海上随心所欲地驰骋过，我有我的冒险，我有我的伙伴，你没理由干涉我的事情，像你这样的胆小鬼还要来救我，你觉得我会允许吗？没有比这更耻辱的事了，快回去，路飞。为什么要来？
+      路飞，你一定要成为海贼王！ <br />路飞，不能看见你成为海贼王的那刻，真是太遗憾了 …… - - 不该贴这段的，作死 T_T</p>
+      <img width="200" src="images/04.jpg" />      
+    </article>
+  </section>
+</body>
+</html>

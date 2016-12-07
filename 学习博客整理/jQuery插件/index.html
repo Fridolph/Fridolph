@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <ul>
+    <li>001</li>
+    <li>002</li>
+    <li><a href="www.003">003</a></li>
+    <li><a href="www.004">004</a></li>
+    <li>005</li>
+    <li>006</li>
+    <li>007</li>
+    <li>008</li>
+    <li><a href="www.009">009</a></li>
+    <li><a href="www.010">010</a></li>
+    <li><a href="www.011">011</a></li>
+    <li><a href="www.012">012</a></li>
+    <li>013</li>
+    <li>014</li>
+    <li>015</li>
+    <li>016</li>
+    <li>017</li>
+    <li>018</li>
+    <li>019</li>
+    <li>020</li>
+  </ul>
+
+  <script src="jquery-1.9.1.min.js"></script>
+  <script src="自写插件/$.beautifier.js"></script>
+  <script>
+  $(function() {
+    $("a").myPlugin({
+      'color': '#2C9929',
+      'fontSize': '24px',
+    })
+  })
+  </script>
+</body>
+</html>

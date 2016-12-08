@@ -26,10 +26,11 @@
                   <span class="count">月售{{food.sellCount}}份</span><span>好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                  <span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+                  <span class="now">￥{{food.price}}</span>
+                  <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
                 <div class="cartcontrol-wrapper">
-                <cartcontrol :food="food"></cartcontrol>
+                  <cartcontrol :food="food"></cartcontrol>
                 </div>
               </div>
             </li>
@@ -106,6 +107,7 @@
           click: true
         })
         this.foodsScroll = new BScroll(this.$els.foodsWrapper, {
+          click: true,
           probeType: 3
         })
         this.foodsScroll.on('scroll', (pos) => {

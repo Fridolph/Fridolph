@@ -3,13 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <title>Document</title>
+<style>
+.box{width:400px;
+  position: relative;
+  background-color: red;
+  overflow: hidden;
+}
+.box::after{
+  content:"";
+  padding-top: 100%;
+  display: block;
+}
+.box img{
+  position: absolute;
+   top: 0;
+  width: 100%;
+}
+</style>
 </head>
 <body>
-<blockquote>
-  <p>你好吗</p>
-  <p>啦啦啦啦</p>
-  <p>德玛西亚，人在塔在</p>
-</blockquote>
+<div class="box">
+  <img src="me.jpg"  />
+</div>
 
 
 <script src="../jquery-1.9.1.min.js"></script>

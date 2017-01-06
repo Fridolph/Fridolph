@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>声明式渲染</title>
+</head>
+<body>
+<!-- 声明式 -->
+<div id="app">
+  {{ message }}
+</div>
+<!-- 绑定DOM元素属性 -->
+<div id="app-2">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds to see my dynamically bound title!
+  </span>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  });
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: 'You loaded this page on ' + new Date()
+    }
+  });
+</script>
+</body>
+</html>

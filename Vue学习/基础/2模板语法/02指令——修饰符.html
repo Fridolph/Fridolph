@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>02指令——修饰符</title>
+</head>
+<body>
+<div id="vm">
+  <h2>使用指令</h2>
+  <p v-if="seen">now you see me!</p>
+
+  <h2>参数</h2>
+  <a v-bind:href="url">看看url</a>
+  <p>
+    这里的href的参数，告知v-bind指令将该元素的href与表达式url绑定
+  </p>
+
+  <h2>v-on指令监听事件</h2>
+  <!-- <button v-on:click="doSomething">点我吧</button> -->
+</div>
+
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#vm',
+  data: {
+    seen: false,
+    url: 'http://www.baidu.com'
+  },
+  
+});
+
+</script>
+</body>
+</html>

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Document</title>
+<meta charset="UTF-8" />
+<title>03动态Props</title>
 </head>
 <body>
-  <div id="demo">
-    <input v-model="parentMsg" />
-    <br />
-    <!-- <child v-bind:my-message="parentMsg"></child> -->
-    <child :my-message="parentMsg"></child>
+<div id="app">
+  <p>类似于用 v-bind 绑定 HTML 特性到一个表达式，也可以用 v-bind 动态绑定 props 的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件：</p>
+  <p>prop 是父组件用来传递数据的一个自定义属性。子组件需要显式地用 props 选项声明 “prop”：</p>
+  
+  <div>
+    <input type="text" v-model="parentMsg" />
+    <child :my-message="parentMsg" />
   </div>
-  <!-- vue.js -->
-  <script src="../vendor/vue.js"></script>
-  <script>      
-    Vue.component('child', {
-      // camelCase in JavaScript
-      props: ['myMessage'],
-      template: '<span>{{ myMessage }}</span>'
-    })
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+Vue.component('child', {
+  // 声明props
+  props: ['myMessage'],
+  // 就像data一样，prop可以用在模板内
+  // 同样也可以在vm实例中像 this.message 这样使用
+  template: '<span>{{ myMessage }}</span>'
+});
 
-    var demo = new Vue({
-      el: '#demo',
-      data: {
-        parentMsg: ''
-      }
-    })
-  </script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    parentMsg: 'default value'
+  }
+});
+</script>
 </body>
 </html>

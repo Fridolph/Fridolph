@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Document</title>
+<meta charset="UTF-8" />
+<title>3内联处理器方法</title>
 </head>
 <body>
-  <div id="example-3">
-    <button v-on:click="say('hi')">Say hi</button>
-    <button v-on:click="say('what')">Say what</button>
-  </div>
-
-  <!-- vue.js -->
-  <script src="../vendor/vue.js"></script>
-  <script src="vendor/axios.min.js"></script>
-  <script src="vendor/lodash.min.js"></script>
-  <script>     
-    var example3 = new Vue({
-      el: '#example-3',
-      methods: {
-        say: function(message) {
-          alert(message)
-        }
+<div id="app">
+  <button @click="say('hi')">Say hi</button>
+  <button @click="say('what')">Say what</button>
+  <br />
+  <p>有时也需要在内联语句处理器中访问原生DOM事件，可以用特殊变量 $event 把它传入方法</p>
+  <button @click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    name: 'vue.js'
+  },
+  methods: {
+    say: function(val) {
+      alert(val)
+    },
+    warn: function(val, e) {
+      if (e) {
+        e.preventDefault()
+        alert(val)
       }
-    })
-
-    // 有时也需要在内联语句处理器中访问原生DOM事件。可以用特殊变量 $event 把它传入方法：
-    // <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
-    
-    // ...
-    // methods: {
-    //   warn: funciton(message, event) {
-    //     现在我们可以访问原生事件对象
-    //     if (event) {
-    //       event.preventDefault()
-    //     }
-    //     alert(message)
-    //   }  
-    // }
-  </script>
+    }
+  }
+});
+</script>
 </body>
 </html>

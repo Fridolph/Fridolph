@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>Document</title>
+  <title>3计算属性vsWatchedProperty</title>
 </head>
 <body>
   <!-- 
@@ -11,10 +11,12 @@
    -->
   <div id="demo">{{ fullName }}</div>
 
+  <div id="demo-2">{{ fullName }}</div>
+
   <!-- vue.js -->
-  <script src="../vendor/vue.js"></script>
+  <script src="../../vendor/vue.js"></script>
   <script>     
-    /*var vm = new Vue({
+    var vm = new Vue({
       el: '#demo',
       data: {
         firstName: 'Foo',
@@ -26,16 +28,16 @@
           this.fullName = val + ' ' + this.lastName
         },
         lastName: function(val) {
-          this.fullName = this.firstName + '' + val
+          this.fullName = this.firstName + ' ' + val
         }
       }
-    })*/
+    })
 
-    var vm = new Vue({
-      el: '#demo',
+    var vm2 = new Vue({
+      el: '#demo-2',
       data: {
-        firstName: 'Foo',
-        lastName: 'Bar'
+        firstName: 'Hello',
+        lastName: 'World'
       },
       computed: {
         fullName: function() {

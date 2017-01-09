@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Document</title>
+<meta charset="utf-8">
+<title>4计算setter</title>
 </head>
 <body>
-  
-  <div id="demo">{{ fullName }}</div>
+<div id="app">
+  <p>{{ fullName }}</p>
+</div>
 
-  <!-- vue.js -->
-  <script src="../vendor/vue.js"></script>
-  <script>     
-   
-    var vm = new Vue({
-      el: '#demo',
-      data: {
-        firstName: 'Foo',
-        lastName: 'Bar'
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  computed: {
+    fullName: {
+      get: function() {
+        return this.firstName + ' ' + this.lastName
       },
-      computed: {
-        fullName: {
-          // getter
-          get: function() {
-            return this.firstName + ' ' + this.lastName
-          },
-          // setter
-          set: function(newValue) {
-            var names = newValue.split(' ')
-            this.firstName = names[0]
-            this.lastName = names[names.length - 1]
-          }
-        }
+      set: function(newValue) {
+        var names = newValue.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[names.length - 1]
       }
-    })
-  </script>
+    }
+  }
+});
+</script>
 </body>
 </html>

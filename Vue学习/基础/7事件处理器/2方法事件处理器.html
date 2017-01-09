@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Document</title>
+<meta charset="UTF-8" />
+<title>2方法事件处理器</title>
 </head>
 <body>
-  <div id="example-2">
-    <!-- greet 是在下面定义的方法名 -->
-    <button v-on:click="greet">Greet</button>
-  </div>
-
-  <!-- vue.js -->
-  <script src="../vendor/vue.js"></script>
-  <script src="vendor/axios.min.js"></script>
-  <script src="vendor/lodash.min.js"></script>
-  <script>     
-    var example2 = new Vue({
-      el: '#example-2',
-      data: {
-        name: 'Vue.js'
-      },
-      // 在 'method' 对象中定义方法
-      methods: {
-        greet: function(event) {
-          // 'this' 在方法里指当前Vue实例
-          alert('Hello ' + this.name + '!')
-          // 'event' 是原生DOM事件
-          alert(event.target.tagName)
-        }
-      }
-    })
-
-    // 也可以用JavaScript直接调用方法
-    example2.greet()
-  </script>
+<div id="app">
+  <button @click="greet">Greet</button>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    name: 'vue.js'
+  },
+  methods: {
+    greet: function(e) {
+      alert(`Hello ${this.name}!  原生事件`);
+    }
+  }
+});
+</script>
 </body>
 </html>

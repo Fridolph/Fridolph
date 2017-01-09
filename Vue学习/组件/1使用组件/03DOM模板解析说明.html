@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>03DOM模板解析说明</title>
+</head>
+<body>
+<div id="app">
+  <p>当使用 DOM 作为模版时（例如，将 el 选项挂载到一个已存在的元素上）, 你会受到 HTML 的一些限制，因为 Vue 只有在浏览器解析和标准化 HTML 后才能获取模版内容。尤其像这些元素 &lt;ul&gt; ， &lt;ol&gt;， &lt;ta&gt;le> ， &lt;se&gt;ect> 限制了能被它包裹的元素， &lt;op&gt;ion> 只能出现在其它元素内部。&lt;/p&gt;
+  <p>在自定义组件中使用这些受限制的元素时会导致一些问题，例如：</p>
+  <table>
+    <!-- <my-row>这样会报错</my-row> -->
+  </table>
+
+  <p>自定义组件 &lt;my-row&gt; 被认为是无效的内容，因此在渲染的时候会导致错误。变通的方案是使用特殊的 is 属性：</p>
+  <table>
+    <tr is="my-row"></tr>
+  </table>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+// 局部注册
+var Child = {
+  template: '<div>局部组件</div>'
+}
+
+// 创建根实例
+var vm = new Vue({
+  el: '#app',
+  components: {
+    'my-component': Child
+  }
+})
+</script>
+</body>
+</html>

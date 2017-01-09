@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>v-show</title>
+</head>
+<body>
+<div id="app">
+  <p>另一个根据条件展示元素的选项是 v-show 指令。用法大体上一样：</p>
+  <h1 v-show="ok">Hello world!</h1>
+  <p>不同的是有 v-show 的元素会始终渲染并保持在 DOM 中。v-show 是简单的切换元素的 CSS 属性 display 。</p>
+  <br />
+  <h2>v-if vs v-show</h2>
+  <p>
+    v-if是真实的条件渲染，因为它会确保条件块在切换当中适当地销毁与重建条件块内的事件监听器和子组件
+  </p>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    ok: true,
+  }
+});
+</script>
+</body>
+</html>

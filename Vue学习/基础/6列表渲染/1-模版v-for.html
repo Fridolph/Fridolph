@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>v-for</title>
+</head>
+<body>
+<div id="app-1">
+  <ul>
+    <li v-for="item in items">
+      username: <span :style="infoStyleObj">{{ item.name }}</span>, 
+      said: <strong :style="textStyleObj">{{ item.message }}</strong>
+    </li>
+  </ul>
+</div>
+<br />
+<div id="app-2">
+  <p>
+    在v-for块中，我们拥有对父作用域属性的完全访问权限。<br />
+    v-for还支持一个可选的第二个参数为当前项的索引
+  </p>
+  <ul>
+    <li v-for="(item, index) in items">
+      {{ parentMessage }} - {{ index + 1 }} - {{ item.message }}
+    </li>
+  </ul>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app-1',
+  data: {
+    items: [
+      { name: 'John', message: 'hello world' },
+      { name: 'Bob', message: 'hello vue.js' },
+      { name: 'Fridolph', message: 'hello 2017' },
+    ],
+    infoStyleObj: {
+      color: 'red',
+    },
+    textStyleObj: {
+      color: 'blue',
+      'textDecoration': 'underline'
+    }
+  }
+});
+
+var vm2 = new Vue({
+  el: '#app-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: '第一项' },
+      { message: '第二项' },
+      { message: '第三项' },
+    ],
+  }
+});
+</script>
+</body>
+</html>

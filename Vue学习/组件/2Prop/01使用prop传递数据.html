@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>01使用prop传递数据</title>
+</head>
+<body>
+<div id="app">
+  <p>组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用 props 把数据传给子组件。</p>
+  <p>prop 是父组件用来传递数据的一个自定义属性。子组件需要显式地用 props 选项声明 “prop”：</p>
+  <child message="hello!"></child>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+Vue.component('child', {
+  // 声明props
+  props: ['message'],
+  // 就像data一样，prop可以用在模板内
+  // 同样也可以在vm实例中像 this.message 这样使用
+  template: '<span>{{ message }}</span>'
+});
+
+var vm = new Vue({
+  el: '#app',
+  data: {
+    
+  }
+});
+</script>
+</body>
+</html>

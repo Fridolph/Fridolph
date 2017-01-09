@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>2绑定value</title>
+</head>
+<body>
+<div id="app">
+  <p>对于单选按钮，勾选框及选择列表选项， v-model 绑定的 value 通常是静态字符串（对于勾选框是逻辑值）：</p>
+  <!-- 当选中时，picked 为 字符串 a -->
+  <!-- <input type="radio" v-mode="picked" value="a" /> -->
+  <!-- `toggle` 为 true 或 false -->
+  <!-- <input type="checkbox" v-model="toggle"> -->
+  <!-- 当选中时，`selected` 为字符串 "abc" -->
+  <!-- <select v-model="selected"> -->
+    <!-- <option value="abc">ABC</option> -->
+  <!-- </select> -->
+  <p>但是有时我们想绑定 value 到 Vue 实例的一个动态属性上，这时可以用 v-bind 实现，并且这个属性的值可以不是字符串。</p>
+
+  <h2>复选框</h2>
+  <input 
+    type="checkbox" 
+    v-model="toggle"
+    :true-value="trueValue"
+    :false-value="falseValue"
+  />
+  <span>你选择了: {{ toggle }}</span>
+
+  <h2>单选按钮</h2>
+  A.<input type="radio" v-model="pick" :value="a" />
+  B.<input type="radio" v-model="pick" :value="b" />
+  C.<input type="radio" v-model="pick" :value="c" />
+  <span>默认: {{ pick }}</span>
+
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    toggle: '_点下选择框_',
+    trueValue:'真相',
+    falseValue:'谎言',
+    pick: '默认没选',
+    a: 'A',
+    b: 'B',
+    c: 'C',    
+  }
+});
+</script>
+</body>
+</html>

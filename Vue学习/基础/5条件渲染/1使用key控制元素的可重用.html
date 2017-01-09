@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>1使用key控制元素的可重用</title>
+
+</head>
+<body>
+<div id="app">
+  <template v-if="loginType === 'username'">
+    <label>Username</label>
+    <input type="text" placeholder="Enter your username" key="username-input" />
+  </template>
+  <template v-else>
+    <label>Email</label>
+    <input type="text" placeholder="Enter your email address" key="email-input" />
+  </template>
+  <button @click="toggleType()">Toggle type</button>
+
+  <p>
+    在代码中切换 loginType 不会删除用户已经输入的内容，两个模版由于使用了相同的元素，&lt;input&gt;会被复用，仅仅是替换了他们的 placeholder。
+    自己动手试一试,输入一些文本，然后点击 「Toggle login type」 进行切换
+  </p>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    loginType: 'username'
+  },
+  methods: {
+    toggleType: function() {
+      if (this.loginType === 'username') {
+        this.loginType = 'email'
+      } else {
+        this.loginType = 'username'
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

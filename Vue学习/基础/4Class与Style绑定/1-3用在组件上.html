@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>1-3用在组件上</title>
+
+</head>
+<body>
+<div id="app">
+  <my-component>你好吗</my-component>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+new Vue({
+  
+});
+
+Vue.component('my-component', {
+  template: '<p class="foo bar">Hi</p>'
+})
+</script>
+</body>
+</html>

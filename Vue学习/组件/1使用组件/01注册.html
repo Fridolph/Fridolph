@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>注册组件</title>
+</head>
+<body>
+<div id="app">
+  <my-component></my-component>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+// 注册
+Vue.component('my-component', {
+  template: '<div>A custom component!</div>'
+})
+// 创建根实例
+var vm = new Vue({
+  el: '#app'
+})
+</script>
+</body>
+</html>

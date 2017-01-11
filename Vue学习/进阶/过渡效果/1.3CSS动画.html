@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>过渡效果</title>
+<style>
+.bounce-enter-active {animation: bounce-in 0.5s;}
+.bounce-leave-active {animation: bounce-out 0.5s;}
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+@keyframes bounce-out {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(0); }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <button @click="show = !show">Toggle show</button>
+  <transition name="bounce">
+    <p v-if="show">Look at me!</p>
+  </transition>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    show: true,
+  }
+});
+</script>
+</body>
+</html>

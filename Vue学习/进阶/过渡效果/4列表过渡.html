@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>4列表过渡</title>
+<style>
+.list-item { display: inline-block; margin-right: 10px; }
+.list-enter-active, .list-leave-active {
+  transition: all .6s;
+}
+.list-enter{ opacity: 0; transform: translateY(-20px); }
+.list-leave-active { opacity: 0; transform: translateY(20px);}
+
+</style>
+</head>
+<body>
+<div id="list-demo" class="demo">
+  <button @click="add">Add</button>
+  <button @click="remove">Remove</button>
+
+  <transition-group name="list" tag="p">
+    <span v-for="item in items" :key="item" class="list-item">
+      {{ item }}
+    </span>
+  </transition-group>
+</div>
+
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#list-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9],
+    nextNum: 10
+  },
+  methods: {
+    randomIndex: function() {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add: function() {
+      this.items.splice(this.randomIndex(), 0, this.nextNum++)
+    },
+    remove: function() {
+      this.items.splice(this.randomIndex(), 1);
+    }
+  }
+});
+</script>
+</body>
+</html>

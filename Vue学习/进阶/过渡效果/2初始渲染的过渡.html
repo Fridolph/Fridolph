@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>2初始渲染的过渡</title>
+<style>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <button @click="show = !show">Toggle</button>
+  <transition appear name="fade">
+    <p v-if="show">显示</p>
+  </transition>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    show: true,
+  }
+});
+</script>
+</body>
+</html>

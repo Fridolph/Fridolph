@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>3全局混合</title>
+</head>
+<body>
+<p>也可以全局注册混合对象。 注意使用！ 一旦使用全局混合对象，将会影响到 所有 之后创建的 Vue 实例。使用恰当时，可以为自定义对象注入处理逻辑。</p>
+
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+// 为自定义的选项 'myOption' 注入一个处理器。 
+Vue.mixin({
+  created: function () {
+    var myOption = this.$options.myOption
+    if (myOption) {
+      console.log(myOption)
+    }
+  }
+})
+new Vue({
+  myOption: 'hello!'
+})
+// -> "hello!"
+</script>
+</body>
+</html>

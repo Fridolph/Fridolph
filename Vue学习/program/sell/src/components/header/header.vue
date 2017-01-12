@@ -84,10 +84,10 @@
       }
     },
     methods: {
-      showDetail() {
+      showDetail: function() {
         this.detailShow = true
       },
-      hideDetail() {
+      hideDetail: function() {
         this.detailShow = false
       }
     },

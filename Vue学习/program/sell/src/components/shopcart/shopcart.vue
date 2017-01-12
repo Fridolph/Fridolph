@@ -11,7 +11,7 @@
         <div class="price" :class="{'highlight':totalPrice>0}">￥{{totalPrice}}元</div>
         <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
       </div>
-      <div class="content-right">
+      <div class="content-right" @click.stop.prevent="pay">
         <div class="pay" :class="payClass">
           {{payDesc}}
         </div>
@@ -42,9 +42,7 @@
       </div>
     </div>
   </div>
-  <div class="list-mask" v-show="listShow" transition="fade">
-    
-  </div>
+  <div class="list-mask" @click="hideList" v-show="listShow" transition="fade"></div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -140,7 +138,7 @@
       }
     },
     methods: {
-      drop(el) {
+      drop: function(el) {
         for (let i = 0; i < this.balls.length; i++) {
           let ball = this.balls[i]
 
@@ -153,17 +151,26 @@
           }
         }
       },
-      toggleList() {
+      toggleList: function() {
         if (!this.totalCount) {
           return
         }
 
         this.fold = !this.fold
       },
-      empty() {
+      hideList: function() {
+        this.fold = true
+      },
+      empty: function() {
         this.selectFoods.forEach(food => {
           food.count = 0
         })
+      },
+      pay: function() {
+        if (this.totalPrice < this.minPrice) {
+          return
+        }
+        window.alert(`支付${this.totalPrice}元`)
       }
     },
     transitions: {

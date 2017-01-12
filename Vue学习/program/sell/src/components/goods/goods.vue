@@ -15,7 +15,7 @@
         <li class="food-list food-list-hook" v-for="item in goods">
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li class="food-item " v-for="food in item.foods">
+            <li class="food-item" @click="selectFood(food, $event)" v-for="food in item.foods">
               <div class="icon">
                 <img :src="food.icon" width="56" />
               </div>
@@ -25,10 +25,7 @@
                 <div class="extra">
                   <span class="count">月售{{food.sellCount}}份</span><span>好评率{{food.rating}}%</span>
                 </div>
-                <div class="price">
-                  <span class="now">￥{{food.price}}</span>
-                  <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
-                </div>
+                <price :food="food"></price>
                 <div class="cartcontrol-wrapper">
                   <cartcontrol :food="food"></cartcontrol>
                 </div>
@@ -40,12 +37,15 @@
     </div>
     <shopcart v-ref:shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
+  <food :food="selectedFood" v-ref:food></food>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
   import shopcart from 'components/shopcart/shopcart'
   import cartcontrol from 'components/cartcontrol/cartcontrol'
+  import food from 'components/food/food'
+  import price from 'components/common/price/price'
 
   const ERR_OK = 0
 
@@ -59,7 +59,8 @@
       return {
         goods: [],
         listHeight: [],
-        scrollY: 0
+        scrollY: 0,
+        selectedFood: {}
       }
     },
     computed: {
@@ -103,7 +104,7 @@
       })
     },
     methods: {
-      selectMenu(index, event) {
+      selectMenu: function(index, event) {
         // 自定义事件，用以消除两次点击
         if (!event._constructed) {
           return
@@ -113,13 +114,20 @@
         this.foodsScroll.scrollToElement(el, 300)
         console.log(index)
       },
-      _drop(target) {
+      selectFood: function(food, event) {
+        if (!event._constructed) {
+          return
+        }
+        this.selectedFood = food
+        this.$refs.food.show()
+      },
+      _drop: function(target) {
         // 体验优化，异步执行下落动画
         this.$nextTick(() => {
           this.$refs.shopcart.drop(target)
         })
       },
-      _initScroll() {
+      _initScroll: function() {
         this.menuScroll = new BScroll(this.$els.menuWrapper, {
           click: true
         })
@@ -131,7 +139,7 @@
           this.scrollY = Math.abs(Math.round(pos.y))
         })
       },
-      _calculateHeight() {
+      _calculateHeight: function() {
         let foodList = this.$els.foodsWrapper.getElementsByClassName('food-list-hook')
         let height = 0
 
@@ -146,7 +154,9 @@
     },
     components: {
       shopcart,
-      cartcontrol
+      cartcontrol,
+      food,
+      price,
     },
     events: {
       'cart.add'(target) {
@@ -247,18 +257,7 @@
           .extra
             line-height: 10px
             .count
-              margin-right: 12px
-          .price
-            font-weight: 700
-            line-height: 24px
-            .now
-              margin-right: 8px
-              font-size: 14px
-              color: rgb(240, 20, 20)
-            .old
-              text-decoration: line-through
-              font-size: 10px
-              color: rgb(147, 153, 159)
+              margin-right: 12px          
           .cartcontrol-wrapper
             position: absolute
             right: 0

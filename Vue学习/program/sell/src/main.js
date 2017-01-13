@@ -25,6 +25,9 @@ let router = new VueRouter({
 
 // 定义路由
 router.map({
+  '/': {
+    component: goods
+  },
   '/goods': {
     component: goods
   },
@@ -39,4 +42,4 @@ router.map({
 // 启动路由
 router.start(app, '#app')
 // 设置默认的路由跳转页
-router.go('/goods')
+

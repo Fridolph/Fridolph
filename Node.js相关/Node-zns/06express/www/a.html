@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+用户：<input type="text" id="user"><br>
+密码：<input type="password" id="pass"><br>
+<input type="button" value="注册" id="btn1">
+<!-- <input type="button" value="登录" id="login_btn"> -->
+
+<script src="ajax.js"></script>
+<script>
+var user = document.getElementById('user')
+var pass = document.getElementById('pass')
+var btn1 = document.getElementById('btn1')
+
+btn1.addEventListener('click', function() {
+  ajax({
+    url: '/login',
+    data: {
+      user: user.value,
+      pass: pass.value
+    },
+    success: function(str) {
+      var json = eval('(' + str + ')')
+
+      if (json.ok) {
+        alert('登录成功')
+      } else {
+        alert('登录失败：' + json.msg)
+      }
+    },
+    error: function() {
+      alert('通信失败')
+    }
+  })
+})
+</script>
+</body>
+</html>

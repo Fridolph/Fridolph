@@ -17,15 +17,20 @@
 <script src="../vendor/vue.js"></script>
 <script src="../vendor/vue-resource.js"></script>
 <script>
+// https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=jshow
 var vm = new Vue({
   el: '#app',
   methods: {
     get: function() {
-      this.$http.get('a.txt')
+      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', {
+        wd: 'a'
+      }, {
+        jsonp: 'cb'
+      })
         .then(function(res) {
-          alert(res.data)
+          console.log(res.data.s);
         }, function(res) {
-          console.error(res.data);
+          console.error(res.status);
         })
     }
   }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>模拟百度下拉菜单</title>
+</head>
+<body>
+<div id="box">
+  <input type="text" v-model="text" @keyup="get" />
+  <p v-show="myData.length === 0">暂无数据...</p>
+  <ul>
+    <li v-for="item in myData">
+      {{item}}
+    </li>
+  </ul>
+</div>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/vue-resource.js"></script>
+<script>
+var vm = new Vue({
+  el: '#box',
+  data: {
+    myData: [],
+    text: '',
+
+  },
+  methods: {
+    get: function() {
+      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', {        
+        wd: this.text
+      }, {
+        jsonp: 'cb'
+      })
+        .then(function(res) {
+          this.myData = res.data.s
+        }, function(res) {
+          console.error(err);
+        })
+    }
+  }
+})
+</script>
+</body>
+</html>

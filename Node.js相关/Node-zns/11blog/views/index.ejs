@@ -22,7 +22,7 @@
     <script>
         $(function (){
             var mySwipe=Swipe($('.banner')[0],{
-                auto:2000,
+                auto:5000,
                 continuous:true,
                 stopPropation:true,
                 callback:function (index,element){
@@ -44,9 +44,9 @@
 <div class="content">
     <div class="banner">
       <ul class="clearfix">
-        <% for(var i=0;i<banners.length;i++){ %>
+        <% for (var i = 0; i < banners.length; i++) { %>
         <li>
-          <img src="<%= banners[i].src %>" alt=""/>
+          <img src="<%= banners[i].img_src %>" />
           <div class="text-box">
             <h2><%= banners[i].title %></h2>
             <p><%= banners[i].sub_title %></p>
@@ -59,57 +59,17 @@
           <li></li>
           <li></li>
       </ol>
-    </div>
+    </div>    
     <div class="newsList">
         <ul>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
-            <li>
-                <a href="conText.html">
-                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
-                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
-                </a>
-            </li>
+            <% for (var i=0; i<articles.length; i++) { %>
+                <li>
+                    <a href="/article?id=<%= articles[i].ID %>">                    
+                        <h2><%= articles[i].title %></h2>
+                        <p><%= articles[i].summary %></p>
+                    </a>
+                </li>
+            <% } %>
         </ul>
     </div>
 </div>

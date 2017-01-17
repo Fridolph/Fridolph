@@ -6,6 +6,7 @@ const bodyParser=require('body-parser');
 const multer=require('multer');
 const consolidate=require('consolidate');
 const mysql=require('mysql');
+const common = require('./libs/common')
 
 //连接池
 const db=mysql.createPool({
@@ -42,19 +43,91 @@ server.set('views', './views');
 server.engine('html', consolidate.ejs);
 
 //接收用户请求
-server.get('/', (req, res)=>{
+server.get('/', (req, res, next) => {
   //查询banner的东西
   db.query("SELECT * FROM banner_table", (err, data)=>{
     if(err){
       console.log(err);
       res.status(500).send('database error').end();
     }else{
-      console.log(data);
-      res.render('index.ejs', {banners: data});
+      // console.log('\n拿到了数据库里查到的data: \n', data);      
+      res.banners = data;
+
+      next()
     }
   });
+})
+server.get('/', (req, res, next)=>{
+  // 查询articles列表
+  db.query('SELECT title, summary, ID FROM article_table', (err, data) => {
+    if (err) {
+      res.status(500).send('database error').end()
+    } else {
+      res.articles = data
+      next()      
+    }
+  })
+})
+server.get('/', (req, res) => {
+  res.render('index.ejs', {
+    banners: res.banners,
+    articles: res.articles
+  })
+})
+
+server.get('/article', (req, res)=>{
+  if(req.query.id){
+    if(req.query.act=='like'){
+      //增加一个赞
+      db.query(`UPDATE article_table SET n_like=n_like+1 WHERE ID=${req.query.id}`, (err, data)=>{
+        if(err){
+          res.status(500).send('数据库有小问题').end();
+          console.error(err);
+        }else{
+          //显示文章
+          db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err, data)=>{
+            if(err){
+              res.status(500).send('数据有问题').end();
+            }else{
+              if(data.length==0){
+                res.status(404).send('您请求的文章找不到').end();
+              }else{
+                var articleData=data[0];
+                articleData.sDate=common.time2date(articleData.post_time);
+                articleData.content=articleData.content.replace(/^/gm, '<p>').replace(/$/gm, '</p>');
+
+                res.render('conText.ejs', {
+                  article_data: articleData
+                });
+              }
+            }
+          });
+        }
+      });
+    }else{
+      //显示文章
+      db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err, data)=>{
+        if(err){
+          res.status(500).send('数据有问题').end();
+        }else{
+          if(data.length==0){
+            res.status(404).send('您请求的文章找不到').end();
+          }else{
+            var articleData=data[0];
+            articleData.sDate=common.time2date(articleData.post_time);
+            articleData.content=articleData.content.replace(/^/gm, '<p>').replace(/$/gm, '</p>');
+
+            res.render('conText.ejs', {
+              article_data: articleData
+            });
+          }
+        }
+      });
+    }
+  }else{
+    res.status(404).send('您请求的文章找不到').end();
+  }
 });
-
-
 //4.static数据
-server.use(static('./www'));
+server.use(static('./www/'));
+

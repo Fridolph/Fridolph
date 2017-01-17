@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <title>智能社-http://www.zhinengshe.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/font.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/swipe.js"></script>
+    <script>
+        $(function (){
+            var mySwipe=Swipe($('.banner')[0],{
+                auto:2000,
+                continuous:true,
+                stopPropation:true,
+                callback:function (index,element){
+                    $('.banner ol li').removeClass('active');
+                    $('.banner ol li').eq(index).addClass('active');
+                }
+            });
+        });
+    </script>
+ </head>
+<body>
+<div class="nav">
+    <ul>
+        <li class="active"><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">关注</a></li>
+        <li><a href="javascript:;">栏目</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="banner">
+      <ul class="clearfix">
+        <% for(var i=0;i<banners.length;i++){ %>
+        <li>
+          <img src="<%= banners[i].src %>" alt=""/>
+          <div class="text-box">
+            <h2><%= banners[i].title %></h2>
+            <p><%= banners[i].sub_title %></p>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+      <ol>
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+      </ol>
+    </div>
+    <div class="newsList">
+        <ul>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+            <li>
+                <a href="conText.html">
+                    <h2>还可以降低首付款健身房还可以降低首付款健身房还可以降低首付款健身房333</h2>
+                    <p>还可以降低首付款健还可以降低首付款健身房还可以降低首付款健身房身房还可以降低首付款健还可以降低首付款健身房身房</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="foot-btn">
+    <ul>
+        <li class="home"><a href="index.html"></a></li>
+        <li class="write"><a href="javascript:;"></a></li>
+        <li class="my"><a href="mydoc.html"></a></li>
+    </ul>
+</div>
+</body>
+</html>

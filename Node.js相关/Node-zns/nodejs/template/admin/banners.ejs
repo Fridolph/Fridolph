@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="page">
+    <% include components/top.inc.ejs %>
+    <div class="content-wrap">
+      <div>
+        <form action="?" method="post">
+          标题：<input type="text" name="title" /><br />
+          描述：<textarea name="description"></textarea><br />
+          链接：<input type="text" name="href" /><br />
+          <input type="submit" value="添加" />
+        </form>
+      </div>
+      <%= banners %>
+      <table border="1" width="99%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>标题</th>
+            <th>描述</th>
+            <th>链接</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>我是banner的标题</td>
+            <td>我是banner的标题我是banner的标题我是banner的标题我是banner的标题</td>
+            <td>http://fridolph.top</td>
+            <td>
+              <a href="javascript:;">修改</a>
+              <a href="javascript:;">删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div>修改用的</div>
+    </div>
+  </div>  
+</body>
+</html>

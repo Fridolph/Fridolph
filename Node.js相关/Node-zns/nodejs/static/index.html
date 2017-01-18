@@ -1,0 +1,178 @@
+
+<!DOCTYPE HTML>
+<html ng-app="app">
+<head>
+<title>Learner a education bootstrap Website Template | Home </title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+
+<!-- start slider -->
+<link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+</head>
+<body ng-controller="index">
+<div class="header_bg">
+<div class="container">
+	<div class="row header">
+		<div class="logo navbar-left">
+			<h1><a href="index.html">Learner </a></h1>
+		</div>
+		<div class="h_search navbar-right">
+			<form>
+				<input type="text" class="text" value="Enter text here" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter text here';}">
+				<input type="submit" value="search">
+			</form>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="container">
+	<div class="row h_menu">
+		<nav class="navbar navbar-default navbar-left" role="navigation">
+		    <!-- Brand and toggle get grouped for better mobile display 
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling 
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="index.html">Home</a></li>
+		        <li><a href="technology.html">Technologies</a></li>
+		        <li><a href="about.html">About</a></li>
+		        <li><a href="blog.html">Blog</a></li>
+		        <li><a href="contact.html">Contact</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		    <!-- start soc_icons -->
+		</nav>
+		<div class="soc_icons navbar-right">
+			<ul class="list-unstyled text-center">
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="slider_bg"><!-- start slider -->
+	<div class="container">
+		<div id="da-slider" class="da-slider text-center">
+			<div ng-hide="item.hide" class="da-slide" ng-repeat="item in banners">
+				<h2>{{item.title}}</h2>
+				<p>{{item.description}}</p>
+				<h3 class="da-link"><a href="{{item.href}}" class="fa-btn btn-1 btn-1e">view more</a></h3>
+			</div>
+	   </div>
+	</div>
+</div><!-- end slider -->
+<div class="main_bg"><!-- start main -->
+	<div class="container">
+		<div class="main row">
+			<div class="col-md-3 images_1_of_4 text-center">
+				<span class="bg"><i class="fa fa-globe"></i></span>
+				<h4><a href="#">Sed Porta Dolor</a></h4>
+				<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text 1500s.</p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+			</div>
+			<div class="col-md-3 images_1_of_4 bg1 text-center">
+				<span class="bg"><i class="fa fa-laptop"></i></span>
+				<h4><a href="#">Lorem Ipsum is</a></h4>
+				<p class="para">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+			</div>
+			<div class="col-md-3 images_1_of_4 bg1 text-center">
+				<span class="bg"><i class="fa fa-cog"></i></span>
+				<h4><a href="#">Sed Porta Dolor</a></h4>
+				<p class="para">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32  by H. Rackham.</p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+			</div>
+			<div class="col-md-3 images_1_of_4 bg1 text-center">
+				<span class="bg"><i class="fa fa-shield"></i> </span>
+				<h4><a href="#">Contrary  belief</a></h4>
+				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+			</div>
+		</div>
+	</div>
+</div><!-- end main -->
+<div class="main_btm"><!-- start main_btm -->
+	<div class="container">
+		<div class="main row">
+			<div class="col-md-6 content_left">
+				<img src="images/pic1.jpg" alt="" class="img-responsive">
+			</div>
+			<div class="col-md-6 content_right">
+				<h4>Lorem Ipsum is simply <span>dummy text of the ornare  </span> vulputate printing and  There are many variations of passages.</h4>
+				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words. </p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+			</div>
+		</div>
+				<!----start-img-cursual---->
+					<div id="owl-demo" class="owl-carousel text-center">
+						<div class="item" ng-repeat="item in customs">
+							<div class="cau_left">
+								<img class="lazyOwl" ng-src="upload/{{item.src}}" alt="{{item.title}}">
+							</div>
+							<div class="cau_left">
+								<h4><a href="#">{{item.title}}</a></h4>
+								<p>
+									{{item.description}}
+								</p>
+							</div>
+						</div>
+					</div>
+					<!----//End-img-cursual---->
+	</div>
+	<script type="application/x-javascript"> 
+	addEventListener("load", function() { 
+		setTimeout(hideURLbar, 0); }, false); 
+
+		function hideURLbar(){ window.scrollTo(0,1); 
+	} 
+	</script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="js/angular.js" charset="utf-8"></script>
+	<script>
+		angular.module('app', [])
+
+		.controller('index', function ($scope, $http){
+			$http.get('/get_banners').then(function (res){
+				$scope.banners=res.data;
+
+				for(var i=0;i<$scope.banners.length;i++){
+					$scope.banners[i].hide=true;
+				}
+				$scope.banners[0].hide=false;
+			}, function (){
+				alert('获取数据失败');
+			});
+
+			$http.get('/get_custom_evaluations').then(function (res){
+				$scope.customs=res.data;
+			}, function (){
+				alert('获取客户评价失败');
+			});
+		});
+	</script>
+</div>
+</body>
+</html>

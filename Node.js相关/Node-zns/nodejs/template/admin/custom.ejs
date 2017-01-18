@@ -13,10 +13,10 @@
       <% include components/top.inc.ejs %>
       <div class="content-wrap">
         <div>
-          <form action="?" method="post">
+          <form action="?" method="post" enctype="multipart/form-data">
             标题：<input type="text" name="title" /><br>
             描述：<textarea name="description"></textarea><br>
-            链接：<input type="text" name="href" /><br>
+            头像：<input type="file" name="f1" /><br>
             <input type="submit" value="添加"/>
           </form>
         </div>
@@ -26,20 +26,20 @@
               <th>ID</th>
               <th>标题</th>
               <th>描述</th>
-              <th>链接</th>
+              <th>头像</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
-            <% for(var i=0;i<banners.length;i++){ %>
+            <% for(var i=0;i<evaluations.length;i++){ %>
             <tr>
-              <td><%=banners[i].ID%></td>
-              <td><%=banners[i].title%></td>
-              <td><%=banners[i].description%></td>
-              <td><%=banners[i].href%></td>
+              <td><%=evaluations[i].ID%></td>
+              <td><%=evaluations[i].title%></td>
+              <td><%=evaluations[i].description%></td>
+              <td><img width="32" height="32" src="/upload/<%=evaluations[i].src%>"/></td>
               <td>
-                <a href="?act=mod&id=<%=banners[i].ID%>">修改</a>
-                <a href="?act=del&id=<%=banners[i].ID%>" onclick="return confirm('你真的要删吗？')">删除</a>
+                <a href="?act=mod&id=<%=evaluations[i].ID%>">修改</a>
+                <a href="?act=del&id=<%=evaluations[i].ID%>" onclick="return confirm('你真的要删吗？')">删除</a>
               </td>
             </tr>
             <% } %>
@@ -48,13 +48,13 @@
         <% if(typeof mod_data!='undefined'){ %>
         <div class="shadow"></div>
         <div class="mod_dialog">
-          <form action="?" method="post">
+          <form action="?" method="post" enctype="multipart/form-data">
             <input type="hidden" name="mod_id" value="<%= mod_data.ID %>" />
             标题：<input type="text" name="title" value="<%= mod_data.title %>" /><br>
             描述：<textarea name="description"><%= mod_data.description %></textarea><br>
-            链接：<input type="text" name="href" value="<%= mod_data.href %>" /><br>
+            头像：<input type="file" name="f1" /><br>
             <input type="submit" value="修改"/>
-            <a href="/admin/banners">取消修改</a>
+            <a href="/admin/custom">取消修改</a>
           </form>
         </div>
         <% } %>

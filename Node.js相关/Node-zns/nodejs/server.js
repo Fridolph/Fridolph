@@ -10,13 +10,11 @@ const consolidate=require('consolidate');
 const expressRoute=require('express-route');
 
 var server=express();
-server.listen(8080, () => {
-  console.log('server started. open your browser http://localhost:8080');
-});
+server.listen(8080);
 
 //1.获取请求数据
 //get自带
-server.use(bodyParser());
+server.use(bodyParser.urlencoded());
 server.use(multerObj.any());
 
 //2.cookie、session
@@ -39,8 +37,8 @@ server.set('views', 'template');
 server.set('view engine', 'html');
 
 //4.route
-server.use('/', require('./route/web.js')());
-server.use('/admin/', require('./route/admin.js')());
+server.use('/', require('./route/web')());
+server.use('/admin/', require('./route/admin')());
 
 //5.default：static
 server.use(static('./static/'));

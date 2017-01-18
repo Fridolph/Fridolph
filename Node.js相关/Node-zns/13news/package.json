@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "consolidate": "^0.14.5",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-route": "^0.1.4",
+    "express-static": "^1.0.3",
+    "multer": "^1.2.1",
+    "mysql": "^2.12.0"
+  }
+}

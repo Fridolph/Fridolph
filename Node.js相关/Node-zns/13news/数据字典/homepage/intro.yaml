@@ -1,0 +1,13 @@
+description:  产品介绍的表
+properties:
+  _id:
+    type: int
+  title:
+    type: varchar(32)
+    description: 产品标题
+  desc:
+    type: varchar(300)
+    description: 关于产品的详细描述
+  href:
+    type: varchar(300)
+    description: 产品图跳转的地址

@@ -1,0 +1,13 @@
+description: 用户评价表
+property: 
+  _id:
+    type: int
+  title: 
+    type: varchar(32)
+    description: 用户评价标题
+  desc:
+    type: varchar(200)
+    description: 用户评价信息
+  avatar:
+    type: varchar(200)
+    description: 用户头像地址

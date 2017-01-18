@@ -1,0 +1,19 @@
+description: 新闻列表的表
+properties:
+  _id:
+    type: int
+  title: 
+    type: varchar(100)
+    description: 新闻列表的标题
+  summary: 
+    type: varchar(600)
+    description: 列表简介  
+  icon_src: 
+    type: varchar(300)
+    description: 图标的地址
+  big_pic_src:
+    type: varchar(300)
+    description: 大图的src地址
+  content: 
+    type: text
+    description: 文字内容

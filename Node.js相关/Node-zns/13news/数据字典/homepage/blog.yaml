@@ -1,0 +1,21 @@
+description: blog页面的表
+property:
+  _id:
+    type: int
+  title:
+    type: varchar(64)
+  pic_src:
+    type: varchar(200)
+  pic_big_src:
+    type: varchar(200)
+  summary: 
+    type: varchar(64)
+  content:
+    type: text
+  post_time:
+    type: timestamp
+  author:
+    type: varchar(16)
+  n_view:
+    type: int
+    description: 浏览次数

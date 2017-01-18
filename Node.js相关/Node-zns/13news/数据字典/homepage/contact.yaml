@@ -1,0 +1,16 @@
+description: contact联系我们的表
+properties:
+  _id:
+    type: int
+  street:
+    type: varchar(128)
+  phone:
+    type: varchar(20)
+  fax:
+    type: varchar(20)
+  emial:
+    type: varchar(64)
+  weibo:
+    type: varchar(64)
+  weixin:
+    type: varchar(16)

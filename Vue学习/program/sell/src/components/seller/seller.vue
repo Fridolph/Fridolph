@@ -1,5 +1,5 @@
 <template>
-  <div class="seller">
+  <div class="seller" v-el:seller>
     <div class="seller-content">
       <div class="overview">
         <h1 class="title">{{ seller.name }}</h1>
@@ -42,11 +42,16 @@
           </li>
         </ul>
       </div>
+      <split></split>
+      <div class="pics">
+        <h1 class="title">商家实景</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <script type="ecmascript-6">
+  import BScroll from 'better-scroll';
   import star from 'components/star/star'
   import split from 'components/common/split/split'
 
@@ -58,6 +63,25 @@
     },
     created() {
       this.classMap = ['decreaase', 'discount', 'special', 'invoice', 'guarantee']
+    },        
+    methods: {
+      _initScroll() {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$els.seller, {
+            click: true
+          })
+        } else {
+          this.scroll.refresh();
+        }
+      }
+    },
+    watch: {
+      'seller'() {
+        this._initScroll()
+      }
+    },
+    ready() {
+      this._initScroll()
     },
     components: {
       star,
@@ -133,9 +157,35 @@
           font-size: 12px
           color: rgb(240,20,20)
       .supports
-        .supports-item
+        .support-item
           padding: 16px 12px
           font-size: 0
           border-1px(rgba(7,17,27,0.1))
+          &:last-child
+            border-none()
+        .icon
+          display: inline-block
+          width: 16px
+          height: 16px
+          vertical-align: top
+          margin-right: 6px
+          background-size: 16px 16px
+          background-repeat: no-repeat
+          &.decreaase
+            bg-image('decrease_4')
+          &.discount
+            bg-image('discount_4')
+          &.special
+            bg-image('special_4')
+          &.invoice
+            bg-image('invoice_4')
+          &.guarantee
+            bg-image('guarantee_4')
+        .text
+          display: inline-block
+          vertical-align: top
+          line-height: 16px
+          font-size: 12px
+          color: rgb(7,17,27)
           
 </style>

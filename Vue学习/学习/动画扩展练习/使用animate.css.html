@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>自定义过渡类名</title>
+<link href="../../vendor/animate.css" rel="stylesheet" type="text/css">
+<style>
+  .box{margin:10px;box-sizing:border-box; padding:20px;line-height: 30px;width:130px;height:130px;background-color: pink;}
+</style>
+</head>
+<body>
+<div id="app">
+  <h1>Animate.css的Vue各种用法小例</h1>
+
+  <h2>bounce</h2>
+  
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated bounce"
+      leave-active-class="animated bounce"
+    >
+    <button @click="show = !show">Ni hao ma </button>
+    </transition>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    show: true,
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>好高兴啊，今天我买了一个iphone<%= a %>s</h1>
+    <ul>
+        <%
+            for(var i = 0 ; i < news.length ; i++){
+                if(news[i].count > 15){
+        %>
+                <li><%= news[i].title %></li>
+        <%
+                }
+            }
+        %>
+    </ul>
+</body>
+</html>

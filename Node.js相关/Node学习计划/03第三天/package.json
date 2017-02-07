@@ -1,0 +1,17 @@
+{
+  "name": "day3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "jade": "^1.11.0"
+  }
+}

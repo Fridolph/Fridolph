@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        table,tr,td{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        tr:nth-child(2n){
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>学生管理系统</h1>
+    <a href="/add">添加学生</a>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>数学分数</th>
+            <th>语文分数</th>
+        </tr>
+        <% for(var i = 0 ; i < result.length ; i++){%>
+            <tr>
+                <td><%= result[i].name %></td>
+                <td><%= result[i].age %></td>
+                <td><%= result[i].score.yuwen %></td>
+                <td><%= result[i].score.shuxue %></td>
+            </tr>
+        <%}%>
+    </table>
+</body>
+</html>

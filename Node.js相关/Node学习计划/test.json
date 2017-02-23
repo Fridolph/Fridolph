@@ -1,0 +1,5 @@
+{"name": "小明", "age": 12, "hobby": ["睡觉", "吃饭"], "score": {"yuwen": 58, "shuxue": 80}}
+{"name": "小红", "age": 11, "hobby": ["学习", "看书"], "score": {"yuwen": 100, "shuxue": 86}}
+{"name": "小强", "age": 13, "hobby": ["打架"], "score": {"yuwen": 10, "shuxue": 20}}
+{"name": "小陈", "age": 10, "hobby": ["打架", "睡觉"], "score": {"yuwen": 60, "shuxue": 60}}
+{"name": "小张", "age": 12, "hobby": ["打架", "睡觉"], "score": {"yuwen": 60, "shuxue": 80}}

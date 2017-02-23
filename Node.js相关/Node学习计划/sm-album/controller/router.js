@@ -1,4 +1,5 @@
 var fileLib = require('../models/file')
+var formidable = require('formidable')
 
 //首页
 exports.showIndex = function(req,res,next){
@@ -38,3 +39,25 @@ exports.showAlbum = function(req,res,next){
         });
     });
 };
+
+// 显示上传
+exports.showUp = function(req, res) {
+    file.getAllAlbums(function(err, albums) {
+        res.render('up', {
+            albums: albums
+        })
+    })
+}
+
+// 上传表单
+exports.doPost = function(req, res) {
+    var form = new formidable.IncomingForm();
+
+    form.parse(req, function(err, fields, files) {
+        
+        console.log(fields);
+        console.log(files);
+    });
+
+    res.send('上传成功')
+}

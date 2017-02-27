@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // IIFE的好处：
+  // 避免污染全局命名空间，
+  (function() {
+    var a = 10;
+
+    function $() {
+      alert(a)
+    }
+
+    window.$ = $;
+  })()
+
+  // alert(a);
+  $();
+</script>
+</body>
+</html>

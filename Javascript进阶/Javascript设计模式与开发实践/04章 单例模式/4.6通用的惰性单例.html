@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>通用的惰性单例</title>
+</head>
+<body>
+  <!-- 
+    惰性单例是指在需要的时候才创建对象实例。惰性单例是单例模式的重点
+   -->
+  <!-- 
+   -->
+  <button id="loginBtn">登录</button>
+  <!-- 
+  <script>
+    var createIframe = (function() {
+      var iframe;
+
+      return function() {
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+        }
+        return iframe;
+      }
+    })();
+
+    // 我们需要把不变的部分隔离出来，先不考虑创建一个div和创建一个iframe有多少差异，管理单例的逻辑其实是完全可以抽象出来的，这个逻辑始终是一样的，用一个变量来标志是否创建过对象，如果是，则在下次直接返回这个已经创建好的对象：
+    var obj;
+    if (!obj) {
+      obj = xxx;
+    }
+  </script>    
+  -->
+  <script>
+    var getSingle = function(fn) {
+      var result;
+
+      return function() {
+        return result || (result = fn.apply(this, arguments));
+      }
+    }
+    /**
+     * 接下来将用于创建登录浮窗的方法用参数fn的形式传入getSingle, 我们不仅可以传入createLoginLayer，还能传入createScript、createIframe、createXhr等。
+     * 之后再让getSingle返回一个新的函数，并且用一个变量result来保存fn的计算结果。
+     * result变量在闭包中不会被销毁，在将来的请求中，如果result已被赋值，那么将返回这个值，代码如下：
+     */
+    
+    var createLoginLayer = function() {
+      var div = document.createElement('div');
+      div.innerHTML = '我是登录浮窗';
+      div.style.display = 'none';
+      document.body.appendChild('div');
+      return div;
+    }
+
+    var createSingleLoginLayer = getSingle(createLoginLayer);
+
+    document.getElementById('loginBtn').onclick = function() {
+      var loginLayer = craeteSingleLoginLayer();
+
+      loginLayer.style.display = 'block';
+    }
+
+    // 下面我们再试试创建唯一的iframe用于动态加载第三方页面：
+    var createSingleIframe = getSingle(function() {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'block';
+      iframe.style.width = '800px';
+      iframe.style.height = '600px';
+      document.body.appendChild(iframe);      
+      return iframe;
+    });
+
+    document.getElementById('loginBtn').onclick = function() {
+      var loginLayer = createSingleIframe();
+      loginLayer.src = "http://baidu.com";
+    }
+    /**
+     * 在这个例子中，我们把创建实例对象的职责和管理单例的职责分别放置在两个方法里，
+     * 这两个方法可以独立变化而互不影响，当它们连接在一起的时候，就完成了创建唯一实例对象的功能，
+     */
+  </script>
+</body>
+</html>

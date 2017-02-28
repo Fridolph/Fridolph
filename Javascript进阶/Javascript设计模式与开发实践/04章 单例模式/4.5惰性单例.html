@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>惰性单例</title>
+</head>
+<body>
+  <!-- 
+    惰性单例是指在需要的时候才创建对象实例。惰性单例是单例模式的重点
+   -->
+
+  <button id="loginBtn">登录</button>
+  <!-- 
+  <script>
+    var loginLayer = (function() {
+      var div = document.createElement('div');
+      div.innerHTML = '我是登录浮窗';
+      div.style.display = 'none';
+      document.body.appendChild(div);
+      return div;
+    })();
+
+    document.getElementById('loginBtn').onclick = function() {
+      var loginLayer = createLoginLayer();
+      loginLayer.style.display = 'block';
+    }
+  </script>
+   -->
+  
+  <script>
+    var createLoginLayer = (function() {
+      var div;
+
+      return function() {
+        if (!div) {
+          div = document.createElement('div');
+          div.innerHTML = '我是登录浮窗';
+          div.style.display = 'none';
+          document.body.appendChild(div);
+        }
+        return div;
+      }
+    })();
+
+    document.getElementById('loginBtn').onclick = function() {
+      var loginLayer = createLoginLayer();
+
+      loginLayer.style.display = 'block';
+    }
+  </script>    
+  
+</body>
+</html>

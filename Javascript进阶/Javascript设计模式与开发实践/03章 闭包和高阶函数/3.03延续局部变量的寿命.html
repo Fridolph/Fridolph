@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 2. 延续局部变量的寿命
+    // img对象经常用于进行数据上报
+    var report = function(src) {
+      var img = new Image();
+
+      img.src = src;
+    }
+
+    report('http://xxx.com/getUserInfo')
+    // 但是通过查询后台的记录我们得知，因为一些低版本的浏览器实现存在BUG
+    // 在这些浏览器下使用report函数进行数据上报会丢失30%左右的数据，也就是说
+    // report函数并不是每一次都成功发起了HTTP请求。  
+    // 
+    // 丢失数据的原因是img是report函数中的局部变量，所以此次请求就会丢失掉。
+    // 现在我们把img变量用闭包封闭起来，便能解决请求丢失的问题。
+    var report = (function(){
+      var imgs = []
+
+      return function(src) {
+        var img = new Image();
+
+        imgs.push(img);
+        img.src = src;
+      }
+    })()
+  </script>
+</body>
+</html>

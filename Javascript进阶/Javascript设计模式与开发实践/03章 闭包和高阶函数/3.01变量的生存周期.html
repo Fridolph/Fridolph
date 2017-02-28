@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>变量的生存周期</title>
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+
+  <script>
+    /*var func = function() {
+      var a = 1;
+      return function() {
+        a++;
+        console.log(a);
+      }
+    }
+
+    var f = func();*/
+
+    var nodes = document.getElementsByTagName('div');
+
+    /*for ( var i=0, len = nodes.length; i<len; i++ ) {
+      nodes[i].onclick = function() {
+        console.log(i)
+      }
+    }*/
+
+    // 上面点击每个都是5的解决办法
+    /*for ( var i=0, len=nodes.length; i<len; i++ ) {
+      (function(i) {
+        nodes[i].onclick = function() {
+          console.log(i + 1);
+        }
+      })(i)
+    }*/
+
+    //同理可下如下代码
+    var Type = {}
+
+    for ( var i=0, type; type=['String', 'Array', 'Number'][i++]; ) {
+      (function(type) {
+        Type[ 'is' + type ] = function(obj) {
+          return Object.prototype.toString.call(obj) === '[object ' + type + ']';
+        }
+      })(type)
+    }
+
+    Type.isArray( [] );
+    Type.isString( "str" );
+    Type.isNumber( 123 );
+  </script>
+</body>
+</html>

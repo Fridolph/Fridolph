@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>闭包的更多作用</title>
+</head>
+<body>
+  
+  <script>
+  // 1. 封装变量
+  /*var mult = function() {
+    var a = 1;
+    for ( var i=0, l=arguments.length; i<l; i++ ) {
+      a = a * arguments[i];
+    }
+    return a;
+  }*/
+  // mult函数接受一些number类型的参数, 并返回这些参数的乘积。
+  // 现在我们觉得对于这些相同的参数来说，每次都进行计算是一种浪费
+  // 我们可以加入缓存机制来提高这个函数的性能。
+  
+  /*var cache = {}
+
+  var mult = function() {
+    var args = Array.prototype.join.call(arguments, ',');
+
+    if ( cache[args] ) {
+      return cache[args]
+    }
+
+    var a = 1;
+
+    for ( var i=0, l=arguments.length; i<l; i++ ) {
+      a = a * arguments[i]
+    }
+    return cache[ args ] = a;
+  }
+
+  console.log( mult(1, 2, 3) );
+  console.log( mult(1, 2, 3, 4, 5) );*/
+
+  // 我们看到cache这个变量仅在mult函数中被使用，与其让cache变量跟mult函数一起平行地暴露在全局作用域下，
+  // 不如把它封闭在mult函数内部，这样可以减少页面中的全局变量，
+  // 以避免这个变量在其他地方被不小心修改而引发错误。
+
+  /*var mult = (function() {
+    var cache = {};
+
+    return function() {
+      var args = Array.prototype.join.call(arguments, ',');
+
+      if ( args in cache ) {
+        return cache[args]
+      }
+      var a = 1;
+
+      for ( var i=0, l=arguments.length; i<l; i++ ) {
+        a = a * arguments[i];
+      }
+      return cache[args] = a;
+    }
+  })()*/
+
+  </script>
+  <script>
+    /**
+     * 提炼函数是代码才重构中的一种常见技巧。如果在一个大函数中有一些代码块能够独立出来，
+     * 我们常常把这些代码块封装在独立的小函数里面。独立出来的小函数有助于代码复用
+     *
+     * 如果这些函数有一个良好的命名，它们本身也起到了注释的作用。
+     * 如果这些小函数不需要在程序的其他地方使用，最好是把它们用闭包封闭起来。代码如下：     * 
+     */
+    
+    var mult = (function() {
+      var cache = {}
+      var calculate = function() {
+        // 封闭calculate函数
+        var a = 1;
+        for ( var i=0, l=arguments.length; i<l; i++ ) {
+          a = a * arguments[i];
+        }
+        return a;
+      };
+
+      return function() {
+        var args = Array.prototype.join.call(arguments, ",");
+
+        if ( args in cache ) {
+          return cache[args]
+        }
+        return cache[args] = calculate.apply(null, arguments)
+      }
+    })()
+  </script>
+
+</body>
+</html>

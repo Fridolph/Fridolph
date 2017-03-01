@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>虚拟代理实现图片预加载</title>
+</head>
+<body>
+  <script type="text/javascript">
+  /**
+   * 首先创建一个普通的本体对象，这个对象负责往页面中创建一个img标签，并提供一个对外的setSrc接口。
+   * 外界调用这个接口，便可以给该img标签设置src属性：
+   */
+    var myImage = (function() {
+      var imgNode = document.createElement('img');
+      document.body.appendChild(imgNode);
+
+      return {
+        setSrc: function(src) {
+          imgNode.src = src;
+        }
+      }
+    })();
+    var proxyImage = (function() {
+      var img = new Image;
+      img.onload = function() {
+        myImage.setSrc(this.src)
+      }
+      return {
+        setSrc: function(src) {
+          myImage.setSrc('file://C:/Users/Luffy/Desktop/me.jpg');
+          img.src = src;
+        }
+      }
+    })();
+
+    proxyImage.setSrc('http://blog.fridolph.top/wp-content/uploads/2016/11/%E4%BF%A1%E4%BB%B0.jpg')
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>代理和本体接口的一致性</title>
+</head>
+<body>
+  <script type="text/javascript">
+  /**
+   * 如果有天我们不需要预加载，那么就不再需要代理对象，可以选择直接请求本体。
+   * 其中关键是代理对象和本体都对外提供了setSrc方法
+   * 用户可以放心地请求代理，他只关心是否能得到想要的结果
+   * 在任何使用本地的地方都可以替换成使用代理
+   *
+   * 如果代理对象和本体对象都为一个函数，函数必然都能被执行，则可以认为它们也具有一致的接口，
+   * 代码如下：
+   */
+    var MyImage = (function() {
+      var imgNode = document.createElement('img');
+      document.body.appendChild(imgNode);
+
+      return function(src) {
+        imgNode.src = src;
+      }
+    })();
+
+    var proxyImage = (function() {
+      var img = new Image;
+
+      img.onload = function() {
+        myImage(this.src);
+      }
+
+      return function(src) {
+        myImage('file://C:/Users/Luffy/Desktop/me.jpg');
+        img.src = src;
+      }
+    })();
+
+    proxyImage('http://blog.fridolph.top/wp-content/uploads/2016/11/%E4%BF%A1%E4%BB%B0.jpg');
+  </script>
+
+</body>
+</html>

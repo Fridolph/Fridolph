@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  html, body{margin: 0; padding: 0;}
+  .div {
+    position: absolute;
+    background-color: pink; 
+    width: 100px;height:100px;
+  }
+  </style>
+</head>
+<body>  
+  <div class="div" id="div">
+    我是div
+  </div>
+
+  <script type="text/javascript">
+    /**
+     * 动画开始时，小球所在的原始位置
+     * 小球移动的目标位置
+     * 动画开始时的准确时间点
+     * 小球运动持续时间
+     *
+     * 用setInterval创建一个定时器，每19ms循环一次。在定时器的每一帧，我们把上述4个值传入缓动算法。
+     * 通过计算，得出小球当前所在位置。最后再更新该div对应的css属性，小球就能动起来。
+     */
+    
+    var tween = {
+      linear: function(t,b,c,d) {
+        return c * t / d + b;
+      },
+      easeIn: function(t,b,c,d) {
+        return c * (t /= d) * t + b;
+      },
+      strongEaseIn: function(t,b,c,d) {
+        return c * (t /= d) * t * t * t * t + b;
+      },
+      strongEaseOut: function(t,b,c,d) {
+        return c * ( (t = t / d - 1) * t * t * t * t + 1 ) + b;
+      },
+      sineaseIn: function(t,b,c,d) {
+        return c * (t /= d) * t * t + b;
+      },
+      sineaseOut: function(t,b,c,d) {
+        return c * ( (t = t / d - 1) * t * t + 1) + b;
+      }
+    }
+
+    var Animate = function(dom) {
+      this.dom = dom;             // 进行运动的DOM节点
+      this.startTime = 0;         // 动画开始时间
+      this.startPos = 0;          // 动画开始时，DOM节点的位置，即DOM的初始位置
+      this.endPos = 0;            // 动画结束时，DOM节点的位置，即DOM的目标位置
+      this.propertyName = null;   // DOM节点需要被改变的css属性名
+      this.easing = null;         // 缓动算法
+      this.duration = null;       // 动画持续时间
+    }
+
+    /**
+     * 接下来Animate.prototype.start 方法负责启动这个动画，在动画被启动的瞬间，要记录一些信息，
+     * 供缓动算法在以后计算小球当前位置时用。记录完后，此方法负责启动定时器，代码如下：
+     */
+    
+    // Animate.prototype.start接受以下4个参数:
+    // propertyName: 要改变的css属性名
+    // endPos: 小球运动的目标位置
+    // duration: 动画持续时间
+    // easing: 缓动算法
+    Animate.prototype.start = function(propertyName, endPos, duration, easing) {
+      this.startTime = +new Date();      // 动画启动时间
+      this.startPos = this.dom.getBoundingClientRect()[propertyName]; // DOM节点初始位置
+      this.propertyName = propertyName;  // DOM节点需要被改变的css属性名
+      this.endPos = endPos;              // DOM节点目标位置
+      this.duration = duration;          // 动画持续时间
+      this.easing = tween[easing];       // 缓动算法
+
+      var self = this;
+      var timeId = setInterval(function() { // 启动定时器，开始执行动画
+        if (self.step() === false) {        // 如果动画结束，则清除定时器
+          clearInterval(timeId);
+        }
+      }, 19); 
+    }
+
+    /**
+     * 该方法代表小球运动的每一帧要做的事
+     * 该方法负责计算小球的当前位置和调用更新css属性值的方法Animate.prototype.update
+     */
+    Animate.prototype.step = function() {
+      var t = +new Date();
+
+      if (t >= this.startTime + this.duration) {
+        this.update(this.endPos);
+        return false;
+      }
+      // pos: 小球的当前位置
+      var pos = this.easing(t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration);
+      // 更新小球的css属性
+      this.update(pos);
+    }
+
+    /**
+     * 负责更新小球css属性值的Animate.prototype.update方法
+     */
+    Animate.prototype.update = function(pos) {
+      this.dom.style[this.propertyName] = pos + 'px';
+    }
+  </script>
+  <script type="text/javascript">
+    // 进行测试
+    var div = document.getElementById('div');
+    var animate = new Animate(div);
+
+    // animate.start('left', 500, 1000, 'strongEaseOut');
+    animate.start('left', 800, 2000, 'easeIn');
+  </script>
+</body>
+</html>

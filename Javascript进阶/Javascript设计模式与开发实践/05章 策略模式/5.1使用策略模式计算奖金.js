@@ -103,7 +103,7 @@ Bonus.prototype.getBonus = function() { // 取得奖金数额
 
 var bonus = new Bonus();
 
-bonus.setSalary(10000);
+bonus.setSalary(10000)
 bonus.setStrategy(new performanceS()); // 设置策略对象
 
 console.log(bonus.getBonus());

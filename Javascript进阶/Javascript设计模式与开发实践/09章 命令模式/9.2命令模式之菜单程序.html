@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>命令模式之菜单程序</title>
+</head>
+<body>
+  <button id="btn1">按钮1</button>
+  <button id="btn2">按钮2</button>
+  <button id="btn3">按钮3</button>
+
+  <script type="text/javascript">
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var btn3 = document.getElementById('btn3');
+
+  /**
+   * 接下来定义setCommand函数，setCommand函数负责往按钮上安装命令。
+   * 点击按钮执行某command命令，该动作被约定为调用command对象的execute()方法。
+   */
+    var setCommand = function(btn, command) {
+      btn.onclick = function() {
+        command.execute();
+      }
+    }
+  /**
+   * 最后，负责编写点击按钮之后的具体行为 —— 刷新菜单、增加子菜单、删除子菜单
+   * 这几个功能被分布在MenuBar和SubMenu这两个对象中
+   */
+    var MenuBar = {
+      refresh: function() {
+        console.log('刷新菜单目录');
+      }
+    };
+
+    var SubMenu = {
+      add: function() {
+        console.log('增加子菜单');
+      },
+      del: function() {
+        console.log('删除子菜单');
+      }
+    }
+  /**
+   * 在让button变得有用之前，我们要先把这些行为都封装在命令中
+   */
+    var RefreshMenuBarCommand = function(receiver) {
+      this.receiver = receiver;
+    };
+
+    RefreshMenuBarCommand.prototype.execute = function() {
+      this.receiver.refresh();
+    }
+
+    var AddSubMenuCommand = function(receiver) {
+      this.receiver = receiver;
+    };
+
+    AddSubMenuCommand.prototype.execute = function() {
+      this.receiver.add();
+    }
+
+    var DelSubMenuCommand = function(receiver) {
+      this.receiver = receiver;
+    };
+
+    DelSubMenuCommand.prototype.execute = function() {
+      console.log('删除子菜单');
+    }
+
+  /**
+   * 最后就是把命令接收者传入到command对象中，并且把command对象安装到button上面：
+   */
+    var refreshMenuBarCommand = new RefreshMenuBarCommand(MenuBar);
+    var addSubMenuCommand = new AddSubMenuCommand(SubMenu);
+    var delMenuBarCommand = new DelSubMenuCommand(SubMenu);
+
+    setCommand(btn1, refreshMenuBarCommand);
+    setCommand(btn2, addSubMenuCommand);
+    setCommand(btn3, delMenuBarCommand);
+  </script>
+</body>
+</html>

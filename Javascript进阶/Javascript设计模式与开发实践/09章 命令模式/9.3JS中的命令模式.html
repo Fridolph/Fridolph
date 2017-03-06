@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>JS中的命令模式</title>
+</head>
+<body>
+  <button id="btn1">按钮1</button>
+  <button id="btn2">按钮2</button>
+  <button id="btn3">按钮3</button>
+  
+  <!--
+  <script type="text/javascript">
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var btn3 = document.getElementById('btn3');
+
+    var bindClick = function(btn, func) {
+      btn.onclick = func;
+    };
+
+    var MenuBar = {
+      refresh: function() {
+        console.log('刷新菜单目录');
+      }
+    };
+
+    var SubMenu = {
+      add: function() {
+        console.log('增加子菜单');
+      },
+      del: function() {
+        console.log('删除子菜单');
+      }
+    };
+
+    bindClick(btn1, MenuBar.refresh);
+    bindClick(btn2, SubMenu.add);
+    bindClick(btn3, SubMenu.del);
+  </script>
+  -->
+
+  <script type="text/javascript">
+  /**
+   * 在面向对象设计中，命令模式的接收者被当成command对象的属性保存起来，同时约定执行命令的操作调用command.execute方法。 
+   * 使用闭包的命令模式实现中，接收者被封闭在闭包产生的环境中，执行命令的操作可以更简单，仅执行回调函数即可。无论接收者被保存为对象的属性还是被封闭在闭包产生的环境中，在将来执行命令时，接收者都能被顺利访问。
+   * 用闭包实现的命令模式，代码如下：
+   */    
+    var setCommand = function(btn, func) {
+      btn.onclick = function() {
+        func();
+      }
+    };
+
+    var MenuBar = {
+      refresh: function() {
+        console.log('刷新菜单目录');
+      }
+    };
+
+    var SubMenu = {
+      add: function() {
+        console.log('增加子菜单');
+      },
+      del: function() {
+        console.log('删除子菜单');
+      }
+    };
+
+    var RefreshMenuBarCommand = function(receiver) {
+      return {
+        execute: function() {
+          receiver.refresh();
+        }
+      }
+    };
+
+    var setCommand = function(btn, command) {
+      btn.onclick = function() {
+        command.execute();
+      }
+    };
+
+    var refreshMenuBarCommand = RefreshMenuBarCommand(MenuBar);
+    setCommand(btn1, refreshMenuBarCommand);    
+  </script>
+</body>
+</html>

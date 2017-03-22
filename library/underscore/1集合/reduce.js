@@ -4,3 +4,7 @@ var _ = require('underscore');
 // Memo是reduce函数的初始值，reduce的每一步都需要由iteratee返回。
 // 这个迭代传递4个参数：memo,value 和 迭代的index（或者 key）和最后一个引用的整个 list。
 
+var sum = _.reduce([1, 2, 3], function(memo, num) { 
+  console.log(memo + num);
+  return memo + num 
+}, 0);

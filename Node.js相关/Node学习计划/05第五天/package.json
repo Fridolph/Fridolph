@@ -1,0 +1,21 @@
+{
+  "name": "learn-node-05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "translate": "node_modules/babel-cli/bin/babel-node.js src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.25"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-preset-stage-3": "^6.22.0"
+  }
+}

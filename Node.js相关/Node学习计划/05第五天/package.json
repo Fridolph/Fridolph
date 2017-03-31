@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.2",
+    "formidable": "^1.1.1",
     "mongodb": "^2.2.25"
   },
   "devDependencies": {

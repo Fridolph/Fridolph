@@ -5,7 +5,7 @@ var db = require('./model/db')
 app.get('/', (req, res) => {
   db.insertOne('teacher', {
     'name': `yk ${Math.random()}`,
-    'age': parseInt(Math.random()*10) + 20
+    'age': parseInt(Math.random() * 10) + 20
   }, (err, result) => {
     if (err) {
       console.log('插入失败');
@@ -37,8 +37,11 @@ app.get('/du', (req, res) => {
   var page = parseInt(req.query.page);
 
   // 查找4个参数，在哪个集合查，查什么(条件)，分页设置，查完之后做什么
-  db.find('teacher', {'age': {$gt: 18}}, {
-    'pageAmount': 5, 'page': page
+  db.find('teacher', {
+    'age': { $gt: 18 }
+  }, {
+    'pageAmount': 5,
+    'page': page
   }, (err, result) => {
     if (err) {
       console.error(err);
@@ -47,13 +50,32 @@ app.get('/du', (req, res) => {
   });
 });
 
-app.get('/delete', (req, res) => {
-  var restaurant_id = parseInt(req.query.id);
+app.get('/shan', (req, res) => {
+  var restaurant_id = req.query.id;
   db.deleteMany('canguan', {
     'restaurant_id': restaurant_id
-  }, (req, res) => {
-    res.send(result)
+  }, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(result);
   });
+});
+
+app.get('/xiugai', (req, res) => {
+  db.updateMany(
+    'canguan',  // 集合名
+    {
+      'restaurant_id': 2   // 改什么
+    }, 
+    {
+      $set: { 'name': '修改了' } // 怎么改
+    }, 
+    (err, data) => { // 改完后做什么
+      if (err) console.log(err);
+      res.send(data)
+    }
+  );
 });
 
 

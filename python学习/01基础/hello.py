@@ -7,4 +7,3 @@ print(message);
 
 message = 'hello world';
 print(message);
-print(mesage);

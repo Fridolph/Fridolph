@@ -51,14 +51,16 @@ where([{
 function where(collection, source) {
   var arr = [];
   var keys = Object.keys(source);
-  // console.log(keys);   //  keys -> ['last']
-
+  // console.log(keys);
   arr = collection.filter(item => {
     for (var i = 0; i < keys.length; i++) {
-      console.log(!item.hasOwnProperty(keys[i]));
+      if (!item.hasOwnProperty(keys[i]) || item[keys[i]] !== source[keys[i]]) {
+        return false;
+      }
     }
+    return true;
   });
 
-  // console.log(arr);
+  console.log(arr);
   return arr;
 }

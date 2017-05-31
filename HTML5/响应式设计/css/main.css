@@ -1,0 +1,702 @@
+/**
+ * 课程感受： 
+ *
+ * 作为一个自认为有基础的前端小菜，这128一开始我是拒绝的。
+ * 作为十天精通css3的受益者… 还是不情愿地开学了。 说好的十小时，不过认真做完，远不止10小时。废话不扯了，说点感受吧，这128很值，主要是以下几方面：
+ * 1、由浅到深，从理解到“了解”响应式
+ * 2、之所以专业，是因为细节。那些不被重视的，humans.txt robots.txt markdown文本决定了你是否是个专业的程序猿
+ * 3、响应式的浏览器调试（说真的，我之前一直用chrome还真不知道可以这么玩，再次感谢老师）
+ * 4、owl2，又了解了一款好用的好插件（及选择思想）
+ * 5、打印样式等（为更多人群，如残疾，色弱）一般人看来没什么luan用的东西…… 但这决定了专业精神与职业素养
+ *
+ */
+
+/**
+ * 页面样式
+ */
+
+/* ============
+   基本默认值
+   ============ */
+
+html {
+  font-size:62.5%;
+  color:#333;
+}
+
+::section {
+  background-color: #b3d4fc;
+  text-shadow: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* ============
+   工具样式
+   ============ */
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.pull-right {
+  float: left !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear:both;
+  visibility: hidden;
+}
+
+/**
+ * 另一种清除浮动的方案
+ * 好处是还可以防止上下margin重叠
+ */
+/* .clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+} */
+
+/* 
+    触发BFC即可清除浮动，以下属性皆可
+    Block Formatting Context
+
+    .bfc {
+      float: left;
+      
+      overflow: auto;
+      display: table-cell;
+      display: table-caption;
+      display: inline-block;
+      position: fixed;
+      position: absolute;
+    } 
+*/
+
+/*
+  写响应式的三个断点
+
+  @media only screen and (max-width: 50em) {}
+  @media only screen and (min-width: 30.0625) and (max-width: 50em) {}
+  @media only screen and (max-width: 30em) {}
+
+ */
+
+
+/* ===============
+    自定义界面样式
+   =============== */
+
+
+body {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+}
+
+a {
+  color:#666;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: #0ae;
+  text-decoration: underline;
+}
+
+
+/* 网站头部 */
+header {width:100%;}
+
+.top {
+  line-height: 3rem;
+  padding: 0 1.5rem;
+  color: #fff;
+  background: #555;
+  border-bottom: 1px solid #ecc000;
+
+}
+.top .tel {
+  float: left;
+}
+.top ul {
+  text-align: right;
+}
+.top ul li {
+  display: inline-block;
+}
+.top ul li + li {
+  border-left: 1px solid #999;
+  margin-left: 3px;
+}
+.top ul li a {
+  display: inline-block;
+  padding: 0 1.5rem;
+  color: #fff;
+}
+
+.main {
+  padding: 0;  
+}
+.main .brand {
+  float: left;
+  padding: 1rem 1.5rem 0;
+}
+.main ul {
+  text-align: right;  
+}
+.main ul li {
+  display: inline-block;
+  border-left: 1px solid #f0ede9;
+}
+.main ul li a{
+  display: inline-block;
+  padding: 0 2.5rem;
+  line-height: 5.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #7c7a65;
+  text-decoration: none;
+}
+.main ul li a:hover,
+.main ul li a:active {
+  color: #ffb300;
+  background-color: #f8f6f1;
+}
+
+@media  (max-width: 50em) {
+  .top ul li a{ pading: 0 1rem; }
+  .main .brand { float:none; display:block; padding: 0; margin: 1.5rem auto 0.5rem; text-align: center;}
+  .main ul {text-align: center;}
+  .main ul li {border: none;}
+  .main ul li a {padding: 0 1.5rem;}
+}
+@media (min-width: 30.0625em) and (max-width: 50em) {
+  .top ul li:nth-child(3), 
+  .top ul li:nth-child(4) { display: none; }
+
+  .main ul li a {font-size: 1.4rem; font-weight: normal;  padding: 0 1rem;}
+
+}
+@media (max-width: 30em) {
+  .top .tel,
+  .top ul li:nth-child(3), 
+  .top ul li:nth-child(4) { display: none; }
+
+  .main ul li {line-height: 3rem;}
+  .main ul li:first-child {display:none;}
+  .main ul li a {font-weight: normal; padding: 0 0.4rem;}
+}
+
+/*  -------------- 网站主要内容 -------------- */
+.container {
+  width: 100%;
+}
+
+/* 交易信息 */
+
+.transaction {
+  width: 100%;
+  background-color: #7c7365;
+}
+.trans-content {
+  max-width: 90%;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+.trans-data {
+  float: left;
+  padding: 1rem;
+  text-align: left;
+}
+.trans-data span {
+  display: inline-block;
+  line-height: 3rem;
+  color: #fff;
+}
+.trans-data .trans-money {
+  font-size: 2.2rem;
+  color: #ff9900;
+  letter-spacing: 3px;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  border-radius: 3px;
+  background-color: rgba(255,255,255,.9);
+  box-shadow: 1px 2px 1px #333 inset;
+}
+.trans-report {
+  text-align: right;
+}
+.trans-report a {
+  display: inline-block;
+  padding: 1rem;
+  line-height: 3rem;
+  color: #fff;
+}
+
+@media (max-width: 50em) {
+  .trans-data {padding: 1rem 0.5rem;}
+  .trans-data span {font-size: 1.2rem;}
+  .trans-data .trans-money {font-size: 1.6rem; margin:0; padding: 0; letter-spacing: inherit; box-shadow: none; background-color: transparent;}
+  .trans-report a {font-size: 1.2rem;}
+}
+
+@media (min-width: 30.0625em) and (max-width: 50em) {
+  .trans-data {padding: 1rem 0.5rem;}
+  .trans-data span {font-size: 1.2rem;}
+  .trans-data .trans-money {font-size: 1.6rem; margin:0; padding: 0; letter-spacing: inherit; box-shadow: none; background-color: transparent;}
+  .trans-report a {font-size: 1.2rem;}
+}
+
+@media (max-width: 30em) {
+  .transaction {padding: 0.5rem 0;}
+  .trans-data span {font-size: 1.2rem;}
+  .trans-data .trans-money {font-size: 1.6rem; margin:0; padding: 0; letter-spacing: inherit; box-shadow: none; background-color: transparent;}
+  .trans-data {float: none; text-align: center;}  
+  .trans-report{text-align: center;}  
+  .trans-data .trans-report a {font-size: 1.2rem;}
+}
+
+
+
+/* 滚动广告 */
+.ad{ 
+}
+
+/* 平台公告 */
+.feature {
+  width: 90%;
+  margin: 2rem auto;
+  font-size: 0;
+}
+.feature .item {
+  display: inline-block;
+  width: calc(33.33333% - 3rem);
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 1.4rem;
+  background-color: #fff;
+  box-shadow: 0 0 4px #ccc;
+}
+.feature .item + .item {
+  margin-left: 1.5rem;
+}
+.feture .item h3 {
+  display: inline-block;
+  width: 40%;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  font-size: 3.3rem;
+  text-align: center;
+  color: #ff9900;
+}
+.feture .item p {
+  display: inline-block;
+  width: 55%;
+  margin: 0;
+  padding: 0;
+  color: #999;
+}
+
+@media (min-width: 30.0625em) and (max-width: 50em) {
+  .feature .item h3,
+  .feature .item p { display: block; width:100%; font-size: 2.6rem; text-align: center; }
+  .feature .item p {font-size: 1.2rem;}
+}
+@media (max-width: 30em) {
+  .feature {width: 96%; margin: 1rem auto;}
+  .feature .item {display:block; width: auto;}
+  .feature .item + .item {margin: 1rem 0 0;}
+}
+
+/* 最新公告 */
+.notice {
+  width: 90%;
+  margin: 2rem auto;
+  font-size: 1.4rem;
+  line-height: 3rem;
+  background-color: #fff;
+  box-shadow: 0 0 4px #ccc;
+} 
+.notice a {
+  float: left;
+  display: inline-block;
+  width: 70%;
+  margin-left: 2rem;
+  text-decoration: none;
+}
+.notice a:first-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.notice a:first-child:before {
+  content: "最新公告: \00a0\00a0";
+  color: #999;
+}
+.notice a span {
+  color: #999;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+.notice .more {
+  float: right;
+  width: auto;
+  margin-right: 2rem;
+  color: #ff9900;
+}
+@media (max-width: 30em) {
+  .notice {width: 96%; margin: 1rem auto; font-size: 1.2rem;}
+  .notice a {margin-left: 1rem;}
+  .notice a span{display: none;}
+  .notice .more {margin-right: 1rem;}
+}
+
+/* 产品列表 */
+.product {
+  width: 90%;
+  margin: 2rem auto;
+  font-size: 1.4rem;
+  background-color: #f5f9fa;
+  border-top: 2px solid #ff9900;
+  box-shadow: 0 0 4px #ccc;
+}
+.product h2 {
+  float: left;
+  width: 20%;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: normal;
+  color: #635c51;
+}
+.product h2 em {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+.product > h2 em:first-child {
+  margin-top: 4rem;
+}
+.product-content {
+  float: right;
+  width: 79.5%;
+  border-left: 1px solid #333;
+  background-color: #fff;
+}
+.product-content .item {
+  width: 100%;
+}
+.product-content .item + .item {
+  border-top: 1px solid #eee;
+}
+.product-content .item h3 {
+  float: left;
+  width: 30%;
+  margin: 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: center;
+}
+.product-content .item h3 em {
+  margin-right: 0.5rem;
+  font-size: 3.6rem;
+  font-style: normal;
+  color: #8b999d;
+}
+.product-content .item h3 i {
+  display: block;
+  font-size: 1.2rem;
+  font-style: normal;
+  color: #999;
+}
+
+.product-content .item .info {
+  float: left;
+  width: 48%;
+  padding: 1rem;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  font-size: 14px;
+}
+.product-content .item .info p {
+  float: left;
+  display: inline-block;
+  text-align: center;
+  width: 56%;
+}
+.product-content .item .info p:last-child {
+  width: 40%;
+}
+.product-content .item .info p span {
+  dispaly: block;
+  font-size: 2.4rem;
+  color: #ff9900;
+}
+.product-content .item .info p span i {
+  font-size: 1.2rem;
+  font-style: normal;
+  color: #999;
+}
+.product-content .item .buy {
+  float: left;
+  width: calc(22% - 4.4rem);
+  padding: 1rem;
+}
+.product-content .item .buy a {
+  display: block;
+  width: 90%;
+  margin: 1.5rem auto;
+  max-width: 12rem;
+  line-height: 4rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ff9900;
+  border-radius: 5px;
+}
+.product-content .item .buy a:hover,
+.product-content .item .buy a:active {
+  background-color: #ffc468;
+}
+.product-content .item .buy .disabled {
+  background-color: #ccc !important;
+  cursor: not-allowed;
+}
+
+@media (max-width: 50em) {
+  .product h2 {float: none; width: 100%; margin-top: 2rem; font-size: 2.2rem;}
+  .product h2 em:first-child {marign-top: 0;}
+  .product h2 em {display: inline-block; font-size: 1.2rem;}  
+  .product-content {float: none; width: 100%;}
+  .product-content .item h3 {margin-bottom: 0;}
+  .product-content .item h3 em {font-size: 2.4rem;}
+  .product-content .item .info {padding: 1rem 1rem 0; font-size: 1.2rem;}
+  .product-content .item .info p span {font-size: 2rem;}
+  .product-content .item .buy a {margin: 0.5rem auto;}
+}
+
+@media (max-width: 30em) {
+  .product h2 em:first-child:before {content: " ";display: table;}
+  .product-content .item h3 em {font-size: 2rem; margin-right:0;}
+  .product-content .item .info {float: right; width: 70%; padding: 1rem 0; border: none;}
+  .product-content .item .info p span {font-size: 1.8rem;}
+  .product-content .item .buy {clear: both; float:none; width: 100%; padding: 1rem 0 2rem;}
+  .product-content .item .buy a {margin-top: 0; max-width: 24rem;}
+
+}
+
+/* 底部导航 */
+.footer {
+  padding: 3rem 0;
+  background-color: #fff;
+  border-top: 2px solid #eee;
+}
+.footer-content {
+  width: 90%;
+  margin: 0 auto;
+}
+.footer-content .brand {
+  float: left; 
+  display: block;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  width: 20%;
+  height: 35px;
+  background: url('../img/logo@1x.png') left no-repeat;
+}
+.footer-content ul {
+  float: left;
+  width: 15%;
+}
+.footer-content ul li {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+}
+.footer-content .title {
+  font-size: 1.6rem;
+  line-height: 3rem;
+}
+
+@media (max-width: 30em) {
+  .footer-content {width: 98%;}
+  .footer-content .title {font-size: 1.2rem; line-height: 2rem;}  
+}
+
+@media (max-width: 50em) {
+  .footer-content .brand {display: none;}
+  .footer-content ul {width: 20%;}
+  .footer-content ul li {font-size: 1.2rem; line-height: 2rem;}
+  .footer-content .title {font-size: 1.4rem; line-height: 2.5rem;}
+}
+
+/*  -------------- 网站主要内容结束 -------------- */
+
+footer {
+  width: 100%;
+  padding: 3rem 0 5rem 0;
+  background-color: #ededed;
+}
+footer ul {
+  text-align: center;
+}
+footer ul li {
+  display: inline-block;
+}
+.icon {
+  display: inline-block;
+  text-indent: -999rem;
+  margin-right: 1.5rem;
+  background: url(https://i.alipayobjects.com/e/201307/jebmKcbrh.png) no-repeat;
+  background-size: 466px 447px;
+  overflow: hidden;
+}
+.icon-zfywxk {
+  width: 38px;
+  height:27px;
+  background-position: -369px -45px;
+}
+.icon-pcirk {
+  width: 78px;
+  height: 27px;
+  background-position: -110px -96px;
+}
+.icon-visayz {
+  width: 36px;
+  height: 27px;
+  background-position: -426px -90px;
+}
+.icon-vsjmfw {
+  width: 63px;
+  height:27px;
+  margin-right:13px;
+  background-position: -401px -186px;
+}
+.icon-wlgs {
+  width: 22px;
+  height: 27px;
+  background-position: -48px -48px;
+}
+.icon-rzcx {
+  width: 75px;
+  height: 27px;
+  background-position: 0 -320px;
+}
+.icon-gs {
+  width: 30px;
+  height: 30px;
+  margin-right: 0;
+  background: url(https://os.alipayobjects.com/rmsportal/lybcjqloSPjMAFg.png) no-repeat;
+  background-size: 30px;
+}
+
+footer p {
+  text-align: center;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+/* ===============
+      打印样式
+   =============== */
+
+@media print {
+  *,
+  *:before, 
+  *:after {
+    background-color: !important;
+    color: #000 !important;
+    text-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:hover {text-decoration: underline;}
+
+  a[href]:after {
+    content: "("attr(href)")";
+  }
+  abbr[title]:after {
+    content: "("attr(title)")";
+  }
+
+  /**
+   * 使用#和javascript的超链接不打印href
+   */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; 
+    /* 仅opera 避免在元素内部插入分隔符 */
+  }
+
+  img {max-width: 100% !important;}
+
+  p, h2, h3 {orphans: 3; window: 3;} 
+  /* 标题和文字不会分离开 */
+
+  h2, h3 {page-break-after: avoid;} 
+  /* 避免在标题后插入分页符 */
+}
+

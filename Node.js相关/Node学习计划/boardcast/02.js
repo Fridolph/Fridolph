@@ -16,13 +16,18 @@ app.get('/', (req, res) => {
 
 app.get('/du', (req, res) => {
   // 这个页面现在接受一个page参数
-  let page = req.query.page;
+  let page = parseInt(req.query.page) || 0;
   let arr = [];
 
-  db.find('teacher', {'age': {$lt:18}}, (err, result) => {
+  db.find('teacher', {'age': {$gt:9}}, {'pageamount': 5, 'page': page}, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+
     for (var i = 10*page; i< 10*(page + 1); i++) {
       arr.push(result[i])
     }
+    res.send(arr)
   })
 })
 

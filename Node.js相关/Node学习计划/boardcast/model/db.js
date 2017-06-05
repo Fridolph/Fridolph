@@ -36,12 +36,28 @@ exports.insertOne = function(collectionName, data, callback) {
 
 /**
  * 查找数据，找到所有数据
+ * args是个对象 {"pageamount": 10, page: 10}
  */
-exports.find = function(collectionName, data = {}, callback) {
+exports.find = function(collectionName, data = {}, args, callback) {
   let result = []
+  
+  if (arguments.length !== 4) {
+    callback('find函数接受4个参数', null)
+    return;
+  }
+
+  // 应该省略的条数
+  var skipNumber = args.pageamount * args.page;
+  // 数目限制
+  var limitNumber = args.pageamount;
+
+  // console.log('------------------');
+  // console.log('skipnumber: ' + skipNumber + '\nlimitnumber: ' + limitNumber);
+  // console.log('------------------');
 
   _connectDB((err, db) => {
-    var cursor = db.collection(collectionName).find(data)
+    
+    var cursor = db.collection(collectionName).find(data).skip(skipNumber).limit(limitNumber)
 
     cursor.each((err, doc) => {
       if (err) {

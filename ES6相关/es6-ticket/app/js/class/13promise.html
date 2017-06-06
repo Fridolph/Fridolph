@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试promise</title>
+</head>
+<body>
+  <h1>测试promise</h1>
+
+
+  <script>
+  
+    function loadImg(src) {
+      return new Promise((resolve, reject) => {
+        let img = document.createElement('img')
+        
+        img.src = src
+        img.onload = function() { 
+          resolve(img)
+        }
+        img.onerror = function(err) {
+          reject(err)
+        }        
+      })  
+    }
+    
+    // function showImgs(imgs) {
+    //   imgs.forEach(img => {
+    //     let div = document.createElement('div')
+
+    //     div.appendChild(img)
+        
+    //     document.body.appendChild(div);
+    //   })
+    // }
+    
+    // Promise.all([
+    //   loadImg('http://img05.tooopen.com/images/20150531/tooopen_sy_127457023651.jpg'),
+    //   loadImg('http://f.hiphotos.baidu.com/image/h%3D200/sign=333f3ac494510fb367197097e932c893/a8014c086e061d95df89434571f40ad163d9ca84.jpg'),
+    //   loadImg('http://pic55.nipic.com/file/20141208/19462408_171130083000_2.jpg'),
+    // ]).then(showImgs)
+
+    function showImgs(img) {
+      let p = document.createElement('p')
+
+      p.appendChild(img)
+      document.body.appendChild(p)
+    }
+
+    Promise.race([
+      loadImg('http://img05.tooopen.com/images/20150531/tooopen_sy_127457023651.jpg'),
+      loadImg('http://f.hiphotos.baidu.com/image/h%3D200/sign=333f3ac494510fb367197097e932c893/a8014c086e061d95df89434571f40ad163d9ca84.jpg'),
+      loadImg('http://pic55.nipic.com/file/20141208/19462408_171130083000_2.jpg')
+    ]).then(showImgs)
+
+  
+  </script>
+</body>
+</html>

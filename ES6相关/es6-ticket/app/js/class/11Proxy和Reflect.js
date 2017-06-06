@@ -12,9 +12,9 @@
     },
     // 拦截对象设置属性
     set(target,key,value){
-      if(key==='name'){
+      if (key==='name') {
         return target[key]=value;
-      }else{
+      } else {
         return target[key];
       }
     },
@@ -28,7 +28,7 @@
     },
     // 拦截delete
     deleteProperty(target,key){
-      if(key.indexOf('_')>-1){
+      if (key.indexOf('_') > -1){
         delete target[key];
         return true;
       }else{

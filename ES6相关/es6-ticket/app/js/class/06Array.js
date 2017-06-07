@@ -23,3 +23,29 @@
   
   console.log('fill, pos', ['a', 'b', 'c'].fill(7,1,3));
 }
+
+{
+  // for (let index of ['666', 'yk', 'fri'].keys()) {
+  //   console.log('keys', index);
+  // }
+
+  // for (let value of ['666', 'yk', 'fri'].values()) {
+  //   console.log('values', value);
+  // }
+
+  for (let [key, value] of ['666', 'yk', 'fri'].entries()) {
+    console.log(`key: ${key}, value: ${value}`);
+  }
+}
+
+{
+  // copyWithin(@1从哪个位置开始替换，@2 从哪个位置开始读取数据, @3 从哪个位置截止)
+  console.log([1,2,3,4,5].copyWithin(0,4,5));
+}
+
+{
+  // find
+  console.log([1,2,3,4,5,6,7,8,9].find(item => { return item > 6 }));
+
+  console.log([1,2,3,4,5,6,7,8,9].findIndex(item => { return item > 6 }));
+}

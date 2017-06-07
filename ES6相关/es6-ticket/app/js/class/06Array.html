@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>es6</p>
+  <p>学习es6</p>
+  <p>es6 Array</p>
+
+  <script>
+    let p = document.querySelectorAll('p')
+    let pArr = Array.from(p);
+
+    console.log(pArr)
+
+    pArr.forEach(item => {
+      console.log(item.textContent);
+    })
+  </script>
+</body>
+</html>

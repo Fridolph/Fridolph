@@ -9,23 +9,31 @@ DOM文档加载的步骤：
 (1) 解析HTML结构。
 (2) 加载外部脚本和样式表文件。
 (3) 解析并执行脚本代码。
-(4) 构造HTML DOM模型。//ready
+(4) 构造HTML DOM模型。       //ready
 (5) 加载图片等外部文件。
-(6) 页面加载完毕。//load
+(6) 页面加载完毕。           //load
 
-我们看看jQuery是如何处理文档加载时机的问题：
+**结论：**
+
+ready与load的区别就在于资源文件的加载，ready构建了基本的DOM结构，所以对于代码来说应该越快加载越好
+
+
+## 我们看看jQuery是如何处理文档加载时机的问题：
 
 <script>
 jQuery.ready.promise = function(obj) {
   if (!readyList) {
-    readList = jQuery.Deferred();
+    readyList = jQuery.Deferred();
+    
     if (document.readyState === 'complete') {
-      setTimeout(jQuery.ready);
+      // Handle it asynchronously to allow scripts the opportunity to delay ready
+      setTimeout(jQuery.ready)
     } else {
       document.addEventListener('DOMContentLoaded', completed, false);
       window.addEventListener('load', completed, false);
     }
   }
+
   return readyList.promise(obj);
 }
 </script>

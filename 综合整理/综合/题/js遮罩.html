@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS遮罩</title>
+  <style>
+  #target {    
+    width:200px;
+    height:200px;
+    background: pink;
+    margin: 40px;
+  }
+  </style>
+</head>
+<body>
+  <div id="target"></div>
+  <script>
+  var target = document.querySelector("#target")
+
+  addMask(target)
+
+  target.addEventListener('click', function() {
+    console.log('click')
+  }, false);
+
+
+  function addMask(elem, opacity) {
+    opacity = opacity || 0.2
+
+    const rect = elem.getBoundingClientRect()
+    const style = getComputedStyle(elem, null);
+
+    console.log('rect', rect);
+    // console.log('style', style);
+
+    var mask = document.createElement('div')
+    var marginLeft = parseFloat(style.marginLeft)
+    var marginTop = parseFloat(style.marginTop)
+    
+    mask.style.position = 'absolute'
+    mask.style.left = (elem.offsetLeft) + 'px'
+    mask.style.top = (elem.offsetTop) + 'px'
+    mask.style.zIndex = 9999
+    mask.style.opacity = '' + opacity
+    mask.style.backgroundColor = '#000'
+    mask.style.width = (rect.width) + 'px'
+    mask.style.height = (rect.height) + 'px'
+
+    elem.parentNode.appendChild(mask)
+  }
+
+
+  </script>
+
+</body>
+
+</html>

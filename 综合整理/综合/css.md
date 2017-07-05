@@ -26,7 +26,7 @@ inline元素特点：
 6. 浮动或绝对定位时会转为block
 7. vertical-align属性生效
 
-## CSS有哪些继承属性
+## CSS有哪些可继承属性
 
 font
 word-break
@@ -63,10 +63,10 @@ cursor
       clear: both;
     } 
 
-## 什么是FOUC？ 如何避免
+## 什么是FOUC（Flash of Unstyled Content）？ 如何避免
 
 用户定义样式表加载之前浏览器使用默认样式显示文档，用户样式加载渲染之后再从新显示文档，造成页面闪烁。
-解决方法：把样式表放到文档的 head
+解决方法：把样式表放到文档的head
 
 ##　如何创建BFC，BFC的作用
 
@@ -110,10 +110,15 @@ z轴上的默认层叠顺序如下： 从下到上 --
 ## 如何水平居中一个元素
 
 常规流inline元素 -> 为父元素设置 text-align: center
+
 常规流block元素  -> 设置宽度  设置 margin: auto
+
 浮动元素         -> float: left; width: 200px; position:relative; left:50%; margin-left:-100px;
+
 1绝对定位元素    -> 父级position: relative; width:100px;position:absolute;left:50%;margin-left: -50px; // 或者 transform:translate(-50%, 0);
+
 2绝对定位元素    -> 父级position: relative; width:200px; position:absolute;left:0;right:0; margin:0 auto; 
+
 
 ## 如何垂直居中一个元素
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="doGet.php" method="GET">
+        <p>
+            姓名： <input type="text" name="username" id="username" />
+        </p>
+        <p>
+            性别：
+            <input name="sex" type="radio" value="男" id="nan" checked/> 男
+            <input name="sex" type="radio" value="女" id="nv"/> 女
+        </p>
+        <p>
+            <input id="submitBtn" type="button" value="按我提交呦"/>
+        </p>
+    </form>
+    <script type="text/javascript">
+        //得到按钮
+        var oSubmitBtn = document.getElementById("submitBtn");
+        //按钮事件
+        oSubmitBtn.onclick = function(){
+            //得到表单中的数据
+            var username = document.getElementById("username").value;
+            var sex = document.getElementById("nan").checked ? "男" : "女";
+
+            //Ajax那一些公式
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        console.log(xhr.responseText);
+                    }
+                }
+            }
+
+            xhr.open("post","doPost.php",true);
+            //让Ajax以提交表单的方式，发起POST的Ajax请求：
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            //请求实体仍然是罗列字符串的方式：
+            xhr.send("username=" + username + "&sex=" + sex);
+        }
+    </script>
+</body>
+</html>

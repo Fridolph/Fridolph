@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script type="text/javascript">
+        function yueshugeshu(num){
+            var amount = 0; //约数个数
+            for(var i = 1 ; i <= num ; i++){
+                if(num % i == 0) amount++;
+            }
+            return amount;
+        }
+
+        function isZhishu(num){
+            return yueshugeshu(num) == 2 ? true : false;
+        }
+
+        function chaifenweizhishu(num){
+            for(var i = 1 ; i <= num ; i++){
+                if(isZhishu(i) && isZhishu(num - i)){
+                    return [i,num-i];
+                }
+            }
+        }
+
+        for(var i = 4 ; i <= 10000 ; i+=2){
+            var chai = chaifenweizhishu(i);
+            if(chai) {
+                console.log(i,"这个数字能分为",chai[0],"和",chai[1],"的和");
+            }else{
+                alert("警报！" , i ,"不能被拆分为质数和");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+haha({mobile:'18610725427',province:'北京',isp:'中国联通',stock:'1',amount:'10000',maxprice:'0',minprice:'0',cityname:'北京'});

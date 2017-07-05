@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            alert(JSON.parse(xhr.responseText).name);
+        }
+    }
+    xhr.open("get","http://61.135.185.225/12_JSONP/test.txt",true);
+    xhr.send(null);
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #333;
+			font-family: "Microsoft Yahei";
+		}
+		.waterfall{
+			width: 880px;
+			position: relative;
+			margin: 0 auto;
+			padding-bottom: 30px;
+		}
+		.loading{
+			background: url(images/loading.gif) no-repeat center bottom;
+		}
+		.feed-item{
+			background-color: white;
+			border-radius: 15px;
+			box-shadow: 1px 1px 1px black;
+			position: absolute;
+			width: 260px;
+			top: 0;
+			left: 0;
+			padding: 10px;
+			display: none;
+		}
+		.feed-item img{
+			width: 260px;
+		}
+		.feed-item .biaoti{
+			line-height: 30px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.feed-item .neirong{
+			line-height: 150%;
+			font-size: 16px;
+
+		}
+		.feed-item .zuozhe{
+			float: right;
+			color:orange;
+		}
+		.end{
+			display: none;
+			font-size: 44px;
+		}
+	</style>
+</head>
+<body>
+	<div class="waterfall">
+
+	</div>
+	<div class="end">
+		到最后了亲！
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/underscore.js"></script>
+
+	<!-- 模板 -->
+	<script type="type/template" id="feed-template">
+		<div class="feed-item">
+			<p>
+				<img src="<%= imgurl %>" alt="" />
+			</p>
+			<p class="biaoti">
+				<%= title %>
+			</p>
+			<p class="neirong">
+				<%= content %>
+			</p>
+			<p class="zuozhe">
+				<%= author %>
+			</p>
+		</div>
+	</script>
+
+	<script type="text/javascript">
+		var $waterfall = $(".waterfall");
+		//得到模板
+		var templateString = $("#feed-template").html();
+		//准备模板函数
+		var compile = _.template(templateString);
+
+		//准备总高度数组
+		var colAllHeight = [0,0,0];
+
+		var pagenum = 1;	//页码
+
+		getAndRender(1);
+
+		var lock = true;	//函数截流
+
+		//窗口卷动监听
+		$(window).scroll(function(){
+			var scrollTop = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			var documentHeight = $(document).height();
+			if(documentHeight - windowHeight - scrollTop < 200 && lock){
+				lock = false;
+				pagenum ++;
+				getAndRender(pagenum);
+			}
+		});
+
+		function getAndRender(pagenum){
+			//让小菊花显示
+			$waterfall.addClass("loading");
+			//发出Ajax请求
+			$.get("json/json" + pagenum + ".txt",function(data,statusText){
+				//把字符串转为对象
+				var dataJSON = JSON.parse(data);
+				//news这个数组，仔细想想，news这个数组里面装的是什么？
+				var dictionaryArray = dataJSON.news;
+
+				//如果数组为空，就表示到最后了
+				if(dictionaryArray.length == 0){
+					$(".end").show();
+					$waterfall.removeClass('loading');
+					return;
+				}
+
+				//遍历字典
+				for(var i = 0 ; i < dictionaryArray.length ; i++){
+					var thisDictionary = dictionaryArray[i];
+					//马上发出请求这个字典里面图片的请求
+					var image = new Image();
+					//一旦设置src，上行HTTP请求将发出
+					image.src = thisDictionary.imgurl;
+					image.index = i;
+					//监听这个图片是不是加载完毕
+					$(image).load(function(){
+						//这张图片加载完毕了
+						//console.log(this.index + "号图片加载完毕");
+
+						//填充字典
+						//哪个图片已经填充完了，就注入几号字典
+						var compiledString = compile(dictionaryArray[this.index]);
+
+						//得到这个盒子，变为jQuery对象
+						var $box = $(compiledString);
+
+						//上DOM
+						$waterfall.append($box);
+
+						//寻找最小列
+						var min = _.min(colAllHeight);
+						var minIndex = _.indexOf(colAllHeight,min);
+
+						//绝对定位：
+						$box.css("left",300 * minIndex)
+						$box.css("top",colAllHeight[minIndex] + 20);
+						//将自己的高度，也加到数组的指定列中：
+						colAllHeight[minIndex] += $box.outerHeight() + 20;
+						//淡入
+						$box.fadeIn();
+						//让父盒子有高度
+						$waterfall.css("height",_.max(colAllHeight));
+						$waterfall.removeClass("loading");
+
+						lock = true;
+					});
+				}
+			});
+			 
+		}
+	</script>
+</body>
+</html>

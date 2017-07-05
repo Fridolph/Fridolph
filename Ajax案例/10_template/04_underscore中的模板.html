@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript">
+        //模板字符串
+        var templateString = "真<%=xinqing%>啊，今天考试得了<%= fenshu %>分，老师给了我<%= qian %>块钱，于是我买了<%= dongxi %>！";
+
+        //字典
+        var dictionary = {
+            "xinqing" : "沮丧",
+            "fenshu" : 15,
+            "qian" : 2,
+            "dongxi" : "小豆包"
+        };
+
+        //UnderScore里面的字典是两步走：
+        //第一步，把模板字符串当做参数，执行template函数，返回的又是一个函数
+        var compiled = _.template(templateString);
+        //第二步，把字典传入。
+        var compiledString = compiled(dictionary);
+
+        console.log(compiledString);
+
+    </script>
+</body>
+</html>

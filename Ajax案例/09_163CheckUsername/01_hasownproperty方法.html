@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        //构造函数
+        function Dog(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        //设置构造函数的原型，是个对象：
+        Dog.prototype = {
+            "jiaosheng" : "旺旺"
+        }
+        //实例化一个对象
+        //实例化一个对象的时候，这个对象将从构造函数、
+        //和构造函数的原型对象中，同时获得属性和方法。
+        var xiaowei = new Dog("小伟",5);
+        console.log(xiaowei.name);
+        console.log(xiaowei.age);
+        console.log(xiaowei.jiaosheng);
+        //hasOwnProperty检测的是这个对象自己的属性
+        //写在这个对象原型中的属性，不算。
+        console.log(xiaowei.hasOwnProperty("name"));
+        console.log(xiaowei.hasOwnProperty("age"));
+        console.log(xiaowei.hasOwnProperty("jiaosheng"));
+
+        console.log(xiaowei);
+    </script>
+</body>
+</html>

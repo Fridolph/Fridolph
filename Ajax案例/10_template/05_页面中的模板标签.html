@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/template" id="moban">
+        <div class="news">
+            <div class="left">
+                <img src="<%=tupiandizhi%>" alt=""/>
+            </div>
+            <div class="right">
+                <h3><%= biaoti %></h3>
+                <p class="summary"><%= summary %></p>
+                <div class="info">
+                    <span class="time"><%= time %></span>
+                    <span class="author"><%= author %></span>
+                    <span class="labels"><%= labels %></span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript">
+        var templateString = document.getElementById("moban").innerHTML;
+
+
+        var dictionary = {
+            "tupiandizhi" : "1.jpg",
+            "biaoti" : "哈哈哈",
+            "summary" : "xixixi嘻嘻嘻",
+            "time" : "2015年8月6日",
+            "author" : "水电费谁发的",
+            "labels" : "二万二"
+        }
+
+        var compiled = _.template(templateString);
+        var compiledString = compiled(dictionary);
+        console.log(compiledString);
+        document.body.innerHTML += compiledString;
+    </script>
+</body>
+</html>

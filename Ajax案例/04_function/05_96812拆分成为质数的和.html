@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script type="text/javascript">
+        function yueshugeshu(num){
+            var amount = 0; //约数个数
+            for(var i = 1 ; i <= num ; i++){
+                if(num % i == 0) amount++;
+            }
+            return amount;
+        }
+
+        function isZhishu(num){
+            return yueshugeshu(num) == 2 ? true : false;
+        }
+
+        for(var i = 1 ; i <= 96812 ; i++){
+            if(isZhishu(i) && isZhishu(96812 - i)){
+                console.log("96812可以分解为", i , 96812-i);
+            }
+        }
+    </script>
+</body>
+</html>

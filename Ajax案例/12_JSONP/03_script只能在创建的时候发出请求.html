@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="" id="sikeruabo"></script>
+
+    <input type="button" value="按我创建一个script标签" id="btn1"/>
+    <input type="button" value="按我将已经存在的script标签更改src" id="btn2"/>
+
+    <script type="text/javascript">
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var sikeruabo = document.getElementById("sikeruabo");
+        btn1.onclick = function(){
+            var script = document.createElement("script");
+            script.src = "http://127.0.0.2/12_JSONP/test.txt";
+            //追加DOM
+            document.body.appendChild(script);
+        }
+
+        btn2.onclick = function(){
+            sikeruabo.src = "http://127.0.0.2/12_JSONP/test.txt";
+        }
+    </script>
+</body>
+</html>

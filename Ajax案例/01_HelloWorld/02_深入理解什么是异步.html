@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #pp{
+            width: 300px;
+            height: 100px;
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <h3>在页面上有一个按钮，点击按钮之后，异步读取test.txt文件，将文件中的内容，显示在页面上</h3>
+    <p id="pp"></p>
+    <input id="btn" type="button" value="点我啊，点我就读取文件啦！"/>
+
+    <script type="text/javascript">
+        //得到按钮
+        var oBtn = document.getElementById("btn");
+        //得到pp
+        var oPP = document.getElementById("pp");
+        //按钮监听
+        oBtn.onclick = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                console.log(xhr.responseText);
+            }
+            xhr.open("get","test.txt",true);
+            xhr.send(null);
+            //下面的语句，不会等到文件读取完毕之后执行
+            // 这是因为Ajax是异步的
+            console.log("哈哈");
+        }
+    </script>
+</body>
+</html>

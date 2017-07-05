@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script type="text/javascript">
+        //调用函数：
+        heat("小豆包");
+
+        //调用函数：
+        heat("小面包");
+
+
+
+        //定义函数
+        function heat(dongxi){
+            console.log("我是一个破锅炉！我要开始加热" + dongxi + "啦！！");
+            var wendu = parseInt(Math.random() * 100);  //随机温度
+            console.log("叮！加热完毕，温度" + wendu);
+            if(dongxi == "小豆包"){
+                if(wendu >= 80){
+                    console.log("我是一个熟透了的小豆包，吃我吧！");
+                }else{
+                    console.log("呃。。我没有熟透，扔了我吧！");
+                }
+            }else if(dongxi == "小面包"){
+                //加热之后做的事情
+                if(wendu >= 30){
+                    console.log("我是一个熟透了的小面包，吃我吧！");
+                }else if(wendu > 20){
+                    console.log("半生不熟，将就着吃！");
+                }else{
+                    console.log("彻底不熟，扔了我吧！");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

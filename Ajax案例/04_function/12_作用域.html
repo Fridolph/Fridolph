@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script type="text/javascript">
+        function one(){
+            var a = 100;
+        }
+        //这个函数一旦执行完毕，就是在调用栈中返回了。
+        //这个函数中所有开辟的内存空间，都将被销毁。
+        //简单来说，就是a这个变量的作用域是one这个函数。
+        one();
+        console.log(a);
+    </script>
+</body>
+</html>

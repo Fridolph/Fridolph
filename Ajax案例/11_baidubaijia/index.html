@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: url(images/bg.png) repeat-x;
+		}
+		.header{
+			width: 980px;
+			height: 80px;
+			background-color: #ccc;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+		.content{
+			width: 980px;
+			margin: 0 auto;
+		}
+		.content .news{
+			float: left;
+			width: 670px;
+			margin-right: 10px;
+		}
+		.content .news .carousel{
+			width: 670px;
+			height: 300px;
+			background-color: #ccc;
+			margin-bottom: 20px;
+		}
+		.content .news .tab{
+			width: 670px;
+			height: 60px;
+			background-color: #ccc;
+		}
+		.content .news .feed-item{
+			overflow: hidden;
+			padding: 20px 0;
+			border-bottom: 1px solid #333;
+		}
+
+		.content .news .feed-item .left{
+			float: left;
+			width: 170px;
+		}
+		.content .news .feed-item .left img{
+			width: 160px;
+		}
+		.content .news .feed-item .right{
+			float: left;
+			width: 500px;
+		}
+		.content .news .noimage .left{
+			display: none;
+		}
+		.content .news .noimage .right{
+			float: left;
+			width: 670px;
+		}
+		.content .news .feed-item .right h3{
+			font-size: 26px;
+			color:;
+			line-height: 30px;
+		}
+		.content .news .feed-item .right .summary{
+			line-height: 150%;
+			font-size: 14px;
+		}
+		.content .news .feed-item .right .info a{
+			padding: 0 5px;
+			text-decoration: none;
+			color:blue;
+		}
+		.content .news .feed-item .right .info .labels{
+			float: right;
+		}
+		.content .slidebar{
+			float: right;
+			width: 300px;
+			height: 400px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="content">
+		<div class="news">
+			<div class="carousel"></div>
+			<div class="tab"></div>
+			<div class="feeds" id="feeds">
+				
+			</div>
+		</div>
+		<div class="slidebar"></div>
+	</div>
+	<script type="text/javascript" src="myAjax0.2.2.js"></script>
+	<script type="text/javascript" src="underscore.js"></script>
+
+	<script type="text/template" id="feedTemplate">
+		<div class="feed-item <%=noImage%>">
+			<div class="left">
+				<img src="<%= m_image_url %>" alt="" />
+			</div>
+			<div class="right">
+				<h3><%= m_title %></h3>
+				<p class="summary">
+					<%= m_summary %>
+				</p>
+				<div class="info">
+					<a href="<%= m_writer_url %>" class="author"><%= m_writer_name %></a>
+					<span class="date"><%= m_create_time %> </span>
+					<span>阅读(<%= hotcount %>)</span>
+					<span class="labels">
+						<%= biaoqian %>
+					</span>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/javascript">
+		//得到模板字符串
+		var feedTemplateString = document.getElementById("feedTemplate").innerHTML;
+		//得到feed
+		var oFeeds = document.getElementById("feeds");
+
+		//发出Ajax请求，请求页面的数据
+		myAjax.get("baidu1.json",function(err,data){
+			var dataJSON = JSON.parse(data);
+			//得到文章的数组
+			var listArray = dataJSON.data.list;
+
+			//遍历整个文章数组
+			for(var i = 0 ; i < listArray.length ; i++){
+				//你遍历到的这个文章我们起个小名字
+				var thisDictionary = listArray[i];
+
+				//注入之前，我们进行字典修正
+				//也就是说，字典中本来没有noImage属性，
+				//现在我们强行追加这个属性，表示是否有图片
+				thisDictionary.noImage = thisDictionary.m_image_url == null ?  "noimage" : "";
+
+				//标签
+				//遍历所有的标签
+				var labels = thisDictionary.m_label_names;
+				var labelString = "";
+				for(var j = 0 ; j < labels.length ; j++){
+					labelString += "<a href='http://baijia.baidu.com/?tn=listarticle&labelid=" + labels[j].m_id + "'>" + labels[j].m_name + "</a>";
+				}
+				//字典修正
+				//本身字典中没有biaoqian这个属性，现在我们强行加入一个biaoqian属性
+				thisDictionary.biaoqian = labelString;
+
+
+				//把字典数据注入到模板中，进行数据绑定
+				var compiled = _.template(feedTemplateString);
+				compiedString = compiled(thisDictionary);
+
+				//把产生的HTML追加到DOM里：
+				oFeeds.innerHTML += compiedString;
+			}
+		});
+	</script>
+</body>
+</html>

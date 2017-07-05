@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #pp{
+            width: 300px;
+            height: 100px;
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <h3>在页面上有一个按钮，点击按钮之后，异步读取test.txt文件，将文件中的内容，显示在页面上</h3>
+    <p id="pp"></p>
+    <input id="btn" type="button" value="点我啊，点我就读取文件啦！"/>
+
+    <script type="text/javascript">
+        //得到按钮
+        var oBtn = document.getElementById("btn");
+        //得到pp
+        var oPP = document.getElementById("pp");
+        //按钮监听
+        oBtn.onclick = function(){
+            //创建对象
+            var xhr = getXMLHttpRequest();
+            //当xhr对象的readyState属性发生改变的时候触发
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status >= 200 && xhr.status < 300 || xhr.status == 304){
+                        pp.innerHTML = xhr.responseText;
+                    }else{
+                        throw new Error("文件读取错误");
+                    }
+                }
+            }
+            //open方法表示配置这次请求
+            xhr.open("get","test.txt",true);
+            //发送请求
+            //get请求中，没有任何的上行主体的，所以写null
+            xhr.send(null);
+        }
+
+        //工厂函数
+        function getXMLHttpRequest(){
+            if(window.XMLHttpRequest){
+                //高级浏览器，IE7，IE7+
+                return new XMLHttpRequest();
+            }else{
+                //老版本浏览器，IE6
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+    </script>
+</body>
+</html>

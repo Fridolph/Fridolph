@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+    function add(a){
+        return a + 100;
+    }
+
+    function add(a , b){
+        return a + b;
+    }
+
+    //报错，因为我们后定义的add函数，覆盖了之前的add函数。
+    add(10);
+
+</script>
+</body>
+</html>

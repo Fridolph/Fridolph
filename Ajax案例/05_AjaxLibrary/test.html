@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <form id="biaodan">
+        <p>
+            请输入姓名:
+            <input type="text" name="username"/>
+        </p>
+        <p>
+            请输入年龄:
+            <input type="text" name="age"/>
+        </p>
+        <p>
+            请选择性别:
+            <input type="radio" name="sex" value="男"/> 男
+            <input type="radio" name="sex" value="女"/> 女
+        </p>
+        <p>
+            请选择爱好:
+            <input type="checkbox" name="hobby" value="足球"/> 足球
+            <input type="checkbox" name="hobby" value="篮球"/> 篮球
+            <input type="checkbox" name="hobby" value="乒乓球"/> 乒乓球
+        </p>
+        <p>
+            你的城市：
+            <select name="city" id="">
+                <option value="北京">北京</option>
+                <option value="广州">广州</option>
+                <option value="上海">上海</option>
+            </select>
+        </p>
+        <p>
+            你女朋友的城市：
+            <select name="nvpengyoucity"  >
+                <option value="北京">北京</option>
+                <option value="广州">广州</option>
+                <option value="上海">上海</option>
+            </select>
+        </p>
+        <p>
+            <input type="button"  id="btn" value="序列化" />
+        </p>
+    </form>
+
+    <script type="text/javascript" src="myAjax0.2.0.js"></script>
+    <script type="text/javascript">
+        document.getElementById("btn").onclick = function(){
+            myAjax.postAllForm("doPost.php","biaodan",function(err,data){
+                if(data == "ok"){
+                    alert("恭喜，表单已经成功提交！");
+                    window.location = "index.html";
+                }else{
+                    alert("请联系管理员，错误！");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

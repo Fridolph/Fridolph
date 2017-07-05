@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<form action="1.php" id="biaodan">
+    <p>
+        请输入姓名:
+        <input type="text" name="username"/>
+    </p>
+    <p>
+        请输入年龄:
+        <input type="text" name="age"/>
+    </p>
+    <p>
+        请选择性别:
+        <input type="radio" name="sex" value="男"/> 男
+        <input type="radio" name="sex" value="女"/> 女
+    </p>
+    <p>
+        请选择爱好:
+        <input type="checkbox" name="hobby" value="足球"/> 足球
+        <input type="checkbox" name="hobby" value="篮球"/> 篮球
+        <input type="checkbox" name="hobby" value="乒乓球"/> 乒乓球
+    </p>
+    <p>
+        你的城市：
+        <select name="city" id="">
+            <option value="北京">北京</option>
+            <option value="广州">广州</option>
+            <option value="上海">上海</option>
+        </select>
+    </p>
+    <p>
+        你女朋友的城市：
+        <select name="nvpengyoucity"  >
+            <option value="北京">北京</option>
+            <option value="广州">广州</option>
+            <option value="上海">上海</option>
+        </select>
+    </p>
+    <p>
+        <input type="button"  id="btn" value="序列化" />
+    </p>
+</form>
+    <script type="text/javascript">
+        //得到按钮
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function() {
+            //得到表单
+            var oForm = document.getElementById("biaodan");
+            //得到所有表单控件
+            var fields = oForm.elements;
+            //表单控件的数量
+            var fieldLength = fields.length;
+            //存放每个部分的数组
+            var arrParts = [];
+            //遍历所有的控件
+            for (var i = 0; i < fieldLength; i++) {
+                //得到你遍历到的这个控件
+                var field = fields[i];
+                var k = field.name;
+                var v = "";
+
+                //根据这是一个什么控件来决定v
+                switch(field.type){
+                    case "button":
+                    case "submit":
+                    case "reset" :
+                        break;
+                    case "select-one":
+                        //遍历这个单选列表的所有option
+                        var options = field.options;
+                        //这个单选列表的option的个数
+                        var optionsLength = options.length;
+                        //遍历所有的option，查看那个选项被selected了
+                        //被selected了的那个选项的value，就是总value
+                        for(var j = 0 ; j < optionsLength ; j++){
+                            if(options[j].selected){
+                                v = options[j].value;
+                                arrParts.push(k + "=" + v);
+                            }
+                        }
+                        break;
+                    case "radio" :
+                    case "checkbox" :
+                        if(!field.checked){
+                            break;
+                        }
+                    case "text" :
+                    default:
+                        v = field.value;
+                        arrParts.push(k + "=" + v);
+                        break;
+                }
+            }
+            console.log(arrParts.join("&"));
+        }
+    </script>
+</body>
+</html>

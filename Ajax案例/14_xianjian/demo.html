@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #333;
+		}
+		.waterfall{
+			width: 710px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.feed-item{
+			position: absolute;
+			width: 230px;
+			background-color: #ccc;
+		}
+		.feed-item .title{
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.feed-item .info span{
+			padding: 0 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="waterfall">
+
+	</div>
+
+	<script type="text/template" id="template">
+		<div class="feed-item">
+			<p>
+				<img src="http://files.haohaowan.com/yxxj/<%= url %>" />
+			</p>
+			<p class="title"><%= subject %></p>
+			<p class="info">
+				<span><%= comment %></span>
+				<span><%= like %></span>
+			</p>
+		</div>
+	</script>
+
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/underscore.js"></script>
+
+	<script type="text/javascript">
+		var $waterfall = $(".waterfall");
+
+		var tempateString = $("#template").html();
+
+		var compile = _.template(tempateString);
+
+		var colAllHeightArray = [0,0,0];
+
+		var pagenum = 1;
+		getAndRender(1);
+
+		var lock = true;
+
+		//窗口卷动监听
+		$(window).scroll(function(){
+			var scrollTop = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			var documentHeight = $(document).height();
+			if(documentHeight - windowHeight - scrollTop < 200 && lock){
+				lock = false;
+				pagenum ++;
+				getAndRender(pagenum);
+			}
+		});
+
+		function getAndRender(pagenum){
+			lock = false;
+			$.ajax({
+				url : "http://yx.xianjian.com/p/api.php?method=wf&api_key=nimakdkeiLdkfen2lidkdlDLLEKd&page=" + pagenum + "&per_page=10&tag=&type=5&order=2&_ksTS=1438505246108_78&jsoncallback=?",
+				dataType: 'jsonp',
+				success : function(data){
+					//请求成功之后做的事情
+					//得到字典数组
+					var dictionaryArray = data.photos.photo;
+
+					//遍历
+					for(var i = 0 ; i < dictionaryArray.length ; i++){
+						thisDictionary = dictionaryArray[i];
+						//模板修正，我们要根据图片地址的不同，拼接不同的东西
+						if(thisDictionary.type == 2){
+							thisDictionary.url = "sp_" + thisDictionary.url + ".jpg";
+						}else if(thisDictionary.type == 1){
+							thisDictionary.url = "li_" + thisDictionary.url;
+						}else if(thisDictionary.type == 3){
+							thisDictionary.url = "yy_r3.jpg";
+						}
+						
+						//注入数据
+						var compiledString = compile(thisDictionary);
+
+						//找到最小列
+						var min = _.min(colAllHeightArray);
+						var minIndex = _.indexOf(colAllHeightArray,min);
+
+						//放入最小那列
+						var $box = $(compiledString);
+						$waterfall.append($box);
+						$box.css("left",280 * minIndex);
+						$box.css("top",min + 10);
+						//从字典里面找到高度
+						//40是底下文字的高度，20间距
+						colAllHeightArray[minIndex] += parseInt(thisDictionary.height) + 60;
+					}
+
+					lock = true;
+				}
+			});
+		}
+	</script>
+</body>
+</html>

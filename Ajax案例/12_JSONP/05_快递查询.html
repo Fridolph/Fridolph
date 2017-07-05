@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.result{
+			height: 100px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<input id="danhao" type="text" />
+	<select name="" id="kuaidigongsi">
+		<option value="yuantong">圆通</option>
+		<option value="shentong">申通</option>
+		<option value="shunfeng">顺丰</option>
+	</select>
+	<input id="btn" type="button" value="查询" />
+	<p id="jieguo" class="result"></p>
+
+	<script type="text/javascript">
+		var odanhao = document.getElementById("danhao");
+		var oBtn = document.getElementById("btn");
+		var oJieguo = document.getElementById("jieguo");
+		var okuaidigongsi = document.getElementById("kuaidigongsi");
+
+		//给按钮添加监听
+		oBtn.onclick = function(){
+			//得到用户填写的手机号
+			var danhao = odanhao.value;
+			var kuaidigongsi = okuaidigongsi.value;
+
+			//创建script
+			var script = document.createElement("script");
+			script.src = "https://sp0.baidu.com/9_Q4sjW91Qh3otqbppnN2DJv/pae/channel/data/asyncqury?cb=xixi&appid=4001&com=" + kuaidigongsi +"&nu=" + danhao +"&vcode=&token=&_=1438916675664"
+
+			//追加然后删除
+			document.body.appendChild(script);
+			document.body.removeChild(script);
+		}
+
+		function xixi(data){
+			console.log(data);
+		}
+	</script>
+</body>
+</html>

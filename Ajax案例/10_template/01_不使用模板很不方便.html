@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script type="text/javascript" src="myAjax0.2.2.js"></script>
+    <script>
+        myAjax.get("text.json",function(e,d){
+            var dataJSON = JSON.parse(d);
+
+            var str = "真高兴啊，今天考试得了" + dataJSON.fenshu + "分，老师给了我" + dataJSON.qian + "块钱，于是我买了" + dataJSON.dongxi + "！";
+
+            alert(str);
+        })
+    </script>
+</body>
+</html>

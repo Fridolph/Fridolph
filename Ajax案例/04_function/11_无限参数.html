@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+    //add中可以传递很多参数，不限个数
+    function add(){
+        var argLength = arguments.length;
+        var sum = 0;
+        for(var i = 0 ; i < argLength ; i++){
+            sum += arguments[i];
+        }
+        return sum;
+    }
+
+    console.log(   add(1,2,3,4,5,6,7,8,9)  );
+</script>
+</body>
+</html>

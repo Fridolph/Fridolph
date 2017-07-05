@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input type="button" id="btn"/>
+    <script type="text/javascript" src="myAjax0.2.1.js"></script>
+    <script type="text/javascript">
+        document.getElementById("btn").onclick = function(){
+            //随机数，我们不要0. 只要小数点后面的数字：
+            var random = Math.random().toString().substring(2);
+             //URL上面就拼接一个随机字符串，保证每次URL不一样
+            myAjax.get("text.txt?" + random,function(err,data){
+                alert(data);
+            });
+        }
+    </script>
+</body>
+</html>

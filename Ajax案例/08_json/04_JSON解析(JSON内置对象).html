@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="json2.js"></script>
+    <script type="text/javascript" src="myAjax0.2.2.js"></script>
+    <script type="text/javascript">
+        myAjax.get("test.json",function(err,data){
+            //用eval可以将字符串转为对象
+            //一定要用字符串的圆括号包裹住
+            var dataJSON = JSON.parse(data);
+
+            alert(dataJSON.name);
+        });
+    </script>
+</body>
+</html>

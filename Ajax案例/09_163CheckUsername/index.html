@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .goodTip{
+            color:green;
+            display: none;
+        }
+        .badTip{
+            color:red;
+            display: none;
+        }
+        .tuijian{
+            width: 400px;
+            overflow: hidden;
+            background-color: #fdffc7;
+            display: none;
+        }
+        .tuijian ul{
+            list-style: none;
+        }
+        .tuijian ul li{
+            overflow: hidden;
+        }
+        .tuijian ul li span{
+            float: left;
+            color:green;
+        }
+        .tuijian ul li b{
+            float: right;
+            color:green;
+            font-weight: bold;
+        }
+        .tuijian ul li.disable span{
+            color:red;
+            text-decoration: line-through;
+        }
+        .tuijian ul li.disable b{
+            font-weight: normal;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="zhuce">
+        <p>
+            邮箱地址：
+            <input type="text" name="username" id="username"/>
+            <span>@</span>
+            <select name="domain" id="domain">
+                <option value="163.com">163.com</option>
+                <option value="126.com">126.com</option>
+                <option value="yeah.net">yeah.net</option>
+            </select>
+        </p>
+        <div class="tips">
+            <p id="goodTip" class="goodTip"></p>
+            <p id="badTip" class="badTip"></p>
+            <div class="tuijian" id="tuijian">
+                <p>我们向你推荐</p>
+                <ul>
+                    <li><span></span><b></b></li>
+                    <li><span></span><b></b></li>
+                    <li><span></span><b></b></li>
+                    <li><span></span><b></b></li>
+                </ul>
+            </div>
+        </div>
+        <p>
+            密码：
+            <input type="text" />
+        </p>
+    </div>
+    <script type="text/javascript" src="myAjax0.2.2.js"></script>
+    <script type="text/javascript">
+        //得到页面上的用户名的文本框、下拉列表
+        var oUsername = document.getElementById("username");
+        var oDomain = document.getElementById("domain");
+
+        //得到good、bad、tuijian
+        var oTuijian = document.getElementById("tuijian");
+        var oBadTip = document.getElementById("badTip");
+        var oGoodTip = document.getElementById("goodTip");
+
+        //得到4个li
+        var tuijianLis = oTuijian.getElementsByTagName("li");
+
+        //失去焦点和改变下拉列表，都是做同一个事情
+        oUsername.onblur = check;
+        oDomain.onchange = check;
+
+        function check(){
+            clearAllTip();  //清除所有提示框
+            //得到值
+            var username = oUsername.value;  //文本框
+            var domain = (function(){
+                //得到所有option
+                var options = oDomain.getElementsByTagName("option");
+                //遍历，看看哪个被selected了
+                for(var i = 0 ; i < options.length ; i++){
+                    if(options[i].selected){
+                        return options[i].value;
+                    }
+                }
+            })();
+
+            //如果这个值是空，那么什么也不做。
+            if(!username) {
+                return;
+            }
+            //正则验证合法性
+            //6~18个字符，可使用字母、数字、下划线，需以字母开头
+            var reg = /^[A-Za-z][\w]{5,17}$/;
+            if (!reg.test(username)) {
+                showWrong("6~18个字符，可使用字母、数字、下划线，需以字母开头");
+                return; //不合法的时候，就返回，不执行下面的语句了
+            }
+
+            //这里请求一个静态json，实际上要请求后台php页面。
+            myAjax.post("check.json",{"username" : username},function(err,data){
+                if(err){
+                    showWrong("服务器错误，稍后再试");
+                    return;
+                }
+                //转为json格式：
+                var dataJSON = JSON.parse(data);
+                //获得result对象
+                var result = dataJSON.result;
+                //如果没有result对象。就创造一个result对象
+                if(!result){
+                    var result = {};
+                }
+                //检测是否可用
+                if(result.hasOwnProperty(domain)){
+                    //可用
+                    showRight("恭喜，可用！");
+                }else{
+                    //不可用
+                    //就要给用户显示推荐的邮箱
+                    oTuijian.style.display = "block";   //显示推荐框
+                    //我们要依次查找这些域名是否可用
+                    var domainArray = ["163.com","126.com","yeah.net","vip163"];
+                    //我们再写一个结果数组
+                    var usableArray = [];
+                    //遍历domainArray，把domainArray中的每一个项，进行检测
+                    //检测result对象中是不是有这个属性
+                    for(var i = 0 ; i < domainArray.length ; i++){
+                        var tOrf = result.hasOwnProperty(domainArray[i]) ? true : false;
+                        usableArray.push(tOrf);
+                    }
+                    console.log(usableArray);
+
+                    //遍历4个li标签，根据我们的结果数组来决定他们
+                    //是否有disable类、里面的span的内容、b的内容
+                    for(var i = 0 ; i < tuijianLis.length ; i++){
+                        var thisli = tuijianLis[i];
+
+                        //决定这个li是否有disable类
+                        thisli.className = usableArray[i] ? "" : "disable";
+
+                        //往span里面写内容
+                        //得到这唯一一个span
+                        var thisspan = thisli.getElementsByTagName("span")[0];
+                        if(domainArray[i] == "vip163"){
+                            domainArray[i] = "vip.163.com";
+                        }
+                        thisspan.innerHTML = username + "@" + domainArray[i];
+
+                        //往b里面写内容
+                        var thisb = thisli.getElementsByTagName("b")[0];
+                        thisb.innerHTML = usableArray[i] ? "可以使用" : "已经被占用";
+                    }
+                }
+            });
+        }
+
+        //得到焦点
+        oUsername.onfocus = clearAllTip;
+
+        function clearAllTip(){
+            //让所有的提示框消失
+            oTuijian.style.display = "none";
+            oBadTip.style.display = "none";
+            oGoodTip.style.display = "none";
+        }
+
+        //显示错误提示框
+        function showWrong(info){
+            oBadTip.innerHTML = info;
+            oBadTip.style.display = "block";
+        }
+
+        //显示正确提示框
+        function showRight(info){
+            oGoodTip.innerHTML = info;
+            oGoodTip.style.display = "block";
+        }
+    </script>
+</body>
+</html>

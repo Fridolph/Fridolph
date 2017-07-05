@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.result{
+			height: 100px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<input id="shoujihao" type="text" />
+	<input id="btn" type="button" value="查询" />
+	<p id="jieguo" class="result"></p>
+
+	<script type="text/javascript">
+		var oShouJiHao = document.getElementById("shoujihao");
+		var oBtn = document.getElementById("btn");
+		var oJieguo = document.getElementById("jieguo");
+
+		//给按钮添加监听
+		oBtn.onclick = function(){
+			//得到用户填写的手机号
+			var shoujihao = oShouJiHao.value;
+			//创建script标签
+			var script = document.createElement("script");
+			script.src = "http://virtual.paipai.com/extinfo/GetMobileProductInfo?mobile=" + shoujihao +"&amount=10000&callname=wahahaha";
+			//在body的最后，追加这个script。
+			//这个script一旦追加当追加上，HTTP上行请求将发出
+			document.body.appendChild(script);
+			//立即删除。不用等HTTP下行报文回来，我们立即删除它。
+			document.body.removeChild(script);
+		}
+
+		//定义函数。
+		function wahahaha(data){
+			var province = data.province;
+			var cityname = data.cityname;
+			var isp = data.isp;
+			oJieguo.innerHTML = province + cityname + isp;
+		}
+	</script>
+</body>
+</html>

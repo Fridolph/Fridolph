@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+    function add(){
+        var argLength = arguments.length;
+        if(argLength == 1){
+            return arguments[0] + 100;
+        }else if(argLength == 2){
+            return arguments[0] + arguments[1];
+        }
+    }
+
+    console.log(add(10));
+    console.log(add(123,23));
+</script>
+</body>
+</html>

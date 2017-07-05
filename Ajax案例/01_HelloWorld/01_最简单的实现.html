@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #pp{
+            width: 300px;
+            height: 100px;
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <h3>在页面上有一个按钮，点击按钮之后，异步读取test.txt文件，将文件中的内容，显示在页面上</h3>
+    <p id="pp"></p>
+    <input id="btn" type="button" value="点我啊，点我就读取文件啦！"/>
+
+    <script type="text/javascript">
+        //得到按钮
+        var oBtn = document.getElementById("btn");
+        //得到pp
+        var oPP = document.getElementById("pp");
+        //按钮监听
+        oBtn.onclick = function(){
+            // 创建一个XMLHTTPRequest对象
+            //XMLHTTPRequest是一个内置对象。
+            //这个对象就是用来发起XML的HTTP请求的。
+            var xhr = new XMLHttpRequest();
+            // 设置回调函数，表示接收到请求之后做什么
+            xhr.onreadystatechange = function(){
+                pp.innerHTML = xhr.responseText;
+            }
+            // 配置
+            // open方法有三个参数。
+            // 第一个参数表示请求的类型；
+            // 第二个参数是文件路径
+            // 第三个参数表示是否异步，如果异步，那么写true
+            xhr.open("get","test.txt",true);
+            // 发送请求
+            xhr.send(null);
+        }
+    </script>
+</body>
+</html>

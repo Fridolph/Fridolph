@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Handerbars</title>
+  <style>
+    .card{
+      font-size: 30px;
+      float: left;
+      margin: 20px;
+      background: pink;
+    }
+  </style>
+  <script id="card-template" type="text/x-handlebars-template">
+    <div>姓名：{{name}}</div>
+    <div>出生日期：{{birth}}</div>
+    <div>出生地：{{home}}</div>
+    <div>职业：{{job}}</div>
+  </script>
+</head>
+<body>
+  <!--<div class="card">
+    <div>姓名：凯文米特尼克</div>
+    <div>出生日期：1963年8月6日</div>
+    <div>出生地：美国洛杉矶</div>
+    <div>职业：网络安全咨询师</div>
+  </div>-->
+  <div class="card" id="card">
+  </div>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/handlebars.js"></script>
+  <script>
+    var data = {
+      name: '凯文米特尼克',
+      birth: '1963年8月6日',
+      home: '美国洛杉矶',
+      job: '网络安全咨询师'
+    }
+    // var str = '';
+    // str += "<div>姓名：" + data.name + "</div>";
+    // str += "<div>出生日期：" + data.birth + "</div>";
+    // str += "<div>出生地：" + data.home + "</div>";
+    // str += "<div>职业：" + data.job + "</div>";
+    // $('#card').html(str);
+
+    /* 使用handlebars */
+    var t = $('#card-template').html();
+    // console.log(t);  其实就是模版 template
+    var f = Handlebars.compile(t);
+    // console.log(f);
+    // function ret(context, execOptions) {
+	  //   if (!compiled) {
+	  //     compiled = compileInput();
+	  //   }
+	  //   return compiled.call(this, context, execOptions);
+	  // }
+    var h = f(data);
+    // console.log(h);
+    $('#card').html(h);
+  </script>
+</body>
+</html>

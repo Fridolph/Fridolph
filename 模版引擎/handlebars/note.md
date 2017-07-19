@@ -7,3 +7,15 @@
 ajax数据
 
 http://imoocnote.calfnote.com/inter/getClasses.php?curPage=1
+
+## 小结
+
+* 避免在js中写html代码
+* 可读性好
+* 易维护
+
+基本用法  {{}}
+
+判断和循环 {{#each}} {{#if}}
+
+自定义标签 registerHelper

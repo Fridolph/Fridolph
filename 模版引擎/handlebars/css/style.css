@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+.banner {
+  width: 100%;
+  height: 200px;
+  background: #eee;
+  display: inline-block;
+}
+.banner h1 {
+  font-size: 60px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.banner h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #6a6a6a;
+  margin-left: 20px;
+}
+.classes {
+  float: left;
+  width: 100%;
+}
+.classes .pag {
+  min-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+.classes ul {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  float: left;
+}
+.classes li {
+  float: left;
+  width: 29%;
+  text-align: left;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 20px;
+}
+.classes li:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+}
+.classes .innerbox {
+  width: 90%;
+  margin: 20px auto;
+}
+.classes img {
+  width: 100%;
+}
+.classes .titlediv {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.classes .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 70%;
+  display: inline-block;
+}
+.classes .note {
+  font-size: 14px;
+  vertical-align: text-top;
+}
+.classes .subtitle {
+  font-size: 14px;
+  margin-top: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.classes .short {
+  color: #d64bd3;
+}
+.classes .long {
+  color: #d6984d;
+}
+.pag {
+  clear: both;
+}

@@ -223,3 +223,68 @@ _.intersection = function(array) {
 
 数组交集的求取思路为：遍历第一个数组的每个元素，在之后的所有数组中找寻是否有该元素，有则放入结果数组。
 
+
+### difference 
+
+`_.difference(...array)` 求取数组差集
+
+```js
+// Take the difference between one array and a number of other arrays.
+// Only the elements present in just the first array will remain.
+_.difference = restArgs(function(array, rest) {
+  rest = flatten(rest, true, true);
+  return _.filter(array, function(value){
+    return !_.contains(rest, value);
+  });
+});
+```
+
+数组差集的求取思路为：令剩余的数组为 rest，flatten方法在之前有提到过，相当于ES6里的...args。然后用filter方法对array进行处理， `_.contains`返回的是布尔值，再取反，也就是最终返回array中存在的，而 rest 中不存在的值。
+
+### unzip 和 zip
+
+`uniq_.uniq(array)` 数组解压就是将多个数组的对应位置的元素抽离出来，组成新的数组：
+
+    [['moe', 18, 'male'], ['larry', 23, 'female'], ['curly', 30, 'male']]
+
+```js
+// Complement of _.zip. Unzip accepts an array of arrays and groups
+// each array's elements on shared indices.
+_.unzip = function(array) {
+  var length = array && _.max(array, getLength).length || 0;
+  var result = Array(length);
+
+  for (var index = 0; index < length; index++) {
+    result[index] = _.pluck(array, index);
+  }
+  return result;
+};
+```
+
+length为array.length，在其中做了安全校验，我们暂时省略。之后又声明了变量result，这是原生数组其长度为length。接下来进行循环，重组result，至于这个_.pluck怎么实现的我们放到后面来说… （还没看到那，说早了怕后面又忘了）
+
+于是加上例子，更好地说明：
+
+```js
+var names = ['fri', 'yk', 'wb'];
+var ages = [22, 23, 24];
+var hobby = ['LOL', 'Dota2', ['毒奶粉', '亡者荣耀']];
+
+var students = _.unzip([names, ages, hobby]);
+// => students: [['fri', 22, 'LOL'], ['yk', 23, 'dota2'], ['wb', 24, ['毒奶粉', '亡者荣耀']]]
+```
+
+_.zip(array)：压缩 array ~ 同字面意思
+
+```js
+// Zip together multiple lists into a single array -- elements that share
+// an index go together.
+_.zip = restArgs(_.unzip);
+```
+
+就是上面 unzip方法的逆过程
+
+
+## 总结
+
+这一章的学习主要是操作Array的相关函数。可发现，其实最主要都是第一章里介绍的主要方法，很多都是方法的封装与实现，可见我们有一个好的封装是多么重要。

@@ -30,6 +30,8 @@ _.initial = function(array, n, guard) {
 知道这个后也很简单了——对传递array的一个副本，返回前n个~
 
 
+
+
 ### last
 
 `_.last(array, n, guard)` 返回array（数组）的最后一个元素。传递 n参数将返回数组中从最后一个元素开始的n个元素（愚人码头注：返回数组里的后面的n个元素）。
@@ -180,4 +182,44 @@ _.uniq = _.unique = function(array, isSorted, iteratee, context) {
 ```
 
 条件判断我们先略过，从for循环来看。如果排好序了, 直接通过比较操作!== 。
-如果已经排序, seen 只需要反映最近一次见到的元素，如果尚未排序, 且存在比较函数, 亦即不能直接通过 === 判断，否则直接通过 contains 进行判断
+如果已经排序, seen 只需要反映最近一次见到的元素；
+如果尚未排序, 且存在比较函数, 亦即不能直接通过 === 判断；
+否则直接通过 contains 进行判断
+
+### union
+
+`_.union(arrays)` 返回传入的 arrays（数组）并集：按顺序返回，返回数组的元素是唯一的，可以传入一个或多个 arrays（数组）。
+
+```js
+// Produce an array that contains the union: each distinct element from all of
+// the passed-in arrays.
+_.union = restArgs(function(arrays) {
+  return _.uniq(flatten(arrays, true, true));
+});
+```
+
+### intersection
+
+`_.intersection(arrays)` 返回传入 arrays（数组）交集。结果中的每个值是存在于传入的每个arrays（数组）里。
+
+```js
+// Produce an array that contains every item shared between all the
+// passed-in arrays.
+_.intersection = function(array) {
+  var result = [];
+  var argsLength = arguments.length;
+  for (var i = 0, length = getLength(array); i < length; i++) {
+    var item = array[i];
+    if (_.contains(result, item)) continue;
+    var j;
+    for (j = 1; j < argsLength; j++) {
+      if (!_.contains(arguments[j], item)) break;
+    }
+    if (j === argsLength) result.push(item);
+  }
+  return result;
+};
+```
+
+数组交集的求取思路为：遍历第一个数组的每个元素，在之后的所有数组中找寻是否有该元素，有则放入结果数组。
+

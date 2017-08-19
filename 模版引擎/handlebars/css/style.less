@@ -21,10 +21,25 @@ li {list-style-type: none;}
   }
   img{width: 100%;}
   .titlediv{font-size: 20px;margin-top:10px;}
-  .title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;max-width:70%;display:inline-block;}
-  .note{font-size:14px;vertical-align:text-top;}
+  .title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;max-width:70%;display:inline-block;vertical-align:middle;}
+  .note{font-size:14px;vertical-align:middle;line-height:1.5;}
   .subtitle{font-size:14px;margin-top:10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
   .short{color:#d64bd3;}
   .long{color:#d6984d;}
 }
-.pag {clear: both;}
+.clearfix {
+  clear:both;
+  &::after{
+    content: '.'; display:table; overflow: hidden;
+  }
+}
+.page {
+  clear: both;
+  ul { margin-top: 60px; margin-bottom: 60px; text-align: center; }
+  li { width: 40px;height:40px;line-height:40px;display:inline-block;border-radius:50%;background-color:#f0f0f0; }
+  .cur { background-color:#ffedb2; }
+  .clickable { 
+    background-color:#d6f2ff; 
+    &:hover{cursor: pointer; background-color:#b9cbf7;}
+  }
+}

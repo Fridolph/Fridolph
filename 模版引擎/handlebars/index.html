@@ -19,11 +19,23 @@
           <img src="{{image}}" />
           <div class="titlediv">
             <span class="title">{{title}}</span>
-            <span class="note">(有笔记)</span>
+            {{#equal hasnote 1}}<span class="note">(有笔记)</span>{{/equal}}
           </div>
           <div class="subtitle">{{subtitle}}</div>
-          <div class="subtitle">时间：{{timespan}}</div>
+          <div class="subtitle {{#long timespan}} long {{else}} short {{/long}}">时间：{{timespan}}</div>
         </div>
+      </li>
+      {{/each}}
+    </ul>
+  </script>
+  <script id="page-template" type="text/x-handlebars-template">
+    <ul>
+      {{#each this}}
+      <li
+        {{#if clickable}} class="clickable" {{/if}}
+        {{#if cur}} class="" {{/if}}
+      >
+        {{{text}}}
       </li>
       {{/each}}
     </ul>
@@ -34,7 +46,7 @@
     <h1>我的笔记本</h1>
     <h3>你的指尖，有改变世界的力量</h3>
   </div>
-  <div class="classes" id="classes">
+  <div class="classes clearfix" id="classes">
     <!--<ul>
       <li>
         <div class="innerbox">
@@ -48,6 +60,20 @@
         </div>
       </li>
     </ul>-->
+  </div>
+  <div class="page" id="page">
+    <!--    
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+    -->
   </div>
 
   <script src="./js/script.js"></script>

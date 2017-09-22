@@ -1,0 +1,9 @@
+/* pages/tips/tips.wxss */
+.page-tips {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(#0c0f18 0, #183362 40%, #3e4988 100%);
+}

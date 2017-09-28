@@ -1,3 +1,0 @@
-self.$config = {
-  // config...
-}

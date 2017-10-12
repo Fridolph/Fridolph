@@ -1,11 +1,11 @@
-var add = require('../src/add')
-var expect = require('chai').expect
+// var add = require('../src/add')
+// var expect = require('chai').expect
 
-describe('加法函数测试', () => {
-  it('1加1等于2', () => {
-    expect(add(1,1)).to.be.equal(2)
-  })
-})
+// describe('加法函数测试', () => {
+//   it('1加1等于2', () => {
+//     expect(add(1,1)).to.be.equal(2)
+//   })
+// })
 
 /**
  ?c 上面这段代码就是测试脚本，它可以独立执行。
@@ -17,3 +17,14 @@ describe('加法函数测试', () => {
  *c it块称为测试用例 test case，表示一个单独的测试，是测试的最小单位
  *c 它也是一个函数，第一个参数是测试用例的名称, 第二个参数是实际执行的函数
  */
+
+import add from '../src/add'
+import chai from 'chai'
+
+let expect = chai.expect
+
+describe('加法函数测试', () => {
+  it('1加1等于2', () => {
+    expect(add(1, 1)).to.be.equal(2)
+  })
+})

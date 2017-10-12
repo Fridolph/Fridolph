@@ -26,5 +26,8 @@
     "karma-webpack": "^2.0.5",
     "mocha": "^4.0.1",
     "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "node-fetch": "^1.7.3"
   }
 }

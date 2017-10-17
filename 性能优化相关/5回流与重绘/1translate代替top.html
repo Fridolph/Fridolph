@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>translate代替top</title>
+  <style>
+    #rect {
+      position: relative;
+      top: 0;
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+    }
+
+    /* #rect {
+      transform: translateY(0);
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+    } */
+  </style>
+</head>
+<body>
+  <div id="rect"></div>
+
+  <script>
+    setTimeout(() => {
+      // scripting 1.6 rendering 0.4 painting 0.3 other 8.6
+      document.getElementById('rect').style.top = '100px'
+
+      // scripting 1.3 rendering 0.1 painting 0.1 other 8.9
+      // document.getElementById('rect').style.transform = 'translateY(100px)'
+    }, 2000)
+  </script>
+</body>
+</html>

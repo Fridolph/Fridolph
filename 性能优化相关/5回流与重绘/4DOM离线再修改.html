@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM离线再修改</title>
+  <style>    
+    .rect {
+      position: relative;
+      will-change: transform;
+      width: 100px;
+      height: 100px;
+      background: skyblue;      
+      opacity: 0.5;
+      /* display: none; */
+    }    
+    .change {
+      width: 200px;
+      height: 300px;
+      left: 300px;
+      top: 200px;
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  </style>
+</head>
+<body>
+  <div id="rect" class="rect"></div>
+
+  <script>
+    
+    setTimeout(() => {      
+      // scripting 1.5 rendering 0.3 painting 0.2 other 8.5
+      document.getElementById('rect').style.display = 'none'
+      document.getElementById('rect').style.width = '200px'
+      document.getElementById('rect').style.height = '300px'
+      document.getElementById('rect').style.left = '300px'
+      document.getElementById('rect').style.top = '200px'
+      document.getElementById('rect').style.transform = 'translateZ(0)'
+      document.getElementById('rect').style.opacity = 1
+      document.getElementById('rect').style.display = 'block'
+    }, 2000)   
+  </script>
+</body>
+</html>

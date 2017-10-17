@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>用opacity替代visibility</title>
+  <style>
+    /* #rect {
+      position: relative;
+      top: 0;
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+    } */
+
+    /* #rect {
+      width: 100px;
+      height: 100px;
+      background: skyblue;      
+    } */
+
+    #rect {
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+      transform: translateZ(0);
+    }
+  </style>
+</head>
+<body>
+  <div id="rect"></div>
+
+  <script>
+    setTimeout(() => {
+      // scripting 2.1 rendering 0.5 painting 0.3 other 10.2
+      // document.getElementById('rect').style.visibility = 'hidden'
+
+      // scripting 1.2 rendering 0.2 painting 0.1 other 8.6
+      // document.getElementById('rect').style.opacity = 0
+
+      // scripting 1.2 rendering 0.2 painting 0.1 other 8.6
+      document.getElementById('rect').style.opacity = 0
+    }, 2000)
+  </script>
+</body>
+</html>

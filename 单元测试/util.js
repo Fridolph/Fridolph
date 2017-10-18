@@ -94,3 +94,4 @@ exports.triggerClick = function(elem, ...opts) {
 
   return elem
 }
+

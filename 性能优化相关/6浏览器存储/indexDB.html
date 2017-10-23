@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cookie</title>
+</head>
+<body>
+  <script>    
+    var openDB = function(name) {
+      var request = window.indexedDB.open(name)
+      request.onerror = function(e) {
+        console.log('open indexDB error')
+      }
+      request.onsuccess = function(e) {
+        myDB.db = e.target.result
+        console.log(myDB.db)
+      }
+    }
+    var myDB = {
+      name: 'testDB',
+      version: '1.0.0',
+      db: null
+    }
+
+    openDB(myDB.name)
+  </script>
+</body>
+</html>

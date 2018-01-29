@@ -107,4 +107,11 @@ JS可以维护DOM
 
 8. property和attribute的区别
 attribute 是元素属性
-property 是元素特性
+property 是元素特性 两者不同步
+
+9. form的作用有哪些
+直接提交表单
+使用submit reset按钮
+便于浏览器保存表单
+第三方库可以整体提取值
+第三方库可以进行表单验证

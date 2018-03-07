@@ -9,9 +9,7 @@ function parseQuery(query) {
   var result = {}
 
   // 如果不是字符串则返回空对象
-  if (typeof query !== 'string') {
-    return result
-  }
+  if (typeof query !== 'string') return result
 
   // 去掉字符串开头可能带的? 
   if (query.charAt(0) === '?') {
@@ -25,7 +23,6 @@ function parseQuery(query) {
 
   for (i = 0, len = pairs.length; i < len; i++) {
     pair = pairs[i].split('=');
-
     // application/x-www-form-urlencoded编码会将' '转换为 +
     key = decodeURIComponent(pair[0]).replace(/\+/g, ' ');
     value = decodeURIComponent(pair[1].replace(/\+/g, ' '));

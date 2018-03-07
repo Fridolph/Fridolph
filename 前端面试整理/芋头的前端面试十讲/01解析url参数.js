@@ -1,56 +1,49 @@
 // 01解析url参数
 // 问题：尽可能全面正确的解析一个任意url的所有参数为Object
-// const parseParam = url => {
-//   let obj = {}
-//   let keyvalue = []
-//   let kvArr = []
-//   let key = ''
-//   let value = ''
-//   let parseString = url.substring(url.indexOf('?') + 1, url.length).split('&')
-  
-//   for (let i in parseString) {
-//     keyvalue = parseString[i]
-//     // console.log(keyvalue)
-
-//     if (keyvalue.indexOf('=') === -1) {      
-//       obj[keyvalue] = true
-//     } else {      
-//       kvArr = keyvalue.split('=')
-//       key = kvArr[0]
-//       value = decodeURIComponent(kvArr[1])
-//       obj[key] = value
-//     }
-//   }
-
-//   console.log(obj)
-//   return obj
-// }
-
-const parseParam = url => {
+const parseUrl = url => {
   let result = {}
-  let queryString = url.substr(url.indexOf('?') + 1, url.length)
-  // console.log(queryString)  
-  let queryArr = queryString.split('&')
-  let key = ''
-  let value = ''
-
+  if (typeof url !== 'string') return result
+  // 判断是否为合法url可跳过
+  if (url.indexOf('?') === -1) return reuslt
+  let querystring = url.substring(url.indexOf('?') + 1)
+  let queryArr = querystring.split('&')
+  let key
+  let value
   queryArr.map(item => {
     if (item.indexOf('=') === -1) {
       result[item] = true
     } else {
       let kv = item.split('=')
-      key = kv[0]
-      value = decodeURIComponent(kv[1])
-      result[key] = value
+      let key = decodeURIComponent(kv[0])
+      let value = decodeURIComponent(kv[1])
+      // 如果是新key 直接添加
+      if (!(key in result)) {
+        result[key] = value
+      } else if (isArray(result[key])) {
+        // 如果key已经出现一次以上，直接向数组添加value
+        result[key].push(value)
+      } else {
+        // 如果key第二次出现，将结果改为数组
+        let arr = [result[key]]
+        arr.push(value)
+        result[key] = arr
+      }
     }
   })
 
-  console.log(result)
+  function isArray(obj) {
+    if (obj && typeof obj === 'object') {
+      return Object.prototype.toString.call(obj) === '[object Array]'
+    }
+    return false
+  }
+
   return result
 }
 
-var url = 'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4%BA%AC&d&enabled';
-parseParam(url);
+var url =
+  'http://www.domain.com/?user=anonymous&id=123&id=456&city=%E5%8C%97%E4%BA%AC&d&enabled'
+console.log(parseUrl(url))
 /**
 结果：
 {

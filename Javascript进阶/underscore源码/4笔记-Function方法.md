@@ -175,21 +175,27 @@ _.throttle = function(func, wait, options) {
   if (!options) options = {};
 
   // 私有方法
-  var later = function() {    
+  var later = function() {
+    // 若没有初始leading则赋值为0，有则 为当前的时间
     previous = options.leading === false ? 0 : _.now();
+    // 标记为 null 空
     timeout = null;
+    // result赋值为我们传入的func函数，作用域为context，为将args作为参数传入
     result = func.apply(context, args);
+    // 若 timeout 为空值，不进行操作，不为空 将上下文定为null
     if (!timeout) context = args = null;
   };
 
-
+  // 私有方法 throttled
   var throttled = function() {
     // now 为当前调用时间
     var now = _.now();
-    // previous为不0 options.leading 为false时，把当前时间赋值给previous
+    // 这里的判断 最好拆一下 !(previous && options.leading === false)
+    // 默认值为空，previous为0，则表达式为false 再取反，也就是说，默认将previous设为当前时间
     if (!previous && options.leading === false) previous = now;
     // 计算剩余时间，wait是我们传入的时间，这里的now - previous一般来说是相等的，但考虑到安全性就有了这样的写法
     var remaining = wait - (now - previous);    
+    // 这里的this上下文环境， 是throttled 整个内部
     context = this;
     args = arguments;
     // 当未到节流时间时，一般来说会执行到这步
@@ -224,3 +230,116 @@ _.throttle = function(func, wait, options) {
 ```
 
 这个函数是真的长，真心厉害… 懵懵懂懂能理解到一些，不用着急，慢慢来就好了，毕竟“学武不是一朝一夕的事”
+
+### debounce
+
+debounce_.debounce(function, wait, [immediate]) 
+返回 function 函数的防反跳版本, 将延迟函数的执行(真正的执行)在函数最后一次调用时刻的 wait 毫秒之后. 对于必须在一些输入（多是一些用户操作）停止到达之后执行的行为有帮助。 例如: 渲染一个Markdown格式的评论预览, 当窗口停止改变大小之后重新计算布局, 等等.
+
+传参 immediate 为 true， debounce会在 wait 时间间隔的开始调用这个函数 
+
+    var lazyLayout = _.debounce(calculateLayout, 300);
+    $(window).resize(lazyLayout);
+
+```js
+_.debounce = function(func, wait, immediate) {  
+  var timeout, result;
+
+  // 延迟函数
+  var later = function(context, args) {
+    timeout = null;
+    if (args) result = func.apply(context, args);
+  };
+
+  var debounced = restArgs(function(args) {
+    // 重复调用会清掉之前的timeout
+    if (timeout) clearTimeout(timeout);
+    if (immediate) {
+      // 如果有给immediate参数 则进行延迟处理，先处理immediate
+      var callNow = !timeout;
+      timeout = setTimeout(later, wait);
+      if (callNow) result = func.apply(this, args);
+    } else {
+      // 若没传immediate，则直接进行延迟
+      timeout = _.delay(later, wait, this, args);
+    }
+
+    return result;
+  });
+
+  // 垃圾回收
+  debounced.cancel = function() {
+    clearTimeout(timeout);
+    timeout = null;
+  };
+
+  return debounced;
+};
+```
+
+### compose
+
+compose_.compose(*functions) 
+返回函数集 functions 组合后的复合函数, 也就是一个函数执行完之后把返回的结果再作为参数赋给下一个函数来执行. 以此类推. 在数学里, 把函数 f(), g(), 和 h() 组合起来可以得到复合函数 f(g(h()))。
+
+    var greet    = function(name){ return "hi: " + name; };
+    var exclaim  = function(statement){ return statement.toUpperCase() + "!"; };
+    var welcome = _.compose(greet, exclaim);
+    welcome('moe');
+    => 'hi: MOE!'
+
+```js
+_.compose = function() {
+  var args = arguments;
+  var start = args.length - 1;
+  // 返回函数
+  return function() {
+    // 最后个参数
+    var i = start;    
+    var result = args[start].apply(this, arguments);
+    while (i--) result = args[i].call(this, result);
+    return result;
+  };
+};
+```
+
+### after
+
+after_.after(count, function) 
+创建一个函数, 只有在运行了 count 次之后才有效果. 在处理同组异步请求返回结果时, 如果你要确保同组里所有异步请求完成之后才 执行这个函数, 这将非常有用。
+
+    var renderNotes = _.after(notes.length, render);
+    _.each(notes, function(note) {
+      note.asyncSave({success: renderNotes});
+    });
+    // renderNotes is run once, after all notes have saved.
+
+```js
+_.after = function(times, func) {  
+  return function() {
+    // 返回函数 执行了times次后才执行函数
+    // 因为执行次数>1时，直接被跳过了
+    if (--times < 1) {
+      return func.apply(this, arguments);
+    }
+  };
+};
+```
+
+### before 
+
+_.before(count, function) 
+创建一个函数,调用不超过count 次。 当count已经达到时，最后一个函数调用的结果将被记住并返回。
+
+```js
+_.before = function(times, func) {
+  var memo;
+  return function() {
+    if (--times > 0) {
+      memo = func.apply(this, arguments);
+    }
+    if (times <= 1) func = null;
+    return memo;
+  };
+};
+```

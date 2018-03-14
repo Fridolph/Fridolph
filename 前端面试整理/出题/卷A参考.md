@@ -127,39 +127,7 @@ a[6]();
 <button class="common-btn btn-hover-red">click me</button>
 ```
 
-4、对上面的按钮增加一个点击事件，点击后，弹出一个水平垂直居中的弹窗，再次点击可关闭弹窗，在移动设备下也有良好的展示效果。
 
-```html
-<style>
-  .pop-layer {
-    
-
-  }
-
-  .pop-inner-box {
-   
-
-  }
-
-</style>
-
-
-<div class="pop-layer">
-  <div class="pop-box">
-    <div class="pop-box-header">
-      <i class="icon-close" id="clickClose">x</i>
-    </div>
-    <div class="pop-box-content">
-      <div class="pop-innerbox" id="removableBox"></div>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript">
-
-
-
-</script>
 ```
 
 5、实现对box的简单拖拽效果

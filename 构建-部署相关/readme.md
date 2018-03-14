@@ -34,3 +34,6 @@ gpasswd -a imooc_manager sudo
 
 sudo visudo  -> #User privilege ... 下面的root增加一行
 imooc_manager ALL=(ALL:ALL) ALL
+
+%E9%BB%94ICP%E5%A4%8718001905%E5%8F%B7%EF%BC%8C%E5%A4%87%E6%A1%88%E5%AF%86%E7%A0%81%E4%B8%BA%EF%BC%9AFRE527
+

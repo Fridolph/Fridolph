@@ -46,7 +46,21 @@ readAsync('./package.json').then(res => {
 })
 ```
 
-4. async + util.promisify方式
+4. 使用 co 和 util
+
+```js
+const co = require('co')
+const util = require('util')
+
+co(function *() {
+  let data = yield util.promisify(fs.readFile)('./package.json')
+  data = JSON.parse(data)
+  console.log(data.name)
+})
+```
+
+
+5. async + util.promisify方式
 
 ```js
 const fs = require('fs')

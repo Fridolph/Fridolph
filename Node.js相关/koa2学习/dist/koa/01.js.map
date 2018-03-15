@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/koa/01.js"],"names":["Koa","require","app","listen"],"mappings":";;AAAA,IAAMA,MAAMC,QAAQ,KAAR,CAAZ;AACA,IAAMC,MAAM,IAAIF,GAAJ,EAAZ;;AAEAE,IAAIC,MAAJ,CAAW,IAAX","file":"01.js","sourcesContent":["const Koa = require('koa')\r\nconst app = new Koa()\r\n\r\napp.listen(3000)"]}

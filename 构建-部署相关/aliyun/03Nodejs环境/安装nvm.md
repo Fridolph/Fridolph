@@ -23,3 +23,13 @@ npm --registry=https://registry.npm.taobao.org install -g npm
 
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p 
 
+
+cd ~ 
+vi .bash_profile
+
+```bash
+export NVM_DIR="/root/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+```
+
+将上面的添加并保存即可

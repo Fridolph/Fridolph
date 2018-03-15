@@ -1,0 +1,28 @@
+{
+  "name": "koa2-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
+    "build": "rimraf dist && babel src -s -D -d dist --presets env"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "co": "^4.6.0",
+    "koa-logger": "^3.2.0",
+    "node-fetch": "^2.1.1",
+    "nodemon": "^1.17.2",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
+    "koa": "^2.5.0",
+    "koa-session": "^5.8.1"
+  }
+}

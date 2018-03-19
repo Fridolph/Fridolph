@@ -80,7 +80,7 @@ function bindEvent(elem, type, selector, fn) {
     if (selector) {
       target = e.target
       if (target.matches(selector)) {
-        fa.call(target, e)
+        fn.call(target, e)
       }
     } else {
       fn(e)

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: table; width: 100%;
+}
+.left {
+  width: 300px;display: table-cell;
+}
+.right {
+  width: 300px;display: table-cell;
+}
+.middle {
+  display: table-cell;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    let draw = count => {
+      // 具体抽奖逻辑
+      console.info(`开始抽奖！ 恭喜，抽到了xxx, 还剩余${count}次抽奖机会`);
+    }
+
+    let residue = function* (count) {
+      while (count > 0) {
+        count--;
+
+        yield draw(count);        
+      }
+    }
+
+    let start = residue(5);
+    let btn = document.createElement('button');
+    btn.id = 'start';
+    btn.textContent = '抽奖';
+    document.body.appendChild(btn);
+    document.getElementById('start').addEventListener('click', function() {
+      start.next();
+    }, false);
+  </script>
+</body>
+</html>

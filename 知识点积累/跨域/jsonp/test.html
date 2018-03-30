@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">点击获取</button>
+  <div id="content">
+    
+  </div>  
+  <script src="./test.js"></script>
+  <script>
+    const btn = document.getElementById('btn')
+    const con = document.getElementById('content')
+    let data = {}
+    
+    btn.addEventListener('click', e => {
+      jsonp('https://api.douban.com/v2/book/search?q=javascript&count=1&callback=handleResponse')
+    })
+
+    function handleResponse(res) {
+      con.innerHTML = `<p><pre>${JSON.stringify(res)}</pre></p>`
+    }
+  </script>
+</body>
+
+</html>

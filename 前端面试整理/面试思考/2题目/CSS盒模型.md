@@ -29,12 +29,22 @@ box-sizing: border-box; // IE模型
 ## 实例题：根据盒模型解释边距重叠
 
 
-BFC 边距重叠解决方案
+## BFC 边距重叠解决方案
 
-BFC的基本概念：块级格式化上下文（IFC：内联格式化上下文）
-BFC的原理：
+* BFC的基本概念：块级格式化上下文（IFC：内联格式化上下文）
+
+* BFC的原理：
 1. 在BFC元素内上下外边距重叠
 2. BFC区域不会与浮动元素的盒子重叠
 3. BFC在页面是一个独立的容器（外部不影响内里）
 4. 计算BFC高度时浮动元素也参与计算
+
+* 如何创建BFC
+
+1. overflow不为visible
+2. float不为none
+3. position的值不为static
+4. display属性为inline-box table-cell table 
+
+* BFC使用场景
 

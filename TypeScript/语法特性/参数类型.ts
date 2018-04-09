@@ -1,11 +1,11 @@
-class Person {
-  name: string
-  age: number
-}
+// class Person {
+//   name: string
+//   age: number
+// }
 
-var fri = new Person()
+// var fri = new Person()
 
-fri.name = 'fri'
-fri.age = 18
+// fri.name = 'fri'
+// fri.age = 18
 
-console.log(fri)
+// console.log(fri)

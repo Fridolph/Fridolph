@@ -1,1 +1,1 @@
-{"version":3,"file":"类型注解.js","sourceRoot":"","sources":["类型注解.ts"],"names":[],"mappings":"AAAA,iBAAiB,MAAc;IAC7B,OAAO,SAAS,GAAG,MAAM,CAAC;AAC5B,CAAC;AAED,IAAI,IAAI,GAAG,CAAC,CAAC,EAAC,CAAC,EAAC,CAAC,CAAC,CAAC;AAEnB,QAAQ,CAAC,IAAI,CAAC,SAAS,GAAG,OAAO,CAAC,IAAI,CAAC,CAAC"}
+{"version":3,"file":"类型注解.js","sourceRoot":"","sources":["类型注解.ts"],"names":[],"mappings":"AAAA,qCAAqC;AACrC,+BAA+B;AAC/B,IAAI;AAEJ,sBAAsB;AAEtB,2CAA2C"}

@@ -1,1 +1,1 @@
-{"version":3,"file":"接口.js","sourceRoot":"","sources":["接口.ts"],"names":[],"mappings":"AAKA,iBAAiB,MAAc;IAC7B,OAAO,SAAS,GAAG,MAAM,CAAC,SAAS,GAAG,GAAG,GAAG,MAAM,CAAC,QAAQ,CAAC;AAC9D,CAAC;AAED,IAAI,IAAI,GAAG,EAAE,SAAS,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,EAAE,CAAC;AAEnD,QAAQ,CAAC,IAAI,CAAC,SAAS,GAAG,OAAO,CAAC,IAAI,CAAC,CAAC"}
+{"version":3,"file":"接口.js","sourceRoot":"","sources":["接口.ts"],"names":[],"mappings":"AAAA,qBAAqB;AACrB,uBAAuB;AACvB,sBAAsB;AACtB,IAAI;AAEJ,qCAAqC;AACrC,iEAAiE;AACjE,IAAI;AAEJ,sDAAsD;AAEtD,2CAA2C"}

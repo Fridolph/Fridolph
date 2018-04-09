@@ -1,1 +1,1 @@
-{"version":3,"file":"参数类型.js","sourceRoot":"","sources":["参数类型.ts"],"names":[],"mappings":"AAAA;CAGC;AAED,IAAI,GAAG,GAAG,IAAI,MAAM,EAAE,CAAA;AAEtB,GAAG,CAAC,IAAI,GAAG,KAAK,CAAA;AAChB,GAAG,CAAC,GAAG,GAAG,EAAE,CAAA;AAEZ,OAAO,CAAC,GAAG,CAAC,GAAG,CAAC,CAAA"}
+{"version":3,"file":"参数类型.js","sourceRoot":"","sources":["参数类型.ts"],"names":[],"mappings":"AAAA,iBAAiB;AACjB,iBAAiB;AACjB,gBAAgB;AAChB,IAAI;AAEJ,yBAAyB;AAEzB,mBAAmB;AACnB,eAAe;AAEf,mBAAmB"}

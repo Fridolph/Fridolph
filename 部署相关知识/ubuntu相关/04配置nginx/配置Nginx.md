@@ -37,16 +37,16 @@ upstream imooc {
 
 server {
   listen 80;
-  server_name 120.77.246.102; #定义使用 120.77.246.102 地址访问
+  server_name fridolph.wang; #定义使用的 地址访问
 
   location / {
-    root /; # 定义服务器的默认根目录位置
+    root /data/www/hexo; # 定义服务器的默认根目录位置
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
     proxy_set_header X-Nginx-Proxy true;
     # 这里就是设置要跳转的实际地址
-    proxy_pass http://fuyinsheng.top:8081;
+    # proxy_pass http://fuyinsheng.top:8081;
     proxy_redirect off;
   }
 }
@@ -61,3 +61,4 @@ sudo nginx -t 检查nginx有没配置错误
 通过之后重启 nginx 服务  sudo nginx -s reload
 
 vi nginx.conf  -> server_tokens off 把注释取消， 前端查看 nginx版本信息就不会暴露太多
+

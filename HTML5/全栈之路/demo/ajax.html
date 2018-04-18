@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax</title>
+</head>
+<body>
+  <button id="btn">ajax</button>
+
+  <script>
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', e => {
+      e.preventDefault()
+      // 1. 创建对象
+      const xhr = new XMLHttpRequest()
+      // 2. 连接
+      // 方法名， 地址， true异步 / false同步
+      xhr.open('GET', './test.txt', true)
+      // 3. 发送 内容为body 
+      xhr.send()
+      // 4. 接收
+      xhr.onreadystatechange = () => {
+        // 当通信状态改变时， 这里会打印3次
+        // console.log('readystatechange')
+        // console.log(xhr.readyState) // 2 3 4 
+        if (xhr.readyState === 4 && xhr.status >= 200 || xhr.status < 300 || xhr.status === 304) {
+          console.log(xhr)
+        }
+      }
+    }, false)
+  </script>
+</body>
+</html>
+

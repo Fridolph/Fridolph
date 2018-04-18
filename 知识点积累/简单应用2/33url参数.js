@@ -11,6 +11,6 @@ const getUrlParameters = url =>
 
 const URL = 'http://url.com/page?name=Adam&&surname=Smith'
 
-console.log(URL.match(/([^?=&]+)(=([^&]*))/g))
+// console.log(URL.match(/([^?=&]+)(=([^&]*))/g))
 
 console.log(getUrlParameters(URL))

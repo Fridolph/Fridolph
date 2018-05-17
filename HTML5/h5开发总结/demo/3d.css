@@ -1,0 +1,75 @@
+.demo {
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  position: relative;
+  margin: 30px auto;
+}
+.cube {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  position: absolute;
+  transition: all 1s ease-in-out;
+  animation: autoRotate ease 18s alternate infinite;
+}
+.cube:hover {
+  transform: translate3d(200px, 0, 0);
+}
+.cube-face {
+  border: 2px solid #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.9;
+  backface-visibility: visible;
+}
+.cube-face.is-front {
+  transform: translateZ(150px);
+}
+.cube-face.is-back {
+  transform: rotateX(-180deg) translateZ(150px);
+}
+.cube-face.is-right {
+  transform: rotateY(90deg) translateZ(150px);
+}
+.cube-face.is-left {
+  transform: rotateY(-90deg) translateZ(150px);
+}
+.cube-face.is-top {
+  transform: rotateX(90deg) translateZ(150px);
+}
+.cube-face.is-bottom {
+  transform: rotateX(-90deg) translateZ(150px);
+}
+.cube.show-default {
+  transform: translateZ(-150px) rotateY(-15deg) rotateX(-15deg);
+}
+.cube.show-left {
+  transform: translateZ(-150px) rotateY(90deg);
+}
+.cube img {
+  width: 100%;
+}
+
+@keyframes autoRotate {
+  0%, 100% {
+    transform: translateZ( - 150px );
+  }
+  16.5% {
+    transform: translateZ( - 150px ) rotateX( -180deg );
+  }
+  33% {
+    transform: translateZ( - 150px ) rotateY( 90deg );
+  }
+  49.5% {
+    transform: translateZ( - 150px ) rotateY( -90deg );
+  }
+  66% {
+    transform: translateZ( - 150px ) rotateX( -90deg );
+  }
+  82.5% {
+    transform: translateZ( - 150px ) rotateX( 90deg );
+  }
+}

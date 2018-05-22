@@ -1,5 +1,5 @@
 function selectSort(arr) {
-  var temp, 
+  var temp,
       minIndex,
       len = arr.length;
 
@@ -15,7 +15,7 @@ function selectSort(arr) {
     arr[i] = arr[minIndex];
     arr[minIndex] = temp;
   }
-  
+
   return arr
 }
 

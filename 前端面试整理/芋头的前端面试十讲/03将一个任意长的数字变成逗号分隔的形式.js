@@ -14,4 +14,4 @@ const parseToMoney = number => {
     return rArr.join('.')
   }
 }
-console.log(parseToMoney('12346.70291')) // return "1,234.56"
+console.log(parseToMoney('1234216.70291')) // return "1,234,216.70291"

@@ -25,9 +25,13 @@
 
 ### 验证头
 
+
 **强缓存**
+
+* Cache-Control
+* Expires
+
+**协商缓存**
 
 * Last-Modified 对比上次修改时间以验证资源是否需要更新，配合If-Modified-Since使用
 * Etag 对比资源签名判断是否使用缓存，配合If-Match或者If-None-Match使用
-
-**协商缓存**

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Observer</title>
+</head>
+<body>
+  <button id="addNewObserver">Add New Observer checkbox</button>
+  <input type="text" id="mainCheckbox" />
+  <div id="observersContainer"></div>
+  <script>
+    // extend an object with an extension
+    function extend(obj, extension) {
+      for (var key in extension) {
+        obj[key] = extension[key]
+      }
+    }
+
+    // references to out DOM elements
+    var controlCheckbox = document.getElementById('mainCheckbox')
+    var addBtn = document.getElementById('addNewObserver')
+    var container = document.getElementById('observersContainer')
+    // create subject
+    function addNewObserver() {
+      // create a new checkbox to be added
+      var check = document.createElement('input')
+      check.type = 'checkbox'
+      // extend the checkbox with the Observer class
+      extend(check, new Observer())
+      // override with custom update behaviour
+      check.update = function(value) {
+        this.checkec = value
+      }
+      // add the new observer to our list of observers for our main subject
+      controlCheckbox.addNewObserver(check)
+      // append the item to the container
+      container.appendChild(check)
+    }
+  </script>
+</body>
+</html>

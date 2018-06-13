@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试 Schema</title>
+</head>
+<body>
+  <button id="btn-scan">扫一扫</button>
+  <button id="btn-login">登录</button>
+  <button id="btn-share">分享</button>
+  <script src="./invoke.js"></script>
+  <script>
+    var btnScan = document.getElementById('btn-scan')
+    var btnLogin = document.getElementById('btn-login')
+    var btnShare = document.getElementById('btn-share')
+    
+    btnScan.addEventListener('click', function() {
+      window.invoke.scan({}, function() {})
+    })
+
+    btnLogin.addEventListener('click', function() {
+      window.invoke.login({}, function() {})
+    })
+
+    btnShare.addEventListener('click', function() {
+      window.invoke.share({
+        title: '测试',
+        content: '测试好了没'
+      }, function(result) {
+        if (result.errono === 0) {
+          alert('分享成功')
+        } else {
+          alert(result.message)
+        }
+      })
+    })
+  </script>
+</body>
+</html>

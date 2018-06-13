@@ -1,0 +1,14 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+.container {
+  position: relative;
+}
+.left, .right {
+  width: 300px;
+  position:absolute;
+  top: 0;
+}
+.left{left: 0;}
+.right {right: 0;}
+.middle {
+  margin: 0 300px;
+}

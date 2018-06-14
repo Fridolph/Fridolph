@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li><a href="/a">turn A</a></li>
+    <li><a href="/b">turn B</a></li>
+    <li><a href="/c">turn C</a></li>
+  </ul>
+  <script>
+  class Routes {
+    constructor() {
+      this.routes = {}
+      // 在初始化时监听popState事件
+      this._bindPopState()
+    }
+
+    // 初始化路由
+    init(path) {
+      history.replaceState({path: path}, null, path)
+      this.routes[path] && this.routes[path]()
+    }
+
+    // 将路径和对应回调函数加入hashMap存储
+    route(path, callback) {
+      this.routes[path] = callback || function() {}
+    }
+
+    // 触发路由对应回调
+    go(path) {
+      history.pushState({path: path}, null, path)
+      this.routes[path] && this.routes[path]()
+    }
+
+    // 监听popState事件
+    _bindPopState() {
+      window.addEventListener('popstate', e => {
+        const path = e.state && e.state.path
+        this.routes[path] && this.routes[path]()
+      })
+    }
+  }
+
+  window.Router = new Routers()
+  Router.init(location.pathname)
+  const content = document.querySelector('body')
+  const ul = document.querySelector('ul')
+
+  function changeBgColor(color) {
+    content.style.backgroundColor = color
+  }
+
+  ul.addEventListener('click', e => {
+    if (e.target.tagName === 'a') {
+      e.preventDefault()
+      Router.go(e.target.getAttribute('href'))
+    }
+  })
+  </script>
+</body>
+</html>

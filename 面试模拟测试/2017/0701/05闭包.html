@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>closure</title>
+</head>
+<body>
+  <div id="app">
+    <button class="btn btn1">1</button>
+    <button class="btn btn2">2</button>
+    <button class="btn btn3">3</button>
+    <button class="btn btn4">4</button>
+    <button class="btn btn5">5</button>
+  </div>
+  <script>
+    // 事件绑定是异步编程，当触发点击行为，绑定的方法执行时，外层循环已经结束
+    // 方法执行产生私有作用域，用到变量i，不是私有的变量，按照“作用域链”的查找机制
+    // 找到的是全局下的i （此时全局的i已经成为循环最后一次的结果）
+
+    const app = document.getElementById('app')
+    const btns = app.querySelectorAll('.btn')
+    // btns.forEach(item => {
+    //   item.addEventListener('click', function(e) {
+    //     alert(item.innerHTML)
+    //   }, false)
+    // })
+    // console.log(btns);
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function(e) {
+        alert(i)
+      }, false)
+    }
+  </script>
+</body>
+</html>

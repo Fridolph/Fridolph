@@ -27,7 +27,7 @@
 
 ### Session的实现原理
 
-服务器会为每一个访问服务器的用户创建一个session对象，且把session对象的id保存在本地cookie上，只要用户再次访问服务器时，带着session id，服务器就会匹配用户在服务器上的session。根据session中的数据，还原用户上次的浏览状态或提供其他人性化服务。
+
 
 ### 浏览器禁用Cookie后如何实现Session
 

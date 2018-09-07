@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul></ul>
+  <!-- <script>
+    let ul = document.querySelector('ul')
+    let total = 100000
+    let number = 0
+    const fragment = document.createDocumentFragment()
+    for (let i = 0; i < total; i++) {
+      const li = document.createElement('li')
+      li.innerText = number++
+      fragment.appendChild(li)
+    }
+    ul.appendChild(fragment)
+  </script> -->
+  <script>
+    setTimeout(() => {
+      const total = 100000
+      const once = 1000
+      const loopCount = total / once
+      let countOfRender = 0
+      let number = 0
+      const ul = document.querySelector('ul')
+
+      function add() {
+        let fragment = document.createDocumentFragment()
+        for (let i = 0; i < once; i++) {
+          let li = document.createElement('li')
+          li.innerText = number++
+          fragment.appendChild(li)
+        }
+        ul.appendChild(fragment)
+        countOfRender++
+        loop()
+      }
+
+      function loop() {
+        if (countOfRender < loopCount) {
+          window.requestAnimationFrame(add)
+        }
+      }
+      loop()
+    }, 0)
+  </script>
+</body>
+
+</html>

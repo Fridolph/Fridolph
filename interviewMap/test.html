@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>冒泡排序</title>
+  <style>
+    .container {
+      text-align: center;
+    }
+    .sort {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border: 1px solid black;
+      transition: all 1s ease-in-out;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+  </div>
+
+  <script>
+    const container = document.querySelector('.container')
+    let arr = [5,4,8,9,14,24,3,12,43,6,7,8,56]
+    let fragment = document.createDocumentFragment()
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+      let node = document.createElement('div')
+      node.className = 'sort'
+      node.id = i
+      node.style.left = i * 60 + 'px'
+      node.innerText = arr[i]
+      fragment.appendChild(node)
+    }
+    container.appendChild(fragment)
+
+    let time = 1
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len - 1; j++) {
+        if (arr[j] >= arr[j + 1]) {
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+          setTimeout(() => {
+            let x = document.getElementById(j)
+            let y = document.getElementById(j + 1)
+            [x.style.left, y.style.left] = [y.style.left, x.style.left]
+            [x.id, y.id] = [y.id, x.id]
+          }, time * 1000)
+          time++
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -24,3 +24,17 @@ MVC缺点是控制器承担责任太大，随着项目复杂度增加代码臃�
 ![MVVM Binder](https://user-gold-cdn.xitu.io/2018/12/21/167cf01bd8430243?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 对于MVVM来说，最重要的并不是通过双向绑定或者其他方式将View和ViewModel绑定起来，而是**通过ViewModel将视图中的状态 和 用户的行为分离出一个抽象**，这才是MVVM的精髓
+
+---
+
+- View 界面
+- Model 数据模型
+- ViewModel 作为桥梁负责沟通View和Model
+
+在 JQuery 时期，如果需要刷新 UI 时，需要先取到对应的 DOM 再更新 UI，这样数据和业务的逻辑就和页面有强耦合。
+
+在 MVVM 中，UI 是通过数据驱动的，数据一旦改变就会相应的刷新对应的 UI，UI 如果改变，也会改变对应的数据。这种方式就可以在业务处理中只关心数据的流转，而无需直接和页面打交道。ViewModel 只关心数据和业务的处理，不关心 View 如何处理数据，在这种情况下，View 和 Model 都可以独立出来，任何一方改变了也不一定需要改变另一方，并且可以将一些可复用的逻辑放在一个 ViewModel 中，让多个 View 复用这个 ViewModel。
+
+在 MVVM 中，最核心的也就是数据双向绑定，Vue 中通过Object.defineProperty来进行数据劫持。
+
+

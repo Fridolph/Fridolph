@@ -1,3 +1,9 @@
+> loader 和 plugin的区别
+
+loader 用于对模块的源代码进行转换。
+
+plugin范围更广 插件目的在于解决 loader 无法实现的其他事。
+
 # webpack优化点
 
 ## 减少webpack的打包时间

@@ -25,18 +25,23 @@ optimization: {
     minSize: 30000,
     maxSize: 0,
     minChunks: 1,
+    // 只做最多5个代码分隔（一般根据需要设多个）
     maxAsyncRequests: 5,
+    // 入口文件(或依赖库)，最大做3个代码分隔
     maxInitialRequests: 3,
+    // 文件中间生成的连接符
     automaticNameDelimiter: '~',
     name: true,
     cacheGroups: {
       vendors: {
         test: /[\\/]node_modules[\\/]/,
+        // 值越大，通过时 放入vendor的优先级越高
         priority: -10
       },
       default: {
         minChunks: 2,
         priority: -20,
+        // 如果模块已经被打包过了，再打包就会忽略
         reuseExistingChunk: true
       }
     }

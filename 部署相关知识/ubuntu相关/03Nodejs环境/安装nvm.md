@@ -21,10 +21,10 @@ nvm install 8.9.1  nvm use 8.9.1
 
 npm --registry=https://registry.npm.taobao.org install -g npm
 
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p 
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 
-cd ~ 
+cd ~
 vi .bash_profile
 
 ```bash
@@ -33,3 +33,27 @@ export NVM_DIR="/root/.nvm"
 ```
 
 将上面的添加并保存即可
+
+python flask高级编程(无密)
+
+Python3数据分析与挖掘建模实战
+
+Python3数据科学入门与实战
+
+Python操作三大主流数据库
+
+Python高级编程技巧实战
+
+Python接口测试框架实战与自动化进阶
+
+Python进阶强化训练
+
+python就业班
+
+Python爬虫工程师必学 App数据抓取实战
+
+慕课网 python分布式爬虫打造搜索引擎【完整版】
+
+强力Django 和杀手级xadmin
+
+全网最热Python3入门+进阶 更快上手实际开发

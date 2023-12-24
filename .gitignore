@@ -1,5 +1,5 @@
 node_modules
 
-**/node_modules
-
-thinkphp_3.2.3包备份
+*.rar
+*.zip
+*.7z

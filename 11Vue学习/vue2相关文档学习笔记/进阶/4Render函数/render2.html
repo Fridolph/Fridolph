@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基础</title>
+</head>
+<body>
+<div id="app">
+  <anchor title="你好吗">
+    点我
+  </anchor>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>  
+  <h1 id="你好吗">你好吗</h1>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>  
+</div>
+
+<script src="../../vendor/vue.js"></script>
+<script>
+Vue.component('anchor', {
+  props: {
+    level: {
+      type: Number,
+      default: 3
+    },
+    title: {
+      type: String,
+      default: ''
+    }
+  },
+  // render函数通过 createElement 参数来创建Virtual DOM，结构精简了许多
+  render(createElement) {
+    return createElement(
+      'h' + this.level,
+      [
+        createElement(
+          'a',
+          {
+            domProps: {
+              href: '#' + this.title
+            }            
+          },
+          this.$slots.default
+        )
+      ]
+    )
+  }
+})
+
+var app = new Vue({
+  el: "#app"
+})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>1基础语法</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <component-a></component-a>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var bus = new Vue()
+Vue.component('component-a', {
+  template: `<button @click="handleEvent">传递事件</button>`,
+  methods: {
+    handleEvent: function() {
+      bus.$emit('on-message', '来自组件component-a的内容')
+    }
+  }
+})
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: ''
+  },
+  mounted: function() {
+    var _this = this;
+    bus.$on('on-message', msg => {
+      _this.message = msg;
+    })
+  }
+})
+</script>
+</body>
+</html>

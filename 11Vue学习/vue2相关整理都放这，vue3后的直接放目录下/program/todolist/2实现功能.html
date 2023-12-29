@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container" id="box">
+  <form class="form">
+    <div class="form-group">
+      <label for="username">用户名：</label>
+      <input type="text" id="username" class="form-control" placeholder="输入用户名" v-model="username" />
+    </div>
+    <div class="form-group">
+      <label for="userage">年龄：</label>
+      <input type="text" id="userage" class="form-control" placeholder="输入年龄" v-model="userage" />
+    </div>
+    <div class="form-group">
+      <button
+        type="button" 
+        class="btn btn-primary"
+        @click="add"
+      >
+        添加
+      </button>
+      <button
+        type="reset" 
+        class="btn btn-danger"
+      >
+        重置
+      </button>
+    </div>
+  </form>
+  <hr />
+  <table class="table table-bordered table-hover text-center">
+    <caption class="h2 text-danger text-center">用户信息表</caption>
+    <thead>
+      <tr>
+        <th class="text-center">序号</th>
+        <th class="text-center">名字</th>
+        <th class="text-center">年龄</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, index) in myData">
+        <td>{{index}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+        <td>
+          <button 
+            class="btn btn-sm btn-primary" 
+            data-toggle="modal" 
+            data-target="#layer" 
+            type="button"
+            :data-index="index"
+            @click="changeIndex(index)"            
+          >
+            删除
+          </button>
+        </td>
+      </tr>
+      <!-- <tr>
+        <td>2</td>
+        <td>yk</td>
+        <td>22</td>
+        <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#layer" type="button">删除</button></td>
+      </tr> -->
+      <tr 
+        class="text-right"
+        v-show="myData.length !== 0"
+      >
+        <td colspan="4">
+          <button 
+            type="button" 
+            class="btn btn-danger" 
+            data-toggle="modal" 
+            data-target="#layer"
+            @click="changeIndex(-1)"
+          >
+            清空
+          </button>
+        </td>
+      </tr>
+      <tr v-show="myData.length === 0">
+        <td colspan="4" class="text-center text-muted">
+          <p>暂无数据...</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 模态框 -->
+  <div role="dialog" class="modal fade bs-example-modal-sm" id="layer" :data-index="nowIndex">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{ nowIndex === -1 ? '确认清空列表吗？' : '确认该条信息吗？' }}</h4>
+        </div>
+        <div class="modal-body text-right">
+          <button class="btn btn-primary btn-sm" data-dismiss="modal" @click="deleteMsg">确认</button>
+          <button class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../vendor/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#box',
+  data: {
+    myData: [],
+    username: '',
+    userage: '',
+    nowIndex: 0,    
+  },
+  methods: {
+    add: function() {
+      this.myData.push({
+        name: this.username,
+        age: this.userage
+      })
+      this.username = ''
+      this.userage = ''
+    }, 
+    changeIndex: function(index) {
+      this.nowIndex = index
+    },
+    deleteMsg: function() {
+      let index = this.nowIndex
+
+      if (index !== -1) {
+        this.myData.splice(index, 1)
+      } else {
+        this.myData.splice(0, this.myData.length)
+      }
+    },
+    empty: function() {
+
+    }
+  }
+})
+</script>
+</body>
+</html>

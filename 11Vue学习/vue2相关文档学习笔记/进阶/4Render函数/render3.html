@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基础</title>
+</head>
+<body>
+<div id="app">
+    <ele :list="list"></ele>
+    <button @click="handleClick">显示列表</button>
+</div>
+
+<script src="../../vendor/vue.js"></script>
+<script>
+Vue.component('ele', {
+  render: h => {
+    if (this.list && this.list.length) {
+      return h('ul', this.list.map(item => {
+        return h('li', item)
+      }))
+    } else {
+      return h('p', '列表为空')
+    }
+  },
+  props: {
+    list: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  watch: {
+    list(val) {
+      console.log(val)      
+    }
+  }
+})
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    list: []
+  },
+  methods: {
+    handleClick() {
+      this.list = [
+        '列表1',
+        '列表2',
+        '列表3'
+      ]
+    }
+  }
+})
+</script>
+</body>
+</html>

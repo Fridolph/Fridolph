@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" id="input">
+    <p id="p"></p>
+  </div>
+  <script>
+    const input = document.getElementById('input');
+    const p = document.getElementById('p');
+    const obj = {};
+
+    const newObj = new Proxy(obj, {
+      get: function (target, key, receiver) {
+        console.log(`getting ${key}!`);
+        return Reflect.get(target, key, receiver);
+      },
+      set: function (target, key, value, receiver) {
+        console.log(target, key, value, receiver);
+        if (key === 'text') {
+          input.value = value;
+          p.innerHTML = value;
+        }
+        return Reflect.set(target, key, value, receiver);
+      },
+    });
+
+    input.addEventListener('keyup', function (e) {
+      newObj.text = e.target.value;
+    });
+  </script>
+</body>
+
+</html>

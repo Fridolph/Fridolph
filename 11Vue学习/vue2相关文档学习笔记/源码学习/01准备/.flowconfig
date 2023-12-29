@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+.*/demo/.*
+
+[libs]
+flow
+
+[lints]
+
+[options]
+
+[strict]

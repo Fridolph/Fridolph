@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>3计算属性vsWatchedProperty</title>
+</head>
+<body>
+  <!-- 
+      Vue.js提供了一个方法 $watch 它用于观察Vue实例上的数据变动。当一些数据需要根据其他数据变化时， $watch 很诱人。
+      不过，通常更好的办法是使用计算属性而不是一个命令式的 $watch 回调~  思考下面的回调：      
+   -->
+  <div id="demo">{{ fullName }}</div>
+
+  <div id="demo-2">{{ fullName }}</div>
+
+  <!-- vue.js -->
+  <script src="../../vendor/vue.js"></script>
+  <script>     
+    var vm = new Vue({
+      el: '#demo',
+      data: {
+        firstName: 'Foo',
+        lastName: 'Bar',
+        fullName: 'Foo Bar'
+      },
+      watch: {
+        firstName: function(val) {
+          this.fullName = val + ' ' + this.lastName
+        },
+        lastName: function(val) {
+          this.fullName = this.firstName + ' ' + val
+        }
+      }
+    })
+
+    var vm2 = new Vue({
+      el: '#demo-2',
+      data: {
+        firstName: 'Hello',
+        lastName: 'World'
+      },
+      computed: {
+        fullName: function() {
+          return this.firstName + ' ' + this.lastName
+        }
+      }
+    })
+  </script>
+</body>
+</html>

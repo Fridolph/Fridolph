@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <style>
+    div {
+        background: #bbffaa;
+        width: 300px;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>通过empty移除元素</h2>
+    <div id="test">
+        <p>p元素1</p>
+        <p>p元素2</p>
+    </div>
+    <button>点击通过jQuery的empty移除元素</button>
+    <script type="text/javascript">
+    $("button").on('click', function() {
+        //通过empty移除了当前div元素下的所有p元素
+        //但是本身id=test的div元素没有被删除
+        $("#test").empty()
+    })
+    </script>
+</body>
+
+</html>

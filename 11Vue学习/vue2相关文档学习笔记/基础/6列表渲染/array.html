@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Array</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <template v-for="book in books">
+      <li>书名:{{book.name}}</li>
+      <li>作者:{{book.author}}</li>
+    </template>  
+  </ul>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      books: [
+        {
+          name: '《Vue.js实战》',
+          author: '梁'
+        },
+        {
+          name: '《JS语言精粹》',
+          author: 'Douglas'
+        },
+        {
+          name: '《JS高级程序设计》',
+          author: 'Nicholas'
+        }
+      ]
+    }
+  })
+
+  // app.books = app.books.filter(item => {
+  //   return item.name.match(/JS/);
+  // })
+  // app.books.splice(3, 1, {
+  //   name: '《CSS揭秘》',
+  //   author: '~~~'
+  // })
+  Vue.set(app.books, 3, {
+    name: '《CSS揭秘》',
+    author: 'Lea Verou'
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>购物车</title>
+<style>
+  [v-cloak] {
+    display: none;
+  }
+  .shopcart {
+    width: 500px;    
+  }
+  .cart-header, .cart-body {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .item {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+</style>
+</head>
+<body>
+<div id="app" v-cloak>
+  <!-- <div class="shopcart">
+    <div class="cart-header">
+      <div class="item"></div>
+      <div class="item">商品名称</div>
+      <div class="item">单价</div>
+      <div class="item">数量</div>
+      <div class="item">操作</div>
+    </div>
+    <div class="cart-body">
+      <div class="item">1</div>
+      <div class="item">iphone 8</div>
+      <div class="item">6188</div>
+      <div class="item">1</div>
+      <div class="item"><button>移除</button></div>
+    </div>
+  </div> -->
+  <div class="shopcart" v-if="list.length">
+    <div class="cart-header">
+      <div class="item"><input type="checkbox" :checked="all" @click="selectAll"></div>
+      <div class="item">序号</div>
+      <div class="item">商品名称</div>
+      <div class="item">单价</div>
+      <div class="item">数量</div>
+      <div class="item">操作</div>
+    </div>    
+    <div class="cart-body" v-for="(item,index) in list">
+      <div class="item"><input type="checkbox" v-model="item.checked"></div>
+      <div class="item">{{index + 1}}</div>
+      <div class="item">{{item.name}}</div>
+      <div class="item">{{item.price}}</div>
+      <div class="item">
+        <button @click="handleReduce(index)" :disabled="item.count === 0"> - </button>
+        {{item.count}}
+        <button @click="handleAdd(index)"> + </button>
+      </div>
+      <div class="item">        
+        <button @click="handleRemove(index)">移除</button>
+      </div>
+    </div>
+    <p>总价：￥{{totalPrice}}</p>
+  </div>
+  <div v-else>购物车为空</div>
+  
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    all: false,
+    list: [
+      {
+        id: 1,
+        name: 'iphone 7',
+        price: 6188,
+        count: 1,
+        checked: false
+      },
+      {
+        id: 2,
+        name: 'iPad Pro',
+        price: 5888,
+        count: 1,
+        checked: false
+      },
+      {
+        id: 3,
+        name: 'MacBook',
+        price: 21488,
+        count: 1,
+        checked: false
+      }
+    ]
+  },
+  computed: {
+    totalPrice() {
+      let total = 0;
+      for (let i = 0; i < this.list.length; i++) {
+        if (this.list[i].checked) {
+          total += this.list[i].price * this.list[i].count;
+        }
+      }      
+      return total.toString().replace(/\B(?=(\d{3})+$)/g, ',')
+    }
+  },
+  watch: {
+    all() {
+      if (this.all) {
+        for (let i = 0; i < this.list.length; i++) {
+          this.list[i].checked = true
+        }
+      } else {
+        for (let i = 0; i < this.list.length; i++) {
+          this.list[i].checked = false
+        }
+      }
+    }
+  },
+  methods: {
+    handleRemove(index) {
+      this.list.splice(index, 1)
+    },
+    handleReduce(index) {
+      this.list[index].count--;
+    },
+    handleAdd(index) {
+      this.list[index].count++;
+    },
+    selectAll() {
+      if (this.all === false) {
+        this.all = true
+      } else {
+        this.all = false
+      }
+    }
+  }  
+})
+</script>
+</body>
+</html>

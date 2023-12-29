@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>声明式渲染</title>
+</head>
+<body>
+<!-- 声明式 -->
+<div id="app">
+  {{ message }}
+</div>
+<!-- 绑定DOM元素属性 -->
+<div id="app-2">
+  <span :title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+
+<script src="../../vendor/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  });
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: '查看消息 ' + new Date()
+    }
+  });
+</script>
+</body>
+</html>

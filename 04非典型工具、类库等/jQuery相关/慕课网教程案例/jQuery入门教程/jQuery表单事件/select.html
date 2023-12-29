@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    .left div,
+    .right div {
+        width: 500px;
+        height: 80px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+    }
+    
+    .left div {
+        background: #bbffaa;
+    }
+    
+    .right div {
+        background: yellow;
+    }
+    
+    select {
+        height: 100px;
+    }
+    </style>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <h2>input与textarea</h2>
+    <div class="left">
+        <h4>测试一</h4>
+        <div class="aaron">
+            选中文字：input
+            <input type="text" value="慕课网" />
+        </div>
+        <button id="bt1">触发input元素的select事件</button>
+        
+        <h4>测试二</h4>
+        <div class="aaron">
+            textarea：
+            <textarea rows="3" cols="20">用鼠标选中文字</textarea>
+        </div>
+    </div>
+ 
+    <script type="text/javascript">
+
+    //监听input元素中value的选中
+    //触发元素的select事件
+    $("input").select(function(e){
+        alert(e.target.value)
+    })
+    $("#bt1").click(function(){
+        $("input").select();
+    })
+
+
+    //监听textarea元素中value的选中
+    $('textarea').select(function(e) {
+        alert(e.target.value);
+    });
+
+    </script>
+</body>
+
+</html>

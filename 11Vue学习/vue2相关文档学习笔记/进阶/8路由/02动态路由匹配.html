@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>02动态路由匹配</title>
+</head>
+<body>
+<p>
+  我们经常需要把某种模式匹配到的所有路由，全都映射到同个组件。例如，我们有一个 User 组件，对于所有 ID 各不相同的用户，都要使用这个组件来渲染。那么，我们可以在 vue-router 的路由路径中使用『动态路径参数』（dynamic segment）来达到这个效果：
+</p>
+<div id="app">
+  <p>点击不同用户，进入 相同组件的  不同内容页</p>
+
+  <nav>
+    <router-link to="/user/A">用户A</router-link>
+    <router-link to="/user/B">用户B</router-link>
+    <router-link to="/user/C">用户C</router-link>
+  </nav>
+  <router-view></router-view>
+</div>
+
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script src="../../vendor/vue-router.js"></script>
+<script>
+const User = {
+  template: '<div>User {{ $route.param.id }}</div>'
+}
+const router = new VueRouter({
+  routes: [
+    // 动态路径参数 以冒号开头
+    { path: '/user/:id', component: User }
+  ]
+})
+
+const app = new Vue({
+  router
+}).$mount('#app')
+
+</script>
+</body>
+</html>

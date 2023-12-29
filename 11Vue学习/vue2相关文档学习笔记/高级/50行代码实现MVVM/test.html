@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div id='app'>
+    <h3>姓名</h3>
+    <p>{{name}}</p>
+    <h3>年龄</h3>
+    <p>{{age}}</p>
+  </div>
+  <script src="./mvvm.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let opt = {
+        el: '#app',
+        data: {
+          name: '检索中...',
+          age: 30
+        }
+      }
+      let vm = new Vue(opt)
+      setTimeout(() => {
+        opt.data.name = '王永峰'
+        opt.data.age = 233
+      }, 2000);
+    }, false)
+  </script>
+</body>
+
+</html>

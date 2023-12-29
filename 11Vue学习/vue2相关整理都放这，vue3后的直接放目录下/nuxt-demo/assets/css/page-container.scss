@@ -1,0 +1,73 @@
+.page-container-common {
+  .card-item {
+    margin-bottom: 15px;
+    .card-item-wrapper {
+      display: block;
+      width: 100%;
+      position: relative;
+      color: #333;
+      img {
+        height: 180px;
+        width: 100%;
+      }
+      .title {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-bottom: 10px;
+      }
+      .summary {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        line-height: 24px;
+        font-size: 14px;
+        height: 48px;
+        color: #999;
+      }
+      .item-cover {
+        position: absolute;
+        padding: 20px;
+        left: 0;
+        right: 0;
+        top: -180px;
+        width: 100%;
+        height: 180px;
+        z-index: 10;
+        background: rgba(0,0,0,0.7);
+        transition: all ease 0.5s;
+        color: #fff;
+        
+        .desc {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    &:hover {
+      .item-cover {
+        top: 0;
+      }
+    }
+  }
+}
+
+.fixed-layout {
+  .el-tabs {
+    position: fixed;
+    top: 70px;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+  }
+  .el-tabs__content {
+    position: fixed;
+    top: 130px;
+    left: 5%; 
+    right: 5%;
+    height: calc(100vh - 200px);
+    overflow: hidden;
+    overflow-y: auto;
+    bottom: 80px;
+  }
+}

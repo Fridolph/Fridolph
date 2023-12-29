@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>slot</title>
+</head>
+<body>
+<div id="app">
+  <button @click="handleRef">通过ref获取子组件实例</button>
+  <component-a ref="comA"></component-a>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+Vue.component('component-a', {
+  template: '<div>子组件</div>',
+  data() {
+    return {
+      message: '子组件内容'
+    }
+  }
+})
+
+var app = new Vue({
+  el: '#app',
+  methods: {
+    handleRef() {
+      // 通过 $refs来访问指定的实例
+      var msg = this.$refs.comA.message;
+      console.log(msg);
+    }
+  }
+})
+</script>
+</body>
+</html>

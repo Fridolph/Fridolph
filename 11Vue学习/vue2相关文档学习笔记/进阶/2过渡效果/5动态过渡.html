@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>5动态过渡</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="dynamic-fade-demo" class="demo">
+    Fade In: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration"> <br>
+    Fade Out: <input type="range" v-model="fadeOutDuration"
+      min="0" :max="maxFadeDuration">
+    <transition :css="false" @before-enter="beforeEnter" @enter="enter" @leave="leave">
+      <p v-if="show">hello</p>
+    </transition>
+    <button v-if="stop" @click="stop = false; show = false">
+      Start animating
+    </button>
+    <button v-else @click="stop = true">
+      Stop it!
+    </button>
+  </div>
+
+  <!-- vue.js -->
+  <script src="../../vendor/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+  <script>
+    new Vue({
+      el: '#dynamic-fade-demo',
+      data: {
+        show: true,
+        fadeInDuration: 1000,
+        fadeOutDuration: 1000,
+        maxFadeDuration: 1500,
+        stop: true
+      },
+      methods: {
+        beforeEnter(el) {
+          el.style.opacity = 0;
+        },
+        enter(el, done) {
+          var em = this;
+          Velocity(
+            el,
+            {opacity: 1},
+            {
+              duration: this.fadeInDuration,
+              complete() {
+                done()
+                if (!vm.stop) {
+                  vm.show = false
+                }
+              }
+            }
+          );
+        },
+        leave(el, done) {
+          var vm = this;
+          Velocity(
+            el,
+            {opacity: 0},
+            {
+              duration: this.fadeOutDuration,
+              complete() {
+                done();
+                vm.show = true
+              }
+            }
+          )
+        }
+      },
+      mounted() {
+        this.show = false;
+      }      
+    })
+  </script>
+</body>
+
+</html>

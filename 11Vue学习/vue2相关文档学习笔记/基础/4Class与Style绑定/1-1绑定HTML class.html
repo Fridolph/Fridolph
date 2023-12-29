@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>1绑定HTML class</title>
+<style>
+.text-danger{color: red;}
+.text-underline{text-decoration: underline;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div :class="{ active: isActive }">动态切换class</div>
+  <br />
+  <div :class="{ active: isActive, 'text-danger': hasError, 'text-underline': isLink }">传入多个属性来动态切换多个class</div>
+  <h2>直接绑定数据里的一个对象：</h2>
+  <div :class="classObject">绑定对象里添加计算属性</div>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    isActive: true,
+    hasError: false,
+    isLink: false,
+    error: null,
+    
+  },
+  computed: {
+    classObject: function() {
+      return {
+        active: this.isActive && !this.error,
+        'text-danger': this.error && this.error.type === 'fatal',
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

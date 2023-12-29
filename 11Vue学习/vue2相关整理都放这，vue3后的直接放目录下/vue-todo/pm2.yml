@@ -1,0 +1,8 @@
+apps:
+  - script: ./server/server.js
+    name: vue-todo-ssr
+    env_production:
+      # NODE_ENV: production
+      HOST: localhost
+      # PORT: 7002
+ 

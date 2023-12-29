@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>时间转换指令</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <v-table :data="data" :columns="columns"></v-table>
+  </div>
+
+<script src="../../vendor/vue.js"></script>
+<!-- table.js -->
+<script>
+Vue.component('vTable', {
+  props: {
+    columns: {
+      type: Array,
+      default: []
+    },
+    data: {
+      type: Array,
+      default: []
+    }
+  },
+  // 为了让排序后的columns和data不影响原始数据，给v-table组件的data选项添加两个对应的数据
+  // 组件所有的操作将在这两个数据上完成，不对原始数据做任何处理
+  data() {
+    return 
+      currentColumns: [],
+      currentData: []
+      // columns的每一项是一个对象，其中title和key字段是必填的，用来表示这列的表头标题
+      // key是对应data中列内容的字段名， sorttable是选填字段，如果值为true,说明该列需要排序。在index.js中构造数据
+    }
+    // v-table组件目前的prop和data数据已从父组件传递过来了 v-table不直接使用它们，而是使用data选项的currentColumns 和 currentData
+    // 所以在v-table初始化时，需要把columns和data赋给它们。在v-table的methods选项里定义两个方法用来赋值，并在mounted钩子内调用：    
+  },
+  watch: {
+    data() {
+      this.makeData()
+      var sortedColumn = this.currentColumns.filter(col => {
+        return col._sortType !== 'normal'
+      })
+      if (sortedColumn.length > 0) {
+        if (sortedColumn[0]._sortType === 'asc') {
+          this.handleSortByAsc(sortedColumn[0].index)
+        } else {
+          this.handleSortByDesc(sortedColumn[0]._index)
+        }
+      }
+    }
+  },
+  methods: {
+    makeColumns() {
+      this.currentColumns = this.columns.map((col, index) => {
+        // 添加一个字段标识当前列排序的状态，后续使用
+        col._sortType = 'normal'
+        // 添加一个字段标识当前列在数组中的索引，后续使用
+        col._index = index;
+        return col;
+      })
+    },
+    makeData() {
+      this.currentData = this.data.map((row, index) => {
+        // 添加一个字段标识当前在数组中的索引，后续使用
+        row._index = index
+        return row
+      })
+    },
+    handleSortByAsc(index) {
+      var key = this.currentColumns[index].key
+      this.currentColumns.forEach(col => {
+        col._sortType = 'normal'
+      })
+      this.currentColumns[index]._sortType = 'asc'
+      this.currentData.sort((a, b) => {
+        return a[key] > b[key] ? 1 : -1
+      })
+    },
+    handleSortByDesc(index) {
+      var key = this.currentColumns[index].key
+      this.currentColumns.forEach(col => {
+        col._sortType = 'normal'
+      })
+      this.currentColumns[index]._sortType = 'desc'
+      this.currentData.sort((a, b) => {
+        return a[key] < b[key] ? 1 : -1
+      })
+    }
+  },
+  mounted() {
+    // v-table初始化时调用
+    this.makeColumns()
+    this.makeData()
+  },
+  
+  render: h => {
+    var ths = []
+    var trs = []
+
+    this.currentColumns.forEach((col, index) => {
+      if (col.sortable) {
+        ths.push(h('th', [
+          h('span', col.title),
+          // 升序
+          h('a', {
+            class: {
+              on: col._sortType === 'asc'
+            },
+            on: {
+              click() {
+                _this.handleSortByAsc(index)
+              }
+            }
+          }, '升'),
+          // 降序
+          h('a', {
+            class: {
+              on: col._sortType === 'desc'
+            },
+            on: {
+              click() {
+                this.handleSortByDesc(index)
+              }
+            }
+          }, '降')
+        ]))
+      } else {
+        ths.push(h('th', col.title))
+      }
+    })
+
+    this.currentData.forEach(row => {
+      var tds = []
+      this.currentColumns.forEach(cell => {
+        tds.push(h('td', row[cell.key]))
+      })
+      trs.push(h('tr', tds))
+    })
+
+    return h('table', [
+      h('thead', [
+        h('tr', ths)
+      ]),
+      h('tbody', trs)
+    ])
+        
+  }
+})
+</script>
+<!-- index.js -->
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      columns: [
+        {
+          title: '姓名',
+          key: 'name'
+        },
+        {
+          title: '年龄',
+          key: 'age',
+          sortable: true
+        }                
+      ],
+      data: [
+        {
+          name: 'fri',
+          age: 18,
+          birthday: '1999-11-11',
+          address: '那个村'
+        }
+      ]
+    }
+  })
+</script>
+</body>
+</html>

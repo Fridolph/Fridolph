@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>包含</title>
+</head>
+<body>
+  <div id="parent">
+    父元素
+    <div id="children">子元素</div>
+  </div>
+
+<script src="../../vendor/vue.js"></script>
+<script src="./clickoutside.js"></script>
+<script>
+  var parent = document.getElementById('parent')
+  var children = document.getElementById('children')
+  console.log(`parent包含children ${parent.contains(children)}`)
+  console.log(`children包含parent ${children.contains(parent)}`)
+</script>
+</body>
+</html>

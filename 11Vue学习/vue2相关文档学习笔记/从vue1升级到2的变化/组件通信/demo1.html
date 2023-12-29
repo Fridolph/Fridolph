@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <template id="child">
+    <div>
+      <span>我是子组件</span>
+      <input type="button" value="按钮" @click="change" />
+      <strong>{{ msg.a }}</strong>
+    </div>
+  </template>
+
+  <div id="box">
+    父级 -> {{ giveData.a }}
+    <child-dom :msg="giveData"></child-dom>  
+  </div>
+
+  <script src="../../vendor/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#box',
+      data: {
+        // 子组件想要拿到父组件的数据 - 通过props
+        msg: '我是父组件的数据',
+        giveData: {
+          a: 'welcome',
+        }
+      },
+      components: {
+        'child-dom': {
+          props: ['msg'],
+          template: '#child',
+          methods: {
+            change() {
+              this.msg.a = '被更改了';
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

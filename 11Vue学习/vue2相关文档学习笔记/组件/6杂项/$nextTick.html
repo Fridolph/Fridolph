@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>$nextTick</title>
+</head>
+<body>
+<div id="app">
+  <div id="div" v-if="showDiv">这是一段文本</div>
+  <button @click="getText">获取div内容</button>
+</div>
+
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>      
+  var app = new Vue({
+    el: '#app',
+    data: {
+      showDiv: false
+    },
+    methods: {
+      getText() {
+        this.showDiv = true
+        this.$nextTick(() => {
+          var text = document.getElementById('div').innerHTML
+          console.log(text)
+        })
+      }
+    }
+  })
+  /*
+     异步更新队列  Vue在观察到数据变化时并不是直接更新DOM，而是开启一个队列，  
+     并缓冲在同一事件循环中发生的所有事件改变 ，在缓冲时会去除重复数据，从而避免不必要的计算和DOM操作。
+     然后，在下一个事件循环tick中，Vue刷新队列并执行实际（已去重）工作
+     所以，如果用for循环来动态改变数据100次，其实它只会应用最后一次改变
+   */
+
+</script>
+</body>
+</html>

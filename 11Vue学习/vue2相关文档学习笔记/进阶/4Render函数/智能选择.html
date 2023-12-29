@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>智能选择</title>
+</head>
+<body>
+<div id="app">
+  <smart-item :data="data"></smart-item>
+  <button @click="change('img')">切换为图片组件</button>
+  <button @click="change('video')">切换为视频组件</button>
+  <button @click="change('text')">切换为文本组件</button>
+</div>
+
+<script src="../../vendor/vue.js"></script>
+<script>
+  // 图片组件选项
+  var ImgItem = {
+    props: ['data'],
+    render: h => {
+      return h('div', [
+        h('p', '图片组件'),
+        h('img', {
+          attrs: {
+            src: this.data.url
+          }
+        })
+      ])
+    }
+  }
+  // 视频组件
+  var VideoItem = {
+    props: ['data'],
+    render: h => {
+      return h('div', [
+        h('p', '视频组件'),
+        h('video', {
+          attrs: {
+            src: this.data.url,
+            controls: 'controls',
+            autoplay: 'autoplay'
+          }
+        })
+      ])
+    }
+  }
+  // 纯文本组件
+  var TextItem = {
+    props: ['data'],
+    render: h => {
+      return h('div', [
+        h('p', '纯文本组件'),
+        h('p', this.data.text)
+      ])
+    }
+  }
+  // 函数化组件
+  Vue.component('smart-item', {
+    functional: true,
+    render: (h, context) => {
+      // 根据传入的数据，智能判断显示哪种组件
+      function getComponent() {
+        console.log('context: ', context)
+        var data = context.props.data;
+        // 判断prop: data的type字段是属于哪种类型的组件
+        if (data.type === 'img') return ImgItem
+        if (data.type === 'video') return VideoItem
+        return TextItem
+      }
+
+      return h(
+        getComponent(),
+        {
+          props: {
+            // 把smart-item的prop: data传给上面智能选择的组件
+            data: context.props.data
+          }
+        },
+        context.children
+      )
+    },
+    props: {
+      data: {
+        type: Object,
+        required: true
+      }
+    }
+  })
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      data: {}
+    },
+    methods: {
+      // 切换不同类型的组件
+      change(type) {
+        if (type === 'img') {
+          this.data.data = {
+            type: 'img',
+            url: 'https://raw.githubusercontent.com/iview/iview/master/assets.logo.png'
+          }
+        } else if (type === 'video') {
+          this.data.data = {
+            type: 'video',
+            url: 'http://vjs.zencdn.net/v/oceans.mp4'
+          }
+        } else if (type === 'text') {
+          this.data.data = {
+            type: 'text',
+            content: '这是一段纯文本'
+          }
+        }
+      }
+    },
+    created() {
+      // 初始化时，默认设置图片组件的数据
+      this.change('img')
+    }
+  })
+</script>
+</body>
+</html>

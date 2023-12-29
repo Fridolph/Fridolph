@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <style>
+    .test1 {
+        background: #bbffaa;
+    }
+    
+    .test2 {
+        background: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>通过insertBefore与insertAfter添加元素</h2>
+    <button id="bt1">点击通过jQuery的insertBefore添加元素</button>
+    <button id="bt2">点击通过jQuery的insertAfter添加元素</button>
+    <div class="aaron">
+        <p class="test1">测试insertBefore,不支持多参数</p>
+    </div>
+    <div class="aaron">
+        <p class="test2">测试insertAfter,不支持多参数</p>
+    </div>
+    <script type="text/javascript">
+    $("#bt1").on('click', function() {
+        //在test1元素前后插入集合中每个匹配的元素
+        //不支持多参数
+        $('<p style="color:red">测试insertBefore方法增加</p>', '<p style="color:red">多参数</p>').insertBefore($(".test1"))
+    })
+    </script>
+    <script type="text/javascript">
+    $("#bt2").on('click', function() {
+        //在test2元素前后插入集合中每个匹配的元素
+        //不支持多参数
+        $('<p style="color:red">测试insertAfter方法增加</p>', '<p style="color:red">多参数</p>').insertAfter($(".test2"))
+    })
+    </script>
+</body>
+
+</html>

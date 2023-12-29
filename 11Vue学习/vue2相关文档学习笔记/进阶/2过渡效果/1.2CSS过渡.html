@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>2CSS过渡</title>
+<style>
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active{
+  transition: all 0.4s ease;
+}
+.slide-fade-leave-active{
+  transition: all 0.5s ease-out;
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <button @click="show = !show">Toggle render</button>
+  <transition name="slide-fade">
+    <p v-if="show">
+      点击试一下过渡效果
+    </p>
+  </transition>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    show: true
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">  
+        <div id="button">  
+            <ul>  
+                <li>小图</li>  
+                <li>中图</li>  
+                <li>大图</li>  
+            </ul>  
+        </div>  
+        <div id="image">
+            <img src="img/1.jpg" alt=""><br>
+            <img src="img/2.jpg" alt=""><br>
+            <img src="img/3.jpg" alt=""><br>
+            <img src="img/4.jpg" alt=""><br>
+            <img src="img/5.jpg" alt=""><br>
+            <img src="img/6.jpg" alt=""><br>
+            <img src="img/7.jpg" alt=""><br>
+            <img src="img/8.jpg" alt=""><br>
+            <img src="img/9.jpg" alt=""><br>
+            <img src="img/10.jpg" alt=""><br>
+            <img src="img/11.jpg" alt=""><br>
+            <img src="img/12.jpg" alt=""><br>
+            <img src="img/13.jpg" alt=""><br>
+            <img src="img/14.jpg" alt=""><br>
+            <img src="img/15.jpg" alt=""><br>
+            <img src="img/16.jpg" alt=""><br>
+            <img src="img/17.jpg" alt=""><br>
+            <img src="img/18.jpg" alt=""><br>
+            <img src="img/19.jpg" alt=""><br>
+            <img src="img/20.jpg" alt=""><br>
+            <img src="img/21.jpg" alt=""><br>
+            <img src="img/22.jpg" alt=""><br>
+            <img src="img/23.jpg" alt=""><br>
+            <img src="img/24.jpg" alt=""><br>
+            <img src="img/25.jpg" alt=""><br>
+            <img src="img/26.jpg" alt=""><br>
+        </div>  
+    </div>
+
+
+<script type="text/javascript">  
+    $(function () {  
+        //把图片写入htm  
+        var imgArr = "";  
+        for (var i = 1; i <= 13; i++) {  
+            if (i <= 8) {//因上传到8素材超过规定大小，不得不将过多的图片略去，为了达到更好的效果，可以自行修改此循环代码，并且增加其余图片，体验异步加载  
+                imgArr += '<img class="scrollLoading" data-url="image/' + i + '.jpg" src="img/spinner.gif" />';  
+            } else {  
+                imgArr += '<img class="scrollLoading" data-url="image/13.jpg" src="image/spinner.gif" />';  
+                //超过26张后显示的图片  
+            }  
+        }  
+        $("#image").append(imgArr);  
+        $("img").load(function () {  
+            //图片默认隐藏    
+            $(this).hide();  
+            //使用fadeIn特效    
+            $(this).stop().fadeIn("5000");  
+        });  
+        // 异步加载图片，实现逐屏加载图片  
+        $(".scrollLoading").scrollLoading();  
+
+
+        ////以下代码为效果代码，非异步加载核心  
+
+        //设置页面最外层容器的最小高度为屏幕的高度  
+        $("#content").css({ "min-height": $(window).height() });  
+        $("#button li:first-child").addClass("li_hover");  
+        var index_button = 0;  
+        $("#button").on("click", "ul li", function () {  
+            index_button = $(this).index();  
+            $("#button li").removeClass("li_hover");  
+            $(this).addClass("li_hover");  
+            if (index_button == 0) {//效果一  
+                $("img").stop().animate({ "width": "225px", "height": "132px" }, 600);  
+            } else if (index_button == 1) {//效果二  
+                $("img").stop().animate({ "width": "500px", "height": "294px" }, 600);  
+            } else {//效果三  
+                $("img").stop().animate({ "width": "1050px", "height": "618px" }, 600);  
+            }  
+        });  
+        $("#button li").hover(function () {  
+            $(this).addClass("li_hover");  
+        }, function () {  
+            if (index_button != $(this).index()) {  
+                $(this).removeClass("li_hover");  
+            }  
+        });  
+
+    });  
+</script>  
+</body>
+</html>

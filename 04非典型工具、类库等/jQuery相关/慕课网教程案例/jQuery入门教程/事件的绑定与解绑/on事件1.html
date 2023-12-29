@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    .left div,
+    .right div {
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+    }
+    
+    .left div {
+        background: #bbffaa;
+    }
+    
+    .right div {
+        background: yellow;
+    }
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+
+<body>
+    <h2>on绑定多事件</h2>
+
+    <h4>测试一</h4>
+    <div class="left">
+        点击触发：on('click',fn)
+        <div id="test1"></div>
+    </div>
+    <script type="text/javascript">
+    //事件绑定一
+    $("#test1").on('click', function(e) {
+        $(this).text('触发事件：' + e.type)
+    })
+    </script>
+
+
+    <h4>测试二</h4>
+    <div class="left">
+        点击触发：on('mousedown mouseup')
+        <div id="test2"></div>
+    </div>
+    <script type="text/javascript">
+    //多事件绑定一
+    $("#test2").on('mousedown mouseup', function(e) {
+        $(this).text('触发事件：' + e.type)
+    })
+    </script>
+
+
+    <h4>测试三</h4>
+    <div class="right">
+        点击触发：on(mousedown:fn1,mouseup:fn2)
+        <div id="test3"></div>
+    </div>
+    <script type="text/javascript">
+    //多事件绑定二
+    $("#test3").on({
+        mousedown: function(e) {
+            $(this).text('触发事件：' + e.type)
+        },
+        mouseup: function(e) {
+            $(this).text('触发事件：' + e.type)
+        }
+    })
+    </script>
+</body>
+
+</html>

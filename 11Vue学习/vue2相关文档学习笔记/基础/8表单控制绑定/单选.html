@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>1基础语法</title>
+</head>
+<body>
+<div id="app">
+  <label for="html"><input value="html" id="html" v-model="picked" type="radio">html</label><br>
+  <label for="css"><input value="css" id="css" v-model="picked" type="radio">css</label><br>
+  <label for="js"><input value="js" id="js" v-model="picked" type="radio">js</label><br>
+  <p>选择的是：{{picked}}</p>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    picked: 'js'
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>3内联处理器方法</title>
+</head>
+<body>
+<div id="app">
+  <button @click="say('hi')">Say hi</button>
+  <button @click="say('what')">Say what</button>
+  <br />
+  <p>有时也需要在内联语句处理器中访问原生DOM事件，可以用特殊变量 $event 把它传入方法</p>
+  <button @click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    name: 'vue.js'
+  },
+  methods: {
+    say: function(val) {
+      alert(val)
+    },
+    warn: function(val, e) {
+      if (e) {
+        e.preventDefault()
+        alert(val)
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

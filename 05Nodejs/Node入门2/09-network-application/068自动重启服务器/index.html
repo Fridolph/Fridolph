@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>挑战题</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+        <style>
+            ul {margin: 0; padding: 0;}
+            li { list-style: none;}
+            .txt { padding-left: 4px; outline: none;}
+        </style>
+    </head>
+    <body>
+        <form action="#" method="get">
+            <label>
+                <input id="txt" class="txt" type="text" name="UserName" placeholder="请输入姓名">
+            </label>
+            <input id="save-btn" type="button" value="保存数据">
+            <input id="show-btn" type="button" value="显示数据">
+        </form>
+        <ul></ul>
+        <script>
+            var $txt = $('#txt'); 
+            //定义一个json对象，用于保存学生的相关资料
+            var json = [];
+        
+            $('#save-btn').on('click', function () {
+                json.push({
+                    name : $txt.val()
+                });
+                $txt.val('');
+            });
+            $('#show-btn').on('click',function () {
+                //通过$.each()工具函数，获取数组中各元素的名称与内容，显示在页面中。 
+                $.each(json,function (i) {
+                    $('ul').append('<li>'+json[i].name+'</li>');
+                });
+            });
+        
+        </script>
+    </body>
+</html>

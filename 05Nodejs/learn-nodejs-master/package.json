@@ -1,0 +1,23 @@
+{
+  "name": "learn-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fridolph/learn-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fridolph/learn-nodejs/issues"
+  },
+  "homepage": "https://github.com/Fridolph/learn-nodejs#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "connect": "^3.5.0",
+    "jsdom": "^9.9.1"
+  }
+}

@@ -1,0 +1,22 @@
+编辑器相关配置
+
+vscode 插件搜索 editorconfig 安装插件
+
+
+```bash
+root = true
+
+[*]
+# 默认编码格式
+charset = utf-8
+# lf书写
+end_of_line = lf
+# tab 为2空格
+indent_size = 2
+# 制表符等类型 都用空格来代替
+indent_style = space
+# 保存时自动添加新行
+insert_final_newline = true
+# 一行代码后面的 空格去掉
+trim_trailing_whitespace = true
+```

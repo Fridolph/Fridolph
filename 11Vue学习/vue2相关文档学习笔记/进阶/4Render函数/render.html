@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>基础</title>
+</head>
+<body>
+<div id="app">
+  <anchor :level="1" title="你好吗">
+    特性
+  </anchor>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>  
+  <h1 id="你好吗">你好吗</h1>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>
+  <p>暂时</p>  
+
+  <script type="text/x-template" id="anchor">
+    <div>
+      <h1 v-if="level === 1">
+        <a :href="'#' + title">
+          <slot></slot>
+        </a>
+      </h1>
+      <h2 v-if="level === 2">
+        <a :href="'#' + title">
+          <slot></slot>
+        </a>
+      </h2>
+      <h3 v-if="level === 3">
+        <a :href="'#' + title">
+          <slot></slot>
+        </a>
+      </h3>
+      <h4 v-if="level === 4">
+        <a :href="'#' + title">
+          <slot></slot>
+        </a>
+      </h4>
+      <h5 v-if="level === 5">
+        <a :href="'#' + title">
+          <slot></slot>
+        </a>
+      </h5>
+      <h6 v-if="level === 6">
+        <a :href="'#' + title">
+          <slot></slot>
+        </a>
+      </h6>  
+    </div>
+  </script>
+</div>
+
+<script src="../../vendor/vue.js"></script>
+<script>
+Vue.component('anchor', {
+  template: '#anchor',
+  props: {
+    level: {
+      type: Number,
+      required: true
+    },
+    title: {
+      type: String,
+      default: ''
+    }
+  }
+})
+
+var app = new Vue({
+  el: '#app'
+})
+</script>
+</body>
+</html>

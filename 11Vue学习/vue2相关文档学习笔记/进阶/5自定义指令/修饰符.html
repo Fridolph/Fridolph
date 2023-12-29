@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>修复石</title>
+</head>
+<body>
+
+<div id="app">
+  <div v-test:msg.a.b="message"></div>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+  Vue.directive('test', {
+    bind(el, binding, vnode) {
+      var keys = []
+      for (var i in vnode) {
+       keys.push(i) 
+      }
+      el.innerHTML = `
+        name: ${binding.name} <br>
+        value: ${binding.value} <br>
+        expression: ${binding.expression} <br>
+        modifiers: ${JSON.stringify(binding.modifiers)} <br>
+        vnode keys: ${keys.join(', ')}
+      `
+    }
+  })
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'some text'
+    }
+  })
+</script>
+</body>
+</html>

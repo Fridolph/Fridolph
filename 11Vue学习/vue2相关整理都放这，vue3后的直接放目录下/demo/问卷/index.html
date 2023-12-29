@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>问卷</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <page-one @change-page="changePage" v-show="page === 1"></page-one>
+    <page-two @change-page="changePage" v-show="page === 2"></page-two>
+    <page-three @change-page="changePage"v-show="page === 3"></page-three>
+  </div>
+
+  <!-- vue.js -->
+  <script src="../../vendor/vue.js"></script>
+  <script>    
+  </script>
+  <script>    
+    Vue.component('page-one', {
+      template: `
+      <div class="container page1">
+        <div class="list">
+          <div class="item">
+            <div class="answer">
+              1.请问您的性别是：
+            </div>
+            <div class="question">
+              <div class="danxuan">
+                <input type="radio" id="male" checked v-model="sex" value="男" />
+                <label for="male">
+                  男
+                </label>
+                <input type="radio" id="female" v-model="sex" value="女" />
+                <label for="female">
+                  女
+                </label>
+                <input type="radio" id="unknow" v-model="sex" value="保密" />
+                <label for="unknow">
+                  保密
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn-primary" @click="next">下一步</button>
+          <button @click="reset">重置</button>
+        </div>
+      </div>
+      `,
+      data() {
+        return {
+          sex: '男'
+        }
+      },
+      watch: {
+        sex(val) {
+          console.log(`当前选择的是 ${val}`)
+        }
+      },
+      methods: {
+        reset() {
+          this.sex = '男'
+        },
+        next() {
+          if (this.sex) {
+            this.$emit('change-page', 2)
+          }
+        }
+      }
+    })
+
+    Vue.component('page-two', {
+      template: `
+      <div class="container page2">
+        <div class="list">
+          <div class="item">
+            <div class="answer">
+              2.请选择您的兴趣爱好：
+            </div>
+            <div class="question">
+              <div class="duoxuan">
+                <input type="checkbox" id="book"  value="看书" v-model="duoxuan" />
+                <label for="book">看书</label>
+                <br>
+                <input type="checkbox" id="swim"  value="游泳" v-model="duoxuan" />
+                <label for="swim">游泳</label>
+                <br>
+                <input type="checkbox" id="run"  value="跑步" v-model="duoxuan" />
+                <label for="run">跑步</label>
+                <br>
+                <input type="checkbox" id="movie" value="看电影" v-model="duoxuan" />
+                <label for="movie">看电影</label>
+                <br>
+                <input type="checkbox" id="music" value="听音乐" v-model="duoxuan" />
+                <label for="music">听音乐</label>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn-primary" @click="next">下一步</button>
+          <button @click="prev">上一步</button>
+          <button @click="reset">重置</button>
+        </div>
+      </div>
+      `,
+      data() {
+        return {
+          duoxuan: []
+        }
+      },
+      watch: {
+        duoxuan(val) {
+          console.log(`选择的是 ${this.duoxuan}`)
+        }
+      },
+      methods: {
+        prev() {
+          this.$emit('change-page', 1)
+        },
+        next() {
+          if (this.duoxuan.length === 0) {
+            alert('请选择兴趣')
+          } else {
+            this.$emit('change-page', 3)
+          }
+        },
+        reset() {
+          this.duoxuan = []
+        }
+      }
+    })
+
+    Vue.component('page-three', {
+      template: `
+      <div class="container page3">
+        <div class="list">
+          <div class="item">
+            <div class="answer">
+              3.请介绍一下自己：
+            </div>
+            <div class="question">
+              <div class="intro-para">
+                <textarea name="" id="" cols="30" rows="10" placeholder="不少于100字" v-model="text" ref="intro"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn-primary" @click="submit">提交</button>
+          <button class="btn-primary" @click="prev">上一步</button>
+          <button @click="reset">重置</button>
+        </div>
+      </div>
+      `,
+      data() {
+        return {
+          text: ''
+        }
+      },
+      methods: {
+        submit() {
+          if (this.text.length > 100) {
+            alert('提交成功')
+            this.$emit('change-page', 1)
+          } else {
+            alert('提交失败，字数不够')
+          }
+        },
+        prev() {
+          this.$emit('change-page', 2)
+        },
+        reset() {
+          this.text = ''
+        }
+      }  
+    })
+    
+    var bus = new Vue()
+
+    var app = new Vue({
+      el: '#app',      
+      data: {
+        page: 1
+      },
+      methods: {
+        changePage(page) {
+          this.page = page
+        }
+      }
+    })    
+  </script>  
+</body>
+
+</html>

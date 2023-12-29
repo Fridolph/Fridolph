@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>修饰符2</title>
+</head>
+<body>
+
+<div id="app">
+  <div v-test="{msg: 'hello', name: 'Fridolph'}"></div>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+  Vue.directive('test', {
+    bind(el, binding, vnode) {
+      console.log(binding.value.msg)
+      console.log(binding.value.name)
+    }
+  })
+  new Vue({
+    el: "#app"
+  })
+</script>
+</body>
+</html>

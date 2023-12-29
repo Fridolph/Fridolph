@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>vue-resource  get</title>
+</head>
+<body>
+<div id="app">
+  <button 
+    type="button"
+    @click="get()"
+  >
+    点击获取文本
+  </button>
+</div>
+  
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/vue-resource.js"></script>
+<script>
+// https://www.baidu.com/home/msg/data/personalcontent?callback=jQuery1102010699512008863321_1484376978556
+var vm = new Vue({
+  el: '#app',
+  methods: {
+    get: function() {
+      this.$http.post('get.php', {
+        a: 1,
+        b: 3
+      }, {
+        emulateJSON: true
+      })
+        .then(function(res) {
+          console.log(res.data);
+        }, function(res) {
+          console.error(res.status);
+        })
+    }
+  }
+})
+</script>
+</body>
+</html>

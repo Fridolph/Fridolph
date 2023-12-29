@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>1-对象迭代v-for</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="value in object">
+        {{ value }}
+    </li>
+  </ul>
+  <p>提供第二个参数为键名：</p>
+  <ul>
+    <li v-for="(value, key) in object">
+        {{ key }}: {{ value }}
+    </li>
+  </ul>
+  <p>提供第三个参数为索引：</p>
+  <ul>
+    <li v-for="(value, key, index) in object">
+      {{ index }} - {{ key }} : {{ value }}
+    </li>
+  </ul>
+  <p>v-for也可以取整数，在这种情况下，它将重复多次模块</p>
+  <ul>
+    <li v-for="n in 10">
+      {{ n }}
+    </li>
+  </ul>
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    object: {
+      FirstName: 'John',
+      LastName: 'Doe',
+      Age: 30,
+    }
+  }
+});
+</script>
+</body>
+</html>

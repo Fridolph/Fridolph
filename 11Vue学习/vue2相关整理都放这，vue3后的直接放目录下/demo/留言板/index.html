@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>留言板</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <div class="message">
+      <v-input v-model="username"></v-input>
+      <v-textarea v-model="message" ref="message"></v-textarea>
+      <button @click="handleSend">发布</button>
+    </div>
+    <list :list="list" @reply="handleReply"></list>
+  </div>
+
+<script src="../../vendor/vue.js"></script>
+<script src="./input.js"></script>
+<script src="./list.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      username: '',
+      message: '',
+      list: []
+    },
+    methods: {
+      handleSend() {
+        if (this.username === '') {
+          window.alert('请输入昵称')
+          return
+        }
+        if (this.message === '') {
+          window.alert('请输入留言内容')
+          return
+        }
+        this.list.push({
+          name: this.username,
+          message: this.message
+        })
+      },
+      handleReply(index) {
+        var name = this.list[index].name
+        this.message = `回复@${name}：`
+        this.$refs.message.focus()
+      }
+    }
+  })
+</script>
+</body>
+</html>

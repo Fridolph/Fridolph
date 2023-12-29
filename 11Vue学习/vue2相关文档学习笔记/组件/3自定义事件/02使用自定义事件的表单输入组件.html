@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>02使用自定义事件的表单输入组件</title>
+</head>
+<body>
+<!-- 
+    自定义事件也可以用来创建自定义的表单输入组件
+    使用v-model来进行数据双向绑定。 牢记：
+    
+    <input v-model="something" />
+    
+    仅仅是一个语法糖:
+    
+    <input v-bind:value="something" v:on:input="something = $event.target.value" />
+
+    所以在组件中使用时，它相当于下面的简写：
+
+    <custom-input v-bind:value="something" v-on:input="something = arguments[0]"></custom-input>
+
+    所以要让组件的 v-model 生效，它必须：
+    1. 接受一个 value 属性
+    2. 在有新的value时触发input事件
+
+ -->
+
+ <!-- 一个非常简单的货币输入 -->
+ <div id="app">
+   <currency-input v-model="price" />
+ </div>
+
+<script src="../../vendor/vue.js"></script>
+<script>      
+Vue.component('currency-input', {
+  template: '\
+    <span>\
+      $\
+      <input\
+        ref="input"\
+        v-bind:value="value"\
+        v-on:input="updateValue($event.target.value)"\
+      >\
+    </span>\
+  ',
+  props: ['value'],
+  methods: {
+    // 不是直接更新值，而是使用此方法来对输入值进行格式化和位数限制
+    updateValue: function (value) {
+      var formattedValue = value        
+        .trim()  // 删除两侧的空格符        
+        .slice(0, value.indexOf('.') + 3); // 保留 2 小数位
+      // 如果值不统一，手动覆盖以保持一致
+      if (formattedValue !== value) {
+        this.$refs.input.value = formattedValue
+      }
+      // 通过 input 事件发出数值
+      this.$emit('input', Number(formattedValue))
+    }
+  }
+});
+
+new Vue({
+  el: '#app',
+  data: {
+    price: '12323412'
+  }
+})
+</script>
+</body>
+</html>

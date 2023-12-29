@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Array</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <template v-for="book in books">
+      <li>书名:{{book.name}}</li>
+      <li>作者:{{book.author}}</li>
+    </template>
+  </ul>
+  <hr>
+  <ul>
+    <template v-for="book in filterBooks">
+      <p>{{filterBooks.name}} - {{filterBooks.author}}</p>
+    </template>
+    <hr>
+    <template v-for="book in sortedBooks">
+      <p>{{sortedBooks.name}} - {{sortedBooks.author}}</p>
+    </template>
+  </ul>  
+</div>
+<!-- vue.js -->
+<script src="../../vendor/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      books: [
+        {
+          name: '《Vue.js实战》',
+          author: '梁'
+        },
+        {
+          name: '《JS语言精粹》',
+          author: 'Douglas'
+        },
+        {
+          name: '《JS高级程序设计》',
+          author: 'Nicholas'
+        }
+      ]
+    },
+    computed: {
+      filterBooks() {
+        return this.books.filter(book => {
+          return book.name.match('JS')
+        })
+      },
+      sortedBooks() {
+        return this.books.sort((a, b) => {
+          return a.name.length < b.name.length
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -27,7 +27,7 @@
 //   // 这里的item是any类型
 // })
 
-function quickSort<E>(arr: Array<E>): Array<E> {
+export function quickSort<E>(arr: Array<E>): Array<E> {
 	if (arr.length < 2) return arr
 
 	let left: Array<any> = []

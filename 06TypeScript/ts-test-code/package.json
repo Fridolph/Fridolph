@@ -1,0 +1,28 @@
+{
+  "name": "learning-typescript",
+  "version": "1.0.0",
+  "description": "学习 TypeScript",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "cmd": "npx ts-node ./dist/10-7/3FactoryClassDecorator.js",
+    "dev:build": "tsc -w",
+    "start": "concurrently npm:dev:*",
+    "dev:start": "nodemon --watch dist/10-7 js --exec node ./dist/10-7/3FactoryClassDecorator.js",
+    "tsc": "tsc src/10-5/1FactoryClassDecorator.ts --target ES5 -w --experimentalDecorators",
+    "ctrl": "ts-node src/controller/HomeController.ts",
+    "beginapp": "nodemon --watch src/ -e ts --exec ts-node ./src/expressapp.ts"
+  },
+  "author": "fridolph <249121486@qq.com> (http://github.com/fridolph)",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^4.4.3",
+    "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

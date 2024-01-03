@@ -65,4 +65,6 @@ var Test = /** @class */ (function () {
     return Test;
 }());
 var test = new Test('王武');
+// 日志信息 Test
 test.getClassName();
+// getClassName:  王武

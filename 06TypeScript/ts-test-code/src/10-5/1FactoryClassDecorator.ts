@@ -18,7 +18,7 @@ function LoggerInfoDecorator(TargetClass: any) {
 }
 
 // 目标类
-@LoggerInfoDecorator
+// @LoggerInfoDecorator
 class Test {
   name!: string
   age!: number
@@ -31,7 +31,7 @@ class Test {
   }
 }
 
-let SonClass = classFunctionExtends(Test)
-let s_obj = new SonClass('王五')
+// let SonClass = classFunctionExtends(Test)
+// let s_obj = new SonClass('王五')
 
 export {}

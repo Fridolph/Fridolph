@@ -18,15 +18,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 // 1. 完成日志信息的装饰器
 function LoggerInfoDecorator(TargetClass) {
@@ -49,6 +40,7 @@ function LoggerInfoDecorator(TargetClass) {
     return LoggerMiddleClass;
 }
 // 目标类
+// @LoggerInfoDecorator
 var Test = /** @class */ (function () {
     // 先执行原来的构造函数
     function Test(name) {
@@ -57,11 +49,5 @@ var Test = /** @class */ (function () {
     Test.prototype.eat = function () {
         console.log('<<< eat >>>');
     };
-    Test = __decorate([
-        LoggerInfoDecorator,
-        __metadata("design:paramtypes", [String])
-    ], Test);
     return Test;
 }());
-var SonClass = classFunctionExtends(Test);
-var s_obj = new SonClass('王五');

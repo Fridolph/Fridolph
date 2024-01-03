@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "cmd": "npx ts-node ./dist/10-7/3FactoryClassDecorator.js",
+    "cmd": "npx ts-node ./dist/10-12/UserController.js",
+    "dev": "tsc",
     "dev:build": "tsc -w",
     "start": "concurrently npm:dev:*",
     "dev:start": "nodemon --watch dist/10-7 js --exec node ./dist/10-7/3FactoryClassDecorator.js",
@@ -23,6 +24,7 @@
     "concurrently": "^6.2.1"
   },
   "dependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "reflect-metadata": "^0.2.1"
   }
 }

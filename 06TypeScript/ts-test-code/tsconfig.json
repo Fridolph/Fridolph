@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"rootDir": "./src",
+		"outDir": "./dist",
+		"target": "es5",
+		"module": "commonjs",
+		"strict": true,
+		"lib": ["DOM", "ESNext"],
+		// Experimental Options
+		// 消除装饰器的警告
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
+	},
+	"ts-node": { "files": true },
+	"include": ["src/**/*"]
+}

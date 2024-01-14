@@ -9,7 +9,7 @@
 		// Experimental Options
 		// 消除装饰器的警告
 		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true
+		"emitDecoratorMetadata": true,
 	},
 	"ts-node": { "files": true },
 	"include": ["src/**/*"]

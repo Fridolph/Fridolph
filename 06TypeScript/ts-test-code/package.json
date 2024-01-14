@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "cmd": "npx ts-node ./dist/10-12/UserController.js",
+    "cmd": "npx ts-node ./dist/10-15/userContrller.js",
     "dev": "tsc",
     "dev:build": "tsc -w",
     "start": "concurrently npm:dev:*",

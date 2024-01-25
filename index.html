@@ -1,14 +1,19 @@
 <html>
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fridolph的个人网站 - Fridolph's Personal Website</title>
-    <meta name=description content="付寅生 - 一个阳光开朗积极,爱棒球的热血运动技术型青年,大成都的前端工程师">
-    <meta name=keywords content=付寅生,简历,个人简历,前端简历,前端工程师简历,fridolph,霪霖笙箫,高级前端,>
-    <meta name=author content=付寅生>
-    <meta name=copyright content=付寅生>
+    <meta
+      name="description"
+      content="付寅生 - 一个阳光开朗积极,爱棒球的热血运动技术型青年,大成都的前端工程师"
+    />
+    <meta
+      name="keywords"
+      content="付寅生,简历,个人简历,前端简历,前端工程师简历,fridolph,霪霖笙箫,高级前端,"
+    />
+    <meta name="author" content="付寅生" />
+    <meta name="copyright" content="付寅生" />
     <style type="text/css">
       * {
         margin: 0;
@@ -33,13 +38,15 @@
       }
 
       body {
-        background: url('https://fridolph.top/img/config/home_index_img.jpg') 50% 50% no-repeat;
+        background: url('https://fridolph.top/img/config/home_index_img.jpg') center center
+          no-repeat;
+        background-size: cover;
         background-attachment: fixed;
       }
 
       @media screen and (max-width: 480px) {
         body {
-          background-position: 40% 50%;
+          background-position: center center;
           background-size: cover;
           background-attachment: fixed;
         }
@@ -134,6 +141,10 @@
         line-height: 2;
         transition: all ease-in-out 0.4s;
       }
+      .box-container .inner-content .item-1,
+      .box-container .inner-content .item-1 a {
+        transition: all ease-out 0.6s !important;
+      }
 
       .box-container .inner-content .item-1:hover {
         background: linear-gradient(90deg, #b9deed, rgba(255, 255, 255, 0.7));
@@ -150,7 +161,7 @@
 
       .box-container .inner-content .item-2::before {
         content: '';
-        background: linear-gradient(90deg, #71bbe9, #f0f0f0);
+        background: linear-gradient(90deg, #f58c36, #f8e0c0);
         position: absolute;
         z-index: -1;
         width: 0;
@@ -210,7 +221,9 @@
         text-align: right;
         font-size: 14px;
       }
-
+      .box-container .inner-footer a {
+        color: #fff;
+      }
     </style>
   </head>
 
@@ -230,25 +243,24 @@
               <a target="_blank" href="https://github.com/fridolph">» github</a>
             </li>
             <li class="list-item item-2">
-              <a target="_blank" href="https://fridolph.github.io">» Blog</a>
+              <a target="_blank" href="https://fridolph.top">» Blog</a>
             </li>
             <li class="list-item item-3">
               <div class="box">
-                <a target="_blank" href="https://github.com/Fridolph/my-demo"
-                  class="layer">» Program</a>
+                <a target="_blank" href="https://github.com/Fridolph/my-program" class="layer">
+                  » Program
+                </a>
                 <div class="over-layer">
-                  <a target="_blank" href="https://github.com/Fridolph/my-demo">»
-                    Program</a>
+                  <a target="_blank" href="https://github.com/Fridolph/my-program">» Program</a>
                 </div>
               </div>
             </li>
           </ul>
         </div>
         <div class="inner-footer">
-          Contact | fridolph.top
+          <a href="https://fridolph.top">Contact | fridolph.top</a>
         </div>
       </div>
     </div>
   </body>
-
 </html>

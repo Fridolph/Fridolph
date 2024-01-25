@@ -47,7 +47,13 @@ overflow: unset;
 
 ## 用法
 
-| Class | Properties |
-| ----- | ---------- |
-
-|
+| Class             | Properties         |
+| ----------------- | ------------------ |
+| overflow-auto     | overflow:auto;     |
+| overflow-hidden   | overflow:hidden;   |
+| overfloww-clip    | overflow:clip;     |
+| overflow-visible  | overflow:visible;  |
+| overflow-scroll   | overflow:scroll;   |
+| overflow-x-auto   | overflow-x:auto;   |
+| overflow-y-auto   | overflow-y:auto;   |
+| overflow-x-hidden | overflow-x:hidden; |

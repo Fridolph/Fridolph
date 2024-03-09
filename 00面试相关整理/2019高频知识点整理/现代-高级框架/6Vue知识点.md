@@ -23,7 +23,7 @@
   - Event Bus
 - Vuex
 
-##  mixin和mixins的区别
+##  mixin 和 mixins 的区别
 
 mixin用于全局混入，会影响到每个组件实例，Vue插件都是这样做初始化的
 

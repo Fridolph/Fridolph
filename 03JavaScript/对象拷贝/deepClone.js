@@ -18,7 +18,11 @@ const isType = (obj, type) => {
   return flag
 }
 
-const getRegExp = re => {
+/**
+ * @param {Object} regexp - 传入正则
+ * @returns {string} flags - 字符串
+ */
+const getRegExp = regexp => {
   var flags = ''
   if (re.global) flags += 'g'
   if (re.ignoreCase) flags += 'i'
@@ -27,10 +31,9 @@ const getRegExp = re => {
 }
 
 /**
-* deep clone
-* @param  {[type]} parent object 需要进行克隆的对象
-* @return {[type]}        深克隆后的对象
-*/
+ * @param  {Object} 需要进行克隆的对象
+ * @return {Object} 深克隆后的对象
+ */
 const deepClone = parent => {
   // 维护两个储存循环引用的数组
   const parents = []

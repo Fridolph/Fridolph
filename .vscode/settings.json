@@ -1,6 +1,8 @@
 {
   "conventionalCommits.scopes": [
     "ai",
-    "learn"
+    "learn",
+    "低代码",
+    "Nest"
   ]
 }

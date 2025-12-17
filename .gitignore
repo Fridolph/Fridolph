@@ -5,3 +5,5 @@ dist
 *.rar
 *.zip
 *.7z
+
+.vscode

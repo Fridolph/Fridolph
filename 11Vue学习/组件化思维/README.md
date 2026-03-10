@@ -69,6 +69,9 @@
 - [M5-12任务拆解：Nuxt自动导入与隐式依赖场景](./docs/38-M5-12任务拆解-Nuxt自动导入与隐式依赖场景.md)
 - [M5-12详细设计：Nuxt自动导入与隐式依赖边界](./docs/39-M5-12详细设计-Nuxt自动导入与隐式依赖边界.md)
 - [开发记录：Nuxt自动导入与隐式依赖边界重构](./docs/40-开发记录-Nuxt自动导入与隐式依赖边界重构.md)
+- [M5-13任务拆解：Nuxt Server Routes与BFF接口场景](./docs/41-M5-13任务拆解-NuxtServerRoutes与BFF接口场景.md)
+- [M5-13详细设计：Nuxt Server Routes与BFF接口边界](./docs/42-M5-13详细设计-NuxtServerRoutes与BFF接口边界.md)
+- [开发记录：Nuxt Server Routes与BFF接口边界重构](./docs/43-开发记录-NuxtServerRoutes与BFF接口边界重构.md)
 
 ## 当前案例清单
 
@@ -90,6 +93,7 @@
 - [Nuxt路由规则与混合渲染策略重构](./Nuxt路由规则与混合渲染策略重构.md)
 - [Nuxt生命周期与副作用时机重构](./Nuxt生命周期与副作用时机重构.md)
 - [Nuxt自动导入与隐式依赖边界重构](./Nuxt自动导入与隐式依赖边界重构.md)
+- [Nuxt Server Routes与BFF接口边界重构](./NuxtServerRoutes与BFF接口边界重构.md)
 
 ## 项目目标
 

@@ -78,6 +78,9 @@
 - [M5-15任务拆解：Nuxt业务模块组织场景](./docs/47-M5-15任务拆解-Nuxt业务模块组织场景.md)
 - [M5-15详细设计：Nuxt业务模块与feature目录边界](./docs/48-M5-15详细设计-Nuxt业务模块与feature目录边界.md)
 - [开发记录：Nuxt业务模块与feature目录重构](./docs/49-开发记录-Nuxt业务模块与feature目录重构.md)
+- [M5-16任务拆解：Nuxt应用公共层治理场景](./docs/50-M5-16任务拆解-Nuxt应用公共层治理场景.md)
+- [M5-16详细设计：Nuxt应用公共层与共享能力边界](./docs/51-M5-16详细设计-Nuxt应用公共层与共享能力边界.md)
+- [开发记录：Nuxt应用公共层与共享能力治理重构](./docs/52-开发记录-Nuxt应用公共层与共享能力治理重构.md)
 
 ## 当前案例清单
 
@@ -102,6 +105,7 @@
 - [Nuxt Server Routes与BFF接口边界重构](./NuxtServerRoutes与BFF接口边界重构.md)
 - [Nuxt组合式能力分层与页面编排边界重构](./Nuxt组合式能力分层与页面编排边界重构.md)
 - [Nuxt业务模块与feature目录边界重构](./Nuxt业务模块与feature目录边界重构.md)
+- [Nuxt应用公共层与共享能力治理重构](./Nuxt应用公共层与共享能力治理重构.md)
 
 ## 项目目标
 

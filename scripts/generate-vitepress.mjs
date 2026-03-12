@@ -292,10 +292,19 @@ function createOverviewContent(section) {
     '',
     `- 返回总览：[/内容导航/](/内容导航/)`,
     `- 快速进入：[${section.pages[0].text}](${section.pages[0].link})`,
+    `- 重点入口数：${section.highlightEntries.length}`,
     '',
-    '## 文档列表',
+    '## 推荐入口',
     '',
   ]
+
+  for (const item of section.highlightEntries) {
+    lines.push(`- [${item.text}](${item.link})`)
+  }
+
+  lines.push('')
+  lines.push('## 文档列表')
+  lines.push('')
 
   const groups = chunk(section.pages, 40)
   groups.forEach((group, index) => {
@@ -310,7 +319,35 @@ function createOverviewContent(section) {
   return `${lines.join('\n')}\n`
 }
 
-async function writeStaticSiteFiles(sectionCount, pageCount) {
+function pickSectionsByName(sections, names) {
+  return names
+    .map((name) => sections.find((section) => section.name === name))
+    .filter(Boolean)
+}
+
+async function writeStaticSiteFiles(sections, pageCount) {
+  const sectionCount = sections.length
+  const featuredSections = [...sections]
+    .sort((a, b) => b.pageCount - a.pageCount)
+    .slice(0, 6)
+
+  const curatedSections = pickSectionsByName(sections, [
+    '11Vue学习',
+    '00面试相关整理',
+    '09构建、运维、后端等',
+    '06TypeScript',
+    '15AI',
+    '12React学习',
+  ])
+
+  const moduleCards = featuredSections
+    .map((section) => `- [${section.name}](${section.link})：${section.pageCount} 篇文档`)
+    .join('\n')
+
+  const curatedEntries = curatedSections
+    .map((section) => `- [${section.name}](${section.link})`)
+    .join('\n')
+
   const home = `---
 layout: home
 
@@ -347,6 +384,14 @@ features:
 - 面试整理：[/内容导航/00面试相关整理](/内容导航/00面试相关整理)
 - 构建与运维：[/内容导航/09构建、运维、后端等](/内容导航/09构建、运维、后端等)
 
+## 重点模块
+
+${moduleCards}
+
+## 推荐专题
+
+${curatedEntries}
+
 ## 仓库定位
 
 - 学习过程中的知识沉淀
@@ -376,6 +421,8 @@ export default defineConfig({
     sidebar,
     outline: { level: [2, 3], label: '本页导航' },
     docFooter: { prev: '上一篇', next: '下一篇' },
+    sidebarMenuLabel: '模块导航',
+    returnToTopLabel: '回到顶部',
     socialLinks: [{ icon: 'github', link: 'https://github.com/Fridolph/Fridolph' }],
     search: { provider: 'local' },
     footer: {
@@ -462,11 +509,13 @@ async function main() {
     const tree = await buildTree(path.join(siteRoot, moduleEntry.name), moduleEntry.name)
     const pages = flattenPages(tree.children)
     if (!pages.length) continue
+    const highlightEntries = flattenPages(tree.children).slice(0, 8)
     sections.push({
       name: moduleEntry.name,
       link: `/内容导航/${moduleEntry.name}`,
       pageCount: pages.length,
       pages,
+      highlightEntries,
       sidebarItems: [
         { text: `${moduleEntry.name} 总览`, link: `/内容导航/${moduleEntry.name}` },
         ...tree.children,
@@ -475,38 +524,59 @@ async function main() {
   }
 
   const pageCount = sections.reduce((sum, section) => sum + section.pageCount, 0)
-  await writeStaticSiteFiles(sections.length, pageCount)
+  await writeStaticSiteFiles(sections, pageCount)
 
   const overviewLines = [
     '# 内容导航',
     '',
     `当前站点共收录 **${pageCount}** 篇 Markdown 文档，按顶层学习模块进行展示。`,
     '',
-    '## 模块总览',
+    '## 优先浏览的模块',
     '',
   ]
+
+  for (const section of [...sections].sort((a, b) => b.pageCount - a.pageCount).slice(0, 8)) {
+    overviewLines.push(`- [${section.name}](${section.link})：${section.pageCount} 篇`)
+  }
+
+  overviewLines.push('')
+  overviewLines.push('## 模块总览')
+  overviewLines.push('')
 
   for (const section of sections) {
     overviewLines.push(`### [${section.name}](${section.link})`)
     overviewLines.push('')
     overviewLines.push(`- 文档数：${section.pageCount}`)
     overviewLines.push(`- 快速进入：[${section.pages[0].text}](${section.pages[0].link})`)
+    if (section.highlightEntries.length) {
+      overviewLines.push(`- 推荐入口：${section.highlightEntries.slice(0, 3).map((item) => `[${item.text}](${item.link})`).join(' / ')}`)
+    }
     overviewLines.push('')
     await fs.writeFile(path.join(overviewDir, `${section.name}.md`), createOverviewContent(section))
   }
 
   await fs.writeFile(path.join(overviewDir, 'index.md'), `${overviewLines.join('\n')}\n`)
 
+  const featuredNavSections = [...sections].sort((a, b) => b.pageCount - a.pageCount).slice(0, 8)
+
   const nav = [
+    { text: '首页', link: '/' },
     { text: '内容导航', link: '/内容导航/' },
     {
       text: '重点专题',
-      items: sections.slice(0, 8).map((section) => ({ text: section.name, link: section.link })),
+      items: featuredNavSections.map((section) => ({ text: section.name, link: section.link })),
     },
   ]
 
   const sidebar = {
     '/内容导航/': [
+      {
+        text: '推荐模块',
+        items: featuredNavSections.map((section) => ({
+          text: `${section.name} (${section.pageCount})`,
+          link: section.link,
+        })),
+      },
       {
         text: '全部模块',
         items: sections.map((section) => ({

@@ -1,9 +1,10 @@
-node_modules
 
-dist
-
+*.7z
 *.rar
 *.zip
-*.7z
-
+.DS_Store
 .vscode
+dist
+docs-site
+node_modules
+npm-debug.log*

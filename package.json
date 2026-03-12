@@ -1,0 +1,16 @@
+{
+  "name": "fridolph-knowledge-base",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:sync": "node scripts/generate-vitepress.mjs",
+    "predev": "npm run docs:sync",
+    "dev": "vitepress dev docs-site --host 0.0.0.0",
+    "prebuild": "npm run docs:sync",
+    "build": "vitepress build docs-site",
+    "preview": "vitepress preview docs-site --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}

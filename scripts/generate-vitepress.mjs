@@ -4,6 +4,7 @@ import path from 'node:path'
 const root = process.cwd()
 const siteRoot = path.join(root, 'docs-site')
 const overviewDir = path.join(siteRoot, '内容导航')
+const topicDir = path.join(siteRoot, '专题导航')
 const generatedDir = path.join(siteRoot, '.vitepress', 'generated')
 const themeDir = path.join(siteRoot, '.vitepress', 'theme')
 const collator = new Intl.Collator('zh-Hans-CN', { numeric: true, sensitivity: 'base' })
@@ -37,6 +38,34 @@ const forcedPlaceholderFiles = new Set([
 const staticExtensions = new Set([
   '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.avif', '.bmp', '.ico', '.pdf', '.txt', '.json', '.js', '.ts', '.tsx', '.jsx', '.css', '.scss', '.sass', '.less', '.html', '.yml', '.yaml', '.xml', '.sh', '.py', '.java', '.go', '.rs', '.vue', '.zip', '.rar', '.7z', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.csv', '.mov', '.mp4', '.m4a', '.mp3'
 ])
+
+
+const topicConfigs = [
+  {
+    slug: 'vue-nuxt',
+    title: 'Vue / Nuxt 专题',
+    description: '聚合 Vue、Nuxt、组件化思维与框架运行时边界相关资料。',
+    moduleNames: ['11Vue学习', '06TypeScript'],
+  },
+  {
+    slug: 'interview',
+    title: '面试整理专题',
+    description: '聚合前端面试、网络、性能与算法相关资料。',
+    moduleNames: ['00面试相关整理', '03JavaScript', '02CSS相关'],
+  },
+  {
+    slug: 'engineering',
+    title: '构建与工程化专题',
+    description: '聚合构建、部署、Node.js、TypeScript 与 VitePress 站点重构资料。',
+    moduleNames: ['09构建、运维、后端等', '05Nodejs', '06TypeScript'],
+  },
+  {
+    slug: 'ai-learning',
+    title: 'AI 学习专题',
+    description: '聚合 AI 提示词、智能体与相关学习资料。',
+    moduleNames: ['15AI', '16AI提示词'],
+  },
+]
 
 function toPosix(value) {
   return value.split(path.sep).join('/')
@@ -325,7 +354,50 @@ function pickSectionsByName(sections, names) {
     .filter(Boolean)
 }
 
-async function writeStaticSiteFiles(sections, pageCount) {
+
+function createTopicContent(topic) {
+  const lines = [
+    `# ${topic.title}`,
+    '',
+    topic.description,
+    '',
+    `- 返回专题导航：[/专题导航/](/专题导航/)`,
+    `- 覆盖模块数：${topic.modules.length}`,
+    `- 推荐阅读数：${topic.recommended.length}`,
+    '',
+    '## 覆盖模块',
+    '',
+  ]
+
+  for (const section of topic.modules) {
+    lines.push(`- [${section.name}](${section.link})：${section.pageCount} 篇文档`)
+  }
+
+  lines.push('')
+  lines.push('## 推荐阅读')
+  lines.push('')
+
+  for (const item of topic.recommended) {
+    lines.push(`- [${item.text}](${item.link})`)
+  }
+
+  lines.push('')
+  lines.push('## 模块入口')
+  lines.push('')
+
+  for (const section of topic.modules) {
+    lines.push(`### [${section.name}](${section.link})`)
+    lines.push('')
+    for (const item of section.highlightEntries.slice(0, 6)) {
+      lines.push(`- [${item.text}](${item.link})`)
+    }
+    lines.push('')
+  }
+
+  return `${lines.join('\n')}\n`
+}
+
+async function writeStaticSiteFiles(sections, topics, pageCount) {
   const sectionCount = sections.length
   const featuredSections = [...sections]
     .sort((a, b) => b.pageCount - a.pageCount)
@@ -392,6 +464,10 @@ ${moduleCards}
 
 ${curatedEntries}
 
+## 专题入口
+
+${topics.map((topic) => `- [${topic.title}](/专题导航/${topic.slug})：${topic.description}`).join('\n')}
+
 ## 仓库定位
 
 - 学习过程中的知识沉淀
@@ -413,7 +489,6 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'Fridolph Notes',
   description: 'Fridolph 的学习资料、知识模块与 Markdown 知识库。',
-  lastUpdated: true,
   ignoreDeadLinks: true,
   themeConfig: {
     logo: '/前端技能图谱.jpg',
@@ -482,6 +557,7 @@ export default defineConfig({
 async function main() {
   await resetDir(siteRoot)
   await ensureDir(overviewDir)
+  await ensureDir(topicDir)
   await ensureDir(generatedDir)
   await ensureDir(themeDir)
 
@@ -523,8 +599,35 @@ async function main() {
     })
   }
 
+  const topics = topicConfigs
+    .map((config) => {
+      const modules = config.moduleNames
+        .map((name) => sections.find((section) => section.name === name))
+        .filter(Boolean)
+
+      if (!modules.length) return null
+
+      const recommended = []
+      const seen = new Set()
+      for (const section of modules) {
+        for (const item of section.highlightEntries.slice(0, 4)) {
+          if (seen.has(item.link)) continue
+          seen.add(item.link)
+          recommended.push(item)
+        }
+      }
+
+      return {
+        ...config,
+        modules,
+        recommended: recommended.slice(0, 12),
+        link: `/专题导航/${config.slug}`,
+      }
+    })
+    .filter(Boolean)
+
   const pageCount = sections.reduce((sum, section) => sum + section.pageCount, 0)
-  await writeStaticSiteFiles(sections, pageCount)
+  await writeStaticSiteFiles(sections, topics, pageCount)
 
   const overviewLines = [
     '# 内容导航',
@@ -557,14 +660,40 @@ async function main() {
 
   await fs.writeFile(path.join(overviewDir, 'index.md'), `${overviewLines.join('\n')}\n`)
 
+  const topicOverviewLines = [
+    '# 专题导航',
+    '',
+    '当前站点按高价值主题整理了一组专题入口，适合从主题而不是目录进入资料库。',
+    '',
+    '## 专题总览',
+    '',
+  ]
+
+  for (const topic of topics) {
+    topicOverviewLines.push(`### [${topic.title}](${topic.link})`)
+    topicOverviewLines.push('')
+    topicOverviewLines.push(`- 覆盖模块：${topic.modules.map((item) => `[${item.name}](${item.link})`).join(' / ')}`)
+    topicOverviewLines.push(`- 推荐阅读数：${topic.recommended.length}`)
+    topicOverviewLines.push(`- 说明：${topic.description}`)
+    topicOverviewLines.push('')
+    await fs.writeFile(path.join(topicDir, `${topic.slug}.md`), createTopicContent(topic))
+  }
+
+  await fs.writeFile(path.join(topicDir, 'index.md'), `${topicOverviewLines.join('\n')}\n`)
+
   const featuredNavSections = [...sections].sort((a, b) => b.pageCount - a.pageCount).slice(0, 8)
 
   const nav = [
     { text: '首页', link: '/' },
     { text: '内容导航', link: '/内容导航/' },
+    { text: '专题导航', link: '/专题导航/' },
+    {
+      text: '重点模块',
+      items: featuredNavSections.map((section) => ({ text: section.name, link: section.link })),
+    },
     {
       text: '重点专题',
-      items: featuredNavSections.map((section) => ({ text: section.name, link: section.link })),
+      items: topics.map((topic) => ({ text: topic.title, link: topic.link })),
     },
   ]
 
@@ -582,6 +711,15 @@ async function main() {
         items: sections.map((section) => ({
           text: `${section.name} (${section.pageCount})`,
           link: section.link,
+        })),
+      },
+    ],
+    '/专题导航/': [
+      {
+        text: '全部专题',
+        items: topics.map((topic) => ({
+          text: topic.title,
+          link: topic.link,
         })),
       },
     ],

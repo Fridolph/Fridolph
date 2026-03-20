@@ -1,3 +1,5 @@
+# note
+
 > Node还可以像调用setTimeout那样通过setInterval在固定时间间隔内执行一个回调函数
 
 问题：

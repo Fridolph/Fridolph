@@ -1,3 +1,5 @@
+# 部署知识：mongodb安装
+
 MongoDB 安装
 
 ```bash

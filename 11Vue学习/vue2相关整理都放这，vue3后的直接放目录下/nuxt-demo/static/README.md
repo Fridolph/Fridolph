@@ -1,4 +1,4 @@
-# STATIC
+# Vue2项目资料：nuxt-demo Static
 
 This directory contains your static files.
 Each file inside this directory is mapped to /.

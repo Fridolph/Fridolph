@@ -1,3 +1,5 @@
+# map、flatMap和reduce
+
 map作用是生成一个新数组，遍历原数组，将每个元素拿出来做一些变换然后append到新的数组中。
 
 ```js

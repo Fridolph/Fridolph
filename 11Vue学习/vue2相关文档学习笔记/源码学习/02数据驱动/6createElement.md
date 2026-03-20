@@ -1,3 +1,5 @@
+# 6createElement
+
 Vue利用createElement方法创建VNode，它的定义在 `src/core/vdom/create-element.js`中：
 
 ```js

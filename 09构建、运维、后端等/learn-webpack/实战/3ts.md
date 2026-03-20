@@ -1,3 +1,5 @@
+# 3ts
+
 配置 ts  webpack.config.js
 
 ```js

@@ -1,3 +1,5 @@
+# 面试大纲：03jQuery.Deferred
+
 * jQuery 1.5 变化
 * 使用 jQuery.Deferred
 * 初步引入 Promise 概念

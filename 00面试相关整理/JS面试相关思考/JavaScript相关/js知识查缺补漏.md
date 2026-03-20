@@ -1,3 +1,5 @@
+# JS面试思考：js知识查缺补漏
+
 ### 问题1 - JavaScript 中 undefined 和 not defined 的区别
 
 JavaScript 未声明变量直接使用会抛出异常：var name is not defined，如果没有处理异常，代码就停止运行了。

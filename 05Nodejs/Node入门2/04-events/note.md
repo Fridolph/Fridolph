@@ -1,3 +1,5 @@
+# note
+
 ## 本章概要：
 
 * 使用Node的EventEmitter模块

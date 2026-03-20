@@ -1,3 +1,5 @@
+# 2new Vue
+
 `src/core/instance/index.js`
 
 ```js

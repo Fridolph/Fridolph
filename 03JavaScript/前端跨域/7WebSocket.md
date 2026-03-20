@@ -1,3 +1,5 @@
+# 前端跨域：7WebSocket
+
 WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通信，是Server push技术的一种很好的实现。
 
 原生WebSocket API使用不太方便，我们使用Socket.io，它很好地封装了WebSocket接口，提供了更简单、灵活的接口，也对不支持WS的浏览器提供向下兼容

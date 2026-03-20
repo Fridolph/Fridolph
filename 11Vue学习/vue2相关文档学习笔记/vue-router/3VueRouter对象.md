@@ -1,3 +1,5 @@
+# 3VueRouter对象
+
 VueRouter的实现是一个类，我们先对它做一个简单分析，它的定义在 src/index.js
 
 ```ts

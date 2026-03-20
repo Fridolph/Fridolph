@@ -1,3 +1,5 @@
+# Generator实现
+
 Generator是es6中新增语法，和Promise一样，都可以用来异步编程
 
 ```js

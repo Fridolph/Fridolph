@@ -1,3 +1,5 @@
+# 3Store实例化
+
 ## 初始化模块
 
 由于使用单一状态树，应用所有状态会集中到一个比较大对象，当应用变复杂时，store对象可能很臃肿。为解决该问题，Vuex允许我们将store拆成多个module，每个module可拥有自己的state、mutation、action、getter，甚至是嵌套子模块

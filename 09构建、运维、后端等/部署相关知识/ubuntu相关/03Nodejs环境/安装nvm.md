@@ -1,3 +1,5 @@
+# 部署知识：安装nvm
+
 sudo apt update
 
 安装需要的应用

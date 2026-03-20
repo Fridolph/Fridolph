@@ -1,3 +1,5 @@
+# note
+
 > 有时想略微延迟一下操作。在传统的JS中，通过setTimeout执行一个很小的延迟是可接受的。
 > 在Node中，提供了一个更有效的方案，process.nextTick
 

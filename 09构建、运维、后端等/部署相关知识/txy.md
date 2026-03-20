@@ -1,3 +1,5 @@
+# 部署知识：txy
+
 安装nvm 
 
 yum update

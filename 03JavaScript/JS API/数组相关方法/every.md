@@ -1,3 +1,5 @@
+# every
+
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
 every() 方法测试数组的所有元素是否都通过了指定函数的测试。

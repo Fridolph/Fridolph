@@ -1,3 +1,5 @@
+# 6CORS
+
 因为是目前主流的跨域解决方案
 
 CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。

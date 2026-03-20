@@ -1,3 +1,5 @@
+# 05template模版是怎样通过Compile编译的
+
 ## template模版是怎样通过Compile编译的
 
 `compile`编译可分成`parse`、`optimize`与`generate`三个阶段，最终需要得到render function。这部分内容不算Vue响应式核心，只是用来编译的。我们在精力有限的情况下不需要追究其全部实现细节，能把握如何解析的大致流程即可。

@@ -1,3 +1,5 @@
+# 2createComponent
+
 ## createComponent
 
 上一章我们在分析 createElement 实现时，它最终会调用 `_createElement` 方法，其中有一段逻辑是对参数 tag 的判断，如果是一个普通的html标签，则会实例化一个普通Vnode节点，否则通过`createComponent`方法创建一个组件Vnode。

@@ -1,3 +1,5 @@
+# 7update
+
 Vue 的 _update 是实例的一个私有方法，它被调用的时机有2个，一个是首次渲染，一个是数据更新时。
 
 _update方法的作用是把 VNode 渲染成真实的DOM，它的定义在 src/core/instance/lifecycle.js

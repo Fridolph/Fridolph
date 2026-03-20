@@ -1,3 +1,5 @@
+# 2pwa
+
 可以使用该插件 workbox-webpack-plugin
 
 webpack.config.js (prod)

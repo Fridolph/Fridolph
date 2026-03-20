@@ -1,4 +1,4 @@
-# COMPONENTS
+# Vue2项目资料：nuxt-demo Components
 
 The components directory contains your Vue.js Components.
 Nuxt.js doesn't supercharge these components.

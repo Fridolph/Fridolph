@@ -1,3 +1,5 @@
+# 2domain+iframe
+
 这种跨域的方式最主要的是要求主域名相同。什么是主域名相同呢？
 
 - www.fridolph.wang

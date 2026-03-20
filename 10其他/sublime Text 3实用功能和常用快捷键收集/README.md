@@ -1,3 +1,5 @@
+# sublime Text 3实用功能和常用快捷键收集
+
 [文章转自](http://www.cnblogs.com/lanxuezaipiao/p/4151095.html)： http://www.cnblogs.com/lanxuezaipiao/p/4151095.html
 
 可能是因为本地安装的不同，和博主的有些冲突，这里我单独提出来进行了说明和整理（ PS： windows操作环境……MAC可以无视了 ）

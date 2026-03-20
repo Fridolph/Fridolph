@@ -1,3 +1,5 @@
+# 3vue实例挂载
+
 Vue中通过$mount实例方法挂载vm
 
 $mount方法的实现和平台、构建方式相关。这里分析带compiler版本的$mount实现

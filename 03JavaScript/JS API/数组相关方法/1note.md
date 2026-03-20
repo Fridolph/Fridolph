@@ -1,3 +1,5 @@
+# 1note
+
 ### 改变数组方法：
 
 Array.prototype -

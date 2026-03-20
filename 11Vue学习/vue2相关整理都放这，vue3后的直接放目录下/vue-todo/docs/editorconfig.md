@@ -1,3 +1,5 @@
+# Vue2项目资料：vue-todo EditorConfig
+
 编辑器相关配置
 
 vscode 插件搜索 editorconfig 安装插件

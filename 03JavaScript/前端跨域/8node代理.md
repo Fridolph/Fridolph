@@ -1,3 +1,5 @@
+# 前端跨域：8node代理
+
 node中间件实现跨域代理，是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中的域名，实现当前域名的cookie写入，方便接口登录认证。
 
 利用 node + express + http-proxy-middleware 搭建一个proxy服务器，下为前端代码：

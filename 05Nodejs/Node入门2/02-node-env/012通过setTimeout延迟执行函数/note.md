@@ -1,3 +1,5 @@
+# note
+
 > 可以通过Node的setTimeout全局方法延迟执行一段代码
 
 问题：

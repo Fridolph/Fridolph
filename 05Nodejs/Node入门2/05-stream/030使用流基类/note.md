@@ -1,3 +1,5 @@
+# note
+
 > Node的技术流类提供模版来解决流最在行的这类问题。
 > 例如stream.Transform最适合解析数据，stream.Readable是对低级API的完美封装。
 

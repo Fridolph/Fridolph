@@ -1,3 +1,5 @@
+# 2MVC-MVVM设计模式
+
 > 什么是MVVM？与MVC又有什么区别
 
 不管是React还是Vue，它们都不是MVVM框架，至少有借鉴MVVM的思路。

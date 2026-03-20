@@ -1,3 +1,5 @@
+# Object类
+
 ## Object类
 
 Object类是所有类的父类，如果一个类没有使用extends关键字明确标识继承另外一个类，那么这个类默认继承Object类

@@ -1,3 +1,5 @@
+# 前端性能优化：第2章 JS优化
+
 ## 5.减少前后端耦合
 
 * 避免全局耦合
@@ -74,4 +76,3 @@ Input.prototype.trigger = function(eventType, event) {
 4. 合并表达式
   * 减少魔数 （给常量起个名字）
 5. 使用ES6简化代码
-

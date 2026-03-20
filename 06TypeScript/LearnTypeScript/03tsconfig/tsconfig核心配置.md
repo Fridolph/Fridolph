@@ -1,3 +1,5 @@
+# TypeScript学习：tsconfig 核心配置
+
 ## tsconfig.ts
 
 - compilerOptions 编译器选项

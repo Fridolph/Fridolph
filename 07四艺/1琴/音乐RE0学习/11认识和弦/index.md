@@ -1,3 +1,5 @@
+# 11认识和弦
+
 ## 和弦
 
 ![hexian](hexian.png)

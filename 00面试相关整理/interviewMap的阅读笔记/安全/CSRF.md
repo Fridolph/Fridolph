@@ -1,3 +1,5 @@
+# CSRF
+
 ## CSRF
 
 跨站请求伪造 Cross-site request forgery，是一种挟制用户在当前已登录的web程序上执行非本意的操作的攻击方法。跟XSS相比，XSS利用的是用户对指定网站的信任，CSRF利用的是网站对用户网页浏览器的信任。（CSRF利用用户的登录状态发起恶意请求）

@@ -1,3 +1,5 @@
+# 部署知识：nginx
+
 yum install nginx -y 安装
 
 ps -ef |grep nginx 查看nginx 是否启动

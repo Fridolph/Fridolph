@@ -1,4 +1,4 @@
-# About
+# Vue2项目资料：vue-todo 项目概览
 这是慕课网上[Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)课程的源码
 
 # 使用方法

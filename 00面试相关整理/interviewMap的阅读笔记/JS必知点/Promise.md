@@ -1,3 +1,5 @@
+# Promise
+
 Promise实现
 
 Promise是es6新增语法，解决了回调地域问题

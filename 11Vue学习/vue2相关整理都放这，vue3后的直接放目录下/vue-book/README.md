@@ -1,4 +1,4 @@
-# vue-book
+# Vue2项目资料：vue-book 项目概览
 
 > A Vue.js project
 

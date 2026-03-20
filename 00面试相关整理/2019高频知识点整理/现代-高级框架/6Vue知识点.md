@@ -1,3 +1,5 @@
+# 6Vue知识点
+
 ## 说一下 Vue 生命周期
 
 当我们创建一个Vue实例对象时，进入 _init方法（将el data methods等绑定到Vue原型上） 首先调用 beforeCreate 钩子，等到 injections 和 reactivity 作用后再去调 created钩子。

@@ -1,3 +1,5 @@
+# 部署知识：pm2笔记
+
 ```yaml
 apps:
   - script: ./server/server.js

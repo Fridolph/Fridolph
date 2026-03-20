@@ -1,3 +1,5 @@
+# 6opt
+
 1. 升级 Node、npm、Yarn 工具版本
 
 2. 在尽可能少的模块上应用 loader （include exclude）

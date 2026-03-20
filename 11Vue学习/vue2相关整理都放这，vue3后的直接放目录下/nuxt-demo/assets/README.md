@@ -1,4 +1,4 @@
-# ASSETS
+# Vue2项目资料：nuxt-demo Assets
 
 This directory contains your un-compiled assets such as LESS, SASS, or JavaScript.
 

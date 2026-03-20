@@ -1,3 +1,5 @@
+# 4proxy
+
 配置 devServer
 
 开发写的是 /api/react/test.json 在开发环境中，请求的是 localhost:8080/api/react/test.json，若请求转发到 后台服务地址，可通过proxy来配置

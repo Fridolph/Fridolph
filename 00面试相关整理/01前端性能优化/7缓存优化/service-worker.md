@@ -1,3 +1,5 @@
+# 前端性能优化：Service Worker
+
 ## Service Worker简介
 
 Service Worker是一个在浏览器后台运行的脚本，它的生命周期完全独立于网页。它无法直接访问DOM，但可以通过postMessage接口发送消息来和UI进程通信。拦截网络请求是Service Worker的重要功能，通过Service Worker能完成离线缓存、编辑响应、过滤响应等功能。

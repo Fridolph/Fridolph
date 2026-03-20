@@ -1,3 +1,5 @@
+# Vue2项目资料：vue-todo ESLint 配置
+
 npm i 
   eslint 
   eslint-standard 

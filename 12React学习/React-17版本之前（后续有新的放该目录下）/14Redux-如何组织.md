@@ -1,3 +1,5 @@
+# 14Redux-如何组织
+
 ## 标准形式 Redux action 的问题
 
 1. 所有 action 放一个文件，会无限扩展

@@ -1,3 +1,5 @@
+# 5postMessage
+
 这是由H5提出来的一个炫酷的API，IE8+，chrome,ff都已经支持实现了这个功能。这个功能也是非常的简单，其中包括接受信息的Message时间，和发送信息的postMessage方法。
 发送信息的postMessage方法是向外界窗口发送信息
 

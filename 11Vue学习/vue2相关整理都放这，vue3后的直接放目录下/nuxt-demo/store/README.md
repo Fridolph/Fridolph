@@ -1,4 +1,4 @@
-# STORE
+# Vue2项目资料：nuxt-demo Store
 
 This directory contains your Vuex Store files.
 Vuex Store option is implemented in the Nuxt.js framework.

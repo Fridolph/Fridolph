@@ -1,3 +1,5 @@
+# 13Redux-异步
+
 Redux 异步请求
 
 View -> actions -> Middlewares(API -> dispatch) -> reducer -> State -> View

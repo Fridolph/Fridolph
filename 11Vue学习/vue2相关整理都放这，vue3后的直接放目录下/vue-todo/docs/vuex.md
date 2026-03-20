@@ -1,3 +1,5 @@
+# Vue2项目资料：vue-todo Vuex
+
 全局事件订阅， bus
 
 ```js

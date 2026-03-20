@@ -1,3 +1,5 @@
+# TypeScript学习：typeof 局限性及替代方案
+
 ## typeof 作用
 
 用来检测一个变量或一个对象的数据类型

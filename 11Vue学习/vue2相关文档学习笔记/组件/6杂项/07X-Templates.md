@@ -1,3 +1,5 @@
+# 07X-Templates
+
 另一种定义模版的方式是在 JavaScript 标签里使用 text/x-template 类型，并且指定一个id。例如：
 
 <script type="text/x-template" id="hello-world-template">

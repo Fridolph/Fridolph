@@ -1,3 +1,5 @@
+# 4render
+
 Vue 的 _render 方法是实例的一个私有方法，它用来把实例渲染成一个虚拟Node。它的定义在 `src/core/instance/render.js` 文件中：
 
 ```js

@@ -1,3 +1,5 @@
+# some
+
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 
 some() 方法测试数组中的某些元素是否通过由提供的函数实现的测试。

@@ -1,4 +1,4 @@
-# vue-admin
+# Vue2项目资料：vue-admin 项目概览
 
 > A Vue.js project
 

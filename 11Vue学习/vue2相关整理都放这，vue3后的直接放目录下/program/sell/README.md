@@ -1,4 +1,4 @@
-# sell
+# Vue2项目资料：sell 项目概览
 
 > my first vue project for sell app
 

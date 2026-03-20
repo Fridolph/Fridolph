@@ -1,4 +1,4 @@
-# vue-sell-app
+# Vue2项目资料：vue-sell-app 项目概览
 
 > A Vue.js project
 

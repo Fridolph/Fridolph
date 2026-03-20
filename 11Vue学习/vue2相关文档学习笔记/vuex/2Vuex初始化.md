@@ -1,3 +1,5 @@
+# 2Vuex初始化
+
 ## 安装
 
 `import Vuex from 'vuex'` 实际上引用一个对象

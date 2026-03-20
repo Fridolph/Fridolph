@@ -1,3 +1,5 @@
+# call-apply-bind
+
 ## call apply 区别
 
 call 和 apply 都为了解决改变 this 指向。作用相同，传参不同（call 参数列表，apply 一个参数数组）

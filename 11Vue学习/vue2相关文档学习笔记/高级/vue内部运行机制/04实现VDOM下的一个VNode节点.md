@@ -1,3 +1,5 @@
+# 04实现VDOM下的一个VNode节点
+
 ## 什么是Vnode
 
 我们知道，render function会被转化成VNode节点。Virtual DOM其实就是一棵以JS对象(Vnode节点)作为基础的树。用对象属性来描述树节点，实际上它只是一层对真实DOM的抽象。最终可以通过一系列操作使这棵树映射到真实环境上。

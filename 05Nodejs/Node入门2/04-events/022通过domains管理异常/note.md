@@ -1,3 +1,5 @@
+# note
+
 > 处理多个EventEmitter实例的异常感觉非常困难， 可以使用domains
 
 问题：

@@ -8,3 +8,7 @@ dist
 docs-site
 node_modules
 npm-debug.log*
+
+.vitepress
+
+.playwright-cli

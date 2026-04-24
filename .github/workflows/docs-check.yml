@@ -2,14 +2,16 @@ name: Docs quality check
 
 on:
   pull_request:
-    branches: ["master"]
+    branches: ["main"]
   push:
-    branches: ["dev-vitepress", "master"]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
   docs-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v5

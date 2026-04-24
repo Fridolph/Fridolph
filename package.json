@@ -39,6 +39,17 @@
     "docs:fix-h1:jsapi": "node scripts/fix-missing-h1.mjs \"03JavaScript/JS API\"",
     "docs:fix-h1:js-regex": "node scripts/fix-missing-h1.mjs \"03JavaScript/正则表达式\"",
     "docs:fix-h1:js-cors": "node scripts/fix-missing-h1.mjs \"03JavaScript/前端跨域\"",
+    "docs:fix-h1:h5-summary": "node scripts/fix-missing-h1.mjs \"01HTML5/h5开发总结\"",
+    "docs:fix-h1:h5-live": "node scripts/fix-missing-h1.mjs \"01HTML5/h5直播流学习\"",
+    "docs:fix-h1:h5-routing": "node scripts/fix-missing-h1.mjs \"01HTML5/前端路由\"",
+    "docs:fix-h1:h5-canvas": "node scripts/fix-missing-h1.mjs \"01HTML5/Canvas/学习canvas\"",
+    "docs:fix-h1:h5-storage": "node scripts/fix-missing-h1.mjs \"01HTML5/HTML5存储\"",
+    "docs:fix-h1:h5-websocket": "node scripts/fix-missing-h1.mjs \"01HTML5/websocket\"",
+    "docs:fix-h1:h5-fullstack": "node scripts/fix-missing-h1.mjs \"01HTML5/全栈之路\"",
+    "docs:fix-h1:css-study": "node scripts/fix-missing-h1.mjs \"02CSS相关/CSS学习\"",
+    "docs:fix-h1:css-refactor": "node scripts/fix-missing-h1.mjs \"02CSS相关/CSS重构\"",
+    "docs:fix-h1:stylus-notes": "node scripts/fix-missing-h1.mjs \"02CSS相关/stylus/stylus学习笔记\"",
+    "docs:fix-h1:css-misc": "node scripts/fix-missing-h1.mjs \"02CSS相关/其他待整理\"",
     "docs:fix-h1:java": "node scripts/fix-missing-h1.mjs \"09构建、运维、后端等/Java学习\""
   },
   "devDependencies": {

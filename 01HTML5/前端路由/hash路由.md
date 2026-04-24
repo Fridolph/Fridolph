@@ -1,6 +1,8 @@
+# 前端路由：Hash 路由
+
 https://juejin.im/post/5ac61da66fb9a028c71eae1b
 
-# 前言
+## 前言
 
 前端路由是现代SPA应用必备的技能，每个现代前端框架都有对应的实现：react-router、vue-router。这里不探究上面框架的具体实现，因为不管是哪种无外乎用兼容性更好的hash实现或者是H5 history实现，与框架结合只需要做相应封装
 
@@ -11,7 +13,7 @@ https://juejin.im/post/5ac61da66fb9a028c71eae1b
 
 ---
 
-## hash路由
+## Hash 路由
 
 hash路由一个明显的标志是带有`#`，我们主要是通过监听url中的hash变化来进行路由跳转. hash的优势是兼容性更好
 

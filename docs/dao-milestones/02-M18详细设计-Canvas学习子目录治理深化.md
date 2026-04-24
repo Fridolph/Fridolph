@@ -1,0 +1,68 @@
+# M18详细设计：Canvas学习子目录治理深化
+
+这份文档用于说明 `M18` 的详细设计。
+
+## 设计目标
+
+在 `M17` 完成 `01HTML5/前端路由` 治理后，继续选择高收益且安全的目标 `01HTML5/Canvas/学习canvas`，在不触碰用户本地 `05Nodejs` 工作区的前提下进一步降低全站缺少一级标题规模，并验证图形绘制型目录也能稳定复用当前 Dao 治理闭环。
+
+## 业务流程
+
+### 主流程
+
+1. 读取当前质量报告，确认 `01HTML5/Canvas/学习canvas` 为本轮治理对象
+2. 补充 `package.json` 脚本入口
+3. 执行批量标题修复
+4. 对修复结果做二次检查，并统一改为带上下文的语义标题
+5. 执行 `docs:sync`
+6. 执行 `docs:check`
+7. 回写开发记录、开发笔记和质量基线
+8. 完成 Dao Commit 子任务提交准备
+
+### 分支流程
+
+如果批量修复后没有新增重复标题和指标回归，仍然执行目录内语义化收口，避免 `学习笔记` 直接暴露在导航与搜索结果中。
+
+### 异常流程
+
+如果出现以下任一情况：
+
+- 标题重复数量增加
+- 构建失败
+- 校验指标回归
+
+则必须在当前轮次内继续修复，直至 `docs:check` 重新通过。
+
+## 结构设计
+
+本轮涉及资产：
+
+- `package.json`
+- `scripts/docs-quality-baseline.json`
+- `01HTML5/Canvas/学习canvas/*.md`
+- `docs/dao-milestones/00-阶段里程碑规划.md`
+- `docs/dao-milestones/01-M18任务拆解-Canvas学习子目录治理深化.md`
+- `docs/dao-milestones/02-M18详细设计-Canvas学习子目录治理深化.md`
+- `docs/dao-milestones/03-M18开发记录-Canvas学习子目录治理深化.md`
+- `docs/dao-milestones/04-M18里程碑开发笔记-Canvas学习子目录治理深化.md`
+
+标题收口策略：
+
+- `学习笔记.md` -> `Canvas学习：基础绘图笔记`
+
+## 模块边界
+
+- 仅治理 `01HTML5/Canvas/学习canvas`
+- 不触碰 `05Nodejs` 及其相关本地工作区
+- 不修改 `scripts/fix-missing-h1.mjs` 本身
+- 不把本轮扩展成 `01HTML5` 全模块批量治理
+
+## 自测设计
+
+本轮自测顺序固定为：
+
+1. `npm run docs:fix-h1:h5-canvas`
+2. `npm run docs:sync`
+3. `npm run docs:check`
+
+全部通过后，才算 `M18` 当前轮次完成。

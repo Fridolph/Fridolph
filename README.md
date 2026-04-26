@@ -1,6 +1,6 @@
 <div align="center">
   <img
-    src="https://capsule-render.vercel.app/api?type=waving&height=310&text=Fridolph&desc=Frontend%20Engineer%20%C2%B7%20AI%20RAG%20Builder%20%C2%B7%20Content%20Creator%20%C2%B7%20Dao%20Explorer&fontSize=58&fontAlignY=38&descAlignY=57&color=0:0F172A,42:1E293B,72:0EA5E9,100:22C55E&fontColor=F8FAFC&animation=fadeIn"
+    src="https://capsule-render.vercel.app/api?type=waving&height=310&text=Fridolph&desc=Frontend%20Engineer%20%C2%B7%20AI%20Builder%20%C2%B7%20Knowledge%20Curator%20%C2%B7%20Dao%20Explorer&fontSize=58&fontAlignY=38&descAlignY=57&color=0:0F172A,42:1E293B,72:0EA5E9,100:22C55E&fontColor=F8FAFC&animation=fadeIn"
     alt="Fridolph profile banner"
     width="100%"
   />
@@ -8,12 +8,12 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&center=true&vCenter=true&width=940&lines=Frontend+Engineering+%C3%97+AI+RAG+%C3%97+Knowledge+Systems;Turning+notes%2C+projects%2C+and+experience+into+reusable+systems;Vue+%2F+Nuxt+%2F+TypeScript+%2F+Node.js+%2F+RAG;%E7%A0%94%E4%B9%A0%E6%98%93%E7%BB%8F%EF%BC%8C%E4%B9%9F%E7%A0%94%E4%B9%A0%E4%BB%A3%E7%A0%81%E4%B8%8E%E4%BA%BA%E7%94%9F)](https://github.com/Fridolph)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&center=true&vCenter=true&width=940&lines=Frontend+Engineering+%C3%97+AI+%C3%97+Knowledge+Systems;Building+tools+from+notes%2C+resumes%2C+and+real+projects;Vue+%2F+Nuxt+%2F+TypeScript+%2F+Node.js+%2F+RAG;Learning+in+public%2C+shipping+in+small+steps)](https://github.com/Fridolph)
 
 [![Profile Views](https://komarev.com/ghpvc/?username=Fridolph&style=for-the-badge&label=PROFILE+VIEWS&color=0EA5E9)](https://github.com/Fridolph)
 [![Followers](https://img.shields.io/github/followers/Fridolph?style=for-the-badge&label=FOLLOWERS&color=22C55E)](https://github.com/Fridolph?tab=followers)
 [![Blog](https://img.shields.io/badge/BLOG-fridolph.github.io-0F172A?style=for-the-badge&labelColor=0F172A&color=38BDF8)](https://fridolph.github.io)
-[![Resume](https://img.shields.io/badge/RESUME-my--resume-0F172A?style=for-the-badge&labelColor=0F172A&color=22C55E)](https://github.com/Fridolph/my-resume)
+[![Resume](https://img.shields.io/badge/RESUME-resume.fridolph.top-0F172A?style=for-the-badge&labelColor=0F172A&color=22C55E)](https://resume.fridolph.top)
 
 </div>
 
@@ -22,41 +22,37 @@
 ## `whoami`
 
 Hi, I'm **Fridolph**, a frontend / full-stack engineer based in Chengdu, China.
-I build practical tools around **frontend engineering**, **AI workflows**, and **personal knowledge systems**.
 
-I'm also a **content creator** who enjoys turning learning notes, project reviews, and engineering experience into reusable articles, docs, and public knowledge assets.
+I build practical systems around **frontend engineering**, **AI workflows**, **resume intelligence**, and **knowledge management**. I also create technical content by turning learning notes, interview reviews, project experience, and AI experiments into reusable docs and public knowledge assets.
 
-My long-term focus:
+My current direction is to connect three things:
 
-- **Frontend engineering:** building maintainable products with `Vue` / `Nuxt` / `TypeScript` / `Node.js`
-- **AI & RAG:** connecting resumes, notes, and project experience with retrieval, prompts, and memory
-- **Knowledge systems:** transforming scattered notes into searchable, deployable, long-lived knowledge bases
-- **Dao / 易经 / 道家研究：** 研究《易经》、道家思想、个人成长与长期主义，也尝试把这些思考融入产品、写作和工程实践
-
-> 把经验沉淀成系统，把系统做成工具，把工具交给真实问题验证。
+- **Engineering:** build maintainable products with `Vue`, `Nuxt`, `TypeScript`, `Node.js`, and modern frontend tooling
+- **AI:** explore RAG, memory, prompt engineering, agents, and AI-assisted personal productivity
+- **Knowledge:** organize long-term notes, interview materials, resumes, and project reviews into structured systems
 
 <div align="left">
   <img src="https://img.shields.io/badge/Role-Frontend%20%2F%20Full--stack%20Engineer-0F172A?style=flat-square&labelColor=0F172A&color=0EA5E9" alt="role" />
   <img src="https://img.shields.io/badge/Creator-Technical%20Writing%20%2F%20Knowledge%20Garden-1E293B?style=flat-square&labelColor=1E293B&color=22C55E" alt="creator" />
-  <img src="https://img.shields.io/badge/Focus-AI%20RAG%20%2F%20Dao%20%2F%20DevTools-0F172A?style=flat-square&labelColor=0F172A&color=38BDF8" alt="focus" />
+  <img src="https://img.shields.io/badge/Focus-AI%20RAG%20%2F%20Resume%20AI%20%2F%20Dao-0F172A?style=flat-square&labelColor=0F172A&color=38BDF8" alt="focus" />
 </div>
 
 ## Tech Stack
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=ts,js,vue,nuxt,vite,tailwind,nodejs,nestjs,react,pinia,postgres,docker,git,github,vscode&perline=8" alt="tech stack icons" />
+  <img src="https://skillicons.dev/icons?i=ts,js,vue,nuxt,vite,tailwind,nodejs,nestjs,nextjs,react,pinia,sqlite,postgres,docker,git,github,vscode&perline=9" alt="tech stack icons" />
 </div>
 
-## What I'm Building
+## Pinned Work
 
-| Area | Direction | Repositories |
+| Project | What it is | Focus |
 | --- | --- | --- |
-| **AI Resume Memory** | Building a resume-aware RAG Q&A pipeline with retrieval, rerank, prompts, and session memory | [`resume-memory-rag-qa`](https://github.com/Fridolph/resume-memory-rag-qa) · [`my-resume`](https://github.com/Fridolph/my-resume) |
-| **Knowledge Garden** | Turning years of frontend notes into a searchable, deployable VitePress knowledge base | [`Fridolph`](https://github.com/Fridolph/Fridolph) |
-| **AI Learning Path** | Recording AI concepts, LLM fundamentals, and small hands-on experiments | [`AI-Journey-Fighting`](https://github.com/Fridolph/AI-Journey-Fighting) |
-| **Dao / 易经研究** | 结合《易经》、道家思想、个人成长与产品思考，探索技术之外的长期主义 | [`Dao`](https://github.com/Fridolph/Dao) |
-| **Content Creation System** | Converting technical experience, learning reflections, and project reviews into articles and reusable methodology | [`Fridolph Notes`](https://github.com/Fridolph/Fridolph) |
-| **Engineering Tools** | Exploring developer experience through small tools, VSCode extensions, and automation scripts | [`vscode-dao-commits`](https://github.com/Fridolph/vscode-dao-commits) |
+| [`Fridolph`](https://github.com/Fridolph/Fridolph) | A long-term frontend and engineering knowledge base built from Markdown and published with GitHub Pages | `Knowledge Base` `Frontend Notes` `VitePress` |
+| [`FE-prepare-interview`](https://github.com/Fridolph/FE-prepare-interview) | A curated frontend interview preparation repository for reviewing concepts, questions, and answer patterns | `Frontend Interview` `Review` `Learning` |
+| [`my-resume`](https://github.com/Fridolph/my-resume) | A full-stack personal resume product with deployment automation and future AI capabilities | `TypeScript` `Resume` `Full-stack` `AI-ready` |
+| [`Dao`](https://github.com/Fridolph/Dao) | A personal experimental project inspired by Dao, Yi Jing, thinking models, and long-term growth | `Dao` `Yi Jing` `Thinking` |
+| [`resume-memory-rag-qa`](https://github.com/Fridolph/resume-memory-rag-qa) | A prototype RAG pipeline that prepares `my-resume` for AI memory and resume Q&A | `RAG` `Prompt Engineering` `Resume AI` |
+| [`AI-Journey-Fighting`](https://github.com/Fridolph/AI-Journey-Fighting) | A personal AI learning journey from core concepts to LLM fundamentals and hands-on experiments | `AI` `LLM` `Learning Notes` |
 
 ## Featured Projects
 
@@ -64,36 +60,51 @@ My long-term focus:
 
 A personal resume system evolving from an online CV into an AI-ready full-stack personal product.
 
-- **Stack:** `TypeScript` `Vue/Nuxt` `Node.js`
-- **Keywords:** online resume, deployment automation, AI resume interaction, personal branding
-- **Goal:** not just displaying experience, but helping AI understand and answer questions about it
+- **Stack:** `TypeScript` `Next.js` `React` `NestJS` `SQLite` `Tailwind CSS`
+- **Live:** [resume.fridolph.top](https://resume.fridolph.top)
+- **Goal:** make a resume more than a static document — turn it into structured data that AI can understand and query
 
 ### [`resume-memory-rag-qa`](https://github.com/Fridolph/resume-memory-rag-qa)
 
-An experimental RAG pipeline for resume Q&A, focusing on better retrieval, evidence selection, prompt strategy, and answer quality.
+An experimental RAG pipeline for resume Q&A and memory-based interaction.
 
 - **Stack:** `JavaScript` `OpenAI API` `RAG` `Prompt Engineering`
-- **Keywords:** retrieval augmentation, resume Q&A, context building, session memory, evidence-first answers
-- **Exploration:** how to help AI understand a person's project experience and capability structure more accurately
+- **Focus:** retrieval strategy, context construction, prompt templates, session memory, and evidence-first answers
+- **Goal:** help AI answer questions about personal experience with higher accuracy and traceability
 
-### [`Fridolph Notes`](https://github.com/Fridolph/Fridolph)
+### [`Fridolph`](https://github.com/Fridolph/Fridolph)
 
-A long-term frontend and engineering knowledge base built from Markdown and published with VitePress.
+A long-term knowledge garden for frontend engineering, JavaScript, TypeScript, Vue, Node.js, AI, and related topics.
 
-- **Stack:** `VitePress` `Markdown` `GitHub Actions`
-- **Scale:** 20+ content modules, 1000+ Markdown notes
-- **Belief:** knowledge compounds only when it can be searched, rebuilt, and reused
+- **Stack:** `Markdown` `VitePress` `GitHub Actions`
+- **Live:** [fridolph.github.io/Fridolph](https://fridolph.github.io/Fridolph/)
+- **Goal:** transform scattered learning into a searchable, maintainable, and reusable knowledge asset
+
+### [`FE-prepare-interview`](https://github.com/Fridolph/FE-prepare-interview)
+
+A curated frontend interview preparation project for collecting, reviewing, and reflecting on common interview topics.
+
+- **Stack:** `JavaScript` `Markdown` `GitHub Pages`
+- **Live:** [fridolph.github.io/FE-prepare-interview](https://fridolph.github.io/FE-prepare-interview/)
+- **Principle:** use references for thinking and review, not for copy-paste answers
+
+### [`AI-Journey-Fighting`](https://github.com/Fridolph/AI-Journey-Fighting)
+
+A learning repository for AI concepts, LLM fundamentals, and small experiments.
+
+- **Focus:** AI basics, model concepts, prompt practice, and hands-on exploration
+- **Goal:** document the moments when abstract AI ideas finally become clear
 
 ### [`Dao`](https://github.com/Fridolph/Dao)
 
-一个带有个人哲学色彩的实验项目，灵感来自：
+A personal project for exploring Dao, Yi Jing, thinking models, and the relationship between technology and long-term growth.
 
-> 道生一，一生二，二生三，三生万物。
-> 易有太极，是生两仪；两仪生四象，四象生八卦。
+> 道生一，一生二，二生三，三生万物。  
+> 易有太极，是生两仪；两仪生四象，四象生八卦
 
-- **Stack:** `Vue`
-- **Keywords:** 易经、道家思想、个人成长、思维模型、产品实验
-- **Exploration:** 在技术、认知、节奏、选择与长期主义之间寻找连接
+- **Live:** [fridolph.github.io/Dao](https://fridolph.github.io/Dao/)
+- **Theme:** Dao, Yi Jing, personal growth, rhythm, decision-making, and product thinking
+- **Note:** this project intentionally keeps part of its language and spirit in Chinese
 
 ## GitHub Metrics
 
@@ -114,9 +125,9 @@ A long-term frontend and engineering knowledge base built from Markdown and publ
 
 ```ts
 const fridolph = {
-  identity: ['Frontend Engineer', 'AI RAG Builder', 'Content Creator', 'Dao Explorer'],
+  identity: ['Frontend Engineer', 'AI Builder', 'Content Creator', 'Dao Explorer'],
   location: 'Chengdu, China',
-  focus: ['Vue/Nuxt', 'TypeScript', 'AI RAG', 'Knowledge Base', 'Dao'],
+  focus: ['Frontend Engineering', 'AI RAG', 'Resume AI', 'Knowledge Systems'],
   habits: ['learn in public', 'write reusable notes', 'review projects', 'build tools'],
   motto: 'Never give up, but always refactor.',
 }
@@ -128,15 +139,15 @@ const fridolph = {
   <a href="https://fridolph.github.io">
     <img src="https://img.shields.io/badge/Blog-fridolph.github.io-0F172A?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0F172A&color=0EA5E9" alt="blog" />
   </a>
-  <a href="https://github.com/Fridolph?tab=repositories">
-    <img src="https://img.shields.io/badge/Repositories-Explore-0F172A?style=for-the-badge&logo=github&logoColor=white&labelColor=0F172A&color=22C55E" alt="repositories" />
+  <a href="https://resume.fridolph.top">
+    <img src="https://img.shields.io/badge/Resume-resume.fridolph.top-0F172A?style=for-the-badge&logo=readme&logoColor=white&labelColor=0F172A&color=22C55E" alt="resume" />
   </a>
-  <a href="https://github.com/Fridolph/my-resume">
-    <img src="https://img.shields.io/badge/Resume-View-0F172A?style=for-the-badge&logo=readme&logoColor=white&labelColor=0F172A&color=38BDF8" alt="resume" />
+  <a href="https://github.com/Fridolph?tab=repositories">
+    <img src="https://img.shields.io/badge/Repositories-Explore-0F172A?style=for-the-badge&logo=github&logoColor=white&labelColor=0F172A&color=38BDF8" alt="repositories" />
   </a>
 </div>
 
 <div align="center">
-  <sub>Thanks for visiting. Feel free to connect around frontend, AI, writing, Dao, and long-term learning.</sub>
+  <sub>Thanks for visiting. Feel free to connect around frontend engineering, AI, knowledge systems, and long-term learning.</sub>
 </div>
 

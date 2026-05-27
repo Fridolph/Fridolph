@@ -109,11 +109,6 @@ A personal project for exploring Dao, Yi Jing, thinking models, and the relation
 ## GitHub Metrics
 
 <div align="center">
-  <img height="165" alt="GitHub stats" src="https://github-readme-stats-6v9pzzaa3-fridolphs-projects.vercel.app/api?username=Fridolph&show_icons=true&hide_border=true&bg_color=0F172A&title_color=38BDF8&text_color=CBD5E1&icon_color=22C55E&ring_color=0EA5E9" />
-  <img height="165" alt="Top languages" src="https://github-readme-stats-6v9pzzaa3-fridolphs-projects.vercel.app/api/top-langs/?username=Fridolph&layout=compact&hide_border=true&bg_color=0F172A&title_color=38BDF8&text_color=CBD5E1" />
-</div>
-
-<div align="center">
   <img height="165" alt="GitHub streak" src="https://streak-stats.demolab.com?user=Fridolph&hide_border=true&background=0F172A&ring=0EA5E9&fire=22C55E&currStreakLabel=38BDF8&sideLabels=CBD5E1&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=94A3B8" />
 </div>
 

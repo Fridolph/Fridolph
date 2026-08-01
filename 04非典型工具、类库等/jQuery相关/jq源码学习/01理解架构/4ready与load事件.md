@@ -1,5 +1,3 @@
-# 4ready与load事件
-
 ## 一个是ready一个是load，这两个到底有什么区别呢？
 ready与load谁先执行：
 大家在面试的过程中，经常会被问到一个问题：ready与load那一个先执行，那一个后执行？

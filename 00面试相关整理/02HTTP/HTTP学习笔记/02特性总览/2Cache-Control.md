@@ -1,5 +1,3 @@
-# 2Cache-Control
-
 ## 可缓存性
 
 * public    HTTP返回内容所经过路径，都可对其内容进行缓存

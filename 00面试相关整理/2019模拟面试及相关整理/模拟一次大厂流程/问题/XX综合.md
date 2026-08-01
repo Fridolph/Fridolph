@@ -1,5 +1,3 @@
-# XX综合
-
 ## 一面
 
 1. https? http协议相关 状态码 http缓存

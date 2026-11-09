@@ -6,7 +6,7 @@ import head from './config/head.js'
 import nav from './config/nav.js'
 import sidebar from './config/sidebar/index.js'
 
-const base = process.env.NODE_ENV === 'production' ? '/FE-prepare-interview/' : '/'
+const base = process.env.NODE_ENV === 'production' ? '/Fridolph/' : '/'
 
 const config = withMermaid(defineConfig({
   base,
@@ -22,13 +22,13 @@ const config = withMermaid(defineConfig({
     logo: '/me.jpg',
     nav,
     sidebar,
-    socialLinks: [{ icon: 'github', link: 'https://github.com/Fridolph/FE-prepare-interview' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Fridolph/Fridolph' }],
     footer: {
       message: '理解 · 实践 · 自测 · 复盘',
       copyright: 'CC BY-NC-ND 4.0 · <a href="https://fridolph.github.io/fridolph-blog/" target="_blank" rel="noopener noreferrer">Fridolph</a>',
     },
     editLink: {
-      pattern: 'https://github.com/Fridolph/FE-prepare-interview/edit/dev/src/:path',
+      pattern: 'https://github.com/Fridolph/Fridolph/edit/dev/src/:path',
       text: '在 GitHub 上编辑此页面',
     },
     search: { provider: 'local' },
@@ -50,7 +50,7 @@ const config = withMermaid(defineConfig({
     image: { lazyLoading: true },
     container: { tipLabel: '提示', warningLabel: '警告', dangerLabel: '注意', infoLabel: '信息', detailsLabel: '详细信息' },
   },
-  sitemap: { hostname: 'https://fridolph.github.io/FE-prepare-interview/' },
+  sitemap: { hostname: 'https://fridolph.github.io/Fridolph/' },
   async buildEnd(siteConfig) {
     const count = await writeLegacyRedirects(siteConfig.outDir, siteConfig.site.base)
     console.log(`生成 ${count} 个旧栏目地址跳转页`)

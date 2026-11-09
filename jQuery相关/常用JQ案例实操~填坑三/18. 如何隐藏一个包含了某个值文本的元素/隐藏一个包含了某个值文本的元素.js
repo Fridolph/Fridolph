@@ -1,1 +1,0 @@
-$("p.value:contains('thetextvalue')").hide();

@@ -1,6 +1,0 @@
-# usual_JQuery_code-master
-
-#usual_JQuery_code
-
-把现阶段自己遇到的一些小问题，和一些简单案例的代码总结在此~
-方便自己查看。

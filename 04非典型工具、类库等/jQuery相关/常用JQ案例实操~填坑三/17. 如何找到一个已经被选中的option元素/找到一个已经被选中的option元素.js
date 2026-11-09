@@ -1,1 +1,0 @@
-$('#someElement').find('option:selected');

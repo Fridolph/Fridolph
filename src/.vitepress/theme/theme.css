@@ -1,0 +1,71 @@
+.VPHome .VPHero .name,
+.VPHome .VPHero .text {
+  white-space: normal;
+}
+
+.VPHome .VPHero .text {
+  max-width: 820px;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.18;
+}
+
+.VPHome .VPHomeContent {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding-bottom: 64px;
+}
+
+.vp-doc h1 {
+  margin-top: 40px !important;
+  margin-bottom: 20px !important;
+}
+.vp-doc h1:first-child {
+  margin-top: 0px !important;
+}
+
+.vp-doc .image-viewer img {
+  display: block !important;
+  cursor: pointer;
+}
+.vp-doc .image-viewer button {
+  /* display: none !important; */
+  background-color: #fff !important;
+  border: none !important;
+  color: #999 !important;
+  width: 100%;
+  text-align: center;
+  margin: 0 !important;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  border: 1px dashed #dedede;
+  overflow: hidden;
+  padding: 10px;
+}
+.flex-wrap .img-wrap {
+  margin-right: 10px;
+  width: 85px;
+}
+.flex-wrap .img-wrap img {
+  max-width: 100%;
+}
+.flex-wrap .content {
+  flex: 1;
+}
+
+.demo-wrapper {
+  padding: 2px;
+  border: 1px dashed #dedede;
+  overflow: hidden;
+}
+
+.center-wrapper {
+  padding: 2px;
+  border: 1px dashed #dedede;
+  overflow: hidden;
+}
+.center-wrapper .wp { width: 100%; height: 300px; }
+.center-wrapper .box { background: rgb(147, 233, 147); }
+.center-wrapper .box.size { width: 200px; height: 120px; }

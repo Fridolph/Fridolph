@@ -1,15 +1,10 @@
-
-*.7z
-*.rar
-*.zip
-.DS_Store
-.vscode
-dist
-docs-site
 node_modules
-npm-debug.log*
+cache
 
+dist
+
+00me
+
+.playwright-mcp
+.opencode
 .vitepress
-
-.playwright-cli
-.reasonix

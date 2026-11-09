@@ -8,10 +8,8 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&center=true&vCenter=true&width=940&lines=Frontend+Engineering+%C3%97+AI+%C3%97+Knowledge+Systems;Building+tools+and+workflows+for+human-AI+collaboration;Vue+%2F+Nuxt+%2F+React+%2F+TypeScript+%2F+Python;Learning+in+public%2C+shipping+in+small+steps)](https://github.com/Fridolph)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&center=true&vCenter=true&width=940&lines=Frontend+Engineering+%C3%97+AI+%C3%97+Knowledge+Systems;Building+tools+and+workflows+for+human-AI+collaboration;Vue+%2F+Nuxt+%2F+React+%2F+TypeScript+%2F+NodeJS+Python;Learning+in+public%2C+shipping+in+small+steps)](https://github.com/Fridolph)
 
-[![Profile Views](https://komarev.com/ghpvc/?username=Fridolph&style=for-the-badge&label=PROFILE+VIEWS&color=0EA5E9)](https://github.com/Fridolph)
-[![Followers](https://img.shields.io/github/followers/Fridolph?style=for-the-badge&label=FOLLOWERS&color=22C55E)](https://github.com/Fridolph?tab=followers)
 [![Website](https://img.shields.io/badge/WEBSITE-fridolph.github.io-0EA5E9?style=for-the-badge&labelColor=0F172A)](https://fridolph.github.io/)
 [![Resume](https://img.shields.io/badge/RESUME-resume.fridolph.top-22C55E?style=for-the-badge&labelColor=0F172A)](https://resume.fridolph.top/)
 

@@ -8,7 +8,7 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&center=true&vCenter=true&width=940&lines=Frontend+Engineering+%C3%97+AI+%C3%97+Knowledge+Systems;Building+tools+and+workflows+for+human-AI+collaboration;Vue+%2F+Nuxt+%2F+TypeScript+%2F+Node.js;Learning+in+public%2C+shipping+in+small+steps)](https://github.com/Fridolph)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&center=true&vCenter=true&width=940&lines=Frontend+Engineering+%C3%97+AI+%C3%97+Knowledge+Systems;Building+tools+and+workflows+for+human-AI+collaboration;Vue+%2F+Nuxt+%2F+React+%2F+TypeScript+%2F+Python;Learning+in+public%2C+shipping+in+small+steps)](https://github.com/Fridolph)
 
 [![Profile Views](https://komarev.com/ghpvc/?username=Fridolph&style=for-the-badge&label=PROFILE+VIEWS&color=0EA5E9)](https://github.com/Fridolph)
 [![Followers](https://img.shields.io/github/followers/Fridolph?style=for-the-badge&label=FOLLOWERS&color=22C55E)](https://github.com/Fridolph?tab=followers)
@@ -27,7 +27,7 @@ I enjoy building practical products, exploring how humans and AI work together, 
 
 Here's what I'm currently exploring:
 
-- **Engineering:** building maintainable products with Vue, Nuxt, TypeScript, Node.js, and modern frontend tooling.
+- **Engineering:** building maintainable products with Vue, Nuxt, React, TypeScript, Node.js, NestJS, Python, and modern frontend tooling.
 - **AI collaboration:** developing reusable skills and workflows for clearer requirements, handoffs, reviews, and delivery.
 - **Knowledge:** organizing learning notes, interview reviews, and project experience into a long-term knowledge garden.
 - **Dao:** exploring traditional wisdom, thinking models, and their connection to learning and personal growth.
@@ -42,8 +42,17 @@ Here's what I'm currently exploring:
 
 <div align="center">
   <img
-    src="https://skillicons.dev/icons?i=ts,js,vue,nuxt,vite,tailwind,nodejs,nestjs,nextjs,react,pinia,sqlite,postgres,docker,git,github,vscode&perline=9"
-    alt="TypeScript, JavaScript, Vue, Nuxt, Vite, Tailwind CSS, Node.js, NestJS, Next.js, React and other tools"
+    src="https://skillicons.dev/icons?i=ts,js,python,vue,nuxt,react,nextjs,vite,tailwind,nodejs,nestjs,pinia,mysql,postgres,sqlite,docker,git,github,vscode&perline=9"
+    alt="TypeScript, JavaScript, Python, Vue, Nuxt, React, Next.js, Vite, Tailwind CSS, Node.js, NestJS, Pinia, MySQL, PostgreSQL, SQLite, Docker, Git, GitHub and VS Code"
+  />
+  <br /><br />
+  <img
+    src="https://img.shields.io/badge/Codex-OpenAI-0F172A?style=for-the-badge&logo=openai&logoColor=white"
+    alt="OpenAI Codex"
+  />
+  <img
+    src="https://img.shields.io/badge/DeepSeek-AI-4D6BFE?style=for-the-badge"
+    alt="DeepSeek"
   />
 </div>
 
@@ -59,14 +68,6 @@ Here's what I'm currently exploring:
 | [`AI-Journey-Fighting`](https://github.com/Fridolph/AI-Journey-Fighting) | A personal learning journey through AI concepts and experiments | `AI` `LLM` `Learning Notes` |
 
 ## Featured Projects
-
-### [`Dao Skills`](https://github.com/Fridolph/dao-skills)
-
-A collection of reusable development skills designed to help humans and AI maintain a shared understanding from requirements to delivery.
-
-- **Covers:** requirement analysis, frontend and backend design, API delivery, task alignment, handoffs, reviews, and knowledge sharing.
-- **Approach:** install the skills you need and use them alongside your existing development workflow.
-- **Goal:** make collaboration across people, models, and sessions more consistent and traceable.
 
 ### [`my-resume`](https://github.com/Fridolph/my-resume)
 
@@ -95,6 +96,7 @@ A collection of frontend interview topics and reference materials for reviewing 
 
 A learning repository for AI concepts, LLM fundamentals, and hands-on experiments.
 
+- **Live:** [fridolph.github.io/AI-Journey-Fighting](https://fridolph.github.io/AI-Journey-Fighting/)
 - **Focus:** core concepts, model fundamentals, prompt practice, and small experiments.
 - **Goal:** document the moments when abstract AI ideas begin to make sense.
 
@@ -108,6 +110,14 @@ A guide-oriented knowledge site for exploring Dao, Yi Jing, and traditional wisd
 - **Live:** [fridolph.github.io/Dao](https://fridolph.github.io/Dao/)
 - **Focus:** reading paths, traditional texts, and an accessible starting point for learning.
 - **Note:** this project intentionally keeps its language and spirit in Chinese.
+
+### [`Dao Skills`](https://github.com/Fridolph/dao-skills)
+
+A collection of reusable development skills designed to help humans and AI maintain a shared understanding from requirements to delivery.
+
+- **Covers:** requirement analysis, frontend and backend design, API delivery, task alignment, handoffs, reviews, and knowledge sharing.
+- **Approach:** install the skills you need and use them alongside your existing development workflow.
+- **Goal:** make collaboration across people, models, and sessions more consistent and traceable.
 
 ## GitHub Activity
 
